@@ -21,20 +21,39 @@ body
     padding: 15px 35px
     transition: all .3s
     &:hover,&:active
-        background-color: transparent
-    +mq($md)
+        background-color: #fff
+        color: #000
+    +mq($lg)
         padding: 20px 50px
+.bg-img
+    position: relative
+    z-index: -1
+    &--people
+        +flex
+        justify-content: flex-end
+        +mqMax($lg)
+            margin-top: -80px
+            z-index: 8
+        +mq($lg)
+            margin-top: -800px
+    &--drop
+        +mqMax($lg)
+            display: none
+        height: 40px
+        top: -1300px
 header
     position: fixed
     width: 100%
-    z-index: 10
+    z-index: 1000
     transition: background .3s
+    +mqMax($lg)
+        background-color: rgba(24,24,24,.9)
     &.menu-open,
     &.bg
-        background-color: rgba(0,0,0,.9)
+        background-color: rgba(24,24,24,.9)
 .header
     color: #fff
-    +mq($md)
+    +mq($lg)
         +flex
         justify-content: space-between
         padding: 25px 0
@@ -45,10 +64,12 @@ header
         &-wrap
             +flex
             justify-content: space-between
-            padding: 10px 0
+            padding: 15px 0
+            +mq($lg)
+                padding: 10px 0
     &__mobile-wa
         display: block
-        +mq($md)
+        +mq($lg)
             display: none
     &__burger
         $size: 26px
@@ -59,7 +80,7 @@ header
         width: $size
         cursor: pointer
         overflow: hidden
-        +mq($md)
+        +mq($lg)
             display: none
         span
             position: absolute
@@ -90,28 +111,30 @@ header
         display: none
         text-align: center
         margin-bottom: 10px
-        +mq($md)
+        +mq($lg)
             +flex
             flex: 1 0 auto
             margin: 0 10px
         &-list
-            +mq($md)
+            +mq($lg)
                 +flex
                 justify-content: space-evenly
                 width: 100%
         &-item
             a
-                +fz(13)
+                +fz(16)
                 +lts(.04em)
-                padding: 10px 20px
+                padding: 20px
                 border-radius: 17px
                 transition: background .3s
-                +mq($md)
+                +mq($lg)
+                    +fz(13)
+                    padding: 10px 20px
                     &:hover
                         background-color: var(--main-color)
     &__contact
         display: none
-        +mq($md)
+        +mq($lg)
             +flex
             gap: 5px            
         a
@@ -121,22 +144,32 @@ header
                 font-weight: 900
                 +lts(.02em)
 .banner
+    +flex-column
+    justify-content: flex-end
+    align-items: center
+    flex: 1 0 auto
+    color: #fff
+    +mqMax($lg)
+        min-height: calc(100vh - 45px)
+        text-align: center
+        padding-bottom: 20px
+        +bg('../images/main-banner-mobile.jpg', top center, contain)
+    +mq($lg)
+        align-items: flex-start
+        justify-content: center
     &-wrap
-        padding-top: 115px
-        +bg('../images/main-banner-mobile.jpg', top, unset)
-        +mq($md)
+        padding-top: 55px
+        +mqMax($md)
+            background: linear-gradient(#000 49.5%, #181818 49.5%)
+        +mqMax($lg)
+            background: linear-gradient(#000 58%, #181818 49.5%)
+        +mq($lg)
             +bg('../images/main-banner.jpg')
             padding-top: 85px
     &-inner
         +flex-column
-        min-height: calc(100vh - 115px)
-        +mq($md)
-            min-height: calc(800px - 85px)
-    +flex-column
-    justify-content: center
-    align-items: flex-start
-    flex: 1 0 auto
-    color: #fff
+        +mq($lg)
+            min-height: calc(800px - 85px)    
     hr
         width: 95px
         height: 1px
@@ -148,15 +181,14 @@ header
         line-height: 25px
         +lts(.04em)
     &__title
-        +fz(38)
-        +mq($md)
+        +fz(34)
+        +mq($lg)
             +fz(57)
-            // +lts(.04em)
         font-weight: 300
         margin-bottom: 10px
         span
-            +fz(52)
-            +mq($md)
+            +fz(48)
+            +mq($lg)
                 +fz(78)
                 +lts(0)
             font-weight: 900
@@ -170,7 +202,7 @@ header
         margin-top: 15px
 .testimonial
     &__list
-        +mq($md)
+        +mq($lg)
             +flex
             gap: $gutter
             margin-bottom: -45px
@@ -186,8 +218,11 @@ header
                 background-color: var(--ex-color)
                 z-index: 1
     &__item
-        +mqMax($md)
+        +mqMax($lg)
             margin-bottom: 20px
+            max-width: 350px
+            margin-left: auto
+            margin-right: auto
         +flex-column-center
         color: #fff
         background-color: #181818
@@ -198,10 +233,8 @@ header
         &:hover,&:active
             background-color: var(--main-color)
             box-shadow: 0px 27px 25px 0px rgba(0, 0, 0, 0.18)
-        +mq($md)
-            // flex: 0 0 calc(100% / 3)
-            width: calc(100% / 3)
-                
+        +mq($lg)
+            width: calc(100% / 3)  
         &-icon
             filter: brightness(0) invert(1)
             margin-bottom: 15px
@@ -219,7 +252,9 @@ header
             margin: 0
 .history 
     padding-top: min(65px, 6vh)
-    +mq($md)
+    +mqMax($lg)
+        text-align: center
+    +mq($lg)
         +flex
         &__left,&__right
             flex: 0 0 50%
@@ -230,15 +265,20 @@ header
         +lts(-.02em)
         margin-bottom: min(40px, 3.5vh)
     &__text
-        +fz(16)
+        +fz(18)
         line-height: 28px
         +lts(.04em)
         color: #818181
         position: relative
-        padding-left: calc(100% / 12 + 40px)
-        padding-right: calc(100% / 12)
+        +mqMax($lg)
+            padding-top: 55px
+        +mq($lg)
+            +fz(16)
+            padding-left: calc(100% / 12 + 40px)
+            padding-right: calc(100% / 12)
         p
-            margin-bottom: min(30px, 2.5vh)
+            &:not(:last-child)
+                margin-bottom: min(30px, 2.5vh)
         b
             color: #000
             font-weight: 900
@@ -246,30 +286,51 @@ header
             content: ''
             display: block
             position: absolute
-            left: 0
-            top: 10px
+            left: calc(50% - 20px)
+            top: 0
             width: 40px
             height: 35px
             +bg('../images/quotes.png',center,contain)
+            +mq($lg)
+                left: 0
+                top: 10px
 .specialist-wrap
     position: relative
     margin-top: -30px
     padding-bottom: 40px
+    +mqMax($lg)
+        +bg('../images/specialist-bg.png', center top)
 .specialist-bg
-    +mq($md)
+    +mq($lg)
         min-height: 525px
-    +bg('../images/specialist-bg.png', center top)
+        +bg('../images/specialists.png', center top)
 .specialist
-    +mq($md)
+    +mqMax($lg)
+        overflow-x: hidden
+        .slick-track
+            display: flex
+            gap: $gutter
+    +mq($lg)
         +flex
         gap: $gutter
-    &__photo
-        position: relative
-        bottom: -35px
     &__card
-        flex: 0 0 calc(100% / 12 * 4)
         text-align: center
         line-height: 24px
+        +mq($lg)
+            flex: 0 0 calc(100% / 12 * 4)
+    &__photo
+        position: relative
+        bottom: -65px
+        left: 30px
+        +mq($lg)
+            display: none
+    &__info
+        +mqMax($lg)
+            display: inline-block
+            position: relative
+            background-color: #fff
+            border-radius: 20px
+            padding: 20px 30px
     &__name
         +fz(22)
         font-weight: 900
@@ -286,7 +347,7 @@ header
     +bg('../images/dots-bg-h.png', left top, contain)
     &__title
         +fz(32)
-        +mq($md)
+        +mq($lg)
             +fz(56)
         font-weight: 900
         +lts(-.02em)
@@ -299,59 +360,93 @@ header
         border-radius: 40px
         &:hover,&:active
             color: #000
+
 .tariff
     padding: min(30px, 2.5vh) 0 min(50px, 4.5vh) 0
+    +mqMax($lg)
+        border-bottom: 2px solid var(--main-color)
+        overflow-x: hidden
+        .slick-track
+            display: flex
+    &__nav
+        border-bottom: 2px solid var(--main-color)
+        background-color: #f3f3f3
+        +fz(24)
+        font-weight: 900
+        +mq($lg)
+            display: none
+        .slick-current
+            .tariff__nav-item
+                &::after
+                    content: ''
+                    position: absolute
+                    top: calc(100% - 25px)
+                    left: calc(50% - 20px)
+                    +arr(40, 25, var(--main-color), t)
+        &-item
+            text-align: center
+            padding: 40px 0 
+            position: relative
+            
     &__list
-        +mq($md)
+        +mq($lg)
             +flex
             gap: calc(100% / 12)
     &__item
         line-height: 24px
-        +mqMax($md)
+        +mqMax($lg)
             margin-bottom: 20px
-        +mq($md)
+            padding-top: 70px
+        +mq($lg)
             flex: 0 0 calc(100% / 12 * 3)
             &:nth-child(2)
                 flex: 0 0 calc(100% / 12 * 4)
-        &--active
-            border: 1px solid var(--main-color)
-            background-color: #fff
-            // padding: 40px
-            box-shadow: 0px 0px 41px 0px rgba(0, 0, 0, 0.15)
-            .tariff
-                &__item
-                    &-title
-                        margin: 40px 40px 25px
-                    &-subtitle
-                        margin-left:40px
-                        margin-right:40px
-                    &-btn
-                        background-color: var(--main-color)
-                        color: #fff
-                        margin-left:40px
-                        margin-right:40px
-                        &:hover,&:active
-                            background-color: #fff
-                            color: #000
-                            border: 2px solid var(--main-color)
-                    &-desc
-                        margin-left:40px
-                        margin-right:40px
-                    &-rate
-                        text-align: left
-                        padding-left: 40px
-                        margin-left:40px
-                        margin-right:40px
-                    &-tip
-                        margin-left:40px
-                        margin-right:40px
-                        margin-bottom: 40px
+        +mq($lg)
+            &--active
+                border: 1px solid var(--main-color)
+                background-color: #fff
+                +mq($lg)
+                    box-shadow: 0px 0px 41px 0px rgba(0, 0, 0, 0.15)
+                .tariff
+                    &__item
+                        &-title
+                            padding: 40px 40px 25px
+                        &-subtitle
+                            padding-left:40px
+                            padding-right:40px
+                        &-btn
+                            background-color: var(--main-color)
+                            color: #fff
+                            margin-left:40px
+                            margin-right:40px
+                            &:hover,&:active
+                                background-color: #fff
+                                color: #000
+                                border: 2px solid var(--main-color)
+                        &-desc
+                            padding-left:40px
+                            padding-right:40px
+                        &-rate
+                            text-align: left
+                            padding: 20px 40px 20px 80px
+                            +mqMax($lg)
+                                padding: 20px 40px
+                            &:not(:last-child)
+                                margin-bottom: 0
+                            &:nth-child(even)
+                                background-color: #ececec
+                        &-tip
+                            padding-left:40px
+                            padding-right:40px
+                            padding-bottom: 40px
         &-title
             +fz(45)
             font-weight: 900
             text-align: center
             +lts(.04em)
             margin-bottom: 25px
+            +mqMax($lg)
+                display: none
         &-subtitle
             +fz(17)
             color: #8e8e8e
@@ -362,6 +457,8 @@ header
                 +fz(22)
                 font-weight: 900
                 color: #000
+                +mqMax($lg)
+                    display: block
         &-btn
             +flex
             +fz(16)
@@ -385,8 +482,6 @@ header
                 +bg('../images/tick.png', left center, auto)
                 margin-bottom: 15px
         &-rate
-            +mq($md)
-                // +flex
             +fz(43)
             font-weight: 900
             line-height: 21px
@@ -404,37 +499,41 @@ header
             text-align: center
 .plan-wrap
     +bg('../images/dots-bg-v.png', left 14vw top 185px, auto)
+    position: relative
+    z-index: 6
 .plan
     text-align: center
-    padding: min(50px, 4.5vh) 0 min(120px, 11vh) 0
+    padding-top: min(50px, 4.5vh)
     &__subtitle
         +fz(18)
         +lts(.02em)
         color: #7d7d7d
     &__title
         +fz(42)
-        +mq($md)
+        +mq($lg)
             +fz(64)
         font-weight: 900
         +lts(-.02em)
         margin-bottom: min(90px, 8vh)
     &__list
-        +mq($md)
+        +mq($lg)
             +flex
             gap: 20px
     &__item
         position: relative
         overflow: hidden
         background-color: #fff
-        padding: 70px 50px
+        padding: 70px 30px
         box-shadow: 0px 0px 47px 0px rgba(0, 0, 0, 0.07)
         transition: transform .3s
         cursor: pointer
         +lts(.02em)
-        +mqMax($md)
-            margin-bottom: 20px
-        &:hover,&:active
-            transform: translateY(-30px)
+        +mqMax($lg)
+            margin-bottom: 60px
+        +mq($lg)
+            width: calc(100% / 3)
+            &:hover,&:active
+                transform: translateY(-30px)
         &-number
             +fz(20)
             font-weight: 900
@@ -460,21 +559,25 @@ header
 footer
     background-color: #181818
     padding: 55px 0
+    margin-top: -100px
+    position: relative
+    z-index: 9
+    +mq($lg)
+        margin-top: -70px
 .footer
     color: #fff
-
-    +mq($md)
+    +mq($lg)
         +flex
         justify-content: flex-start
     &__links
         flex: 1 0 auto
-        +mqMax($md)
+        +mqMax($lg)
             text-align: center
             span
                 display: none
             a 
                 margin-bottom: 20px
-        +mq($md)
+        +mq($lg)
             +flex
             justify-content: flex-start
         a 
