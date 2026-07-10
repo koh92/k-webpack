@@ -1,177 +1,880 @@
 .hero
     overflow-x: hidden
-    &__slider
-        position: relative
-        &-pagination
-            position: absolute
-            bottom: 0
-            z-index: 10
-            width: 100%
-.slider
-    &__item
-        // padding-top: 7.5vw
-        +mqMax($lg)
-            background: var(--ex-grey-color) !important
-        +mq($lg)
-            background-repeat: no-repeat
-            background-position: center center
-            background-size: cover
-        &-inner
-            min-height: 80vh
-            color: #fff
-            +flex-column
-            justify-content: center
-            +mq($lg)
-                max-width: 40%
-        &-title
-            +fz(24)
-            margin-bottom: 20px
-            +mq($lg)
-                +fz(60)
-        &-subtitle
-            +fz(24)
-            margin-bottom: 20px
-            +mq($lg)
-                +fz(42)
-.feedback
+    // +bg('../images/bg_hero.jpg')
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: cover
     &__inner
-        +flex
-        align-items: flex-start
-        gap: min(40px, 2vw)
-        // border: 1px solid var(--grey-color)
-        padding: 30px
-    &__image
-        display: none
+        min-height: 355px
+        +flex-column
+        align-items: center
+        justify-content: center
+        +mq($xs)
+            min-height: 305px
         +mq($md)
-            display: block
-            flex: 0 0 50%
-            height: 100%
-            width: 100%
-    &__form
-        +mq($md)
-            flex: 0 0 50%
-        max-width: min(100%, 550px)
-        form
+            min-height: 400px
+        +mq($xl)
+            min-height: 570px
+        &--home-page
+            --header-height: 76px
+            min-height: 675px
+            padding-top: var(--header-height)
             +flex-column
-            color: var(--grey-color)
-        label
-            margin-bottom: 20px
-        span
-            display: block
-            margin-bottom: 10px
-            +fz(16)
+            align-items: center
+            +mq($xs)
+                min-height: 579px
+            +mq($md)
+                min-height: 678px
+            +mq($xl)
+                min-height: 704px
+                --header-height: 124px
+    &__title
+        font-family: 'Playfair Display'
+        +fz(42)
+        font-weight: 500
+        // line-height: 52px
+        line-height: 108%
+        color: #fff
+        text-align: center
+        margin-bottom: 32px
+        margin-top: auto
+        +mq($xs)
+            +fz(48)
+            line-height: 112%
+        +mq($md)
+            +fz(60)
+            margin-bottom: 24px
+        +mq($xl)
+            +fz(68)
+            line-height: 91px
+            margin-top: 0
+            br
+                display: none
+    &__subtitle
+        +fz(16)
+        line-height: 22px
+        text-align: center
+        color: var(--text-color)
+        margin-bottom: 60px
+        +mq($md)
+            +fz(18)
+            margin-bottom: 80px
+            br
+                display: none
+        +mq($xl)
+            +fz(20)
+            line-height: 24px        
+    &__booking
+        width: 100vw
+        position: relative
+        // left: calc($gutter / 2 * -1)
+        background-color: rgba(27, 16, 15, 0.48)
+        height: 330px
+        padding: 28px 34px 40px
+
+        +mq($xs)
+            height: 217px
+            padding: 28px 12px 40px
+        +mq($md)
+           height: 272px
+           padding: 32px 20px 56px
+        +mq($xl)
+            height: 136px
+            width: calc(100% / 12 * 10)
+            // margin: 0 auto 108px
+            margin: 0 auto
+            padding: 20px 70px 36px
+        &-title
+            font-family: 'Playfair Display'
+            +fz(20)
             font-weight: 500
-        input,
-        select,
-        textarea
-            +fz(14)
+            line-height: 27px
+            color: #E0C2C2
+            margin-bottom: 24px
+            text-align: center
+            +mq($md)
+                margin-bottom: 28px
+            +mq($xl)
+                text-align: left
+                margin-bottom: 12px
+        &-frame
             width: 100%
-            padding: .5em .75em
-            +mq($lg)
-                +fz(16)
-                padding: .75em 1.5em
-            border: 1px solid var(--grey-color)
-            transition: border .3s
-            &:active,&:focus
-                border: 1px solid var(--yellow-color)
-            &:placeholder
-                color: rgba(0,0,0,.3)
-        select
-            +fz(14)
-        input
-            &:not(:placeholder-shown)
-                border: 1px solid var(--yellow-color)
-.about
-    &__text
-        +mq($lg)
-            +flex
-            gap: 20px
-            align-items: flex-start
+            height: 100%
+            max-height: 212px
+            +bg('../images/booking_frame320.png', center, contain)
+            +mq($xs)
+                max-height: 98px
+                +bg('../images/booking_frame480.png', center, contain)
+            +mq($md)
+                +bg('../images/booking_frame768.png', center, contain)
+                max-height: 124px
+            +mq($xl)
+                +bg('../images/booking_frame.png', left, contain)
+                max-height: 41px
+.block-with-line
+    &::after
+        content: ''
+        display: block
+        height: 1px
+        width: 100%
+        max-width: 200px
+        background-color: #EAD6D6
+        margin-left: 50%
+        transform: translateX(-50%)
+        +mq($xs)
+            max-width: 336px
+        +mq($md)
+            max-width: 480px
+        +mq($xl)
+            max-width: 100%
+    &-mobile
+        position: relative
+        &::after
+            content: ''
+            display: block
+            height: 1px
+            width: 100%
+            max-width: 200px
+            background-color: #EAD6D6
+            position: absolute
+            top: 100%
+            margin-left: 50%
+            transform: translateX(-50%)
+        +mq($xs)
+            &::after
+                max-width: 336px
+        +mq($md)
+            &::after
+                max-width: 480px
+        +mq($xl)
+            &::after
+                display: none
 .testimonials
+    padding-top: 43px
+    +mq($xs)
+        padding-top: 48px
+    +mq($md)
+        padding-top: 60px
+    +mq($xl)
+        padding-top: 112px
     &__list
-        +mq($lg)
+        margin: 0 auto 60px
+        +mq($md)
             +flex
             flex-wrap: wrap
-            justify-content: space-between
-            align-items: flex-start
-            gap: 40px
-    &__item
-        +mq($lg)
-            flex: 0 0 calc(50% - 40px)
+            gap: 72px 20px
         +mq($xl)
-            flex: 0 0 calc(25% - 40px)
-        text-align: center
-        +mqMax($lg)
+            justify-content: space-between
+            // align-items: flex-start
+            gap: 35px
+            margin-bottom: 111px
+    &__item
+        +flex
+        justify-content: flex-start
+        gap: 16px
+        max-width: 285px
+        margin-inline: auto
+        & + &
+            margin-top: 54px
+        +mq($xs)
+            gap: 24px
+            max-width: 305px
             & + &
-                margin-top: 20px
+                margin-top: 64px
+        +mq($md)
+            & + &
+                margin-top: 0
+            +flex-column
+            text-align: center
+            flex: 0 0 calc(50% - 20px)
+        +mq($xl)
+            flex: 0 0 calc(25% - 30px)
+            & + &
+                margin-top: 0
         &-icon
-            +inline-flex
-            width: max(80px, 2.5vw)
-            height: max(80px, 2.5vw)
+            +flex
+            flex: 0 0 56px
+            width: 56px
+            height: 56px
             border-radius: 50%
-            background-color: var(--yellow-color)
-            color: #fff
-            +fz(26)
-            margin-bottom: 20px
+            background-color: #F5EFEF
+            +mq($xs)
+                flex: 0 0 72px
+                width: 72px
+                height: 72px
+            +mq($md)
+                flex: 0 0 80px
+                width: 80px
+                height: 80px
+            img
+                max-width: 27px
+                +mq($xl)
+                    max-width: 36px
         &-name
-            +fz(22)
-            font-weight: 700
-            margin-bottom: 20px
+            +fz(18)
+            font-weight: 500
+            margin-bottom: 4px
+            color: #412B30
+            +mq($xs)
+                +fz(20)
+            +mq($md)
+                +fz(22)
+                margin-bottom: 10px
         &-text
-            line-height: 1.5em
-.news
+            +fz(14)
+            color: var(--dark-color)
+            line-height: 1.4
+            +mq($md)
+                +fz(16)
+.rooms
     overflow-x: hidden
-    &__image
-        margin-bottom: 20px
+    padding-top: 60px
+    +mq($xl)
+        padding-top: 149px
+        +bg('../images/bg_shape.png', top 18px right, 485px 420px)
     &__title
-        +fz(22)
+        font-family: 'Playfair Display'
+        +fz(20)
+        line-height: 27px
         font-weight: 500
-        margin-bottom: 20px
-    &__date
-        margin-bottom: 20px
-.contacts
-    &__inner
-        +mq($lg)
+        color: var(--dark-color)
+        text-align: center
+        padding-bottom: 60px
+        margin-bottom: 60px
+        +mq($xs)
+            +fz(24)
+            line-height: 32px
+        +mq($md)
+            line-height: 148%
+        +mq($xl)
+            +fz(32)
+            line-height: 43px
+            padding-bottom: 0
+            margin-bottom: 215px
+    &__item
+        // width: 100vw
+        width: 100%
+        +mq($xl)
             +flex
-            align-items: flex-start
-            gap: 40px
-    &__map
-        margin-bottom: 20px
+            justify-content: unset
+            gap: 100px
+            width: 100vw
+    &__left
+        +mq($xl)
+            align-self: start
+            flex: 0 0 470px
+            margin-top: 56px
+    &__right
+        +mq($xl)
+            flex: 0 0 calc(50vw + 12px)
+            justify-self: flex-end
+    &__name
+        font-family: 'Playfair Display'
+        +fz(28)
+        line-height: 37px
+        font-weight: 500
+        color: var(--dark-color)
+        text-align: center
+        margin-bottom: 95px
+        +mq($xs)
+            +fz(32)
+            line-height: 43px
+            margin-bottom: 112px
+        +mq($md)
+            +fz(36)
+            line-height: 48px
+            margin-bottom: 105px
+        +mq($xl)
+            text-align: left
+            margin-bottom: 24px
+    &__desc
+        +fz(14)
+        line-height: 172.9%
+        margin-bottom: 24px
+        color: var(--dark-color)
+        // padding-right: $gutter
+        +mq($md)
+            +fz(16)
+            margin-bottom: 28px
+        +mq($xl)
+            margin-bottom: 32px
+            // padding-right: 0
+    &__image
+        width: calc(100vw - $gutter)
+        border-radius: 40px 0px 0px 0px
+        overflow: hidden
+        background-repeat: no-repeat
+        background-position: center
+        background-size: cover
+        min-height: 240px
+        +mq($xs)
+            min-height: 300px
+        +mq($md)
+            min-height: 400px
+        +mq($xl)
+            width: auto
+            border-radius: 100px 0px 0px 0px
+            min-height: 540px
+        &--left
+            margin-bottom: 16px
+            +mq($xl)
+                display: none
+        &--right
+            display: none
+            +mq($xl)
+                display: block
+    &__btns
+        gap: 12px
+        // padding-right: $gutter
+        +mq($xs)
+            +flex
+            justify-content: space-between
+        +mq($xl)
+            gap: 24px
+            // padding-right: 0
+    &__btn
+        line-height: 172.9%
+        padding: 12px 50px
+        width: 100%
+        margin-left: 0
+        transform: unset
+        +mq($xs)
+            max-width: 100%
+        & + &
+            // margin-top: 20px
+            margin-top: 12px
+        +mq($xs)
+            flex: 0 0 calc(50% - 6px)
+            & + &
+                margin-top: 0
+        +mq($xl)
+            flex: 0 0 calc(50% - 12px)
+    &__slider
+        position: relative
+    &__pagination
+        position: absolute
+        top: 60px
+        z-index: 80
+        width: 100%
+        +mq($xs)
+            top: 70px
+        +mq($xl)
+            position: relative
+            top: -60px
+        &-wrapper
+            width: 100%
+            margin: 0 auto
+            // max-width: 170px
+            max-width: 200px
+            +flex
+            justify-content: space-between
+            // margin-left: calc($gutter / 2 * -1)
+            +mq($xs)
+                max-width: 220px
+            +mq($md)
+                max-width: 295px
+            +mq($xl)
+                max-width: 470px
+                gap: 136px
+                margin: 0
+.likes
+    padding-top: 56px
+    +mq($xs)
+        padding-top: 64px
+    +mq($md)
+        padding-top: 80px
+    +mq($xl)
+        padding-top: 140px
+    &__title
+        font-family: 'Playfair Display'
+        +fz(28)
+        line-height: 37px
+        font-weight: 500
+        color: var(--dark-color)
+        text-align: center
+        margin-bottom: 28px
+        +mq($xs)
+            +fz(32)
+            line-height: 43px
+            margin-bottom: 32px
+        +mq($md)
+            margin-bottom: 40px
+        +mq($xl)
+            +fz(36)
+            line-height: 48px
+            margin-bottom: 80px
+    &__list
+        display: grid
+        grid-template-columns: 1fr
+        gap: 8px
+        +mq($md)
+            grid-template-columns: 1fr 1fr
+            grid-template-rows: 1fr 1fr
+            gap: 20px 12px
+        +mq($xl)
+            gap: 30px
+    &__item
+        overflow: hidden
+        padding: 20px 45px 20px 40px
+        background-repeat: no-repeat
+        background-size: cover
+        background-position: top center
+        // transition: background 1s
+        +mq($md)
+            transition: all .6s
+        &--active
+            .likes__name
+                justify-content: center
+                text-align: center
+                +fz(24)
+            .likes__arrow-top
+                // opacity: 0
+                // visibility: hidden
+                display: none
+                width: 0
+        +mq($xs)
+            padding: 18px 45px 18px 60px
+        +mq($md)
+            // padding: 40px 22px
+            padding: 40px 10px
+            text-align: center
+        +mq($xl)
+            // padding: 55px 100px 55px 48px
+            padding: 0 100px 0 48px
+            min-height: 268px
+            +flex-column
+            justify-content: center
+            text-align: left
+            &:hover,&:focus
+                // padding: 28px 100px 28px 48px
+                .likes__btn
+                    transform: translateY(0px)
+                    margin-top: 16px
+                .likes__desc
+                    margin-bottom: 0
+        &:first-child
+            border-radius: 40px 0px 0px 0px
+            +mq($xs)
+                border-radius: 60px 0px 0px 0px
+            +mq($md)
+                border-radius: 80px 0px 0px 0px
+            +mq($xl)
+                border-radius: 60px 0px 0px 0px
+        &:last-child
+            border-radius: 0px 0px 40px 0px
+            +mq($xs)
+                border-radius: 0px 0px 60px 0px
+            +mq($md)
+                border-radius: 0px 0px 80px 0px
+            +mq($xl)
+                border-radius: 0px 0px 60px 0px
+    &__name
+        +fz(16)
+        line-height: 172.9%
+        font-weight: 500
+        color: var(--white-color)
+        transition: font-size .3s
+        +mqMax($md)
+            +flex
+            // justify-content: space-between
+        +mq($xs)
+            +fz(20)
+        +mq($md)
+            +fz(24)
+            margin-bottom: 12px
         +mq($lg)
-            margin-bottom: 0
-            flex: 0 0 calc(50% - 40px)
-        > #map
-            height: min(500px, 50vh)
-    &__info
-        +mq($lg)
-            flex: 0 0 calc(50% - 40px)
-        +fz(18)
-        b,p
-            display: block
-            margin-bottom: 20px
-        a
-            display: inline-block
-.agreement
-    +flex
-    justify-content: flex-start
-    cursor: pointer
-    &__checkbox
-        flex: 0 0 20px
-        width: 20px
-        height: 20px
-        border: 1px solid var(--text-purple)
-        border-radius: 1px
-    input
+            +fz(22)
+            margin-bottom: 8px
+    &__arrow
+        +flex
+        transition: all .6s
+        margin-left: auto
+        &-bottom
+            margin-top: 25px
+            transform: rotate(180deg)
+        svg
+            fill: none
+            width: 15px
+            height: 7px
+        +mq($md)
+            display: none
+    &__bottom
         display: none
-    input:checked + &__checkbox
-        color: var(--text-purple)
-        border-color: green
-        &::after
+        text-align: center
+        +mq($md)
+            display: block
+        +mq($xl)
+            text-align: left
+    &__desc
+        // +fz(16)
+        +fz(14)
+        line-height: 28px
+        color: var(--white-color)
+        line-height: 172.9%
+        margin-bottom: 28px
+        margin-top: 4px
+        +mq($md)
+            // margin-bottom: 44px
+            margin-bottom: 24px
+        +mq($xl)
+            // margin-bottom: 0
+            margin-top: 0
+            transition: all .6s
+            margin-bottom: -40px
+    &__btn
+        width: 100%
+        max-width: 252px
+        +fz(14)
+        transition: all .6s
+        cursor: pointer
+        // +mq($xs)
+        //     max-width: 300px
+        +mq($xl)
+            margin-left: 0
+            transform: translateY(max(15vh, 150px))
+.restaurant
+    padding-top: 56px
+    padding-bottom: 28px
+    +mq($xs)
+        padding-top: 64px
+        padding-bottom: 32px
+    +mq($md)
+        padding-top: 80px
+        padding-bottom: 40px
+    +mq($xl)
+        padding-top: 180px
+        padding-bottom: 0
+.conference
+    // padding-top: 28px
+    padding-top: 28px
+    +mq($xs)
+        // padding-top: 32px
+        padding-top: 64px
+    +mq($md)
+        padding-top: 40px
+        // padding-top: 80px
+    +mq($xl)
+        padding-top: 100px
+.banquet
+    // padding-top: 28px
+    padding-top: 54px
+    +mq($xs)
+        // padding-top: 32px
+        padding-top: 64px
+    +mq($md)
+        // padding-top: 40px
+        padding-top: 80px
+    +mq($xl)
+        padding-top: 100px
+.banquet
+    padding-bottom: 28px
+    +mq($xs)
+        padding-bottom: 32px
+    +mq($md)
+        padding-bottom: 40px
+    +mq($xl)
+        padding-bottom: 100px
+.spa
+    padding-top: 28px
+    +mq($xs)
+        padding-top: 32px
+    +mq($md)
+        padding-top: 40px
+    +mq($xl)
+        padding-top: 0
+.conference,
+.banquet,
+.sales
+    background-color: var(--white-color)
+.info
+    &__inner
+        +mq($xl)
             +flex
-            content: '\2713'
-    &__text
-        +fz(12)
-        color: var(--text-purple)
-        margin-left: 20px
-    &__href
-        display: inline-block
+            justify-content: space-between
+            // gap: 100px
+            // gap: 12px
+            gap: 30px
+    &__left
+        +mq($xl)
+            // flex: 0 0 calc(50% - 15px)
+            flex: 0 0 calc(50% - 15px)
+            margin-top: var(--margin-top, 40px)
+            align-self: flex-start
+            padding-right: 60px
+    &__right
+        display: none
+        +mq($xl)
+            display: block
+            // flex: 0 0 calc(50vw - 15px)
+            flex: 0 0 50vw
+            justify-self: flex-end
+    &__title
+        font-family: 'Playfair Display'
+        +fz(28)
+        line-height: 37px
+        font-weight: 500
+        color: var(--dark-color)
+        margin-bottom: 24px
+        text-align: center
+        +mq($xs)
+            +fz(32)
+            line-height: 42px
+            margin-bottom: 32px
+        +mq($md)
+            margin-bottom: 28px
+        +mq($xl)
+            +fz(36)
+            line-height: 48px
+            margin-bottom: 24px
+            text-align: left
+    &__desc
+        +fz(14)
+        line-height: 172.9%
+        font-weight: 400
+        color: var(--dark-color)
+        margin-bottom: 24px
+        p + p
+            margin-top: 28px
+            +mq($md)
+                margin-top: 32px
+        +mq($md)
+            +fz(16)
+            margin-bottom: 28px
+        +mq($xl)
+            margin-bottom: 32px
+    &__image
+        border-radius: 40px 0px 0px 0px
+        overflow: hidden
+        background-repeat: no-repeat
+        background-position: center
+        background-size: cover
+        width: calc(100vw - $gutter / 2)
+        min-height: 240px
+        margin-bottom: 26px   
+        +mq($xs)
+            border-radius: 60px 0px 0px 0px
+            min-height: 300px
+        +mq($md)
+            border-radius: 80px 0px 0px 0px
+            min-height: 400px
+        +mq($xl)
+            border-radius: 100px 0px 0px 0px
+            width: auto
+            height: 580px
+            margin-bottom: 0
+            &--bottom-angle
+                border-radius: 0px 0px 0px 100px
+        &--left
+            display: block
+            +mq($xl)
+                display: none
+        &--right
+            display: none
+            +mq($xl)
+                display: block
+    &__btn
+        width: 100%
+        // max-width: 300px
+        min-height: 52px
+        margin-left: 50%
+        transform: translateX(-50%)
+        +mq($xs)
+            max-width: 222px
+        +mq($md)
+            max-width: 358px
+        +mq($xl)
+            margin-left: 0
+            transform: unset
+            max-width: 212px
+    &--left
+        .info__inner
+            flex-direction: row-reverse
+        .info__left
+            +mq($xl)
+                padding-right: 0
+                padding-left: 70px
+        .info__image
+            border-radius: 0px 40px 0px 0px
+            // width: calc(100vw - $gutter)
+            width: 100vw
+            
+            position: relative
+            left: calc($gutter * -1)
+            +mq($xs)
+                border-radius: 0px 60px 0px 0px
+            +mq($md)
+                border-radius: 0px 80px 0px 0px
+            +mq($xl)
+                width: 50vw
+                border-radius: 0px 100px 0px 0px
+                &--bottom-angle
+                    border-radius: 0px 0px 100px 0px 
+.concierge
+    // padding-top: 28px
+    padding-top: 54px
+    padding-bottom: 28px
+    +mq($xs)
+        // padding-top: 32px
+        padding-top: 64px
+        padding-bottom: 32px
+    +mq($md)
+        // padding-top: 40px
+        padding-top: 80px
+        padding-bottom: 40px
+    +mq($xl)
+        text-align: center
+        padding-top: 180px
+        padding-bottom: 100px
+        +bg('../images/bg_shape.png', top 118px left -200px, 485px 420px)
+        .info__title
+            text-align: center
+        .info__desc
+            +mq($xl)
+                margin-inline: auto
+                width: calc(100% / 12 * 8)     
+.sales
+    padding-top: 28px
+    padding-bottom: 28px
+    +mq($xs)
+        padding-top: 32px
+        padding-bottom: 32px
+    +mq($md)
+        padding-top: 40px
+        padding-bottom: 40px
+    +mq($xl)
+        padding-top: 80px
+        padding-bottom: 80px
+    &__title
+        font-family: 'Playfair Display'
+        +fz(28)
+        font-weight: 500
+        line-height: 37px
+        color: var(--dark-color)
+        margin-bottom: 38px
+        text-align: center
+        +mq($xs)
+            +fz(32)
+            line-height: 43px
+            margin-bottom: 32px
+        +mq($md)
+            margin-bottom: 40px
+        +mq($xl)
+            +fz(36)
+            line-height: 48px
+            margin-bottom: 80px
+    &__list
+        +mq($xl)
+            display: grid            
+            grid-template-columns: 470px 1fr
+            grid-template-rows: 1fr 1fr
+            gap: 30px
+    &__item
+        overflow: hidden
+        background-repeat: no-repeat
+        background-position: center
+        background-size: cover
+        +flex-column
+        align-items: center
+        justify-content: center
+        min-height: 300px
+        &:first-child
+            grid-row: span 2
+            border-radius: 40px 0px 0px 0px
+        &:last-child
+            border-radius: 0px 0px 40px 0px
+        & + &
+            margin-top: 12px
+
+        position: relative
+        +mq($xl)
+            transition: all .8s
+            &:hover, &:focus
+                // padding: 50px 0
+                .sales__btn
+                    // top: 0
+                    transform: translateY(0)
+                .sales__desc
+                    margin-bottom: 20px
+
+        +mq($xs)
+            &:first-child
+                border-radius: 60px 0px 0px 0px
+            &:last-child
+                border-radius: 0px 0px 60px 0px
+        +mq($md)
+            min-height: 245px
+            &:first-child
+                border-radius: 80px 0px 0px 0px
+            &:last-child
+                border-radius: 0px 0px 80px 0px
+        +mq($xl)
+            // padding: 107px 0
+            min-height: 300px
+            & + &
+                margin-top: 0
+            &:first-child
+                border-radius: 60px 0px 0px 0px
+            &:last-child
+                border-radius: 0px 0px 60px 0px
+    &__name
+        +fz(24)
+        font-weight: 500
+        line-height: 29px
+        color: var(--white-color)
+        margin-bottom: 12px
+        text-align: center
+        padding: 0 36px
+        +mq($xs)
+            +fz(28)
+            line-height: 34px
+        +mq($md)
+            +fz(24)
+            line-height: 29px
+            margin-bottom: 8px
+        +mq($xl)
+            +fz(28)
+            line-height: 34px
+            margin-bottom: 8px
+    &__desc
+        +fz(14)
+        font-weight: 400
+        line-height: 140%
+        color: var(--white-color)
+        text-align: center
+        margin-bottom: 10px
+        padding: 0 36px
+        +mq($xs)
+            margin-bottom: 15px
+        +mq($md)
+            +fz(16)
+            line-height: 24px
+        +mq($xl)
+            line-height: 140%
+            // margin-bottom: 20px
+
+            transition: all .8s
+            margin-bottom: -74px
+    &__btn
+        +fz(14)
+        line-height: 17px
+        +mq($md)
+            +fz(16)
+            line-height: 28px
+        +mq($xl)
+            margin-left: 0
+            transform: translateY(max(50vh, 350px))
+            transition: all .8s
+            // position: absolute
+            // top: 100%
+            // left: 0
+            // margin-left: 50%
+            // transform: translateX(-50%)
+        &-wrap
+            +mq($xl)
+                // --btn-height: 55px
+                // position: relative
+                // overflow: hidden
+                // width: 100%
+                // height: var(--btn-height)
+                // margin-top: calc(var(--btn-height) * -1)
+                // top: var(--btn-height)

@@ -8,6 +8,29 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const postcss = require('postcss')
 const postcssPresetEnv = require('postcss-preset-env')
 
+const isProd = process.env.NODE_ENV === 'production'
+
+const minifyOptions = {
+    collapseWhitespace: true, // Удалить пробелы | default: false
+    keepClosingSlash: true, // Сохранить слэш в конце одиночных тегов | default: false
+    removeComments: true, // Удалить комментарии default: false
+    removeRedundantAttributes: true, // Удалить атрибуты, когда значение соответствует умолчанию | default: false
+    removeScriptTypeAttributes: true, // Remove type="text/javascript" from script tags | default: false
+    removeStyleLinkTypeAttributes: true, // Remove type="text/css" from style and link tags | default: false
+    useShortDoctype: true // Replaces the doctype with the short (HTML5) doctype | default: false
+}
+
+// Добавляем в массив все HTML файлы для копирования
+const htmlPageNames = ['index', 'rooms', 'business', 'banquet', 'restaurant', 'spa', 'sales', 'contacts'];
+const multipleHtmlPlugins = htmlPageNames.map(name => {
+	return new HtmlWebpackPlugin({
+		filename: `${name}.html`, // output HTML files
+		template: `./${name}.html`, // relative path to the HTML files
+        minify: isProd ? minifyOptions : false // isMinify HTML files
+        // minify: isProd ? false : false
+	})
+});
+
 module.exports = {
 	context: paths.src,
 	entry: './js/index.js',
@@ -100,26 +123,6 @@ module.exports = {
 	},
 	plugins: 
 		[
-			new HtmlWebpackPlugin({
-				filename: 'index.html',
-		    	template: './index.html'
-			}), // Generates default index.html
-		    new HtmlWebpackPlugin({
-		    	filename: 'news.html',
-		    	template: './news.html'
-		    }),
-		    new HtmlWebpackPlugin({
-		    	filename: 'news-inner.html',
-		    	template: './news-inner.html'
-		    }),
-		    new HtmlWebpackPlugin({
-		    	filename: 'info.html',
-		    	template: './info.html'
-		    }),
-		    new HtmlWebpackPlugin({
-		    	filename: 'info-inner.html',
-		    	template: './info-inner.html'
-		    }),
 		    new CopyWebpackPlugin({
 			    patterns: [
 			      	// images
@@ -128,5 +131,5 @@ module.exports = {
 			        { from: './fonts', to: `${paths.dist}/fonts`, noErrorOnMissing: true, }
 			    ],
 		    }),
-		]
+		].concat(multipleHtmlPlugins)
 }

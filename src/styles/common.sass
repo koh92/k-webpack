@@ -1,118 +1,141 @@
 :root
-    --grey-color: #293133
-    --ex-grey-color: rgb(34, 34, 34)
-    --yellow-color: #fabb23
+	--main-color: #915F68
+	// rgba(144, 95, 104, 1)
+	--accent-color: #A93944
+	// rgba(169, 57, 68, 1)
+	--dark-color: #64454B
+	// rgba(100, 69, 75, 1)
+	--hover-color: #95323C
+	// rgba(149, 50, 60, 1)
+	--white-color: #F9F3F3
+	// rgba(249, 243, 243, 1)
+	// --text-color: #E0C2C2
+	// --text-color: #DAC5C5
+	--text-color: #D7C5C4
+	// rgba(215, 197, 196, 1)
+	--btn-text-color: #FCFCFC
+	// rgba(252, 252, 252, 1)
 
-// +font('Gotham Pro', GothamPro)
-// +font('Gotham Pro', GothamPro-Black, 900)
-// +font('Gotham Pro', GothamPro-Bold, 700)
-// +font('Gotham Pro', GothamPro-Light, 300)
+// Debug style
+// *
+// 	outline: 1px solid limegreen
 
 html
-    scroll-behavior: smooth
-    overflow-x: hidden
+	scroll-behavior: smooth
+	overflow-x: hidden
 body
-    font-family: 'Montserrat'
-    color: var(--grey-color)
-    min-height: calc(100vh - 80px - 100px)
-    display: flex
-    flex-direction: column
+	font-family: 'Montserrat'
+	min-height: calc(100vh - 80px - 100px)
+	display: flex
+	flex-direction: column
+	background-color: var(--btn-text-color)
 
 main
-    flex: 1 0 auto
+	flex: 1 0 auto
+	overflow-x: hidden
 
 input,
 select,
 textarea
-    outline: none
-    box-shadow: none
+	outline: none
+	box-shadow: none
 
 .center
-    text-align: center
+	text-align: center
+
+.mod-noscroll 
+	overflow: hidden
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
 
 .btn
-    +inline-flex
-    width: fit-content
-    height: fit-content
-    +fz(16)
-    font-weight: 500
-    transition: border .3s
-    &--border-white
-        padding: .75em 1.5em
-        border: 1px solid #fff
-        &:hover, &:focus
-            border-color: var(--yellow-color)
-    &--border-black
-        padding: .75em 1.5em
-        border: 1px solid var(--grey-color)
-        &:hover, &:focus
-            border-color: var(--yellow-color)
-
-section
-    // min-height: 100vh
-    & + &
-        margin-top: 50px
-        +mq($md)
-            margin-top: 100px
-    &[data-dark]
-        background-color: var(--ex-grey-color)
-        color: #fff
-        padding: 50px 0
-        +mq($md)
-            padding: 100px 0
-
-.section-title
-    +fz(24)
-    +mq($xs)
-        +fz(32)
-    font-weight: 700
-    text-align: center
-    margin-bottom: 60px
-    +mq($md)
-        margin-bottom: 80px
-
-.page-title
-    +fz(36)
-    +mq($lg)
-        +fz(42)
-
-.content-text
-    p
-        margin-bottom: 20px 
-    ul
-        margin-bottom: 20px
-        padding-left: 20px
-        li
-            display: flex
-            align-items: center
-            margin-bottom: 10px
-            &:before
-                content: ''
-                width: 12px
-                height: 12px
-                border-radius: 50%
-                border: 1px solid var(--yellow-color)
-                background-color: var(--yellow-color)
-                margin-right: 15px
+	+inline-flex
+	// width: fit-content
+	width: 100%
+	height: fit-content
+	+fz(16)
+	font-weight: 500
+	padding: 12px 59px
+	transition: all .3s
+	max-width: 300px
+	margin-left: 50%
+	transform: translateX(-50%)
+	cursor: pointer
+	+mq($xs)
+		max-width: 222px
+	+mq($md)
+		max-width: 358px
+	&--colored
+		color: var(--btn-text-color)
+		border: 1px solid var(--accent-color)
+		background-color: var(--accent-color)
+		&:hover, &:focus
+			color: var(--btn-text-color)
+			background-color: var(--hover-color)
+	&--transparent-white
+		color: var(--white-color)
+		border: 1px solid var(--white-color)
+		background-color: transparent
+		&:hover, &:focus
+			// border: 1px solid var(--accent-color)
+			background-color: rgba(249, 243, 243, .08)
+	&--transparent-black
+		color: var(--dark-color)
+		border: 1px solid var(--dark-color)
+		background-color: transparent
+		&:hover, &:focus
+			color: var(--accent-color)
+			border-color: var(--accent-color)
 
 .swiper
-    &-pagination
-        &-bullets
-            margin: 30px auto 70px
-            +flex
-        &--hero
-            +mq($lg)
-                justify-content: flex-start
-        &-bullet
-            flex: 0 0 12px
-            width: 12px
-            height: 12px
-            border-radius: 50%
-            border: 1px solid var(--yellow-color)
-            & + &
-                margin-left: 18px
-            &-active
-                background-color: var(--yellow-color)
-            &:hover,
-            &:focus
-                cursor: pointer
+	&-pagination
+		&--rooms
+			+fz(20)
+			line-height: 24px
+			font-weight: 400
+			color: var(--main-color)
+			text-align: center
+			+flex
+		&-current
+			+fz(32)
+			line-height: 39px
+			font-weight: 200
+			padding-right: 10px
+			+mq($md)
+				+fz(40)
+				line-height: 49px
+			+mq($xl)
+				+fz(48)
+				line-height: 59px
+			&::before
+				content: '0'
+				font-size: inherit
+				font-weight: inherit
+				line-height: inherit
+				color: inherit
+		&-total
+			+fz(14)
+			line-height: 17px
+			font-weight: 400
+			padding-left: 10px
+			+mq($xl)
+				+fz(16)
+				line-height: 20px
+			&::before
+				content: '0'
+				font-size: inherit
+				font-weight: inherit
+				line-height: inherit
+				color: inherit
+	&-scrollbar
+		&-drag
+			height: 1.5px
+			background-color: var(--main-color)
+
+	&-button
+		&-room
+			cursor: pointer
+			svg
+				fill: var(--main-color)

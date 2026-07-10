@@ -40,6 +40,7 @@
     "jquery": "^3.6.0",
     "normalize.css": "^8.0.1",
     "swiper": "^8.1.4",
+    "wow.js": "^1.2.2",
     "ymaps-touch-scroll": "^2.1.0"
   }
 }

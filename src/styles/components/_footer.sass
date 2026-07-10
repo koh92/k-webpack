@@ -1,38 +1,120 @@
 footer
-    margin-top: 50px
-    +mq($md)
-        margin-top: 100px
-    background-color: var(--grey-color)
-    color: #fff
+    background-color: #553337
     
 .footer 
-    padding: 30px 0
-    color: var(--text-white)
-    &__top
-        margin-bottom: 40px
-        text-align: center
-        +mq($sm)
-            +flex
-            justify-content: space-between
-            margin-bottom: 100px
-            text-align: left
+    padding: 36px 0 48px
+    color: var(--white-color)
+    display: grid
+    grid-template-areas: 'logo' 'menu-left' 'menu-right' 'contact' 'ex-menu'
+    +mq($xs)
+        grid-template-areas: 'logo logo' 'menu-left menu-right' 'contact contact' 'ex-menu ex-menu'
+    +mq($md)
+        grid-template-areas: 'logo logo' 'menu-left contact' 'menu-right contact' 'ex-menu ex-menu'
+        max-width: 600px
+        margin-inline: auto
+        grid-template-columns: 1fr 1fr
+    +mq($xl)
+        grid-template-areas: 'logo menu-left menu-right ex-menu contact'
+        --two-cols: calc(100% / 12 * 2)
+        --three-cols: calc(100% / 12 * 3)
+        grid-template-columns: var(--two-cols) var(--two-cols) var(--two-cols) var(--three-cols) var(--three-cols)
+        padding: 52px 0
+        max-width: unset
+        margin-inline: unset
+    &__col
+        &--logo
+            grid-area: logo
+            +mqMax($xl)
+                text-align: center
+        &--menu-left
+            grid-area: menu-left
+            text-align: center
+            +mq($xs)
+                text-align: left
+                padding-left: 68px
+            +mq($md)
+                padding-left: 0
+        &--menu-right
+            grid-area: menu-right
+            text-align: center
+            +mq($xs)
+                text-align: left
+                padding-left: 50px
+            +mq($md)
+                padding-left: 0
+        &--ex-menu
+            grid-area: ex-menu
+            +mqMax($xl)
+                text-align: center
+            +mq($md)
+                padding-top: 40px
+                margin-top: 44px
+                border-top: 1px solid var(--dark-color)
+            +mq($xl)
+                padding-top: 0
+                margin-top: 0
+                border-top: unset
+        &--contact
+            grid-area: contact
+            +mqMax($md)
+                text-align: center
+                padding: 32px 0
+                margin: 32px 0
+                border-top: 1px solid var(--dark-color)
+                border-bottom: 1px solid var(--dark-color)
+            +mq($md)
+                padding-left: 70px
+            +mq($xl)
+                padding-left: unset
+                justify-self: flex-end
+
     &__logo
-        margin-bottom: 30px
-    &__name
-        +fz(16)
-        font-weight: 600
-        line-height: 100%
-        margin-bottom: 20px
-    &__mail
-        +mqMax($sm)
-            margin-bottom: 30px
-    &__contact
-        +flex
-        +mq($sm)
-            justify-content: flex-start
-        padding: 40px 0 28px 
-        &-item
-            & + &
-                margin-left: 30px
-    &__policy
+        margin-bottom: 36px
+        +mq($xs)
+            margin-bottom: 40px
+        +mq($xl)
+            margin-bottom: 0
+        svg
+            fill: #E4D5D5
+    &__menu
+        color: var(--text-color)
         +fz(14)
+        line-height: 17px
+        font-weight: 400
+        li
+            margin-bottom: 16px
+    &__tel
+        margin-bottom: 24px
+        .btn
+            +fz(14)
+            padding: 0
+            font-weight: 400
+            margin-left: 0
+            transform: unset
+            width: fit-content
+    &__address
+        margin-bottom: 28px
+        +mq($xl)
+            margin-bottom: 24px
+    &__contact
+        justify-self: center
+        +mq($xl)
+            justify-self: start
+        &-list
+            +flex
+            +mq($md)
+                justify-content: flex-start
+        &-item
+            +flex
+            width: 43px
+            height: 43px
+            border-radius: 53px
+            background-color: var(--main-color)
+            & + &
+                margin-left: 20px
+            a
+                +flex
+            svg
+                fill: var(--white-color)
+    
+    

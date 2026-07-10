@@ -3,7 +3,6 @@ const webpack = require('webpack')
 const paths = require('./paths')
 const { merge } = require('webpack-merge')
 
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const ImageminPlugin = require('imagemin-webpack-plugin').default
@@ -13,26 +12,6 @@ const imageminSvgo = require('imagemin-svgo')
 const imageminGifsicle = require('imagemin-gifsicle')
 
 const common = require('./common')
-
-// Добавляем в массив все HTML файлы для копирования
-// const htmlPageNames = ['extra-file'];
-const htmlPageNames = [];
-const multipleHtmlPlugins = htmlPageNames.map(name => {
-	return new HtmlWebpackPlugin({
-		template: `./${name}.html`, // relative path to the HTML files
-		filename: `${name}.html`, // output HTML files
-		chunks: [`${name}`], // respective JS files
-        minify: {
-            collapseWhitespace: true,
-            keepClosingSlash: true,
-            removeComments: true,
-            removeRedundantAttributes: true,
-            removeScriptTypeAttributes: true,
-            removeStyleLinkTypeAttributes: true,
-            useShortDoctype: true
-        }
-	})
-});
 
 module.exports = merge(common, {
 	mode: 'production',
@@ -64,7 +43,7 @@ module.exports = merge(common, {
 			    	imageminGifsicle({optimizationLevel: 3}),
 			    ]
 		    }),
-		].concat(multipleHtmlPlugins),
+		],
 	performance: {
 	    hints: 'warning',
 	    maxEntrypointSize: 512000,
