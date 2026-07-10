@@ -2,7 +2,9 @@ extends include/_layout
 
 block variables
 	- var title = 'Home page'
+	- var fancybox = true
 
 block content
 	.container
 		h1 Hello Pug!
+		a.btn(data-fancybox, data-src="#fancybox") Trigger popup

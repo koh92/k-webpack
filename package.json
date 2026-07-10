@@ -35,9 +35,8 @@
     "webpack-hot-middleware": "^2.25.1"
   },
   "dependencies": {
-    "@fancyapps/fancybox": "^3.5.7",
+    "@fancyapps/ui": "^5.0.16",
     "inputmask": "^5.0.8",
-    "jquery": "^3.6.0",
     "normalize.css": "^8.0.1",
     "swiper": "^8.1.4",
     "wow.js": "^1.2.2",

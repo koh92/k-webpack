@@ -1,12 +1,8 @@
-// jQuery
-// import $ from 'jQuery';
-
 // Swiper
 import Swiper, { Navigation, Pagination, Thumbs } from 'swiper';
 
 // Fancybox
-// window.jQuery = window.$ = $
-// require("@fancyapps/fancybox/dist/jquery.fancybox");
+import { Fancybox } from '@fancyapps/ui/dist/fancybox/fancybox.umd.js';
 
 // Inputmask
 // import Inputmask from "inputmask";
@@ -101,6 +97,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     // FAQ toggler
     faqAccordion()
+	
+	// https://fancyapps.com/fancybox/api/methods/
+	Fancybox.bind("[data-fancybox]", {
+		closeButton: false,
+		dragToClose: false
+		// Your custom options
+	});
 
     if(document.documentElement.clientWidth < 768) {
     }
