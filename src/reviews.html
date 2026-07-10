@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+<!-- Header::Start-->
+<header>
+</header>
+<!-- Header::End-->
+
+<!-- Main::Start-->
+<main>
+    <div class="reviews">
+        <div class="container">
+            <a href="index.html" class="page__back">
+                <div class="page__back-title">
+                    К описанию товара
+                </div>
+                <div class="page__back-subtitle">
+                    Пилинг-варежка для тела из 100% шелка
+                </div>
+            </a>
+            <h1 class="page__title" data-count="20">
+                Отзывы
+            </h1>
+            <div class="reviews__inner">
+                <div class="reviews__left">
+                    <div class="reviews__slider">
+                        <!-- Slider main container -->
+                        <div class="reviews__slider-wrapper js-reviews-swiper">
+                            <!-- Additional required wrapper -->
+                            <ul class="reviews__slider-list swiper-wrapper">
+                                <!-- Slides -->
+                                <li class="reviews__slider-item swiper-slide" data-fancybox="gallery"
+                                    data-src="./images/review_image.jpg">
+                                    <img src="./images/review_image.jpg" alt="#">
+                                </li>
+                                <li class="reviews__slider-item swiper-slide" data-fancybox="gallery"
+                                    data-src="./images/review_image_2.jpg">
+                                    <img src="./images/review_image_2.jpg" alt="#">
+                                </li>
+                                <li class="reviews__slider-item swiper-slide reviews__slider-item--video" data-fancybox="gallery"
+                                    data-src="https://www.youtube-nocookie.com/embed/yxvb3To7wu0">
+                                    <img src="http://img.youtube.com/vi/yxvb3To7wu0/mqdefault.jpg" alt="Nature">
+                                </li>
+                                <li class="reviews__slider-item swiper-slide" data-fancybox="gallery"
+                                    data-src="./images/review_image_2.jpg">
+                                    <img src="./images/review_image_2.jpg" alt="#">
+                                </li>
+                                <li class="reviews__slider-item swiper-slide reviews__slider-item--video" data-fancybox="gallery"
+                                    data-src="./images/review_image.jpg">
+                                    <img src="./images/review_image.jpg" alt="#">
+                                </li>
+                                <li class="reviews__slider-item swiper-slide" data-fancybox="gallery"
+                                    data-src="./images/review_image_2.jpg">
+                                    <img src="./images/review_image_2.jpg" alt="#">
+                                </li>
+                                <li class="reviews__slider-item swiper-slide" data-fancybox="gallery"
+                                    data-src="./images/review_image_2.jpg">
+                                    <img src="./images/review_image_2.jpg" alt="#">
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- If we need navigation buttons -->
+                        <div class="reviews__slider-arrows swiper-arrows">
+                            <div class="swiper-button-prev js-reviews-prev"></div>
+                            <div class="swiper-button-next js-reviews-next"></div>
+                        </div>
+                    </div>
+                    <div class="reviews__sorting js-reviews-sort">
+                        <div class="reviews__sorting-title">Сортировать:</div>
+                        <a href="javascript:void(0)"
+                           class="reviews__sorting-item reviews__sorting-item--active reviews__sorting-item--asc js-reviews-sort-item">По
+                            новизне</a>
+                        <a href="javascript:void(0)" class="reviews__sorting-item js-reviews-sort-item">По оценке</a>
+                    </div>
+                    <ul class="reviews__list">
+                        <li class="reviews__item">
+                            <div class="reviews__item-top">
+                                <div class="reviews__item-left">
+                                    <div class="reviews__item-image">
+                                        <img src="./images/reviews-image.jpg" alt="Елена">
+                                    </div>
+                                    <div class="reviews__item-name">
+                                        Елена
+                                    </div>
+                                    <div class="reviews__item-date">
+                                        17 января 2020
+                                    </div>
+                                </div>
+                                <div class="rating__stars">
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star"></div>
+                                </div>
+                            </div>
+                            <div class="reviews__item-text">
+                                Lorem ipsum dolor sit amet consectetur. Ridiculus porta sollicitudin purus posuere
+                                tempor tristique at. Suspendisse cras convallis lacinia enim ultrices vestibulum sociis
+                                ante gravida. Dis eget purus morbi mattis faucibus erat in scelerisque purus. Porttitor
+                                sem neque egestas eget in et ac. Risus volutpat quam tellus vulputate diam. Luctus nibh
+                                odio nulla aliquet ipsum. Ut ullamcorper velit neque amet turpis amet tempus.
+                            </div>
+                        </li>
+                        <li class="reviews__item">
+                            <div class="reviews__item-top">
+                                <div class="reviews__item-left">
+                                    <div class="reviews__item-image">
+                                        <img src="./images/reviews-image-1.jpg" alt="Оксана">
+                                    </div>
+                                    <div class="reviews__item-name">
+                                        Оксана
+                                    </div>
+                                    <div class="reviews__item-date">
+                                        17 января 2020
+                                    </div>
+                                </div>
+                                <div class="rating__stars">
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star"></div>
+                                </div>
+                            </div>
+                            <div class="reviews__item-text">
+                                Потрясающая вещь! Пользуюсь вторую неделю (1 раз в неделю), кожа стала нереально нежная,
+                                блестящая - а, главное, гораздо меньше этих дурацких точек со вросшими волосами😩И это
+                                точно заслуга Шелковицы. Спасибо!
+                            </div>
+                        </li>
+                        <li class="reviews__item">
+                            <div class="reviews__item-top">
+                                <div class="reviews__item-left">
+                                    <div class="reviews__item-image">
+                                        <img src="./images/reviews-image-2.jpg" alt="Оксана">
+                                    </div>
+                                    <div class="reviews__item-name">
+                                        Оксана
+                                    </div>
+                                    <div class="reviews__item-date">
+                                        17 января 2020
+                                    </div>
+                                </div>
+                                <div class="rating__stars">
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star"></div>
+                                </div>
+                            </div>
+                            <div class="reviews__item-text">
+                                Потрясающая вещь! Пользуюсь вторую неделю (1 раз в неделю), кожа стала нереально нежная,
+                                блестящая - а, главное, гораздо меньше этих дурацких точек со вросшими волосами😩И это
+                                точно заслуга Шелковицы. Спасибо!
+                            </div>
+                        </li>
+                        <li class="reviews__item">
+                            <div class="reviews__item-top">
+                                <div class="reviews__item-left">
+                                    <div class="reviews__item-image">
+                                        <img src="./images/reviews-image.jpg" alt="Елена">
+                                    </div>
+                                    <div class="reviews__item-name">
+                                        Елена
+                                    </div>
+                                    <div class="reviews__item-date">
+                                        17 января 2020
+                                    </div>
+                                </div>
+                                <div class="rating__stars">
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star"></div>
+                                </div>
+                            </div>
+                            <div class="reviews__item-text">
+                                Lorem ipsum dolor sit amet consectetur. Ridiculus porta sollicitudin purus posuere
+                                tempor tristique at. Suspendisse cras convallis lacinia enim ultrices vestibulum sociis
+                                ante gravida. Dis eget purus morbi mattis faucibus erat in scelerisque purus. Porttitor
+                                sem neque egestas eget in et ac. Risus volutpat quam tellus vulputate diam. Luctus nibh
+                                odio nulla aliquet ipsum. Ut ullamcorper velit neque amet turpis amet tempus.
+                            </div>
+                        </li>
+                        <li class="reviews__item">
+                            <div class="reviews__item-top">
+                                <div class="reviews__item-left">
+                                    <div class="reviews__item-image">
+                                        <img src="./images/reviews-image-1.jpg" alt="Оксана">
+                                    </div>
+                                    <div class="reviews__item-name">
+                                        Оксана
+                                    </div>
+                                    <div class="reviews__item-date">
+                                        17 января 2020
+                                    </div>
+                                </div>
+                                <div class="rating__stars">
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star"></div>
+                                </div>
+                            </div>
+                            <div class="reviews__item-text">
+                                Потрясающая вещь! Пользуюсь вторую неделю (1 раз в неделю), кожа стала нереально нежная,
+                                блестящая - а, главное, гораздо меньше этих дурацких точек со вросшими волосами😩И это
+                                точно заслуга Шелковицы. Спасибо!
+                            </div>
+                        </li>
+                        <li class="reviews__item">
+                            <div class="reviews__item-top">
+                                <div class="reviews__item-left">
+                                    <div class="reviews__item-image">
+                                        <img src="./images/reviews-image-2.jpg" alt="Оксана">
+                                    </div>
+                                    <div class="reviews__item-name">
+                                        Оксана
+                                    </div>
+                                    <div class="reviews__item-date">
+                                        17 января 2020
+                                    </div>
+                                </div>
+                                <div class="rating__stars">
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star"></div>
+                                </div>
+                            </div>
+                            <div class="reviews__item-text">
+                                Потрясающая вещь! Пользуюсь вторую неделю (1 раз в неделю), кожа стала нереально нежная,
+                                блестящая - а, главное, гораздо меньше этих дурацких точек со вросшими волосами😩И это
+                                точно заслуга Шелковицы. Спасибо!
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="javascript:void(0)" class="page__loadmore">
+                        Загрузить еще
+                    </a>
+                </div>
+                <div class="reviews__right">
+                    <div class="rating">
+                        <div class="rating__total">
+                            <div class="rating__total-number">
+                                4.7
+                            </div>
+                            <div class="rating__stars">
+                                <div class="rating__star rating__star--active"></div>
+                                <div class="rating__star rating__star--active"></div>
+                                <div class="rating__star rating__star--active"></div>
+                                <div class="rating__star rating__star--active"></div>
+                                <div class="rating__star rating__star"></div>
+                            </div>
+                        </div>
+                        <div class="rating__main">
+                            <div class="rating__row">
+                                <div class="rating__stars">
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                </div>
+                                <div class="rating__progressbar">
+                                    <div class="rating__progressbar-thumb" style="width: calc(30 * 100% / 40);"></div>
+                                </div>
+                                <div class="rating__count">
+                                    28
+                                </div>
+                            </div>
+                            <div class="rating__row">
+                                <div class="rating__stars">
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star"></div>
+                                </div>
+                                <div class="rating__progressbar">
+                                    <div class="rating__progressbar-thumb" style="width: calc(10 * 100% / 40);"></div>
+                                </div>
+                                <div class="rating__count">
+                                    10
+                                </div>
+                            </div>
+                            <div class="rating__row">
+                                <div class="rating__stars">
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star"></div>
+                                    <div class="rating__star rating__star--small rating__star"></div>
+                                </div>
+                                <div class="rating__progressbar">
+                                    <div class="rating__progressbar-thumb" style="width: calc(5 * 100% / 40);"></div>
+                                </div>
+                                <div class="rating__count">
+                                    5
+                                </div>
+                            </div>
+                            <div class="rating__row">
+                                <div class="rating__stars">
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star"></div>
+                                    <div class="rating__star rating__star--small rating__star"></div>
+                                    <div class="rating__star rating__star--small rating__star"></div>
+                                </div>
+                                <div class="rating__progressbar">
+                                    <div class="rating__progressbar-thumb" style="width: calc(5 * 100% / 40);"></div>
+                                </div>
+                                <div class="rating__count">
+                                    5
+                                </div>
+                            </div>
+                            <div class="rating__row">
+                                <div class="rating__stars">
+                                    <div class="rating__star rating__star--small rating__star--active"></div>
+                                    <div class="rating__star rating__star--small rating__star"></div>
+                                    <div class="rating__star rating__star--small rating__star"></div>
+                                    <div class="rating__star rating__star--small rating__star"></div>
+                                    <div class="rating__star rating__star--small rating__star"></div>
+                                </div>
+                                <div class="rating__progressbar">
+                                    <div class="rating__progressbar-thumb rating__progressbar-thumb--zero"
+                                         style="width: calc(0 * 100% / 40);"></div>
+                                </div>
+                                <div class="rating__count">
+                                    0
+                                </div>
+                            </div>
+                        </div>
+                        <a href="javascript:void(0)" class="btn reviews__btn btn--purple" data-fancybox data-src="#reviews-popup">Написать отзыв</a>
+                        <div class="popup popup--reviews reviews__popup" id="reviews-popup" style="display: none;">
+                            <form action="#">
+                                <div class="reviews__popup-title">
+                                    Оставить отзыв
+                                </div>
+                                <div class="reviews__popup-product">
+                                    <div class="reviews__popup-product-image">
+                                        <img src="./images/reviews-product.jpg" alt="Пилинг-варежка для тела из 100% шелка">
+                                    </div>
+                                    <div class="reviews__popup-product-name">
+                                        Пилинг-варежка для тела из 100% шелка
+                                    </div>
+                                </div>
+                                <div class="reviews__popup-vote">
+                                    <div class="reviews__vote-title">
+                                        Оцените товар
+                                    </div>
+                                    <div class="rating__stars">
+                                        <div class="rating__star rating__star--small rating__star--active"></div>
+                                        <div class="rating__star rating__star--small rating__star--active"></div>
+                                        <div class="rating__star rating__star--small rating__star--active"></div>
+                                        <div class="rating__star rating__star--small rating__star--active"></div>
+                                        <div class="rating__star rating__star--small rating__star"></div>
+                                    </div>
+                                </div>
+                                <div class="reviews__popup-comment">
+                                    <textarea сols="30" rows="10" placeholder="Комментарий"></textarea>
+                                </div>
+                                <button class="btn btn--purple reviews__popup-btn" data-fancybox data-src="#success-popup">Отправить отзыв</button>
+                                <div class="reviews__popup-policy">
+                                    Нажимая на кнопку, вы соглашаетесь на обработку <a href="/policy">персональных данных</a>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="popup popup--success" id="success-popup" style="display: none;">
+                            <div class="popup__icon">
+                                <img src="./images/success-icon.svg" alt="Success">
+                            </div>
+                            <div class="popup__title">
+                                Спасибо!
+                            </div>
+                            <div class="popup__subtitle">
+                                Ваш отзыв успешно отправлен
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- Main::End-->
+
+<!-- Footer::Start-->
+<footer>
+</footer>
+<!-- Footer::End-->
+
+<!-- Popups::Start-->
+
+<!-- Popups::End-->
+</body>
+</html>
+

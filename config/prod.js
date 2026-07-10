@@ -19,12 +19,12 @@ module.exports = merge(common, {
 	devtool: false,
 	output: {
 	    filename: 'js/[name].[contenthash].bundle.js',
-	    chunkFilename: 'js/[name].[contenthash].chunk.js'
+	    // chunkFilename: 'js/[name].[contenthash].chunk.js'
 	},
 	target: 'browserslist',
 	optimization: {
 		splitChunks: {
-			chunks: 'all'
+			chunks: 'all',
 		},
 		minimizer: [
 			new ImageMinimizerPlugin({
@@ -72,6 +72,7 @@ module.exports = merge(common, {
 		      filename: 'css/[name].[contenthash].css',
 		      // chunkFilename: '[id].css'
 		      // chunkFilename: '[name].css'
+		      // chunkFilename: '[name].[contenthash].css'
 		    }),
 		    // new ImageminPlugin({
 			//     test: /\.(jpe?g|png|gif|svg)$/i,

@@ -2,262 +2,166 @@
 	@each $name, $value in $colors
 		--#{$name}-color: #{$value}
 
+html
+	scroll-behavior: smooth
+	overflow-x: hidden
 body
 	font-family: 'Open Sans', sans-serif
-	min-height: calc(100vh - 80px - 100px)
+	min-height: 100vh
 	display: flex
 	flex-direction: column
-	background-color: var(--background-color)
-	color: var(--black-color)
-	&.white-bg
-		background-color: var(--white-color)
+	color: var(--text-color)
 
-main
-	flex: 1 0 auto
-	min-height: 50vh // Temp prop
-
-::-webkit-scrollbar
-	background-color: var(--white-color)
-	width: 5px
-	//max-height: 3px
-
-::-webkit-scrollbar-thumb
-	border-radius: 5px
-	background-color: var(--blue-color)
-
-.color-light-blue
-	color: var(--light-blue-color)
-.mod-noscroll
-	overflow: hidden
-	position: fixed
-	top: 0
-	left: 0
-	right: 0
-.mod-md-hide
-	+mqMax($md)
-		display: none !important
-.mod-xl-hide
-	+mqMax($xl)
-		display: none !important
-
-.logo
-	width: 100%
-	max-height: 40px
-	max-width: 140px
-	+mq($xl)
-		max-height: 56px
-		max-width: 200px
-.error
-	&__text
-		+fz(12)
-		line-height: 120%
-		color: var(--error-color)
-		padding-top: 4px
-
-.narrow-content
-	+mq($xl)
-		max-width: calc(100% / 12 * 8)
-.narrow-content-9
-	+mq($xl)
-		max-width: calc(100% / 12 * 9)
-
-.page-title
-	font-family: "Roboto Condensed", sans-serif
-	+fz(28)
-	font-weight: 700
-	line-height: 120%
-	letter-spacing: 0.01em
-	text-transform: uppercase
-	//margin-bottom: 16px
-	margin-bottom: 28px
-	+mq($xl)
-		+fz(34)
-		line-height: 124%
-		//margin-bottom: 20px
-		margin-bottom: 40px
-
-.content
-	p
+.page
+	&__back
+		font-family: 'Montserrat', sans-serif
 		+fz(14)
-		line-height: 145%
-		margin-bottom: 24px
+		line-height: 20px
+		margin-top: 20px
+		margin-bottom: 20px
 		+mq($xl)
-			+fz(15)
-			margin-bottom: 28px
-	h3
-		font-family: "Roboto Condensed"
-		+fz(18)
-		line-height: 120%
-		letter-spacing: 0.01em
-		text-transform: uppercase
-		padding: 16px
-		margin-bottom: 24px
-		border-left: 4px solid var(--light-blue-color)
-		background-color: var(--white-color)
-		+mq($xl)
-			+fz(20)
-			padding: 24px
-	h4
-		font-family: "Roboto Condensed"
-		+fz(18)
-		font-weight: 700
-		line-height: 120%
-		margin-bottom: 8px
-		letter-spacing: 0.01em
-		text-transform: uppercase
-		+mq($xl)
-			+fz(20)
-	a
-		color: var(--light-blue-color)
-	img
-		margin-bottom: 28px
-		+mq($xl)
-			margin-bottom: 32px
-	ul
-		li
-			position: relative
+			display: flex
+			align-items: center
+			gap: 12px
+			margin-top: 40px
+			margin-bottom: 40px
+		&-title
+			display: flex
+			align-items: center
+			gap: 4px
+			font-weight: 600
+			text-decoration: underline
+			color: var(--accent-purple-color)
 			&::before
 				content: ''
-				position: absolute
-				//top: calc(50% - 9px / 2)
-				top: 6px
-				left: 0
-				+arr(5, 9, var(--blue-color), r)
-			&:not(:has(:is(p, h2, h3, h4)))
-				padding-left: 16px
-				+mq($xl)
-					padding-left: 24px
-			+ li
-				margin-top: 12px
-				+mq($xl)
-					margin-top: 16px
-			h4
-				font-family: "Roboto Condensed"
+				display: block
+				flex: 0 0 18px
+				width: 18px
+				height: 15px
+				+bg('../images/arrow-left.svg')
+		&-subtitle
+			font-weight: 400
+			color: var(--grey-color)
+			+mqMax($xl)
+				padding-top: 4px
+				text-overflow: ellipsis
+				overflow: hidden
+				white-space: nowrap
+				width: calc(100vw - var(--gutter) - 35px)
+	&__title
+		display: flex
+		font-family: 'Montserrat', sans-serif
+		+fz(25)
+		line-height: 38px
+		font-weight: 500
+		margin-bottom: 20px
+		color: var(--accent-purple-color)
+		+mq($xl)
+			+fz(32)
+			line-height: 44px
+			margin-bottom: 30px
+		&::after
+			content: attr(data-count)
+			display: block
+			position: relative
+			top: -5px
+			font-size: 0.5em
+			padding-left: 5px
+	&__loadmore
+		display: flex
+		align-items: center
+		gap: 4px
+		font-family: 'Montserrat', sans-serif
+		+fz(14)
+		line-height: 20px
+		font-weight: 600
+		text-decoration: underline
+		color: var(--accent-purple-color)
+		margin-top: 20px
+		margin-left: 50%
+		transform: translateX(-50%)
+		+mq($xl)
+			margin-top: 30px
+			margin-left: unset
+			transform: unset
+		&::after
+			content: ''
+			display: block
+			flex: 0 0 14px
+			width: 14px
+			height: 14px
+			+bg('../images/chevrons-down.svg')
 
-				margin-bottom: 4px
-				padding-left: 16px
-				+fz(16)
-				line-height: 125%
-				font-weight: 700
-				letter-spacing: 0.01em
-				text-transform: uppercase
-				+mq($xl)
-					+fz(18)
-					line-height: 120%
-					padding-left: 24px
-				+ p
-					margin-top: 4px
 
-			p
-				padding-left: 16px
-				margin-bottom: 0
-				+mq($xl)
-					padding-left: 24px
-	ol
-		li
-			list-style: decimal
-			&:not(:has(:is(p, h2, h3, h4)))
-				margin-left: 8px
-				+mq($xl)
-					margin-left: 16px
-			+ li
-				margin-top: 12px
-				+mq($xl)
-					margin-top: 16px
-	table
-		border: 1px solid var(--stroke-color)
-		td
-			padding: 12px 8px
-			&:first-child
-				font-weight: bold
-			+mq($md)
-				padding: 12px 16px
-			+mq($xl)
-				padding: 14px 20px
-		tr + tr
-			td
-				border-top: 1px solid var(--stroke-color)
-		td + td
-			border-left: 1px solid var(--stroke-color)
-
-.map
-	width: 100%
+.btn
+	font-family: 'Montserrat', sans-serif
+	+fz(18)
+	font-weight: 500
+	line-height: 24px
+	padding: 8px
+	text-align: center
+	border-radius: 6px
+	&--purple
+		background-color: var(--accent-purple-color)
+		color: var(--white-color)
 
 \:root
-	--swiper-theme-color: var(--dark-grey-color)
+	--swiper-theme-color: var(--accent-purple-color)
 .swiper
 	&-arrows
 		display: none
-		+mq($md)
+		+mq($xl)
 			display: block
 	&-button
-		border: unset
-		background-color: transparent
-		&--circle
-			border-radius: 50%
-		&--white
-			background-color: var(--white-color)
-			border: 1px solid var(--stroke-color)
-		&--blue
-			background-color: var(--blue-color)
-			--swiper-navigation-color: var(--white-color)
-			transition: background .3s
-			&:hover
-				background-color: var(--hover-blue-color)
+		transition: .3s
 		&-prev,
 		&-next
-			--swiper-navigation-size: 14px
-			width: 44px
-			height: 44px
-			+mq($md)
-				width: 48px
-				height: 48px
-		&--transparent
-			background-color: transparent
-			border: unset
-			width: 40px
-			height: 40px
+			--swiper-navigation-size: 25px
+			width: 25px
+			height: 25px
+			background-color: var(--white-color)
+			border-radius: 50%
+			border: 0.625px solid var(--accent-purple-color)
+			//margin-top: calc(0px - 25px / 2)
+			+mq($xl)
+				//margin-top: calc(0px - 25px / 2)
+				&::after
+					font-size: 10px
 		&-prev
-			left: calc((48px + 12px) * -1)
 			+mq($xl)
-				left: 12px
-				&.swiper-button--related-articles,
-				&.swiper-button--related-products
-					left: calc((48px + 12px) * -1)
+				left: calc(var(--swiper-navigation-size) / 2 * -1)
 		&-next
-			right: calc((48px + 12px) * -1)
 			+mq($xl)
-				right: 12px
-				&.swiper-button--related-articles,
-				&.swiper-button--related-products
-					right: calc((48px + 12px) * -1)
-		&--small
-			&.swiper-button-prev
-				left: 0
-			&.swiper-button-next
-				right: 0
-			&.swiper-button-prev,
-			&.swiper-button-next
-				--swiper-navigation-size: 8px
-				--size: 24px
-				//top: calc(50% - var(--size) / 2)
-				top: calc(50% - 20px / 2)
-				width: var(--size)
-				height: var(--size)
-				+mq($md)
-					--size: 28px
-					width: var(--size)
-					height: var(--size)
-	&-pagination
-		&-bullet
-			--swiper-pagination-bullet-inactive-opacity: 1
-			border: 1px solid var(--dark-grey-color)
-			background-color: #F4F6FA
-			&-active
-				background-color: var(--dark-grey-color)
-
-
-.grecaptcha-badge
-	z-index: -999999
-	visibility: hidden
-	opacity: 0
+				right: calc(var(--swiper-navigation-size) / 2 * -1)
+		&-disabled
+			opacity: 0
+			visibility: hidden
+.popup
+	&--success
+		background-color: var(--light-pink-color)
+		border-radius: 6px
+		width: 100vw
+		height: 100vh
+		display: flex
+		align-items: center
+		justify-content: center
+		color: var(--white-color)
+		text-align: center
+		+mq($xl)
+			padding-top: 82px
+			padding-bottom: 122px
+			max-width: 360px
+			width: 100%
+			height: auto
+	&__icon
+		margin-bottom: 20px
+	&__title
+		+fz(24)
+		font-weight: 500
+		line-height: 32px
+		margin-bottom: 8px
+	&__subtitle
+		+fz(16)
+		line-height: 22px
+		max-width: 167px
+		margin: 0 auto

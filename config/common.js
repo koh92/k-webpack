@@ -42,9 +42,8 @@ const cssOutputConfig =
 	        name: '[name].min.css',
 	        url: false, // prevent creating images from styles
 			sourceMap: true,
-	    }
+	    },
 	} : {
-	    
 	    loader: "css-loader",
 	    options: {
 	        url: false, // prevent creating images from styles
@@ -62,29 +61,17 @@ const minifyImages =
 // Добавляем в массив все HTML файлы для копирования
 const htmlPageNames = [
 	'index',
-	'about',
-	'delivery',
-	'articles',
-	'articles-inner',
 	'faq',
-	'contacts',
-	'catalog',
-	'catalog-category',
-	'catalog-subcategory',
-	'product',
-	'wishlist',
-	'cart',
-	'order',
-	'order-success',
-	'account-main',
-	'account-orders',
-	'search',
-	'public_offer',
-	'policy',
-	'404',
-	'registration',
-	'enter'
+	'reviews'
 ];
+
+const separateCSSfiles = {
+	'page_faq': './styles/pages/_faq.sass',
+	'page_reviews': './styles/pages/_reviews.sass',
+	// Файлы можно добавить массивом, они будут объединены в один файл
+	// 'pages': ['./styles/pages/_reviews.sass', './styles/pages/_faq.sass'],
+};
+
 const multipleHtmlPlugins = htmlPageNames.map(name => {
 	return new HtmlWebpackPlugin({
 		title: name,
@@ -99,7 +86,10 @@ const multipleHtmlPlugins = htmlPageNames.map(name => {
 module.exports = {
 	context: paths.src,
 	// entry: './js/index.js',
-	entry: './js/index.js',
+	entry: {
+		'main': './js/index.js',
+		...separateCSSfiles,
+	},
 	output: {
 		path: paths.dist,
 		filename: 'js/[name].bundle.js',

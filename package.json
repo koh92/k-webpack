@@ -1,7 +1,7 @@
 {
-  "name": "Techcentral",
+  "name": "Shelcovica",
   "version": "1.0.0",
-  "description": "Techcentral layout create",
+  "description": "Shelcovica instruction page layout",
   "main": "index.js",
   "private": true,
   "scripts": {
