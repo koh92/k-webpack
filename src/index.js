@@ -2,7 +2,10 @@ import $ from 'jquery';
 import avg from './some.js';
 import merge from './some.js';
 
-import './css/main.css'
+
+import './css/main.css';
+
+import './sass/main.sass';
 
 $('.title').html('Some Text')
 
@@ -14,6 +17,10 @@ function func(surname, name, ...rest) {
 	alert(rest); //выведет ['20 лет', 'женат', 'без вп']
 }
 
-console.log(func('Иванов', 'Иван', '20 лет', 'холост', 'без вп'))
+// console.log(func('Иванов', 'Иван', '20 лет', 'холост', 'без вп'))
+
+// console.log('12345')
+
+alert('Page is loaded!')
 
 // console.log(merge({a:1},{b:2}))
