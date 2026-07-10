@@ -1,7 +1,8 @@
 import $ from 'jQuery'
 
 import Swiper, { Navigation, Pagination, Autoplay } from 'swiper'
-import 'swiper/css';
+import 'swiper/css/bundle';
+import 'normalize.css';
 
 import ymapsTouchScroll from 'ymaps-touch-scroll';
 

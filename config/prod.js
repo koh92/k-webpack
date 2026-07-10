@@ -21,7 +21,16 @@ const multipleHtmlPlugins = htmlPageNames.map(name => {
 	return new HtmlWebpackPlugin({
 		template: `./${name}.html`, // relative path to the HTML files
 		filename: `${name}.html`, // output HTML files
-		chunks: [`${name}`] // respective JS files
+		chunks: [`${name}`], // respective JS files
+        minify: {
+            collapseWhitespace: true,
+            keepClosingSlash: true,
+            removeComments: true,
+            removeRedundantAttributes: true,
+            removeScriptTypeAttributes: true,
+            removeStyleLinkTypeAttributes: true,
+            useShortDoctype: true
+        }
 	})
 });
 
@@ -40,20 +49,6 @@ module.exports = merge(common, {
 	},
 	plugins: 
 		[
-			new HtmlWebpackPlugin({
-		    	title: 'Webpack App K',
-		    	template: './index.html',
-		    	chunks: ['main'],
-                minify: {
-                    collapseWhitespace: true,
-                    keepClosingSlash: true,
-                    removeComments: true,
-                    removeRedundantAttributes: true,
-                    removeScriptTypeAttributes: true,
-                    removeStyleLinkTypeAttributes: true,
-                    useShortDoctype: true
-                }
-		    }),
 			new MiniCssExtractPlugin({
 		      filename: 'css/[name].[contenthash].css',
 		      // chunkFilename: '[id].css'

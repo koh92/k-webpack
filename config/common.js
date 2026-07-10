@@ -33,6 +33,8 @@ module.exports = {
 			// CSS, SASS|SCSS
 			{
 		        test: /\.((c|sa|sc)ss)$/i,
+
+                // One CSS file in Prod
 		        use: [
 		        	// style-loader create inline tag style
 		        	// MiniCssExtractPlugin create separete file style
@@ -66,6 +68,33 @@ module.exports = {
 		        	// Compiles Sass to CSS
 		        	"sass-loader"
 		        ],
+                // Separate CSS files in Prod
+                // use: [
+                //     {
+                //         loader: 'file-loader',
+                //         options: {
+                //             outputPath: 'css/',
+                //             name: '[name].min.css',
+                //             url: false // prevent creating images from styles
+                //         }
+                //     },
+                //     // Post CSS process
+                //     {
+                //       loader: "postcss-loader",
+                //       options: {
+                //         postcssOptions: {
+                //           plugins: [
+                //             postcssPresetEnv({
+                //                 stage: 2, // 0 (experimental) - 4 (stable) | default is 2
+                //                 browsers: 'last 2 versions'
+                //             })
+                //           ],
+                //         },
+                //       }
+                //     },
+                //     // Compiles Sass to CSS
+                //     "sass-loader"
+                // ]
 		    },
 		]
 	},
