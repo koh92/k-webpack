@@ -15,9 +15,9 @@ input[name^="acceptance-"]
 	opacity: 0
 .wpcf7-not-valid
 	&:placeholder-shown
-		border: 1px solid var(--red-color)
+		border: 1px solid var(--clr-red)
 		&:not(:focus)::placeholder
-//color: var(--red-color)
+			color: var(--red-color)
 .wpcf7-not-valid-tip
 	opacity: 0
 	visibility: hidden
@@ -27,4 +27,11 @@ input[name^="acceptance-"]
 	display: block
 	+fz(16)
 	line-height: 130%
-	color: var(--red-color)
+	color: var(--clr-red)
+input
+	&:placeholder-shown
+		& + .wpcf7-not-valid-tip
+			opacity: 1
+			visibility: visible
+			height: auto
+			margin-top: 8px

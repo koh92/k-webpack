@@ -96,7 +96,8 @@
 =font($alias, $name, $weight: normal, $style: normal)
 	@font-face
 		font-family: $alias
-		src: url("../fonts/" + $name + ".woff2") format("woff2"), url("../fonts/" + $name + ".woff") format("woff")
+		// src: local($alias), url("../fonts/" + $name + ".woff") format("woff")
+		src: local($alias), url("Fonts/" + $name + ".woff") format("woff")
 		font-weight: $weight
 		font-style: $style
 // to use:
@@ -180,13 +181,11 @@
 	height: $height
 	
 =cover()
-	width: 100%
-	height: 100%
+	+box(100%)
 	object-fit: cover
 
 =contain()
-	width: 100%
-	height: 100%
+	+box(100%)
 	object-fit: contain
 
 =hr($height: 1px, $bg-color: #000)

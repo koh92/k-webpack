@@ -3,61 +3,63 @@ block header
 		.container
 			.header
 				a.header__logo(href= isProd ? "index.html" : "/")
-					+img("Images/logo.svg", "Get Turbo")
+					+img("Images/logo_black.svg", "logo")
 				.header__search
-					form(action="search.html")
-						input(type="search", name="q", placeholder="Поиск", autocomplete="off")
-						button(name="s", type="submit") <svg viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.152 17.032a7.886 7.886 0 1 0 0-15.773 7.886 7.886 0 0 0 0 15.773v0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="m18.785 18.786-3.973-3.973" stroke="#07422E" stroke-width="2" stroke-linejoin="round"/></svg>
-				a.header__help(data-fancybox, data-src="#help-popup")
-					span Не знаете номер турбины?&nbsp;
-					span Мы можем помочь с подбором!
-				.header__actions 
-					a.header__action(href= "basket.html")
-						.header__action-icon <svg viewbox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.063 27c-.55 0-1.032-.203-1.444-.608-.413-.404-.619-.877-.619-1.417V7.425c0-.54.206-1.013.619-1.417.412-.405.893-.608 1.443-.608h3.782v-.338c0-1.417.498-2.615 1.495-3.594C11.336.49 12.556 0 14 0s2.664.49 3.66 1.468c.998.979 1.496 2.177 1.496 3.595V5.4h3.782c.55 0 1.03.202 1.443.607.413.405.619.878.619 1.418v17.55c0 .54-.206 1.012-.619 1.417-.412.405-.893.608-1.444.608H5.063zm0-2.025h17.875V7.425h-3.782v3.038c0 .286-.1.527-.298.72a1.016 1.016 0 0 1-.739.292.996.996 0 0 1-1.025-1.012V7.425h-6.188v3.038c0 .286-.1.527-.298.72a1.016 1.016 0 0 1-.739.292.996.996 0 0 1-1.025-1.012V7.425H5.063v17.55zM10.905 5.4h6.188v-.338c0-.855-.298-1.575-.894-2.16-.596-.585-1.33-.877-2.2-.877-.87 0-1.604.292-2.2.877-.596.585-.894 1.305-.894 2.16V5.4z"/></svg>
-						.header__action-text Корзина <span class="js-counter">50</span>
-					a.header__action(href= "favourite.html")
-						.header__action-icon <svg viewbox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 27V2.234c0-.595.225-1.117.675-1.564C4.125.223 4.65 0 5.25 0h16.5c.6 0 1.125.223 1.575.67.45.447.675.969.675 1.564V27l-10.5-4.469L3 27zm2.25-3.389 8.25-3.463 8.25 3.463V2.234H5.25v21.377z"/></svg>
-						.header__action-text Избранное
-					a.header__action(href= "personal.html")
-						.header__action-icon <svg viewbox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#a)"><path d="M13.5 12.656c-1.856 0-3.375-.59-4.556-1.772-1.182-1.18-1.772-2.7-1.772-4.556 0-1.856.59-3.375 1.772-4.556C10.125.59 11.644 0 13.5 0c1.856 0 3.375.59 4.556 1.772 1.181 1.181 1.772 2.7 1.772 4.556 0 1.856-.59 3.375-1.772 4.556-1.181 1.182-2.7 1.772-4.556 1.772zM0 26.198v-3.965c0-1.069.267-1.983.802-2.742a5.147 5.147 0 0 1 2.067-1.73c1.884-.844 3.691-1.477 5.42-1.898a21.914 21.914 0 0 1 5.211-.633c1.744 0 3.473.218 5.19.654 1.715.436 3.514 1.064 5.396 1.885.88.397 1.586.974 2.117 1.728.531.755.797 1.667.797 2.736v3.965H0zm2.531-2.53H24.47v-1.435c0-.45-.134-.88-.401-1.287a2.54 2.54 0 0 0-.991-.907c-1.8-.872-3.446-1.47-4.936-1.793a21.829 21.829 0 0 0-4.641-.485c-1.603 0-3.164.162-4.683.485-1.519.324-3.164.921-4.936 1.793-.393.197-.717.5-.97.907-.253.408-.38.837-.38 1.287v1.434zM13.5 10.124c1.097 0 2.004-.359 2.721-1.076.717-.717 1.076-1.624 1.076-2.72 0-1.098-.359-2.005-1.076-2.722-.717-.717-1.624-1.076-2.721-1.076s-2.004.359-2.721 1.076c-.717.717-1.076 1.624-1.076 2.721s.359 2.004 1.076 2.721c.717.717 1.624 1.076 2.721 1.076z"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h27v27H0z"/></clipPath></defs></svg>
-						.header__action-text Профиль
-				.header__catalog
-					a.btn.btn--green.header__catalog-btn(href= "catalog.html") Каталог
-				nav.header__menu
-					ul.header__menu-list.js-header-nav-menu#primary-navigation
-						li.header__menu-item
-							a(href= "about.html") О компании
-						li.header__menu-item.header__menu-item--has-submenu
-							a(href= "clients.html") Клиентам
-							ul.header__submenu
-								li.header__submenu-item
-									a(href="info.html") Информационные материалы
-								li.header__submenu-item
-									a(href="partnership.html") Сотрудничество
-								li.header__submenu-item
-									a(href="delivery.html") Доставка и склад
-								li.header__submenu-item
-									a(href="payment.html") Способы оплаты
-								li.header__submenu-item
-									a(href="guarantee.html") Гарантии и возврат
-						li.header__menu-item
-							a(href= "partnership.html") Сотрудничество
-						li.header__menu-item
-							a(href= "contacts.html") Контакты
-				a.header__phone(href="tel:+78004554511")
-					.header__phone-icon <svg viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#a)"><path d="M5.153.77A1.246 1.246 0 0 0 3.672.043l-2.75.75C.378.944 0 1.438 0 2.001c0 7.73 6.269 14 14 14 .563 0 1.056-.378 1.206-.922l.75-2.75a1.246 1.246 0 0 0-.725-1.481l-3-1.25a1.246 1.246 0 0 0-1.447.362L9.522 11.5A10.562 10.562 0 0 1 4.5 6.48l1.54-1.26c.429-.35.576-.937.363-1.446l-1.25-3V.769z"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg>
-					.header__phone-value 8 (800) 455-45-11
-				.header__schedule
-					.header__schedule-icon <svg viewbox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m17.634 19.428 1.266-1.265-4.472-4.5V8.008h-1.687v6.329l4.893 5.09zM13.5 25.25c-1.537 0-2.99-.295-4.36-.886a11.412 11.412 0 0 1-3.585-2.419 11.411 11.411 0 0 1-2.42-3.586A10.886 10.886 0 0 1 2.25 14c0-1.537.295-2.99.886-4.36a11.41 11.41 0 0 1 2.419-3.585 11.41 11.41 0 0 1 3.586-2.42A10.885 10.885 0 0 1 13.5 2.75c1.537 0 2.99.295 4.36.886a11.411 11.411 0 0 1 3.585 2.419 11.412 11.412 0 0 1 2.42 3.586c.59 1.368.885 2.822.885 4.359s-.295 2.99-.886 4.36a11.413 11.413 0 0 1-2.419 3.585 11.413 11.413 0 0 1-3.586 2.42c-1.368.59-2.822.885-4.359.885zm0-1.688c2.625 0 4.875-.937 6.75-2.812 1.875-1.875 2.813-4.125 2.813-6.75s-.938-4.875-2.813-6.75c-1.875-1.875-4.125-2.813-6.75-2.813s-4.875.938-6.75 2.813C4.875 9.125 3.937 11.375 3.937 14s.938 4.875 2.813 6.75c1.875 1.875 4.125 2.813 6.75 2.813z"/></svg>
-					.header__schedule-text Ежедневно: 
-					.header__schedule-time 10:00–22:00
-				.header__btn
-					a.btn.btn--white(data-fancybox, data-src="#callback-popup") Заказать звонок
+					//-https://wp-kama.ru/function/get_search_form
+					form(role="search", method="get", action="/")
+						input(type="search", placeholder="Поиск товаров...", name="s")
+						input(type="submit", value="")
+				.header__contacts
+					.header__contact
+						a.header__contact-value(href="89991112233") 8 (999) 111-22-33
+						.header__contact-note (Москва МО)
+					.header__contact
+						a.header__contact-value(href="88001112233") 8 (800) 111-22-33
+						.header__contact-note (РФ)
+				.header__icons.header__icons--pc
+					a.header__icon.header__icon--mobile-hide(href="#")
+						.header__icon-img(data-counter="8")
+							include Images/icon_favorites.svg
+					a.header__icon.header__icon--mobile-hide(href="#")
+						.header__icon-img(data-counter="12")
+							include  Images/icon_basket.svg
 				.header__burger
 					button.menu-toggle(
 						aria-label="Menu"
 						aria-controls="primary-navigation"
-						aria-expanded="false")
+						aria-expanded="false"
+					)
 						span.visually-hidden Menu
 						.k_burger(aria-hidden="true")
-				.header__hr
+				nav.header__menu
+					ul.header__menu-list.js-header-nav-menu#primary-navigation
+						li.header__menu-item
+							a(href="404.html") 404
+						li.header__menu-item
+							a(href="faq.html") FAQ
+						li.header__menu-item
+							a(href="contacts.html") Контакты
+				.header__icons.header__icons--mobile
+					a.header__icon(href="#")
+						.header__icon-img
+							include Images/icon_favorites.svg
+					a.header__icon(href="#")
+						.header__icon-img(data-counter="12")
+							+img('Images/icon_basket_black.svg', 'Basket')
+				.header__socials
+					noindex
+						ul.header__socials-list
+							li.header__socials-item
+								a(href="#")
+									+img('Images/icon_youtbe.svg', 'Youtube')
+							li.header__socials-item
+								a(href="#")
+									+img('Images/icon_telegram.svg', 'Telegram')
+							li.header__socials-item
+								a(href="#")
+									+img('Images/icon_vk.svg', 'VK')
+							li.header__socials-item
+								a(href="#")
+									+img('Images/icon_whatsapp.svg', 'WhatsApp')
+				.header__login
+					a.btn.btn--green(data-fancybox, data-src="#auth") Салонам

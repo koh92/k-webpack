@@ -1,15 +1,23 @@
 $colors: (
+	"grey": #515151,
+	"light-green": #E6F1D1,
+	"line-grey": #ABABAB,
 	"white": #ffffff,
-	"light-grey": #F2F2F2,
-	"grey": #757575,
-	"black": #212121,
-	"fake-black": #D3D3D3,
-	"yellow": #F6B238,
-	"dark-yellow": #DF9714,
-	"yellow-gradient": linear-gradient(90deg, #F1A232 0%, #FFCF41 100%),
-	"green": #07422E,
-	"light-green": #1D8361,
-	"green-opacity-4": rgba(7, 66, 46, 0.4), // #07422E
-	"green-opacity-8": rgba(7, 66, 46, 0.8), // #07422E
-	"text": #212121,
+	"dark-white": #F4F4F4,
+	"black": #000000,
+
+	"bg": #EBEBEB,
+	"bg-scrollbar": #F4F4F4,
+	"dark-grey": #383838,
+	"green": #D5E5B6,
+	"green-hover": #C6D4A9,
+	"pink": #EE2A7B,
+	
+
+	"dark-grey-font": #383838,
+	"grey-font": #888888,
+	"white-font": #F4F4F4,
+	"pink-font": #EE2A7B,
+
+	"black-hover": #505050
 )

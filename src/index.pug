@@ -1,180 +1,64 @@
 extends include/_layout
 
 block variables
-	- var title = 'Get turbo'
-	- var swiper = true
-	- var fancybox = true
+	- var title = 'Project name'
+	- var breadcrumbs = false
 
 block content
 	section.hero
 		.container
-			.hero__box(style="background-image: url('Images/CMS/hero.jpeg')")
-				h1.hero__title Продажа <span>автозапчастей и&nbsp;турбин</span> оптом и&nbsp;в&nbsp;розницу
-				.hero__text Надежный поставщик стартеров, генераторов, рулевого управления, турбин и&nbsp;других автозапчастей от&nbsp;ведущих производителей. Склад в&nbsp;Москве и&nbsp;Санк&nbsp;-&nbsp;Петербурге
-				.hero__tip Обрабатываем заявки ежедневно с&nbsp;10:00&nbsp;до&nbsp;22:00
-				a.btn.hero__btn.btn--green-opacity(href="#") Официальный дилер
-				a.btn.hero__btn.btn--green-opacity(href="#") Доставка по всей России
-	section.section.catalog
-		.container
-			.section__title Каталог
-			.catalog__grid
-				.catalog__ceil
-					a.catalog__section(href="catalog-category.html")
-						.catalog__section-image
-							+img('Images/CMS/catalog_section_1.jpg', 'Геометрии')
-						.catalog__section-name Геометрии
-				.catalog__ceil
-					a.catalog__section(href="catalog-category.html")
-						.catalog__section-image
-							+img('Images/CMS/catalog_section_2.jpg', 'Картриджи')
-						.catalog__section-name Картриджи
-				.catalog__ceil
-					a.catalog__section(href="catalog-category.html")
-						.catalog__section-image
-							+img('Images/CMS/catalog_section_3.jpg', 'Турбокомпрессоры')
-						.catalog__section-name Турбокомпрессоры
-				.catalog__ceil
-					a.catalog__section(href="catalog-category.html")
-						.catalog__section-image
-							+img('Images/CMS/catalog_section_4.jpg', 'Корзины геометрии')
-						.catalog__section-name Корзины геометрии
-				.catalog__ceil
-					a.catalog__section(href="catalog-category.html")
-						.catalog__section-image
-							+img('Images/CMS/catalog_section_5.jpg', 'Коллекторы')
-						.catalog__section-name Коллекторы
-				.catalog__ceil
-					a.catalog__section(href="catalog-category.html")
-						.catalog__section-image
-							+img('Images/CMS/catalog_section_6.jpg', 'Ремкомплекты')
-						.catalog__section-name Ремкомплекты
-				.catalog__ceil
-					a.catalog__section(href="catalog-category.html")
-						.catalog__section-image
-							+img('Images/CMS/catalog_section_7.jpg', 'Ремкомлпекты вестгейта')
-						.catalog__section-name Ремкомлпекты вестгейта
-				.catalog__ceil
-					a.catalog__section(href="catalog-category.html")
-						.catalog__section-image
-							+img('Images/CMS/catalog_section_8.jpg', 'Актуаторы вакуумные')
-						.catalog__section-name Актуаторы вакуумные
-				.catalog__ceil
-					a.catalog__section(href="catalog-category.html")
-						.catalog__section-image
-							+img('Images/CMS/catalog_section_9.jpg', 'Актуаторы электронные')
-						.catalog__section-name Актуаторы электронные
-				.catalog__ceil
-					a.catalog__section(href="catalog-category.html")
-						.catalog__section-image
-							+img('Images/CMS/catalog_section_10.jpg', 'Запчасти актуаторов электронных')
-						.catalog__section-name Запчасти актуаторов электронных
-				.catalog__ceil
-					a.catalog__section(href="catalog-category.html")
-						.catalog__section-image
-							+img('Images/CMS/catalog_section_11.jpg', 'Колеса компрессора')
-						.catalog__section-name Колеса компрессора
-				.catalog__ceil
-					a.catalog__section(href="catalog-category.html")
-						.catalog__section-image
-							+img('Images/CMS/catalog_section_12.jpg', 'Роторы')
-						.catalog__section-name Роторы
-				.catalog__ceil
-					a.catalog__section(href="catalog-category.html")
-						.catalog__section-image
-							+img('Images/CMS/catalog_section_13.jpg', 'Холодные улитки')
-						.catalog__section-name Холодные улитки
-				.catalog__ceil
-					a.catalog__section(href="catalog-category.html")
-						.catalog__section-image
-							+img('Images/CMS/catalog_section_14.jpg', 'Ремкомплекты')
-						.catalog__section-name Ремкомплекты
-				.catalog__ceil
-					a.catalog__section(href="catalog-category.html")
-						.catalog__section-image
-							+img('Images/CMS/catalog_section_15.jpg', 'Корзины геометрии')
-						.catalog__section-name Корзины геометрии
-				.catalog__ceil
-					a.catalog__section(href="catalog-category.html")
-						.catalog__section-image
-							+img('Images/CMS/catalog_section_16.jpg', 'Картриджи')
-						.catalog__section-name Картриджи
-
-			a.btn.btn--yellow-gradient(href="catalog.html") Смотреть весь каталог
-	section.section.repair
-		.container
-			.section__title Ремонт турбокомпрессоров
-			.repair__grid
-				.repair__ceil
-					.repair__info
-						.repair__logo
-							+img("Images/logo.svg", "Get Turbo")
-						ul.repair__list
-							li Продажа запчастей оптом и в розницу всех турбины. Всегда есть в наличии и под заказ
-							li Собственные склады запчастей для турбин в Москве и Санкт-Петербурге
-							li Прямые поставки запчастей с завода изготовителя без посредников
-							li Отправляем запчасти для турбин как по Москве и МО так и по все России и странам СНГ
-							li Помощь в подборе запчастей для турбины и возможность обсудить индивидуально цены на товары
-							li Все виды оплаты: Онлайн оплата, картой или наличными
-						a.btn.btn--green.repair__btn(data-fancybox, data-src="#callback-popup") Оставить заявку на обратный звонок
-				.repair__ceil
-					.repair__gallery
-						.repair__gallery-ceil
-							.repair__photo
-								+img("Images/CMS/repair_1.jpeg", "Repair photo")
-						.repair__gallery-ceil
-							.repair__photo
-								+img("Images/CMS/repair_2.png", "Repair photo")
-						.repair__gallery-ceil
-							.repair__photo
-								+img("Images/CMS/repair_3.png", "Repair photo")
-						.repair__gallery-ceil
-							.repair__photo
-								+img("Images/CMS/repair_4.jpeg", "Repair photo")
-	section.section.info
-		.container
-			.section__title Информационные<br>материалы
 			//- Slider main container
-			.info__slider.js-info-swiper
+			.hero__slider.js-hero-swiper
 				//- Additional required wrapper
-				ul.info__slider-list.swiper-wrapper
+				.swiper-wrapper
 					//- Slides
-					li.info__slider-item.swiper-slide
-						a.info__slider-item-image(href="info-element.html")
-							+img('Images/CMS/info_1.png', 'Как подобрать турбину к двигателю')
-						a.info__slider-item-title(href="info-element.html") Как подобрать турбину к двигателю
-						.info__slider-item-text Мы предлагаем более 15000 наименований запчастей на все виды автотранспортных средств, тракторную и сельхозтехнику, спецтехнику.
-					li.info__slider-item.swiper-slide
-						a.info__slider-item-image(href="info-element.html")
-							+img('Images/CMS/info_2.png', 'Как подобрать турбину к двигателю')
-						a.info__slider-item-title(href="info-element.html") Как подобрать турбину к двигателю
-						.info__slider-item-text Мы предлагаем более 15000 наименований запчастей на все виды автотранспортных средств, тракторную и сельхозтехнику, спецтехнику.
-					li.info__slider-item.swiper-slide
-						a.info__slider-item-image(href="info-element.html")
-							+img('Images/CMS/info_3.png', 'Как подобрать турбину к двигателю')
-						a.info__slider-item-title(href="info-element.html") Как подобрать турбину к двигателю
-						.info__slider-item-text Мы предлагаем более 15000 наименований запчастей на все виды автотранспортных средств, тракторную и сельхозтехнику, спецтехнику.
-					li.info__slider-item.swiper-slide
-						a.info__slider-item-image(href="info-element.html")
-							+img('Images/CMS/info_4.png', 'Как подобрать турбину к двигателю')
-						a.info__slider-item-title(href="info-element.html") Как подобрать турбину к двигателю
-						.info__slider-item-text Мы предлагаем более 15000 наименований запчастей на все виды автотранспортных средств, тракторную и сельхозтехнику, спецтехнику.
-			a.btn.btn--yellow-gradient(href="info.html") Смотреть все материалы
-	section.section.representative
-		.container
-			.section__title Мы официальные представители
-			.representative__grid
-				.representative__item
-					.representative__image 
-						+img('Images/representative_1.png', 'E&E Turbo')
-					.representative__text
-						p Компания E&E Turbo - это производитель турбокомпрессоров и комплектующих для них, основанная в 2002 году. Компания имеет свой штаб-квартиру в городе Шанхай, Китай, и располагает производственными мощностями в Китае, США и Европе.
-						p Основной продукцией компании E&E Turbo являются турбокомпрессоры для различных типов автомобилей, таких как грузовики, легковые автомобили, спортивные автомобили, а также для промышленных и морских двигателей. Кроме того, компания также предлагает услуги по ремонту и модернизации турбокомпрессоров.
-						p E&E Turbo занимает лидирующие позиции на рынке турбокомпрессоров благодаря своей высокой технологичности и качеству продукции, а также широкому ассортименту предлагаемых продуктов и услуг. Компания имеет сертификаты качества ISO 9001 и ISO/TS 16949, что подтверждает ее высокий уровень производственных стандартов.
-				.representative__item
-					.representative__image 
-						+img('Images/representative_2.png', 'SL Turbo')
-					.representative__text
-						p Компания SL Turbo является российским поставщиком турбокомпрессоров и комплектующих для них. Компания предлагает продажу турбокомпрессоров и картриджей для автомобилей и спецтехники, таких марок, как Caterpillar, Cummins, Komatsu, Hitachi, Volvo и др.
-						p В распоряжении SL Turbo имеется 100 обработочных станков высочайшего класса. Ее предприятие соответствует нормам ISO 9001. Шведско-китайский производитель будет особенно интересен водителям, которые планируют замену турбокомпрессора. Качество работы специалистов SL Turbo не вызывает вопросов!
-						p Покупатели часто хвалят картриджи SL Turbo за высокую живучесть и доступную цену.  Каждый турбокомпрессор изготавливается с уникальной заводской табличкой, расположенной на холодной улитке. SLTurbo - это качество деталей, доступные цены и безошибочный подбор турбин и картриджей!
-			a.btn.btn--yellow-gradient(href="partnership.html") Сотрудничество
+					.hero__slider-item.swiper-slide
+						a.hero__slider-image(href="#")
+							picture
+								//- source(media="(min-width: 1170px)" srcset='Images/CMS/hero_slider_1_1170.jpg')
+								//- source(media="(min-width: 768px)" srcset='Images/CMS/hero_slider_1_768.jpg')
+								//- +img('Images/CMS/hero_slider_1_360.jpg', 'REHUB+ specialist KERATIN MULTILEVEL TECHNOLOGY')
+								+img('Images/CMS/hero_slider_1.jpg', 'Alt + title')
+						.hero__slider-info
+							.hero__slider-title Заголовок слайда
+							.hero__slider-subtitle Подзаголовок слайда
+							a.btn.btn--green.hero__slider-btn(href="#") Подробнее
+					.hero__slider-item.swiper-slide
+						a.hero__slider-image(href="#")
+							picture
+								//- source(media="(min-width: 1170px)" srcset='Images/CMS/hero_slider_2_1170.jpg')
+								//- source(media="(min-width: 768px)" srcset='Images/CMS/hero_slider_2_768.jpg')
+								//- +img('Images/CMS/hero_slider_2_360.jpg', 'BOTANICAL 10/M')
+								+img('Images/CMS/hero_slider_2.jpg', 'Alt + title')
+						.hero__slider-info
+							.hero__slider-title Заголовок слайда
+							.hero__slider-subtitle Подзаголовок слайда
+							a.btn.btn--green.hero__slider-btn(href="#") Подробнее
+					.hero__slider-item.swiper-slide
+						a.hero__slider-image(href="#")
+							picture
+								//- source(media="(min-width: 1170px)" srcset='Images/CMS/hero_slider_3_1170.jpg')
+								//- source(media="(min-width: 768px)" srcset='Images/CMS/hero_slider_3_768.jpg')
+								//- +img('Images/CMS/hero_slider_3_360.jpg', 'REFORCE SPECIFIC 1/L')
+								+img('Images/CMS/hero_slider_3.jpg', 'Alt + title')
+						.hero__slider-info
+							.hero__slider-title Заголовок слайда
+							.hero__slider-subtitle Подзаголовок слайда
+							a.btn.btn--green.hero__slider-btn(href="#") Подробнее
+					.hero__slider-item.swiper-slide
+						a.hero__slider-image(href="#")
+							picture
+								//- source(media="(min-width: 1170px)" srcset='Images/CMS/hero_slider_4_1170.jpg')
+								//- source(media="(min-width: 768px)" srcset='Images/CMS/hero_slider_4_768.jpg')
+								//- +img('Images/CMS/hero_slider_4_360.jpg', 'HYDRA 5/S')
+								+img('Images/CMS/hero_slider_4.jpg', 'Alt + title')
+						.hero__slider-info
+							.hero__slider-title Заголовок слайда
+							.hero__slider-subtitle Подзаголовок слайда
+							a.btn.btn--green.hero__slider-btn(href="#") Подробнее
+				//- If we need pagination
+				.swiper-pagination.hero__slider-pagination.custom__slider-pagination.js-hero-pagination
+				//- If we need navigation buttons
+				.swiper-arrows.hero__slider-arrows
+					.swiper-button-prev.swiper-button--circle.swiper-button--black.swiper-button--inner.js-hero-prev
+					.swiper-button-next.swiper-button--circle.swiper-button--black.swiper-button--inner.js-hero-next

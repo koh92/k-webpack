@@ -1,106 +1,48 @@
 @use '../base/mixins' as *
 @use '../base/breakpoints' as *
 
-@property --startColor
-  syntax: '<color>'
-  initial-value: #F1A232
-  inherits: false
-
-@property --endColor
-  syntax: '<color>'
-  initial-value: #FFCF41
-  inherits: false
-
 .btn
-    +fz(12)
-    font-weight: 600
-    line-height: 124%
-    text-align: center
-    
-    display: flex
-    align-items: center
-    justify-content: center
-    padding: 16px
-    border-radius: 30px
-    transition: .3s
-    cursor: pointer
+	--_clr-background: var(--clr-bg, var(--clr-white))
+	--_clr-font: var(--clr-font, var(--clr-black))
+	--_clr-border: var(--clr-border, transparent)
+	--_border-radius: var(--border-radius, 15px)
+	--_max-width: var(--btn-max-width, fit-content)
+	--_height: var(--btn-heigth, 50px)
+	+fz(16)
+	font-weight: 400
+	text-transform: uppercase
+	color: var(--_clr-font)
 
-    border: unset
-    width: 100%
-    &[type="submit"]
-        border: unset
+	height: var(--_height)
+	padding: 15px 35px
+	max-width: var(--_max-width)
+	
+	background-color: var(--_clr-background)
+	border-width: 0
+	border-style: solid
+	border-color: var(--_clr-border)
+	border-radius: var(--_border-radius)
 
-    +mq($md)
-        // padding: 11px 24px
-        padding: 11px 20px
-    +mq($xl)
-        // padding: 15px 24px
-        padding: 15px 20px
-    &--white
-        background-color: var(--white-color)
-        color: var(--text-color)
-        border: 1px solid var(--black-color)
-        &:hover
-            background-color: var(--yellow-color)
-            color: var(--white-color)
-            border: 1px solid var(--yellow-color)
-    &--green
-        background-color: var(--green-color)
-        color: var(--white-color)
-        &:hover
-            background-color: var(--black-color)
-        &:active
-            background-color: var(--yellow-color)
-    &--green-opacity
-        background-color: var(--green-opacity-4-color)
-        color: var(--white-color)
-    &--green-transparent
-        background-color: transparent
-        color: var(--green-color)
-        border: 1px solid var(--green-color)
-        &:hover
-            background-color: var(--black-color)
-            color: var(--white-color)
-        &:active
-            background-color: var(--yellow-color)
-            color: var(--white-color)
-    &--yellow
-        background-color: var(--dark-yellow-color)
-        color: var(--white-color)
-        &:hover
-            background-color: var(--black-color)
-    &--yellow-gradient
-        --startColor: #F1A232
-        --endColor: #FFCF41
-        // background: var(--yellow-gradient-color)
-        background: linear-gradient(90deg, var(--startColor) 0%, var(--endColor) 100%)
-        color: var(--white-color)
-        transition: --startColor .3s, --endColor .3s
-        &:hover
-            --startColor: var(--black-color)
-            --endColor: var(--black-color)
-            // background: var(--black-color)
-    &--yellow-transparent
-        background-color: transparent
-        color: var(--white-color)
-        border: 1px solid var(--yellow-color)
-        &:hover
-            background-color: var(--black-color)
-    &--grey
-        background-color: var(--light-grey-color)
-        color: var(--black-color)
-        &:hover
-            background-color: var(--black-color)
-            color: var(--white-color)
-    &--clip-icon
-        height: 48px
-        &::before
-            content: ''
-            display: block
-            +box(27px)
-            margin-right: 12px
-            +bg('Images/icon_clip.svg', center, contain)
-            transition: .3s
-        &:hover
-            &::before
-                filter: brightness(0) invert(1)
+	display: flex
+	align-items: center
+	justify-content: center
+	width: 100%
+	cursor: pointer
+	transition: var(--transition)
+
+	&[type="submit"]
+		border: unset
+	&--green
+		--clr-bg: var(--clr-green)
+		&:hover
+			--clr-bg: var(--clr-green-hover)
+	&--transparent
+		--clr-bg: transparent
+		--clr-border: --dark-grey-color
+		border-width: 1px
+		&:hover
+			--clr-font: var(--clr-pink)
+
+button
+	background-color: transparent
+	border: none

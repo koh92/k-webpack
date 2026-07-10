@@ -1,49 +1,45 @@
 block footer
 	footer.footer
-		.footer__top
-			.container
-				.footer__top-grid
-					.footer__logo 
-						+img('Images/logo.svg', 'Get turbo')
-						span Продажа автозапчастей и турбин<br>оптом и в розницу по всей России
-					.footer__menu
-						.footer__menu-col
-							ul
-								li 
-									a(href= "about.html") О компании
-								li 
-									a(data-fancybox, data-src="#help-popup") Помощь с подбором
-								li 
-									a(href= "delivery.html") Доставка и склад
-								li 
-									a(href= "payment.html") Способы оплаты
-								li 
-									a(href= "guarantee.html") Гарантии возврата 
-								li 
-									a(href= "info.html") Информационные материалы
-						.footer__menu-col.footer__menu-col--double
-							ul
-								li 
-									a(href= "catalog.html") Каталог
-								li 
-									a(href= "partnership.html") Сотрудничество
-								li 
-									a(href= "contacts.html") Контакты
-								li 
-									a(href= "#", rel= "nofollow") Avito
-								li 
-									a(href= "#", rel= "nofollow") Ozon
-					.footer__contact
-						.footer__contact-title Интернет-магазин:
-						.footer__contact-item Ежедневно, 10:00–22:00
-						a.footer__contact-item(href="mailto:sales22@maseonardo.ru") sales22@maseonardo.ru
-						a.footer__contact-item(href="tel:+79201072197") +7 920 107-21-97	
-		.footer__bottom
-			.container 
-				.footer__bottom-grid
-					.footer__bottom-item
-						a(href="policy.html") Политика конфиденциальности
-					.footer__bottom-item
-						a(href="offer.html") Договор оферты
-					.footer__bottom-item © 2023 все права защищены
-					.footer__bottom-item <a href="https://di-project.studio/"> Разработка сайта</a>: Di-Project
+		.container
+			.footer__grid
+				a.footer__logo(href= isProd ? "index.html" : "/")
+					+img("Images/logo_white.svg", "logo")
+				ul.footer__menu
+					li
+						a(href="404.html") 404
+					li
+						a(href="faq.html") FAQ
+					li
+						a(href="contacts.html") Контакты
+				.footer__address 117105, г. Москва,<br>Тверская, 37 А
+				.footer__contacts
+					a.footer__contact(href='tel:89991112233') 8 (999) 111-22-33 (Москва МО)
+					a.footer__contact(href='tel:88001112233') 8 (800) 111-22-33 (РФ)
+				.footer__subscribe
+					.footer__subscribe-title Подписывайтесь и узнавайте<br> первым обо всех акциях и новостях
+					.footer__subscribe-form
+						form
+							input(type='email', placeholder='email')
+							button.btn.btn--green Подписаться
+				ul.footer__bottom-menu
+					li © 2023
+					li
+						a(href='#') Правовая информация
+					li
+						a(href='#') Политика обработки персональных данных
+					li
+						a(href='#') Договор оферты
+					
+				ul.footer__socials
+					li.footer__social
+						a(href="#")
+							+img('Images/icon_youtbe.svg', 'Youtube')
+					li.footer__social
+						a(href="#")
+							+img('Images/icon_telegram.svg', 'Telegram')
+					li.footer__social
+						a(href="#")
+							+img('Images/icon_vk.svg', 'VK')
+					li.footer__social
+						a(href="#")
+							+img('Images/icon_whatsapp.svg', 'WhatsApp')

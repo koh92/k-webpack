@@ -1,9 +1,13 @@
-if true === yandexMap
-	// Add Yandex Map
-	script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU", defer='defer')
-
 if true === swiper
 	// Add Swiper
 	script(src=require('Node/swiper/swiper-bundle.min.js'), defer='defer')
+
+if true === yandexMap
+	//- Yandex Map
+	script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" defer='defer')
+
+if true === fancybox
+	//- Fancybox
+	script(src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js")
 
 script(src=require('../js/app.js'))

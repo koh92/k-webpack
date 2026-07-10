@@ -1,17 +1,16 @@
-@use '../base/mixins' as *
+@use '../base/mixins'
 @use '../base/breakpoints'
 
 \:root
-	--gutter: 12px
+    --gutter: 15px
 
-.container
-	width: 100%
-	padding: 0 var(--gutter)
-	margin: 0 auto
-	max-width: min(100%, breakpoints.$max_width)
-	+mq(breakpoints.$md)
-		--gutter: 20px
-	+mq(breakpoints.$xl)
-		--gutter: 30px
-	+mq(breakpoints.$hd)
-		--gutter: 0
+.container 
+    width: 100%
+    padding: 0 var(--gutter)
+    margin: 0 auto
+    max-width: min(100%, breakpoints.$max_width)
+    +mixins.mq(breakpoints.$md)
+        --gutter: 30px
+    +mixins.mq(breakpoints.$xl)
+        // --gutter: 10px
+        --gutter: 0

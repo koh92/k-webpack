@@ -1,17 +1,12 @@
 doctype html
 html(lang="ru")
-	//- Available variables
-	//- var title - set Page title
-	//- vat yandexMap - add JS for Yandex Map
-	//- var swiper - add CSS for Swiper
-	//- var fancybox - add CSS for Fancybox
-	//- var wow - add CSS for Wow js
-	block variables
-		//- - var fancybox = false
-		//- - var yandexMap = false
-		//- - var swiper = false
-		//- - var wow = false
 
+	include _settings
+	//- var title - set Page title
+	block variables
+		var title = 'Page title here'
+
+	
 	include _mixins
 
 	head
@@ -19,7 +14,7 @@ html(lang="ru")
 		meta(http-equiv="X-UA-Compatible", content="IE=edge")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 
-		title= title || 'Page title here'
+		title= title
 
 		// CSS::Start
 		include _css
@@ -28,7 +23,6 @@ html(lang="ru")
 	body
 		// Header::Start
 		include ../components/_header
-
 
 		if breadcrumbs === true
 			// Breadcrumbs::Start

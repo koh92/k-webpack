@@ -1,0 +1,6 @@
+<svg viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="icon-cross"> 
+    <path d="M12 12L1 1L12 12ZM12 1L1 12L12 1Z" fill="white"/>
+    <path d="M12 12L1 1M12 1L1 12" stroke="#383838" stroke-width="2" stroke-linecap="round"/>
+</g>
+</svg>

@@ -1,35 +1,50 @@
 block popup
-	.popup#help-popup
-		.form.form--decorate.form--popup
-			.form__title Помощь с подбором
-			.form__text Если не знаете номер турбины или вин номер, заполните форму и мы свяжемся с вами! Абсолютно бесплатно.
+	.popup.popup--auth#auth
+		.popup__title Авторизация
+		.popup__subtitle Если вы уже зарегистрированы, пожалуйста, авторизуйтесь
+		.form
 			form
 				.form__input
-					input(type="text", placeholder="Ваше имя")
+					label.form__input-label.noselect(for="auth_email") Логин (электронная почта)
+					input(type="email", placeholder="E-mail", id="auth_email")
+				.form__input
+					label.form__input-label.noselect(for="auth_password") Пароль
+					input(type="password", placeholder="Пароль", id="auth_password", autocomplete="on")
+					.form__input-icon.js-password-toggler
+						+img('Images/icon_eye.svg', 'Icon visibility')
+						+img('Images/icon_not_eye.svg', 'Icon hidden')
+				.form__actions
+					label.form__action
+							input(type="checkbox", name="custom-checkbox")
+							.custom-checkbox.custom-checkbox--big
+							.form__action-text Запомнить меня
+					.form__action
+						a(data-fancybox, data-src="#reset_password") <u> Забыли пароль? </u>
+				.form__btns
+					a.btn.btn--green(href="personal.html") Войти
+					a.btn.btn--transparent(href="registration.html") Зарегистрироваться
+
+						
+	.popup.popup--reset-password#reset_password
+		.popup__title Восстановление пароля
+		.form
+			form
 				.form__input
 					input(type="email", placeholder="E-mail")
-				.form__input
-					input(type="tel", placeholder="+7 (999) 999-99-99")
-				.form__input
-					input(type="text", placeholder="Вин авто *не обязательно")
-				.form__input
-					label
-						input(type="file")
-						.btn.btn--green-transparent.btn--clip-icon Прикепить фотографии
-				input.btn.btn--green.form__btn(type="submit", value="Отправить заявку")
-				.form__accept Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+				.form__btns
+					a.btn.btn--green(href="#") Восстановить
+					.btn.btn--transparent.js-back-to-auth Назад
 
-	.popup#callback-popup
-		.form.form--decorate.form--popup
-			.form__title Заказать звонок
-			.form__text Оставьте свои контактные данные и мы свяжемся с вами!
+	.popup.popup--report-admission#report_admission
+		.popup__title Уведомление о поступлении товара
+		.popup__subtitle Данного товара временно нет в наличии. Оставьте ваши контактные данные и мы сообщим вам, как только он появится.
+		.form
 			form
 				.form__input
-					input(type="text", placeholder="Ваше имя")
-				.form__input
-					input(type="tel", placeholder="+7 (999) 999-99-99")
-				input.btn.btn--green.form__btn(type="submit", value="Отправить заявку")
-				.form__accept Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+					label.form__input-label.noselect(for="report_admission_email") Ваша почта<span>*</span>
+					input(type="email", placeholder="E-mail", id="report_admission_email")
+				.form__btns
+					a.btn.btn--green(href="#") сообщить мне по e-mail
 
 	.popup#thanks-popup
 		.form.form--decorate.form--popup

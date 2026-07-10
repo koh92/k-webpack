@@ -2,33 +2,27 @@
 @use '../base/breakpoints' as *
 
 .pagination
-    --size: 44px
+    --size: 30px
     display: flex
     align-items: center
     justify-content: center
-    gap: 4px
-    &__arrow
-        width: var(--size)
-        height: var(--size)
-        flex: 0 0 var(--size)
-        &--disabled
-            opacity: 0
-            visibility: hidden
-        &--left
-            transform: rotate(180deg)
     &__items
         display: flex
         align-items: center
-        gap: 4px
+        gap: 10px
     &__item
+        +fz(18)
+        line-height: 130%
+        text-transform: uppercase
+
         +flex-center
         width: var(--size)
         height: var(--size)
         border-radius: 50%
-        transition: .3s
+        transition: var(--transition)
         cursor: pointer
         &--active
-            color: var(--white-color)
-            background-color: var(--yellow-color)
-        &:hover
-            background-color: var(--light-grey-color)
+            color: var(--clr-dark-grey-font)
+            background-color: var(--clr-green)
+        &:hover:not(&--active)
+            color: var(--clr-pink)

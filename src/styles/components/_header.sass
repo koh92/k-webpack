@@ -10,426 +10,499 @@
 	display: $display
 	animation: fadeIn 1s ease-in forwards
 	
+=animation($display: block)
+	clip-path: circle(0px at top right)
+	transition: clip-path ease-in-out 700ms
+	[data-state="opened"] &
+		animation: clipPathCircleOpen 750ms ease-in-out forwards
+		display: $display
+	[data-state="closing"] &
+		animation: clipPathCircleClose 750ms ease-in-out forwards
+	[data-state="closed"] &
+		display: none
+
 header
 	position: sticky
-	width: 100%
+	background-color: var(--clr-bg)
 	top: 0
 	left: 0
+	width: 100%
 	z-index: 100
-	background-color: var(--white-color)
-	transition: height .3s
-	// transition: background .5s, top .4s, height .3s
+	transition: var(--transition)
+	&::before
+		content: ''
+		display: block
+		position: absolute
+		z-index: -1
+		// inset: 0
+		width: 100%
+		height: 100vh
+		background-image: url('Images/icon_decor_line_green.svg')
+		background-position: center bottom 0px
+		// background-position: center
+		background-repeat: no-repeat
+		background-size: 100%
+		clip-path: circle(0px at top right)
+		transition: clip-path ease-in-out 700ms
 	&[data-state="opened"]
+		animation: appear 750ms ease-in-out forwards
+		// border-bottom-left-radius: var(--border-radius)
+		// border-bottom-right-radius: var(--border-radius)
 		height: 100vh
 		height: 100dvh
-		background-color: var(--white-color)
 		overflow-y: auto
-	// &.mod-fixed
-	// 	top: -64px
-	// 	+mq($md)
-	// 		top: -91px
-	// 	+mq($xl)
-	// 		top: -80px
-	// 	+mq($hd)
-	// 		top: -95px
-	// &.mod-backscroll
-	// 	top: 0
-		
-.header
-	--burger-grid-size: calc(27px + 19px)
-	padding: 8px 0
-	display: grid
-	grid-template-areas: 'logo . phone burger' 'search search search search'
-	grid-template-columns: minmax(auto, 205px) 1fr 19px var(--burger-grid-size)
-	align-items: center
-	background: var(--white-color)
-	color: var(--text-color)
-	[data-state="opened"] &
-		grid-template-areas: 'logo . phone burger' 'actions actions actions actions' 'catalog catalog catalog catalog' 'menu menu menu menu' 'help help help help' 'btn btn btn btn'
-	+mq($md)
-		--burger-grid-size: calc(27px + 24px)
-		grid-template-areas: 'logo search search search search burger' 'hr hr hr hr hr hr' 'catalog . phone schedule btn btn'
-		grid-template-columns: minmax(auto, 205px) 1fr 149px 131px 95px var(--burger-grid-size)
 
-		padding: 14px 0
-		[data-state="opened"] &
-			grid-template-areas: 'logo search burger' 'hr hr hr' 'actions actions actions' 'catalog catalog catalog' 'menu menu menu' 'help help help' 'btn btn btn' 'phone phone phone'
-			grid-template-columns: minmax(auto, 205px) 448px var(--burger-grid-size)
+		+mqMax($md)
+			background-color: var(--clr-white)
+		&::before
+			animation: clipPathCircleOpen 700ms ease-in-out forwards
+			display: block
+
+		.header
+			// background-image: url('Images/icon_decor_line_green.svg')
+			// background-position: center bottom
+			// // background-position: center
+			// background-repeat: no-repeat
+			// background-size: 100%
+	&[data-state="closing"]
+		animation: disappear 750ms ease-in-out forwards
+		// border-bottom-left-radius: var(--border-radius)
+		// border-bottom-right-radius: var(--border-radius)
+		height: 100vh
+		height: 100dvh
+
+		+mqMax($md)
+			background-color: var(--clr-white)
+		&::before
+			animation: clipPathCircleClose 700ms ease-in-out forwards
+	&[data-state="closed"]
+		// background-color: rgba(255, 255, 255, 0)
+		&::before
+			display: none
+	&.mod-fixed
+		top: -122px
+		+mq($md)
+			top: -154px
+		+mq($xl)
+			top: -185px
+	&.mod-backscroll
+		top: 0
+	
+.header
+	//padding: 30px 0
+	padding: 50px 0 35px
+	display: grid
+	grid-template-areas: 'logo icons burger' 'search search search' 'menu menu menu' 'login login login' 'icons-mobile icons-mobile icons-mobile' 'contacts contacts contacts' 'socials socials socials'
+	grid-template-columns: 1fr 42px 66px
+	align-items: center
+	position: relative
+
+	+mq($md)
+		padding: 35px 0 30px
+		gap: 0 35px
+		// grid-template-areas: 'logo search icons burger' 'menu menu menu menu' 'contacts contacts socials socials'
+		grid-template-areas: 'logo search login icons' 'menu menu menu menu' 'contacts contacts socials socials'
+		//grid-template-columns: 140px 1fr 1fr 30px
+		// grid-template-columns: 1fr 230px 1fr 30px
+		grid-template-columns: 1fr 230px 140px 75px
 	+mq($xl)
-		grid-template-areas: 'logo logo search help help help actions actions actions' 'hr hr hr hr hr hr hr hr hr' 'catalog menu menu phone phone schedule schedule btn btn'
-		grid-template-columns: 156px 47px 1fr 70px 74px 45px 75px 77px 77px
-		// grid-template-columns: 156px 47px 1fr 73px 74px 57px 58px 77px 77px
-		// grid-template-columns: 156px 49px 335px 70px 70px 57px 57px 77px 77px
-		padding: 12px 0
-	+mq($hd)
-		grid-template-areas: 'logo logo search help help help actions actions actions' 'hr hr hr hr hr hr hr hr hr' 'catalog menu menu menu phone phone phone schedule btn'
-		grid-template-columns: 156px 49px auto 70px 70px 57px 57px 131px 170px
-		padding: 14px 0
+		padding: 40px 0 35px
+		grid-template-areas: 'logo search login contacts icons' 'menu menu menu menu menu'
+		gap: 0 30px
+		// grid-template-columns: 1fr 310px 160px 1fr 110px
+		// grid-template-columns: 170px 310px 160px 1fr 110px
+		grid-template-columns: 170px 1fr 160px 230px 110px
 	&__logo
 		grid-area: logo
+		max-width: 112px
+		+mq($xl)
+			max-width: 170px
 	&__burger
 		grid-area: burger
 		justify-self: end
-		+mq($xl)
+		+mq($md)
 			display: none
-	&__search
-		grid-area: search
-		display: block
-		margin-top: 7px
-		position: relative
-		[data-state="opened"] &
-			display: none
-		+mq($md)
-			margin-left: 15px
-			margin-top: 0
-			[data-state="opened"] &
-				display: block
-		input[type="search"]
-			width: 100%
-			height: 38px
-			background-color: var(--light-grey-color)
-			border-radius: 30px
-			border: 0
-			padding-left: 56px
-
-			+fz(14)
-			line-height: 140%
-			color: var(--text-color)
-
-			+mq($xl)
-				height: 46px
-				min-width: 320px
-			&::-webkit-search-cancel-button
-				cursor: pointer
-				padding-right: 10px
-				filter: brightness(0)
-
-			&::placeholder
-				+fz(14)
-				line-height: 140%
-				color: var(--grey-color)
-		[type="submit"]
-			// Safari blue background fix
-			background-color: transparent
-
-			position: absolute
-			left: 24px
-			top: 9px
-			+box(20px)
-
-			padding: 0
-			margin: 0
-			font-size: 0
-			border: 0
-
-			+mq($xl)
-				top: 13px
-			svg
-				stroke: var(--green-color)		
-	&__help
-		grid-area: help
-		display: none
-		+fz(12)
-		line-height: 130%
-		margin-bottom: 18px
-		[data-state="opened"] &
-			+fadeIn
-		span
-			color: var(--text-color)
-			+mq($xl)
-				display: block
-		span + span
-			color: var(--green-color)
-			text-decoration: underline
-		+mq($md)
-			text-align: center
-		+mq($xl)
-			display: block
-			margin-left: 12px
-			text-align: left
-			margin-bottom: 0
-	&__actions
-		grid-area: actions
-		display: none
-		[data-state="opened"] &
-			+fadeIn(flex)
-			gap: 8px
-			margin-top: 14px
-			margin-bottom: 8px
-		+mq($xl)
-			display: flex
-			align-items: center
-			justify-content: space-between
-			gap: 24px
-			// margin-left: auto
-			margin-left: 16px
-		+mq($hd)
-			margin-left: 68px
-	&__action
-		padding: 12px
-		border-radius: var(--border-radius)
-		background-color: var(--green-color)
-		color: var(--white-color)
-		text-align: center
-		flex: 1
-		transition: color .3s
-		+mq($xl)
-			padding: 0
-			background-color: transparent
-			color: var(--text-color)
-		&-icon
-			margin-bottom: 5px
-			svg
-				+box(27px)
-				fill: var(--white-color)
-				transition: fill .3s
-				+mq($xl)
-					fill: var(--grey-color)
-		&-text
-			+fz(12)
-			line-height: 130%
-			font-weight: 500
-			display: inline-block
-			span
-				display: none
-				color: var(--dark-yellow-color)
-				+mq($xl)
-					display: inline-block
-					position: absolute
-					&::before
-						content: '('
-					&::after
-						content: ')'
-				+mq($hd)
-					position: relative
-		&:hover
-			color: var(--dark-yellow-color)
-			.header__action-icon svg
-				fill: var(--dark-yellow-color)
-				
-	&__catalog
-		grid-area: catalog
-		display: none
-		[data-state="opened"] &
-			+fadeIn
-			margin-bottom: 8px
-		+mq($md)
-			display: block
-			[data-state="opened"] & .btn
-				border-radius: var(--border-radius)
-				background-color: var(--yellow-color)
-				color: var(--white-color)
-				justify-content: center
-				height: 48px
-				max-width: unset
-				&::before
-					display: none
-		.btn
-			width: 100%
-			border-radius: var(--border-radius)
-			background-color: var(--yellow-color)
-			color: var(--white-color)
-			justify-content: center
-			height: 48px
-			+fz(14)
-			+mq($md)
-				max-width: 156px
-				border-radius: 30px
-				background-color: var(--green-color)
-				display: flex
-				align-items: center
-				height: 38px
-				padding: 0
-				&::before
-					content: ''
-					+box(27px)
-					margin-right: 12px
-					padding: 4px
-					+bg('Images/icon_squares.svg', center, contain)
-			+mq($xl)
-				&:hover
-					background-color: var(--black-color)	
 	&__menu
 		grid-area: menu
+		position: relative
+		+mqMax($md)
+			+animation
 		&-list
-			display: none
-			[data-state="opened"] &
-				+fadeIn
-				margin-bottom: 32px
-			+mq($xl)
+			padding-top: 35px
+			padding-bottom: 30px
+			text-align: center
+			+mq($md)
 				display: flex
 				justify-content: space-between
-				gap: 8px
-				margin-left: 20px
-			+mq($hd)
-				margin-left: 84px
-		&-item
-			+mqMax($xl)
-				& + &
-					margin-top: 8px
-			a
-				display: block
-				text-align: center
-				+fz(14)
-				font-weight: 600
-				line-height: 130%
-				cursor: pointer
-				padding: 15px
-				border: 1px solid var(--black-color)
-				border-radius: var(--border-radius)
-				+mq($xl)
-					font-weight: 500
-					padding: 10px 0
-					border: unset
-					flex: 1
-					transition: .3s
-					&:hover
-						color: var(--dark-yellow-color)
-			&--has-submenu 
-				position: relative
-				&:hover
-					a::after
-						transform: rotate(180deg)
-					.header__submenu
-						display: block
-				> a
-					display: none
-					+mq($xl)
-						display: flex
-						align-items: center
-						&::after
-							content: ''
-							display: block
-							margin-left: 4px
-							+box(16px)
-							+bg('Images/icon_arrow.svg', center, contain)
-							transition: .3s
-						
-	&__submenu
-		+mq($xl)
-			display: none
-			position: absolute
-			top: calc(100% - 3px)
-			left: -14px
-			z-index: 30
-			background-color: var(--white-color)
-			padding: 14px
-			border-radius: 10px
-			border: 1px solid var(--fake-black-color)
-			&:hover
-				display: block
-		&-item
-			& + &
-				margin-top: 8px
-				+mq($xl)
-					margin-top: 10px
-			a
-				display: block
-				text-align: center
-				+fz(14)
-				font-weight: 600
-				line-height: 130%
-				cursor: pointer
-				padding: 15px
-				border: 1px solid var(--black-color)
-				border-radius: var(--border-radius)
-				+mq($xl)
-					padding: 0
-					border: unset
-					text-align: left
-					white-space: nowrap
-	&__phone
-		grid-area: phone
-		+mq($md)
-			margin-right: 24px
-
-			display: flex
-			align-items: center
-			[data-state="opened"] &
-				justify-content: center
-				margin-top: 24px
-		+mq($xl)
-			margin-right: 0
-			margin-left: 22px
-		&-icon
-			display: flex
-			+mq($md)
-				margin-right: 4px
-			svg
-				+box(19px)
-				fill: var(--black-color)
-				transition: fill .3s
-				+mq($md)
-					+box(16px)
-					fill: var(--dark-yellow-color)
-		&-value 
-			display: none
-			+mq($md)
-				display: block
-
-				+fz(12)
-				line-height: 124%
-				font-weight: 600
-				color: var(--dark-yellow-color)
-				transition: color .3s
-		&:hover
-			.header__phone-icon svg 
-				fill: var(--black-color)
-			.header__phone-value
-				color: var(--text-color)
-
-	&__schedule
-		grid-area: schedule
-		display: none
-		+mq($md)
-			display: grid
-			grid-template-areas: 's-icon s-text' 's-icon s-time'
-			place-items: center
-			margin-right: 24px
-
-			+fz(12)
-			line-height: 130%
-			font-weight: 500
-			[data-state="opened"] &
-				display: none
-		+mq($xl)
-			margin-right: 0
-			margin-left: 8px
-		+mq($hd)
-			margin-left: 24px
-		&-icon
-			grid-area: s-icon
-			+box(27px)
-			padding: 2px
-			margin-right: 6px
-			svg
-				fill: var(--grey-color)
-		&-text
-			grid-area: s-text
-		&-time
-			grid-area: s-time
-	&__btn
-		grid-area: btn
-		display: none
-		[data-state="opened"] &
-			+fadeIn
-		+mq($md)
-			display: block
-		+mq($xl)
-			margin-left: 8px
-		+mq($hd)
-			margin-left: 24px
-		.btn
-			width: 100%
-			justify-content: center
+				gap: 25px
+				padding-top: 30px
+				padding-bottom: 0
 			+mq($xl)
-				height: 46px
-	&__hr
-		grid-area: hr
-		display: none
+				// max-width: calc(100% / 12 * 10)
+				justify-content: center
+				gap: 60px
+				margin-inline: auto
+				padding-top: 35px
+		&-item
+			> a
+				display: block
+				font-weight: 400
+				+fz(16)
+				line-height: 130%
+				cursor: pointer
+				transition: var(--transition)
+				+mq($md)
+					+fz(14)
+				+mq($xl)
+					+fz(16)
+			&:hover
+				color: var(--clr-pink)
+			+mqMax($md)
+				& + &
+					margin-top: 30px
+			&--parent
+				display: flex
+				align-items: center
+				justify-content: center
+				cursor: pointer
+				span
+					+flex-center
+					width: 11px
+					height: 12px
+					// +bg('Images/icon_arrow_down.svg', center, contain)
+					padding-top: 2px
+					margin-left: 5px
+					align-self: center
+					transition: var(--transition)
+					+mq($md)
+						width: 9px
+						height: 10px
+					+mq($xl)
+						width: 11px
+						height: 12px
+					svg
+						fill: var(--clr-dark-grey)
+						transition: var(--transition)
+				&:hover
+					span svg 
+						fill: var(--clr-pink)
+			&--open
+				color: var(--clr-pink)
+				span
+					transform: rotate(180deg)
+				span svg 
+					fill: var(--clr-pink)
+
+	&__submenu
+		position: absolute
+		// top: 115px
+		top: calc(100% - 15px)
+		left: 0
+		height: calc(100vh - 122px - 5vh)
+		overflow-y: scroll
+
+		transition: var(--transition)
+		opacity: 0
+		visibility: hidden
+
+		width: 100%
+		background-color: var(--clr-white)
+		border-radius: var(--border-radius)
+		padding: 45px 40px
 		+mq($md)
-			display: block
-			width: 100%
-			height: 1px
-			background-color: var(--fake-black-color)
-			margin: 14px 0
+			// top: calc(100% + 25px)
+			top: calc(100% - 5px)
+			padding: 45px 55px
+		+mq($xl)
+			// top: 100%
+			padding: 45px 70px 80px
+			height: max-content
+			overflow-y: unset
+		&--open
+			opacity: 1
+			visibility: visible
+		&-list
+			display: grid
+			grid-template-columns: 1fr
+			+mq($md)
+				grid-template-columns: repeat(2, 1fr)
+				gap: 25px 90px
+			+mq($xl)
+				grid-template-columns: repeat(3, 1fr)
+				gap: 20px 140px
+		&-group
+			display: grid
+			grid-template-columns: 1fr
+			grid-template-rows: min-content
+			&:nth-child(1)
+				+mq($md)
+					grid-column: 1/3
+					display: grid
+					grid-template-columns: repeat(2, 1fr)
+					gap: 25px 90px
+				+mq($xl)
+					grid-column: 1/4
+					grid-template-columns: repeat(3, 1fr)
+					gap: 25px 140px
+					.header__submenu-title
+						margin-bottom: -10px
+			&:not(&:nth-child(1))
+				.header__submenu-category + .header__submenu-category
+					margin-top: 15px
+			+mqMax($md)
+				& + &
+					margin-top: 35px
+
+		&-title
+			+fz(24)
+			line-height: 130%
+			color: var(--clr-pink)
+			margin-bottom: 25px
+			+mq($md)
+				grid-column: 1/-1
+			+mq($xl)
+				+fz(28)
+				line-height: 140%
+				margin-bottom: 15px
+		&-category
+			+mqMax($md)
+				& + &
+					margin-top: 25px
+			&:hover
+				.header__submenu-category-name
+					color: var(--clr-pink)
+			&-name
+				font-weight: 400
+				+fz(18)
+				line-height: 140%
+				text-transform: uppercase
+				margin-bottom: 10px
+				transition: var(--transition)
+				+mq($md)
+					margin-bottom: 2px
+			&-desc
+				+fz(16)
+				line-height: 130%
+				color: var(--clr-grey-font)
+				text-wrap: balance
+	&__icons
+		display: flex
+		gap: 50px
+		+mqMax($md)
+			+animation(flex)
+		+mq($md)
+			gap: 15px
+			justify-content: center
+		+mq($xl)
+			gap: 30px
+			justify-content: flex-end
+		&--pc
+			grid-area: icons
+			+mqMax($md)
+				justify-self: end
+		&--mobile
+			grid-area: icons-mobile
+			padding-top: 38px
+			margin-inline: auto
+			+mq($md)
+				display: none
+	&__icon
+		cursor: pointer
+		display: flex
+		align-items: center
+		gap: 8px
+		&-img
+			+flex-center
+			--img-size: 34px
+			width: var(--img-size)
+			height: var(--img-size)
+			// padding: 5px
+			background-color: var(--clr-green)
+			border-radius: 50%
+			+mq($md)
+				--img-size: 30px
+				background-color: var(--clr-white)
+			+mq($xl)
+				--img-size: 40px
+				// padding: 8px
+			img
+				max-width: 18px
+				max-height: 18px
+				margin-inline: auto
+			&[data-counter]
+				position: relative
+				&::before
+					--label-size: 20px
+					content: attr(data-counter)
+					width: var(--label-size)
+					height: var(--label-size)
+					background-color: var(--clr-pink)
+					border-radius: 50%
+					+flex-center
+					position: absolute
+					top: -7px
+					right: -7px
+					color: var(--clr-white)
+					+fz(14)
+					line-height: 130%
+		&--mobile-hide
+			+mqMax($md)
+				display: none
+		svg
+			stroke: var(--clr-dark-grey)
+			width: 18px
+			height: 18px
+			transition: var(--transition)
+			+mq($xl)
+				width: 22px
+				height: 22px
+		&--active
+			svg
+				stroke: var(--clr-pink)
+				fill: var(--clr-pink)
+	&__search
+		
+		grid-area: search
+		padding-top: 30px
+		width: 100%
+		+mqMax($md)
+			+animation
+		+mq($md)
+			padding-top: 0
+			max-width: 230px
+		+mq($xl)
+			max-width: 310px
+			margin-left: auto
+		form
+			position: relative
+			input[type="search"]
+				margin: 0
+				padding: 10px 20px
+				width: 100%
+				border: 1px solid var(--clr-grey-font)
+				border-radius: var(--border-radius)
+				background-color: transparent
+
+				+fz(14)
+				line-height: 130%
+				color: var(--dark-clr-grey-font)
+				transition: var(--transition)
+				+mq($md)
+					height: 40px
+					padding: 15px
+				+mq($xl)
+					height: 50px
+					padding: 15px 20px
+				&:placeholder-shown
+					border: 1px solid rgba(56, 56, 56, .5)
+					// opacity: .5
+				&:placeholder
+					font-family: var(--ff-open-sans-light)
+					font-weight: 300
+					+fz(14)
+					line-height: 130%
+					color: var(--clr-grey-font)
+					transition: var(--transition)
+					+mq($md)
+						+fz(16)
+				&:focus, &:active
+					outline: unset
+					border: 1px solid var(--clr-dark-grey-font)
+					color: var(--clr-dark-grey-font)
+					border: 1px solid rgba(56, 56, 56, 1)
+					// opacity: 1
+					&:placeholder
+						color: var(--clr-dark-grey-font)
+
+			input[type="submit"]
+				--size: 20px
+				border: unset
+				background-color: transparent
+				box-shadow: unset
+				background-image: url('../images/icon_search.svg')
+				background-position: center
+				background-size: contain
+				background-repeat: no-repeat
+				width: var(--size)
+				height: var(--size)
+				padding: 0
+				position: absolute
+				right: 20px
+				top: calc(50% - var(--size) / 2)
+				cursor: pointer
+				+mq($md)
+					--size: 12px
+				+mq($xl)
+					--size: 20px
+	&__contacts
+		grid-area: contacts
+		padding-top: 38px
+		+mqMax($xl)
+			+animation
+		+mq($xl)
+			padding-top: 0
+	&__contact
+		display: flex
+		justify-content: center
+		align-content: baseline
+		gap: 4px
+		+mq($xl)
+			justify-content: flex-end
+		&-value, &-note
+			+fz(16)
+			
+			line-height: 22px
+			color: #1C1C1C
+	&__socials
+		grid-area: socials
+		+animation
+		&-list
+			padding-top: 42px
+			display: flex
+			justify-content: center
+			gap: 20px
+		&-item
+			a
+				display: flex
+				align-items: center
+				justify-content: center
+				--icon-size: 40px
+				border-radius: 50%
+				width: var(--icon-size)
+				height: var(--icon-size)
+				background-color: var(--clr-white-font)
+	&__login
+		grid-area: login
+		+mqMax($md)
+			+animation
+		.btn 
+			height: 50px
+			max-width: 156px
+			margin-inline: auto
+			+mq($md)
+				height: 40px
+			+mq($xl)
+				height: 50px
+
+@keyframes clipPathCircleOpen
+	0%
+		clip-path: circle(0% at top right)
+	100%
+		clip-path: circle(250% at top right)
+
+@keyframes clipPathCircleClose
+	0%
+		clip-path: circle(250% at top right)
+	100%
+		clip-path: circle(0% at top right)
+
+@keyframes appear
+	0%
+		background-color: rgba(255, 255, 255, 0)
+	100%
+		background-color: rgba(255, 255, 255, 1)
+@keyframes disappear
+	0%
+		background-color: rgba(255, 255, 255, 1)
+	100%
+		background-color: rgba(255, 255, 255, 0)

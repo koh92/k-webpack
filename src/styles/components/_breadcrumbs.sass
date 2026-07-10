@@ -2,22 +2,31 @@
 @use '../base/breakpoints' as *
     
 .breadcrumbs
-    padding: 14px 0 8px
+    padding: 0 0 35px
     +mq($md)
-        padding: 20px 0 10px
-    +mq($hd)
-        padding: 30px 0 20px
-    &-wrapper
+        padding: 0 0 45px
+    +mq($xl) 
+        padding: 0 0 65px
+    &-wrapper 
         display: flex
         align-items: center
         flex-wrap: wrap
+        &:has(+ .page-title)
+            margin-bottom: 35px
+            +mq($md)
+                margin-bottom: 65px
+            +mq($xl)
+                margin-bottom: 75px
     &-separator
         display: block
         margin: 0 10px
+        width: 5px
+        height: 10px
+        +bg('Images/icon_arrow_right.svg', center, contain)
     &-item
-        +fz(12)
+        +fz(14)
         line-height: 130%
         a
-            color: var(--text-color)
-        span
-            color: var(--grey-color)
+            color: var(--clr-grey-font)
+        span 
+            color: #1C1C1C

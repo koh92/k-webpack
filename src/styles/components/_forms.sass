@@ -2,84 +2,376 @@
 @use '../base/breakpoints' as *
 
 .form
-    border-radius: 30px
-    background-color: var(--light-grey-color)
-    +mq($md)
-        padding: 50px
-    +mq($xl)
-        padding: 60px
-    &--static
-        +mqMax($md)
-            padding: 24px 12px
-            width: 100vw
-            position: relative
-            left: 50%
-            transform: translate(-50%)
-            &::before
-                display: none
-        .form__title
-            +fz(18)
-            line-height: 140%
-            font-weight: 700
-            margin-bottom: 16px
+    &__row
+        margin-bottom: 25px
+        +mq($xl)
+            display: flex
+            align-items: center
+            gap: 30px
+            .form__input
+                // flex: 1
+                flex: 1 1 auto
+            .form__input + .form__input
+                margin-top: 0
+        > .form__row
+            margin-bottom: 0
+        &:has(.form__input--radio + .form__input--radio)
             +mq($xl)
-                +fz(24)
-                margin-bottom: 20px
-        .form__text
-            +fz(14)
-            line-height: 130%
-            color: var(--grey-color)
-            margin-bottom: 24px
+                gap: 22px
+        &--md
+            +mq($md)
+                display: flex
+                align-items: center
+                gap: 10px
+                .form__input
+                    // flex: 1
+                    flex: 1 1 auto
+                .form__input + .form__input
+                    margin-top: 0
             +mq($xl)
-                margin-bottom: 20px
-        .form__input
-            input
-                height: 48px
-    &--popup
-        .form__title
-            +fz(24)
-            line-height: 120%
-            font-weight: 700
-            margin-bottom: 8px
-            +mq($xl)
-                +fz(42)
-                margin-bottom: 10px
-        .form__text
-            +fz(16)
-            line-height: 140%
-            margin-bottom: 24px
-    &--decorate
-        +decoration-inner-line
+                gap: 30px
+        &--space-between
+            justify-content: space-between
+
     &__input
+        &:has(&-icon),
+        &:has(&-warning),
+        &:has(&-tip)
+            position: relative
         & + &
-            margin-top: 16px
-            +mq($xl)
-                margin-top: 10px
+            margin-top: 25px
+        & + .form__row
+            margin-top: 25px
+        &:has([type="radio"])
+            display: flex
+            align-items: center
+            gap: 0
         input
-            padding: 13px 24px
-            border-radius: 30px
+            height: 45px
+            padding: 5px 20px
+            border-radius: var(--border-radius)
             width: 100%
 
-            +fz(16)
-            line-height: 140%
-            color: var(--text-color)
+            // +fz(18)
+            +fz(14)
+            line-height: 130%
+            // color: var(--clr-dark-grey)
+            color: #1C1C1C
 
-            border: unset
-            background-color: var(--white-color)
+            border: 1px solid var(--clr-grey-font)
+            background-color: transparent
+            transition: var(--transition)
             &::placeholder
-                +fz(16)
-                line-height: 140%
-                color: var(--grey-color)
+                // +fz(18)
+                +fz(14)
+                line-height: 130%
+                color: var(--clr-grey-font)
+            &.error
+                border-color: var(--clr-pink)
+                &:not(#registration_city) + .form__input-warning
+                    opacity: 1
+                    visibility: visible
+            &:active,
+            &:focus,
+            &:not(&:placeholder-shown)
+                border: 1px solid var(--clr-dark-grey)
+            &[type="radio"]
+                +box(12px)
+                margin-right: 10px
+                accent-color: var(--clr-dark-grey)
             &[type="file"]
                 display: none
+        textarea
+            height: 230px
+            padding: 10px 20px
+            border-radius: var(--border-radius)
+            width: 100%
+            resize: vertical
+
+            // +fz(18)
+            +fz(14)
+            line-height: 130%
+            color: var(--clr-dark-grey)
+
+            border: 1px solid var(--clr-grey-font)
+            background-color: transparent
+
+            +mq($md)
+                height: 270px
+            &::placeholder
+                // +fz(18)
+                +fz(14)
+                line-height: 130%
+                color: var(--clr-grey-font)
+        &--small
+            textarea
+                height: 94px
+        &-label
+            display: inline-block
+            +fz(16)
+            font-weight: 400
+            line-height: 130%
+            margin-bottom: 16px 
+            cursor: pointer
+            span
+                color: var(--clr-pink)
+                position: relative
+                top: -1px
+            input[type="radio"] + &
+                +fz(16)
+                margin-bottom: 0
+        &-icon
+            cursor: pointer
+
+            position: absolute
+            right: 16px
+            bottom: 9px
+            img
+                width: 32px
+                height: 24px
+            img + img
+                display: none
+                width: 28px
+                height: 28px
+            &.visible
+                img
+                    display: none
+                img + img
+                    display: block
+        &-warning
+            +fz(16)
+            line-height: 130%
+            color: #1c1c1c
+
+            background-color: var(--clr-white)
+            border-radius: var(--border-radius)
+            padding: 15px 18px
+            max-width: 310px
+
+            position: absolute
+            top: 25px
+            right: 10px
+            z-index: 15
+
+            opacity: 0
+            visibility: hidden
+            transition: var(--transition)
+            +mq($md)
+                padding: 14px 10px
+            +mq($xl)
+                top: 10px
+                padding: 10px 17px
+            &.active
+                opacity: 1
+                visibility: visible
+            &--pink
+                color: var(--clr-pink)
+            &--exclamation
+                --icon-size: 28px
+                // top: 50px
+                top: 85%
+                padding-left: 36px
+                // width: 325px
+                max-width: 325px
+                right: 0
+                &::before
+                    content: ''
+                    display: block
+                    position: absolute
+                    left: 7px
+                    top: 15px
+                    flex: 0 0 var(--icon-size)
+                    width: var(--icon-size)
+                    height: var(--icon-size)
+                    +bg('Images/icon_exclamation.svg', center, contain)
+        &-tip
+            +fz(16)
+            line-height: 130%
+            color: var(--clr-grey-font)
+            margin-top: 5px
+            +mq($xl)
+                padding-top: 8px
+        &--radio
+            input[type="radio"]
+                display: none
     &__btn
-        margin-top: 24px
-        margin-bottom: 8px
-        width: 100%
+        margin-top: 35px
+        margin-bottom: 20px
+        max-width: 240px
+        +mq($md)
+            margin-top: 7px
         +mq($xl)
-            margin-top: 20px
+            margin-top: 20px 
             margin-bottom: 10px
     &__accept
-        +fz(12)
+        +fz(14)
         line-height: 130%
-        color: var(--grey-color)
+        color: #1C1C1C
+        text-decoration: underline
+        transition: var(--transition)
+        &:hover
+            color: var(--clr-pink)
+    &__status
+        display: inline-flex
+        align-items: center
+        padding: 13px 20px
+        background-color: var(--clr-white)
+        border-radius: var(--border-radius)
+        margin-left: auto
+
+        color: #1C1C1C
+
+        +mqMax($md)
+            position: absolute
+            left: 0
+            width: 100%
+            bottom: 120px
+            justify-content: center
+        +mq($md)
+            grid-column: 2/3
+            grid-row: 4/5
+            padding: 22px 30px
+        &-icon
+            --icon-size: 30px
+            +flex-center
+            flex: 0 0 var(--icon-size)
+            width: var(--icon-size)
+            height: var(--icon-size)
+            margin-right: 20px
+            border-radius: 50%
+            background-color: var(--clr-green)
+            +mq($md)
+                
+            +mq($xl)
+                --icon-size: 37px
+        &-text
+            +fz(18)
+            line-height: 150%
+            +mq($xl)
+                +fz(25)
+                
+        &--error
+            .form__status-icon
+                background-color: var(--clr-pink)
+                +bg('Images/icon_cross_white.svg', center, auto)
+        &--success
+            .form__status-icon
+                background-color: var(--clr-green)
+                +bg('Images/icon_tick.svg', center, 20px)
+    &__actions
+        display: flex
+        align-items: center
+        justify-content: space-between
+        margin-top: 25px
+    &__action
+        +flex-center
+        gap: 15px
+        cursor: pointer
+        a > u
+            color: #1C1C1C
+            transition: var(--transition)
+            &:hover
+                color: var(--clr-pink)
+        &-text
+            color: #1C1C1C
+    &__btns
+        margin-top: 25px
+        +mq($md)
+            display: flex
+            justify-content: center
+            gap: 40px
+        .btn
+            margin-inline: auto
+        +mqMax($md)
+            .btn + .btn
+                margin-top: 25px
+        &--registration
+            display: block
+            +mq($xl)
+                display: flex
+                gap: 24px
+            .btn
+                padding: 15px 25px
+                +mq($md)
+                    margin-inline: unset
+            .btn + .btn
+                margin-top: 25px
+                +mq($md)
+                    margin-top: 30px
+                +mq($xl)
+                    margin-top: 0
+    &__acceptance
+        display: flex
+        align-items: flex-start
+        gap: 15px
+        cursor: pointer
+        a
+            display: initial
+            text-decoration: underline
+        span
+            color: var(--clr-pink)
+        &-text
+            color: #1C1C1C
+        input[type="checkbox"]
+            display: none
+    &__preview
+        &-files
+            display: flex
+            gap: 30px
+            min-height: 30px
+            &:has(.form__preview-file),
+            &:has(.form__preview-wrap)
+                margin: 30px 0
+                transition: var(--transition)
+        &-file
+            line-height: 0
+            cursor: pointer
+            position: relative
+            width: 170px
+            height: 120px
+
+            // &:has(.form__preview-file),
+            // &:has(.form__preview-wrap)
+            //     width: 170px
+            //     height: 120px
+            img
+                +cover
+            embed
+                width: 170px
+                height: 120px
+            &::before,
+            &::after
+                content: ''
+                display: block
+                position: absolute
+                inset: 0
+                opacity: 0
+                transition: var(--transition)
+            &::before
+                background-color: rgba(56, 56, 56, 0.8)
+                z-index: 10
+            &::after
+                +bg('Images/icon_image_zoom.svg', center, 49px)
+                z-index: 15
+            &:hover
+                &::before,
+                &::after
+                    opacity: 1
+        &-wrap
+            position: relative
+            padding-right: 36px
+        &-close
+            position: absolute
+            top: 0
+            right: 0
+
+            +box(26px)
+            border-radius: 50%
+            background-color: var(--clr-white)
+            +bg('Images/icon_cross.svg', center, 12px)
+
+            cursor: pointer
+
+
+
+            

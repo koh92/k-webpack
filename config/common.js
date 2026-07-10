@@ -26,7 +26,6 @@ module.exports = {
 		path: paths.dist,
 		filename: './js/[name].bundle.js',
 		clean: true,
-		publicPath: isProd ? './' : '/',
 	},
 	cache: cache,
 	module: {
@@ -114,7 +113,6 @@ module.exports = {
 				},
 				css: {
 					// output filename of extracted CSS file from source style
-					// filename: '/css/[name].[contenthash:8].css',
 					filename: 'assets/css/[name].min.css',
 					// Использование outputPath ломает картинки из стилей
 					// outputPath: 'assets/css/',

@@ -25,7 +25,6 @@ module.exports = merge(common, {
 						}
 						return `${moduleName}`;
 					},
-					// 	filename: 'js/[name].plugin.js',
 					chunks: 'all',
 				},
 			},

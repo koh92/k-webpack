@@ -7,7 +7,6 @@ const common = require('./common')
 
 module.exports = merge(common, {
 	mode: 'development',
-	// devtool: 'eval-cheap-source-map',
 	devtool: 'eval-source-map',
 	target: 'web',
 	devServer: {
@@ -23,7 +22,6 @@ module.exports = merge(common, {
 			},
 		},
 	    client: {
-		    // progress: true,
 	      	overlay: {
 		        errors: true,
 		        warnings: false,
@@ -31,8 +29,7 @@ module.exports = merge(common, {
 	    },
 		static: {
 			directory: paths.src,
-			watch: true
+			watch: true,
 		}
 	},
-	// stats: 'errors-only',
 })
