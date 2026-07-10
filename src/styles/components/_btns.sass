@@ -8,7 +8,7 @@
 	--_clr-background: var(--clr-bg, var(--clr-white))
 	--_clr-font: var(--clr-font, var(--clr-black))
 	--_clr-border: var(--clr-border, transparent)
-	--_border-radius: var(--border-radius, 0)
+	--_border-radius: var(--btn-border-radius, 0)
 	--_max-width: var(--btn-max-width, fit-content)
 	--_height: var(--btn-height, 50px)
 	+fz(16)
@@ -18,18 +18,18 @@
 	height: var(--_height)
 	padding: 15px 35px
 	max-width: var(--_max-width)
+	width: 100%
 	
 	background-color: var(--_clr-background)
 	border-width: 0
 	border-style: solid
 	border-color: var(--_clr-border)
 	border-radius: var(--_border-radius)
-	--border-radius: 0
 
 	display: flex
 	align-items: center
 	justify-content: center
-	width: 100%
+	
 	cursor: pointer
 	transition: var(--transition)
 
@@ -86,7 +86,6 @@
 			margin-right: 10px
 			+bg('Images/icon_clip.svg', center, contain)
 			transition: var(--transition)
-	
 
 button
 	background-color: transparent

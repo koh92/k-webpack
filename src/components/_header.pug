@@ -1,19 +1,15 @@
 block header
 	header.js-header(data-state="closed")
-		.backdrop.js-backdrop
 		.container
 			.header
-				.header__subtitle Официальный поставщик BAUMULLER в России
 				a.header__logo(href= isProd ? "index.html" : "/")
-					+img("Images/logo_full.png", "logo")
+					+img("Images/logo.svg", "logo")
 				nav.header__menu
 					button.header__menu-trigger.js-menu-trigger
 						include Images/icon_close.svg
 					ul.header__menu-list.js-header-nav-menu#primary-navigation
 						li.header__menu-item
-							a(href="catalog-section.html") Каталог категория
-						li.header__menu-item
-							a(href="catalog-element.html") Каталог элемент
+							a(href="example.html") Примеры компонентов
 						li.header__menu-item
 							a(href="404.html") 404
 						li.header__menu-item
@@ -32,9 +28,9 @@ block header
 									include Images/icon_close.svg
 				.header__contacts
 					.header__contact.header__contact--blue
-						a(href="tel:+74956428476") +7 495 642-84-76
+						a(href="tel:+74957777777") +7 495 777-77-77
 					.header__contact.header__contact--black
-						a(href="mailto:info@prosensor.ru") info@prosensor.ru
+						a(href="mailto:email@email.ru") email@email.ru
 				.header__burger.js-menu-trigger
 					button.menu-toggle(
 						aria-label="Menu"

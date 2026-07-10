@@ -3,14 +3,13 @@
 
 \:root
     --gutter: 15px
+    +mixins.mq(breakpoints.$md)
+        --gutter: 30px
+    +mixins.mq(breakpoints.$xl)
+        --gutter: 10px
 
-.container 
+.container
     width: 100%
     padding: 0 var(--gutter)
     margin: 0 auto
     max-width: min(100%, breakpoints.$max_width)
-    +mixins.mq(breakpoints.$md)
-        --gutter: 30px
-    +mixins.mq(breakpoints.$xl)
-        // --gutter: 10px
-        --gutter: 0

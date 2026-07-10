@@ -14,6 +14,10 @@ rawPages.forEach((value) => pagesList[`${value.replace(/\.pug/,'')}`] = `./${val
 
 let cache = isProd ? false : {
 	type: "filesystem",
+	memoryCacheUnaffected: true,
+	store: 'pack',
+	// compression: 'brotli',
+	compression: 'gzip',
 	buildDependencies: {
 		config: [ __filename ] // you may omit this when your CLI automatically adds it
 	}

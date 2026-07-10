@@ -11,8 +11,8 @@ input[name*="acceptance"] ~ .wpcf7-list-item-label
 	display: flex
 	align-items: flex-start
 	gap: 10px
-input[name*="acceptance"]:checked ~ .wpcf7-list-item-label .custom-checkbox
-	+bg('Images/icon_tick.svg', center, 16px)
+input[name*="acceptance"]:checked ~ .wpcf7-list-item-label .custom-checkbox svg
+	color: currentColor
 .wpcf7-list-item
 	margin: 0
 .wpcf7-response-output,
@@ -36,7 +36,6 @@ input[name*="acceptance"]:checked ~ .wpcf7-list-item-label .custom-checkbox
 	transition: var(--transition)
 	display: block
 	+fz(16)
-	line-height: 130%
 	color: var(--clr-orange)
 
 input

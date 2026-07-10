@@ -1,0 +1,59 @@
+@use '../base/mixins' as *
+@use '../base/breakpoints' as *
+
+.visually-hidden:not(:focus):not(:active)
+	clip: rect(0 0 0 0)
+	clip-path: inset(50%)
+	height: 1px
+	overflow: hidden
+	position: absolute
+	white-space: nowrap
+	width: 1px
+	
+.noscroll
+	overflow: hidden
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+
+.noselect
+	-webkit-touch-callout: none /* iOS Safari */
+	-webkit-user-select: none /* Safari */
+	-khtml-user-select: none /* Konqueror HTML */
+	-moz-user-select: none /* Old versions of Firefox */
+	-ms-user-select: none /* Internet Explorer/Edge */
+	user-select: none /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+
+.custom-checkbox
+	--size: 16px
+	width: var(--size)
+	height: var(--size)
+	flex: 0 0 var(--size)
+	border: 1px solid currentColor
+	margin-top: 3px
+
+	+flex-center()
+	svg
+		color: transparent
+	input:checked + & svg
+		color: currentColor
+
+input[name="custom-checkbox"]
+	display: none
+
+.svg-icons
+	// display: none
+	clip: rect(0 0 0 0)
+	clip-path: inset(50%)
+	height: 1px
+	overflow: hidden
+	position: absolute
+	white-space: nowrap
+	width: 1px
+
+.text
+	all: revert 
+	font-size: 18px
+	> *
+		all: revert 

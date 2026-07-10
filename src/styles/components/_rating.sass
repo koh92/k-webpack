@@ -1,0 +1,52 @@
+@use '../base/mixins' as *
+@use '../base/breakpoints' as *
+	
+.rating
+	margin-bottom: 15px
+	isolation: isolate
+	display: grid
+	grid-template-columns: 32px 1fr
+	gap: 6px
+	+mq($md)
+		margin-bottom: 20px
+	&__title
+		+fz(14)
+		color: var(--clr-grey)
+		margin-bottom: 6px
+		+mq($md)
+			+fz(12)
+	&__value
+		font-weight: 500
+		+mq($md)
+			+fz(20)
+	&__stars
+		--icon-size: 38px
+		display: grid
+		grid-template-columns: repeat(5, var(--icon-size))
+		gap: 2px
+		+mq($md)
+			--icon-size: 42px
+		+mq($xl)
+			--icon-size: 48px
+		.small &
+			--icon-size: 20px
+			+mq($md)
+				--icon-size: 26px
+	&__star
+		width: var(--icon-size)
+		height: var(--icon-size)
+		fill: transparent
+		cursor: pointer
+
+		.rating.stark &
+			color: var(--clr-white-stark)
+		.rating.blue &
+			color: var(--clr-blue)
+		
+		&:hover,
+		&.active,
+		&:has(~ &:hover)
+			fill: currentColor
+
+		svg
+			transition: var(--transition)

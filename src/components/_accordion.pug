@@ -11,7 +11,7 @@ mixin accordion-section(list, title)
 
 			each item, key in accordionList
 				.accordion__item.js-accordion-item
-					.accordion__item-head
+					.accordion__item-head.js-accordion-item-heading
 						.accordion__item-name= item.name
 						.accordion__item-close
 							svg(viewBox="0 0 50 50")

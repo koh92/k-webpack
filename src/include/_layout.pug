@@ -13,14 +13,12 @@ html(lang="ru")
 		meta(charset="UTF-8")
 		meta(http-equiv="X-UA-Compatible", content="IE=edge")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
-		link(rel="icon" type="image/svg+xml" href="logo.svg")
+		link(rel="icon" type="image/svg+xml" href="Images/favicon.svg")
 
 		title= title
 
 		// CSS::Start
 		include _css
-		//- if true === separate_output_css
-			link(href=require('../styles/pages.sass'), rel='stylesheet')
 		// CSS::End
 
 	body(class=bodyClass)
@@ -44,9 +42,10 @@ html(lang="ru")
 		include ../components/_footer
 		// Footer::End
 
-		// Popup::Start
-		include ../components/_popups
-		// Popup::End
+		if fancyboxAjax === false
+			// Popup::Start
+			include ../components/_popups
+			// Popup::End
 
 		// JavaScript::Start
 		include _js

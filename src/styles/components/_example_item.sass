@@ -1,15 +1,17 @@
 @use '../base/mixins' as *
 @use '../base/breakpoints' as *
 
-.catalog__item
+.example__item
     min-height: 470px
-    display: flex
+    display: inline-flex
     flex-direction: column
     padding: 20px
     &[data-type="light"]
         background-color: var(--clr-white-05)
+        color: var(--clr-black)
     &[data-type="dark"]
-        background-color: var(--clr-white-1)
+        background-color: var(--clr-black-05)
+        color: var(--clr-white)
     +mq($md)
         min-height: 450px
         [data-view="list"] &
@@ -20,13 +22,16 @@
             background-color: var(--clr-white)
     +mq($xl)
         min-height: 470px
+    & + &
+        margin-left: 15px
     &-image
         width: 100%
         height: 190px
         background-color: var(--clr-white)
         margin-bottom: 20px
+        max-width: 200px
         img
-            +contain
+            +cover()
         +mq($md)
             [data-view="list"] &
                 max-width: 50%
@@ -36,6 +41,7 @@
         flex: 1
         display: flex
         flex-direction: column
+        color: currentColor
         +mq($md)
             [data-view="list"] &
                 padding: 20px
@@ -47,7 +53,6 @@
     &-desc
         +fz(16)
         line-height: 120%
-        color: var(--clr-grey)
         margin-bottom: 35px
         +textLimit(4)
         +mq($xl)

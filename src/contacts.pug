@@ -4,6 +4,7 @@ block variables
 	- var title = 'Project name | Contacts'
 	- var bodyClass = 'page-contacts'
 	- var yandexMap = true
+	- var breadcrumbs = true
 
 block block_breadcrumbs
 	+breadcrumbs('Контакты', 'Контакты')
@@ -12,44 +13,27 @@ block content
 	.contacts
 		.contacts__blue-section
 			.container
-				.contacts__grid.margin-left
+				.contacts__grid
 					.contacts__subtitle Ответим на все вопросы и подберём решение для вашей задачи
 					.contacts__list
 						.contacts__item
 							.contacts__item-title Телефон
 							.contacts__item-value
-								a(href="+74956428476") +7 495 642-84-76
+								a(href="+74957777777") +7 495 777-77-77
 						.contacts__item
 							.contacts__item-title Факс
-							.contacts__item-value +7 495 642-84-76
+							.contacts__item-value +7 495 777-77-77
 						.contacts__item
 							.contacts__item-title E-mail:
 							.contacts__item-value 
-								a(href="mailto:info@prosensor.ru") info@prosensor.ru 
+								a(href="mailto:email@email.ru") email@email.ru 
 						.contacts__item
 							.contacts__item-title Адрес
-							.contacts__item-value г. Москва, г. Зеленоград, ул. Заводская, дом 1Б, с. 2.
+							.contacts__item-value г. Москва
 					.form(data-view="column-xl")
 						include components/_static-form
 		.container
 			.contacts__map.js-contacts-map
 				.contacts__map-coord
-					.js-contacts-map-coord(data-coord="55.974635, 37.184863", data-hint="Офис")
+					.js-contacts-map-coord(data-coord="55.754009, 37.620324", data-hint="Офис")
 				.contacts__map-area#js-contacts-map
-			.contacts__requisites.margin-left
-				.contacts__requisites-title Реквизиты
-				.contacts__requisites-item
-					.contacts__requisites-label Наименование
-					.contacts__requisites-value Общество с ограниченной ответственностью: «Просенсор» (ООО «Просенсор»)
-				.contacts__requisites-item
-					.contacts__requisites-label ИНН / КПП
-					.contacts__requisites-value 7733569400 / 7733569400
-				.contacts__requisites-item
-					.contacts__requisites-label ОГРН
-					.contacts__requisites-value 1067746640345
-				.contacts__requisites-item
-					.contacts__requisites-label Юридический адрес
-					.contacts__requisites-value 124365, город Москва, город Зеленоград, Заводская ул., д. 1б стр. 2, эт., 3 пом., 6 ком., 306.
-				.contacts__requisites-item
-					.contacts__requisites-label Фактический адрес
-					.contacts__requisites-value 124365, город Москва, город Зеленоград, Заводская ул., д. 1б стр. 2, эт., 3 пом., 6 ком., 306.
