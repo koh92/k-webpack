@@ -40,7 +40,14 @@ module.exports = {
 		        	// devMode ? "style-loader" : MiniCssExtractPlugin.loader,
 		        	MiniCssExtractPlugin.loader,
 		        	// Translates CSS into CommonJS
-		        	"css-loader",
+		        	// "css-loader",
+		        	{
+                        loader: "css-loader",
+                        options: {
+                        	// prevent creating images from styles
+                            url: false
+                        }
+                    },
 		        	// Post CSS process
 		        	{
 		        	  loader: "postcss-loader",

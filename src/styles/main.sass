@@ -4,7 +4,6 @@
 @import "base/mixins"
 
 
-
 $body-color: red
 $main-color: limegreen
 
@@ -20,6 +19,7 @@ body
 
   +breakpoint(lg)
     color: orange
+    background-color: #ececec
 
 .title
   // font-size: 1.6rem
@@ -34,8 +34,12 @@ body
 .block
   +flex
   +bg('../images/OwlGrid.jpg', center)
+  +bg('../images/oskal-geparda-hischnik-zlobnyiy-jivotnyie.jpeg', center)
   width: 500px
   height: 300px
+  overflow: hidden
+  border: 3px solid $main-color
+  border-radius: 5px
   
 
 .arrow
