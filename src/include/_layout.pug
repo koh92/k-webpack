@@ -18,6 +18,8 @@ html(lang="ru")
 
 		// CSS::Start
 		include _css
+		//- if true === separate_output_css
+			link(href=require('../styles/pages.sass'), rel='stylesheet')
 		// CSS::End
 
 	body(class=bodyClass)

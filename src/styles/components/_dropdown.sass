@@ -2,40 +2,40 @@
 @use '../base/breakpoints' as *
 
 .dropdown
-    --padding-inline: 16px
-    --padding-block: 20px
-    --heading-height: 50px
-    position: relative
-    
-    &__box
-        +toggle(0px)
-        position: absolute
-        z-index: 15
-        top: calc(100% + 5px)
-        width: 100%
-    &__heading
-        display: flex
-        align-items: center
-        gap: 10px
-        height: var(--heading-height)
-        padding: 0 var(--padding-inline)
-        cursor: pointer
-        &-text
-            // Text styles go here
-    &__arrow
-        +icon-size(40px)
-        --icon-size: 40px
-        transition: var(--transition)
-        .active &
-            transform: rotate(180deg)
-    &__content
-        +border-radius(10px)
-        background-color: var(--clr-grey-07)
-    &__item
-        display: flex
-        align-items: center
-        gap: 10px
-        padding: var(--padding-block) var(--padding-inline)
-        cursor: pointer
-        &.active
-            color: var(--clr-orange)
+	--padding-inline: 16px
+	--padding-block: 20px
+	--heading-height: 50px
+	position: relative
+	
+	&__box
+		+toggle(0px)
+		position: absolute
+		z-index: 15
+		top: calc(100% + 5px)
+		width: 100%
+	&__heading
+		display: flex
+		align-items: center
+		gap: 10px
+		height: var(--heading-height)
+		padding: 0 var(--padding-inline)
+		cursor: pointer
+		&-text
+			// Text styles go here
+	&__arrow
+		+icon-size(40px)
+		--icon-size: 40px
+		transition: var(--transition)
+		.active &
+			transform: rotate(180deg)
+	&__content
+		+border-radius(10px)
+		background-color: var(--clr-grey-07)
+	&__item
+		display: flex
+		align-items: center
+		gap: 10px
+		padding: var(--padding-block) var(--padding-inline)
+		cursor: pointer
+		&.active
+			color: var(--clr-orange)

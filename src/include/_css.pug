@@ -1,5 +1,4 @@
 //- Don't remove Node path!
-
 if true === swiper
 	// Add swiper
 	link(href=require('Node/swiper/swiper-bundle.css'), rel='stylesheet')
@@ -19,4 +18,10 @@ if true === wow
 //- Google fonts ends here
 
 link(href=require('Node/normalize.css/normalize.css'), rel='stylesheet')
-link(href=require('../styles/index.sass'), rel='stylesheet')
+if true === separate_output_css
+	link(href=require('../styles/base.sass'), rel='stylesheet')
+	link(href=require('../styles/components.sass'), rel='stylesheet')
+	link(href=require('../styles/cms.sass'), rel='stylesheet')
+	link(href=require('../styles/pages.sass'), rel='stylesheet')
+else
+	link(href=require('../styles/index.sass'), rel='stylesheet')
