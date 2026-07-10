@@ -11,11 +11,6 @@
 	},
 	"author": "Ampodistov Konstantin",
 	"license": "ISC",
-	"postcss": {
-		"plugins": {
-			"autoprefixer": {}
-		}
-	},
 	"browserslist": "defaults",
 	"devDependencies": {
 		"@babel/core": "^7.21.8",
@@ -26,6 +21,7 @@
 		"postcss": "^8.4.23",
 		"postcss-loader": "^8.1.1",
 		"postcss-preset-env": "^9.5.5",
+		"postcss-sort-media-queries": "^5.2.0",
 		"pug": "^3.0.2",
 		"pug-plugin": "^5.2.0",
 		"sass": "^1.62.1",

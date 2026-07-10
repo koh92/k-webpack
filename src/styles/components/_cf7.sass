@@ -47,3 +47,10 @@ input
 			visibility: visible
 			height: auto
 			margin-top: 8px
+	&:not(:placeholder-shown)
+		&:valid
+			outline-color: green
+		&:invalid
+			outline-color: red
+	&:focus:invalid
+		outline-color: yellow
