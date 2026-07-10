@@ -1,22 +1,29 @@
-html 
-	// font-size: 62.5%
-	box-sizing: border-box
-	scroll-behavior: smooth
-	//color-scheme: dark light
-
-body
-	font-family: system-ui, sans-serif
-
+*
+	margin: 0
+	padding: 0
+	font: inherit
+	
 *,
 *::before,
 *::after 
 	box-sizing: border-box
 	// Отключаем синюю обводку на мобиле при клике
-	-webkit-tap-highlight-color: rgba(0,0,0,0)
 	-webkit-tap-highlight-color: transparent
-
+	// Сглаживаем буквы текста на macOS
 	// -webkit-font-smoothing: antialiased
+	
+html 
+	// font-size: 62.5%
+	// color-scheme: dark light
 
+@media (prefers-reduced-motion: no-preference)
+	html,
+	:has(:target)
+		scroll-behavior: smooth
+		// scroll-padding-top: 3rem // Отступ сверху при скроле
+
+body
+	font-family: system-ui, sans-serif
 
 h1, h2, h3, h4, h5, h6, p, img, ol, ul, li, figure 
 	margin: 0
@@ -62,3 +69,11 @@ fieldset
 @media (prefers-reduced-motion: reduce)
 	*
 		transition: none !important
+
+// Убираем стрелки на мозиле
+input[type='number']
+    -moz-appearance: textfield
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+    -webkit-appearance: none

@@ -1,0 +1,20 @@
+mixin accordion-section(list, title)
+	.svg-icons
+		include Images/icon_cross_black.svg
+	.accordion
+		if title !== ''
+			.accordion__title= title
+		.accordion__list
+			- var accordionList = {1:{name: 'Вопрос 1', text: 'Ответ'}, 2:{name: 'Вопрос 2', text: 'Ответ'}, 3:{name: 'Вопрос 3', text: 'Ответ'}, 4:{name: 'Вопрос 4', text: 'Ответ'} }
+			if list !== ''
+				- var accordionList = list
+
+			each item, key in accordionList
+				.accordion__item.js-accordion-item
+					.accordion__item-head
+						.accordion__item-name= item.name
+						.accordion__item-close
+							svg(viewBox="0 0 50 50")
+								use(xlink:href="#icon_cross_black")
+					.accordion__item-toggler
+						.accordion__item-text= item.text

@@ -70,12 +70,17 @@ module.exports = {
 			},
 			// Images
 			{
-				test: /\.(png|jpg|jpeg|ico|svg|webp)/,
+				test: /\.(png|jpg|jpeg|ico|svg|gif|webp)/,
 				type: 'asset/resource',
 				generator: {
 					// output filename of images
 					filename: `[name][ext]`,
 					outputPath: 'assets/images/',
+					// filename: (pathData) => {
+					// 	const { dir } = path.parse(pathData.filename); // the filename is relative path by project
+					// 	const outputPath = dir.replace(paths.src, '');
+					// 	return '/assets/' + outputPath + '/[name][ext]';
+					// },
 				},
 			},
 			// Fonts

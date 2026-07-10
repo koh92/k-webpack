@@ -1,0 +1,88 @@
+@use '../base/mixins' as *
+@use '../base/breakpoints' as *
+
+.accordion
+	background-color: var(--clr-white)
+	color: var(--clr-text)
+	padding-top: 40px
+	padding-bottom: 65px
+	+mq($md)
+		padding-top: 60px
+		padding-bottom: 130px
+	+mq($xl)
+		padding-top: 90px
+		padding-bottom: 120px
+	+mq($hd)
+		padding-top: 120px
+		padding-bottom: 160px
+	&__title
+		+fz(24)
+		font-weight: 500
+		line-height: 110%
+		text-transform: uppercase
+		margin-bottom: 30px
+		+mq($xl)
+			+fz(40)
+			margin-bottom: 50px
+		+mq($hd)
+			+fz(50)
+			line-height: 120%
+			margin-bottom: 60px
+	&__item
+		padding-top: 20px
+		padding-bottom: 20px
+		border-top: 1px solid var(--clr-text)
+		&:last-child
+			border-bottom: 1px solid var(--clr-text)
+		+mq($md)
+			position: relative
+			padding-top: 30px
+			padding-bottom: 30px
+		+mq($md)
+			padding-top: 40px
+			padding-bottom: 40px
+		&-head
+			display: flex
+			align-items: center
+			gap: 20px
+			cursor: pointer
+		&-icon
+			--icon-size: 50px
+			width: var(--icon-size)
+			height: var(--icon-size)
+			flex: 0 0 var(--icon-size)
+			border-radius: 5px
+			background-color: var(--clr-text)
+			+mq($md)
+				position: absolute
+				top: 30px
+				left: 0
+			+mq($xl)
+				top: 40px
+		&-name
+			text-transform: uppercase
+			line-height: 120%
+			+mq($xl)
+				+fz(24)
+			+mq($hd)
+				+fz(30)
+		&-close
+			--close-size: 50px
+			width: var(--close-size)
+			height: var(--close-size)
+			flex: 0 0 var(--close-size)
+			margin-left: auto
+			transition: var(--transition)
+			svg
+				stroke: var(--clr-text)
+			.active &
+				transform: rotate(-45deg)
+		&-toggler
+			+toggle(16px)
+			+mq($md)
+				+toggle(20px)
+			+mq($hd)
+				+toggle(30px)
+		&-text
+			+mq($hd)
+				+fz(18)

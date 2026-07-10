@@ -33,17 +33,6 @@ const burger = () => {
     }
 }
 
-const searchTrigger = () => {
-    const triggerBtns = document.querySelectorAll('.js-search-trigger'),
-          popup = document.querySelector('.header__search-popup'),
-          backdrop = document.querySelector('.js-backdrop')
-    if(triggerBtns.length > 0 && popup){
-        triggerBtns.forEach(btn=>btn.addEventListener('click',()=>{
-            popup.classList.toggle('active')
-            backdrop.classList.toggle('active')
-        }))
-    }
-}
 const menuTrigger = () => {
     const triggerBtns = document.querySelectorAll('.js-menu-trigger'),
           popup = document.querySelector('.header__menu'),
@@ -85,44 +74,100 @@ const scrollTopHeader = () => {
 	}
 }
 
-const topSaleSlider = () => {
-    if(document.querySelector('.js-top-sale-swiper')){
-        const topSaleSwiper = new Swiper('.js-top-sale-swiper', {
-            slidesPerView: 1.2,
-            spaceBetween: 20,
-            speed: 800,
-            loop: false,
-	        breakpoints: {
+// Пример подключения swiper'а
+const exampleSlider = () => {
+    if(document.querySelector('.js-example-swiper')){
+        // Подключение стрелок навигации, если они лежат не в контейнере слайдера
+        let prevArrow = document.querySelector('.js-example-prev')
+        let nextArrow = document.querySelector('.js-example-next')
+        const exampleSwiper = new Swiper('.js-example-swiper', {
+            slidesPerView: 1.2, // Кол-во слайдов для показа
+            spaceBetween: 20, // Расстояние между слайдами
+            speed: 800, // Скорость переключения слайдера
+            loop: false, // Зациклить слайдер
+            slideToClickedSlide: true, // Перелистывание на слайд по клику
+            simulateTouch: false, // Иммитировать перелистывание на ПК
+            navigation: { // Навигация
+				nextEl: '.js-example-next',
+				prevEl: '.js-example-prev',
+			},
+	        breakpoints: { // Адаптивы
 				744: {
 					slidesPerView: 2.2,
 				},
                 1220: {
                     slidesPerView: 4,
+                },
+                1650: {
+                    slidesPerView: 5,
                 }
-	        }
+	        },
+            pagination: { // Кастомная пагинация
+                el: '.js-example-pagination',
+                type: 'bullets',
+                clickable: true,
+                renderBullet: function (index, className) {
+                    return '<span class="' + className + '">' + (index + 1) + '</span>';
+                }
+            },
+            effect: 'fade', // Эффект переключения слайдов
+            fadeEffect: {
+                crossFade: true // Видимость задних элементов при переключении слайда
+            },
         });
     }
 }
 
-const articlesSlider = () => {
-    if(document.querySelector('.js-articles-swiper')){
-        const topSaleSwiper = new Swiper('.js-articles-swiper', {
-            slidesPerView: 1.2,
-            spaceBetween: 20,
+// Переключение слайдов по ховеру на определенную область
+const projectItemSlider = () => {
+    if(document.querySelector('.js-project-item-swiper')){
+        let projectItemSwiper = new Swiper('.js-project-item-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 10,
             speed: 800,
-            loop: false,
-	        breakpoints: {
-				744: {
-					slidesPerView: 2.2,
-				},
-                1220: {
-                    slidesPerView: 3,
-                }
-	        }
+            loop: true,
+            pagination: {
+				el: '.js-project-item-pagination',
+			},
         });
+
+        // Проверяем ширину браузера больше 1280 и возможность клиента сделать ховер
+        if(document.documentElement.clientWidth > 1280 && !global.matchMedia('(hover: none)').matches) {
+            let allSliders = document.querySelectorAll('.js-project-item-swiper')
+            if(allSliders.length > 0 && true) {
+                allSliders.forEach(slider => {
+                    slider.addEventListener('mousemove', (e)=> {
+
+                        // Положение слайдера на странице
+                        let sliderPos = slider.getBoundingClientRect()
+                        let slider_left = sliderPos.left
+
+                        // Положение курсора внутри слайдера по оси X
+                        let x_letter = e.pageX - slider_left
+
+                        // Узнаем кол-во слайдов
+                        let length = slider.querySelectorAll('.swiper-slide').length
+
+                        // Узнаем ширину блока
+                        let width = slider.offsetWidth
+
+                        let go_to_slide = Math.ceil(( x_letter * length ) / width)
+
+                        if ( go_to_slide < 1 ) {
+                            go_to_slide = 1
+                        }
+
+                        go_to_slide = go_to_slide - 1; // Отсчет слайдеров начинается с 0 (то есть первый слайд = 0)
+
+                        slider.swiper.slideTo(go_to_slide, 1000, false)
+                    })
+                })
+            }
+        }
     }
 }
 
+// Кастомный input для файлов
 const inputTypeFile = () => {
     let inputsArr = document.querySelectorAll('input[type="file"]'),
         allowedImagesExtension = ['application/pdf', 'image/jpeg', 'image/jpg', 'image/png','image/bmp']
@@ -163,29 +208,23 @@ const inputTypeFile = () => {
     }
 }
 
-const catalogSectionCategoriesSlider = () => {
-    if(document.querySelector('.js-catalog-section-categories-swiper')){
-        const catalogSectionCategoriesSwiper = new Swiper('.js-catalog-section-categories-swiper', {
-            slidesPerView: "auto",
-            spaceBetween: 10,
-            speed: 800,
-            loop: false,
-        });
-    }
+// Аккордеон
+const accordion = () => {
+	const accordionList = document.querySelectorAll('.js-accordion-item')
+	if (accordionList.length) {
+		accordionList.forEach(item => item.addEventListener('click', (e) => {
+			let target = e.target
+			if (target.closest('.accordion__item-head')) {
+				if (item.classList.contains('active')) {
+					item.classList.remove('active')
+				} else {
+					item.classList.add('active');
+				}
+			}
+		}))
+	}
 }
-
-const setPopupTitle = () => {
-    let requestBtns = document.querySelectorAll('.btn[data-src="#popup-request"]'),
-        popupTitle = document.querySelector('.js-form-title'),
-        productNameInput = document.querySelector('.js-product-input')
-    if(requestBtns.length > 0 && popupTitle){
-        requestBtns.forEach(btn=>btn.addEventListener('click',()=>{
-            popupTitle.innerHTML = btn.dataset.product
-            productNameInput.value = btn.dataset.product
-        }))
-    }
-}
-
+// Яндекс карта
 const ymapsRender = () => {
     let mapContainer = document.querySelector('.js-contacts-map')
     if (mapContainer) {
@@ -199,6 +238,44 @@ const ymapsRender = () => {
             })
 
             ymaps.ready(function() {
+                // https://yandex.ru/dev/maps/jsbox/2.1/balloon_autopan/
+                let objectBalloonLayout = ymaps.templateLayoutFactory.createClass(
+                    '<div class="map-popup-wrap">' +
+                    '<div class="map-popup-triangle"></div>' +
+                    '<div class="map-popup">' +
+                    '$[[options.contentLayout observeSize minWidth=235 maxWidth=405 maxHeight=120]]' +
+                    '</div>' + '</div>'
+                    )
+                    
+                let objectBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+                    `
+                    <div class=map-popup-inner>
+                        <div class=map-popup__title>
+                            ${mapContainer.dataset.title}
+                        </div>
+                        <div class=map-popup__address>
+                            ${mapContainer.dataset.address}
+                        </div>
+                    </div>`
+                )
+                
+                let balloonParams = {}
+                // Пример кастомной всплывашки для карты
+                balloonParams = {
+                    // Описание всех меток https://yandex.ru/dev/maps/jsapi/doc/2.1/ref/reference/option.presetStorage.html
+                    balloonShadow: false,
+                    hideIconOnBalloonOpen: true,
+                    balloonLayout: objectBalloonLayout,
+                    balloonContentLayout: objectBalloonContentLayout,
+                    balloonOffset: [-140, -90],
+                    iconColor: '#FF6E00',
+                    balloonPanelMaxMapArea: 0,
+                    // preset: 'islands#blueIcon'
+                }
+                balloonParams = {
+                    preset: 'islands#blueIcon'
+                }
+
                 let pl
                 let companyMap = new ymaps.Map("js-contacts-map", {
                     center: [55.765326, 37.627735],
@@ -210,14 +287,18 @@ const ymapsRender = () => {
                 })
 
                 for (let i = 0; i < coordArr.length; i++) {
-                    pl = new ymaps.Placemark(coordArr[i], { 
-                        hintContent: hintArr[i]
-                    }, {
-                            // Описание всех меток https://yandex.ru/dev/maps/jsapi/doc/2.1/ref/reference/option.presetStorage.html
-                            preset: 'islands#blueIcon'
-                        });
+                    pl = new ymaps.Placemark(
+                        coordArr[i], 
+                        { 
+                            hintContent: hintArr[i]
+                        }, 
+                        balloonParams
+                        );
 
                     companyMap.geoObjects.add(pl);
+
+                    // Открываем всплывашку программно
+                    // pl.balloon.open()
                 }
 
                 companyMap.setBounds(companyMap.geoObjects.getBounds(), { checkZoomRange: true }).then(function(){ if(companyMap.getZoom() > 16) companyMap.setZoom(16)} )
@@ -226,7 +307,7 @@ const ymapsRender = () => {
         }
     }
 }
-
+// Маска телефона РФ
 const inputMask = () => {
     let inputTel = document.querySelectorAll('input[type="tel"]')
     if(inputTel.length){
@@ -236,13 +317,10 @@ const inputMask = () => {
     }
 }
 
+// Пример работы Contact Form 7
 const cf7 = () => {
-    function getCurrentFileInput(form){
-		let currentForm = document.querySelector(form)
-		return currentForm.querySelector('.btn--clip-icon')
-	}
-
-	document.addEventListener( 'wpcf7mailsent', function( event ) {
+    // Всплывающее окно при успешной отправке формы
+    document.addEventListener( 'wpcf7mailsent', function( event ) {
         Fancybox.close();
         Fancybox.show([{ 
             dragToClose: false,
@@ -250,26 +328,16 @@ const cf7 = () => {
             type: "inline",
         }]);
 	})
+
+    // Обнуляем данные после успешной отправке формы
+    function getCurrentFileInput(form){
+		let currentForm = document.querySelector(form)
+		return currentForm.querySelector('.btn--clip-icon')
+	}
     document.addEventListener( 'wpcf7mailsent', function( event ) {
         let currentFileInput = getCurrentFileInput(event.detail.apiResponse.into)
         currentFileInput.innerText = 'Прикрепите шильдик'
     })
-}
-
-const citizenshipAccordion = () => {
-	const citizenshipList = document.querySelectorAll('.js-citizenship-item')
-	if (citizenshipList.length) {
-		citizenshipList.forEach(item => item.addEventListener('click', (e) => {
-			let target = e.target
-			if (target.closest('.citizenship__item-head')) {
-				if (item.classList.contains('active')) {
-					item.classList.remove('active')
-				} else {
-					item.classList.add('active');
-				}
-			}
-		}))
-	}
 }
 
 const appHeight = () => {
@@ -282,23 +350,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
     // Burger init
 	// burger()
 
-    searchTrigger()
-    menuTrigger()
+    // menuTrigger()
+
     scrollTopHeader()
-
-    topSaleSlider()
-
-    articlesSlider()
-
-    inputTypeFile()
-
-    setPopupTitle()
 
     ymapsRender()
 
-    inputMask()
+    // cf7()
 
-    cf7()
+    accordion()
 
 	// https://fancyapps.com/fancybox/api/methods/
 	Fancybox.bind("[data-fancybox]", {
@@ -315,7 +375,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 	// }]);
 
     if(document.documentElement.clientWidth <= 1220) {
-		catalogSectionCategoriesSlider()
+
     }
 })
 

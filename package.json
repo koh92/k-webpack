@@ -1,7 +1,7 @@
 {
-	"name": "prosensor",
+	"name": "project_name",
 	"version": "1.0.0",
-	"description": "Prosensor layout",
+	"description": "Project name layout",
 	"main": "app.js",
 	"private": true,
 	"scripts": {
