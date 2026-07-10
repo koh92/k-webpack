@@ -113,8 +113,6 @@ import font from 'Fonts/main.woff2'
 
 ## 📝 Changelog
 
-История изменений ведётся по стандарту [Keep a Changelog](https://keepachangelog.com/).
-
 👉 **[Полный CHANGELOG](./CHANGELOG.md)**
 
 ## 👤 Автор
