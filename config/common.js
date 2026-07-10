@@ -4,6 +4,9 @@ const paths = require('./paths')
 
 const PugPlugin = require('pug-plugin')
 
+// https://github.com/webdiscus/pug-plugin/blob/master/CHANGELOG.md#500-2024-02-08
+// const HtmlBundlerPlugin = require('html-bundler-webpack-plugin')
+
 const isProd = process.env.NODE_ENV === 'production'
 
 const fs = require('fs')
@@ -80,11 +83,6 @@ module.exports = {
 					// output filename of images
 					filename: `[name][ext]`,
 					outputPath: 'assets/images/',
-					// filename: (pathData) => {
-					// 	const { dir } = path.parse(pathData.filename); // the filename is relative path by project
-					// 	const outputPath = dir.replace(paths.src, '');
-					// 	return '/assets/' + outputPath + '/[name][ext]';
-					// },
 				},
 			},
 			// Fonts
@@ -119,12 +117,18 @@ module.exports = {
 					filename: 'assets/js/[name].min.js',
 					// Использование outputPath ломает картинки из стилей
 					// outputPath: 'assets/js/',
+
+					// adds JavaScript to the DOM by injecting a `<script>` tag
+					inline: true,
 				},
 				css: {
 					// output filename of extracted CSS file from source style
 					filename: 'assets/css/[name].min.css',
 					// Использование outputPath ломает картинки из стилей
 					// outputPath: 'assets/css/',
+
+					// adds CSS to the DOM by injecting a `<style>` tag
+					inline: true,
 				},
 			})
 		]
