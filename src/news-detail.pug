@@ -5,7 +5,7 @@ block variables
 	- var breadcrumbs = true
 
 block block_breadcrumbs
-	+breadcrumbs('Название новости', 'Новости', 'Название новости')
+	+breadcrumbs('Название новости', {'url': 'news', 'name': 'Новости'}, {'name': 'Название новости'})
 
 block content
 	section.news-detail

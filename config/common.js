@@ -119,7 +119,7 @@ module.exports = {
 					// outputPath: 'assets/js/',
 
 					// adds JavaScript to the DOM by injecting a `<script>` tag
-					inline: true,
+					inline: ! isProd,
 				},
 				css: {
 					// output filename of extracted CSS file from source style
@@ -128,7 +128,7 @@ module.exports = {
 					// outputPath: 'assets/css/',
 
 					// adds CSS to the DOM by injecting a `<style>` tag
-					inline: true,
+					inline: ! isProd,
 				},
 			})
 		]

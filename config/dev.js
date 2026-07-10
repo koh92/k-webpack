@@ -32,4 +32,7 @@ module.exports = merge(common, {
 			watch: true,
 		}
 	},
+	stats: {
+		loggingDebug: ["sass-loader"],
+	},
 })

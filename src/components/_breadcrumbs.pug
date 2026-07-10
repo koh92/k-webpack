@@ -8,10 +8,10 @@ mixin breadcrumbs(title, ...items)
                     if item == items[items.length - 1]
                         span.breadcrumbs-separator
                         .breadcrumbs-item
-                            span= item
+                            span= item.name
                     else
                         span.breadcrumbs-separator
                         .breadcrumbs-item
-                            a(href="#")= item
+                            a(href=`${item.url}.html`)= item.name
             .page-title
                 h1 !{title}

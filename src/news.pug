@@ -7,7 +7,7 @@ block variables
 include components/_news-item
 
 block block_breadcrumbs
-	+breadcrumbs('Новости', 'Новости')
+	+breadcrumbs('Новости', {'url': 'news', 'name': 'Новости'})
 
 block content
 	section.news
