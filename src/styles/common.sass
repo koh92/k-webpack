@@ -3,15 +3,21 @@
 @use 'base/breakpoints' as *
 
 \:root
-    --border-radius: 8px
+    --ff-manrope: 'Manrope', sans-serif
+    --breakpoint-xs: $xs
+    --breakpoint-sm: $sm
+    --breakpoint-md: $md
+    --breakpoint-lg: $lg
+    --breakpoint-xl: $xl
+    --breakpoint-hd: $hd
     @each $name, $value in colors.$colors
-        --#{$name}-color: #{$value}
+        --clr-#{$name}: #{$value}
 
 html
     scroll-behavior: smooth
     
 body
-    font-family: 'Manrope', sans-serif
+    font-family: var(--ff-base)
     min-height: 100vh
     display: flex
     flex-direction: column

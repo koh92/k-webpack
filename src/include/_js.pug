@@ -1,5 +1,9 @@
-if yandexMap == true
-	//- Yandex Map
-	script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" defer='defer')
+if true === yandexMap
+	// Add Yandex Map
+	script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU", defer='defer')
+
+if true === swiper
+	// Add Swiper
+	script(src=require('Node/swiper/swiper-bundle.min.js'), defer='defer')
 
 script(src=require('../js/app.js'))

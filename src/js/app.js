@@ -1,5 +1,6 @@
 // Swiper
-import Swiper, { Navigation, Pagination, Autoplay, Thumbs } from 'swiper';
+// Try to inject Swiper into _js.pug
+// import Swiper, { Navigation, Pagination, Autoplay, Thumbs } from 'swiper';
 
 // Fancybox 5
 import { Fancybox } from '@fancyapps/ui/dist/fancybox/fancybox.umd.js';
@@ -99,16 +100,6 @@ const yandexMap = () => {
 	}
 }
 
-const videoTrigger = () => {
-	let triggers = document.querySelectorAll('.js-video-preview')
-	if(triggers.length > 0) {
-		triggers.forEach(trigger => trigger.addEventListener('click', () => {
-			trigger.classList.add('about__video-preview--hide')
-			// trigger.nextElementSibling.src += "&autoplay=1"
-			trigger.nextElementSibling.play()
-		}))
-	}
-}
 
 const catalogFilter = () => {
 	let filterItems = document.querySelectorAll('.js-catalog-filter-item')
@@ -127,46 +118,26 @@ const catalogFilter = () => {
 	)}
 }
 
-const manufacturerFilter = () => {
-	let filterTabs = document.querySelectorAll('.js-manufacturer-item')
-
-	if(document.querySelector('.js-manufacturer-swiper') && filterTabs.length > 0){
-		const manufacturerSwiper = new Swiper('.js-manufacturer-swiper', {
-			grabCursor: true,
-			loop: false,
-			slidesPerView: 'auto',
-			spaceBetween: 8,
-			speed: 800,
-			breakpoints: {
-				744: {
-					spaceBetween: 12,
-				},
-			},
-			// on: {
-			// 	reachEnd: function() {
-			// 		this.snapGrid = [...this.slidesGrid];
-			// 	},
-			// }
-		});
-	}
-
-	filterTabs.forEach(tab => tab.addEventListener('click', ()=> {
-		let currentFilter = tab.dataset.filter,
-			rowsArr = document.querySelectorAll('.js-manufacturer-table-item')
-
-		filterTabs.forEach(item => item.classList.remove('catalog-element__manufacturer-item--active'))
-		tab.classList.add('catalog-element__manufacturer-item--active')
-
-		rowsArr.forEach(row => {
-			if(currentFilter === 'all'){
-				row.style.display = 'grid'
-			} else {
-				row.style.display = row.dataset.filter === currentFilter ? 'grid' : 'none'
-			}
-			
-		})
-	}))
+const cf7 = () => {
+	document.addEventListener( 'wpcf7mailsent', function( event ) {
+		Fancybox.close();
+		Fancybox.show([{ 
+			dragToClose: false,
+			src: "#thanks-popup", 
+			type: "inline",
+		}]);
+	})
 }
+
+const inputMask = () => {
+    let inputTel = document.querySelectorAll('input[type="tel"]')
+    if(inputTel.length){
+        inputTel.forEach(input=>{
+            Inputmask("+7 (999) 999-99-99", {showMaskOnHover: false}).mask(input);
+        })
+    }
+}
+
 
 document.addEventListener('DOMContentLoaded', ()=>{
 	
@@ -179,14 +150,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
 	// Yandex Map init
 	yandexMap()
 
-	// Init video trigger
-	videoTrigger()
-
 	// Init catalog filter
 	catalogFilter()
 
-	// manufacturerFilter init
-	manufacturerFilter()
+	// init Contact Form 7 script
+	cf7()
+
+	// Init mask for input type tel
+	inputMask()
+
 	
 	// https://fancyapps.com/fancybox/api/methods/
 	Fancybox.bind("[data-fancybox]", {
