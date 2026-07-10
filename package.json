@@ -1,7 +1,7 @@
 {
   "name": "project_webpack",
   "version": "1.0.0",
-  "description": "",
+  "description": "work project",
   "main": "index.js",
   "scripts": {
     "dev": "webpack serve --mode development --open",
@@ -17,9 +17,15 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-3": "^6.24.1",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^10.0.0",
     "css-loader": "^6.5.1",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.4.5",
+    "postcss": "^8.4.4",
+    "postcss-loader": "^6.2.1",
+    "postcss-preset-env": "^7.0.1",
     "sass": "^1.44.0",
     "sass-loader": "^12.3.0",
     "style-loader": "^3.3.1",
@@ -30,6 +36,7 @@
     "webpack-hot-middleware": "^2.25.1"
   },
   "dependencies": {
+    "imagemin-webpack-plugin": "^2.4.2",
     "jquery": "^3.6.0"
   }
 }

@@ -3,9 +3,11 @@ import avg from './some.js';
 import merge from './some.js';
 
 
-import './css/main.css';
+// import './css/main.css';
 
 import './sass/main.sass';
+
+// import './images/pop_6.png'
 
 $('.title').html('Some Text')
 
