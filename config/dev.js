@@ -3,8 +3,6 @@ const webpack = require('webpack')
 const paths = require('./paths')
 const { merge } = require('webpack-merge')
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-
 const common = require('./common')
 
 module.exports = merge(common, {
@@ -25,12 +23,9 @@ module.exports = merge(common, {
 		        warnings: false,
 	      	},
 	    },
+		static: {
+			directory: paths.src,
+			watch: true
+		}
 	},
-  	plugins: [
-  		new MiniCssExtractPlugin({
-	    	filename: 'css/[name].css',
-	    	// chunkFilename: '[id].css'
-	    	chunkFilename: '[id].css'
-	    }),
-  	]
 })

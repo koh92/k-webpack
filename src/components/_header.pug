@@ -1,0 +1,10 @@
+block header
+	header.js-header(data-state="closed")
+		.container
+			.header
+				a.header__logo(href= isProd ? "index.html" : "/")
+					+img("./images/logo.jpg", "logo")
+				nav
+					ul
+						li
+							a(href="faq.html") FAQ

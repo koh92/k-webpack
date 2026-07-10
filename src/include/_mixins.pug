@@ -1,0 +1,12 @@
+mixin img(path, name)
+	img(src= path, alt= name, title= name)
+
+mixin video(path)
+	video(
+		playsinline,
+		muted,
+		autoplay,
+		loop,
+		poster!= attributes.poster
+		)
+		source(src= path, type!=attributes.type || "video/mp4")

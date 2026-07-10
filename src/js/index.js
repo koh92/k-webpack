@@ -1,23 +1,15 @@
 // jQuery
-import $ from 'jQuery';
+// import $ from 'jQuery';
 
 // Swiper
 import Swiper, { Navigation, Pagination, Thumbs } from 'swiper';
-import 'swiper/css/bundle';
-
-// Normalize
-import 'normalize.css';
 
 // Fancybox
-window.jQuery = window.$ = $
-require("@fancyapps/fancybox/dist/jquery.fancybox");
-import "@fancyapps/fancybox/dist/jquery.fancybox.min.css";
+// window.jQuery = window.$ = $
+// require("@fancyapps/fancybox/dist/jquery.fancybox");
 
 // Inputmask
 // import Inputmask from "inputmask";
-
-
-import '../styles/index.sass';
 
 const reviewsSlider = () => {
     if(document.querySelector('.js-reviews-swiper')){
@@ -100,7 +92,7 @@ window.addEventListener('resize', () => {
 })
 
 document.addEventListener('DOMContentLoaded', ()=>{
-
+	
     // Reviews slider
     reviewsSlider()
 

@@ -1,0 +1,42 @@
+doctype html
+html(lang="ru")
+	block variables
+	//- Available variables
+	//- var title - set Page title
+	//- vat yandexMap - add JS for Yandex Map
+	//- var swiper - add CSS for Swiper
+	//- var fancybox - add CSS for Fancybox
+	//- var fancybox = true
+	//- var yandexMap = true
+	- var swiper = true
+
+	include _mixins
+
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+		title= title || 'Page title here'
+
+		// CSS::Start
+		include _css
+		// CSS::End
+
+	body
+		// Header::Start
+		include ../components/_header
+		// Header::End
+
+		// Main::Start
+		main
+			block content
+		// Main::End
+
+		// Footer::Start
+		include ../components/_footer
+		// Footer::End
+
+		// JavaScript::Start
+		include _js
+		// JavaScript::End

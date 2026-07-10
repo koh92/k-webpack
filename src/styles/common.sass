@@ -1,97 +1,19 @@
+@use 'base/colors'
+@use 'base/mixins' as *
+@use 'base/breakpoints' as *
+
 \:root
-	@each $name, $value in $colors
+	@each $name, $value in colors.$colors
 		--#{$name}-color: #{$value}
 
 html
 	scroll-behavior: smooth
-	overflow-x: hidden
 body
 	font-family: 'Open Sans', sans-serif
 	min-height: 100vh
 	display: flex
 	flex-direction: column
 	color: var(--text-color)
-
-.page
-	&__back
-		font-family: 'Montserrat', sans-serif
-		+fz(14)
-		line-height: 20px
-		margin-top: 20px
-		margin-bottom: 20px
-		+mq($xl)
-			display: flex
-			align-items: center
-			gap: 12px
-			margin-top: 40px
-			margin-bottom: 40px
-		&-title
-			display: flex
-			align-items: center
-			gap: 4px
-			font-weight: 600
-			text-decoration: underline
-			color: var(--accent-purple-color)
-			&::before
-				content: ''
-				display: block
-				flex: 0 0 18px
-				width: 18px
-				height: 15px
-				+bg('../images/arrow-left.svg')
-		&-subtitle
-			font-weight: 400
-			color: var(--grey-color)
-			+mqMax($xl)
-				padding-top: 4px
-				text-overflow: ellipsis
-				overflow: hidden
-				white-space: nowrap
-				width: calc(100vw - var(--gutter) - 35px)
-	&__title
-		display: flex
-		font-family: 'Montserrat', sans-serif
-		+fz(25)
-		line-height: 38px
-		font-weight: 500
-		margin-bottom: 20px
-		color: var(--accent-purple-color)
-		+mq($xl)
-			+fz(32)
-			line-height: 44px
-			margin-bottom: 30px
-		&::after
-			content: attr(data-count)
-			display: block
-			position: relative
-			top: -5px
-			font-size: 0.5em
-			padding-left: 5px
-	&__loadmore
-		display: flex
-		align-items: center
-		gap: 4px
-		font-family: 'Montserrat', sans-serif
-		+fz(14)
-		line-height: 20px
-		font-weight: 600
-		text-decoration: underline
-		color: var(--accent-purple-color)
-		margin-top: 20px
-		margin-left: 50%
-		transform: translateX(-50%)
-		+mq($xl)
-			margin-top: 30px
-			margin-left: unset
-			transform: unset
-		&::after
-			content: ''
-			display: block
-			flex: 0 0 14px
-			width: 14px
-			height: 14px
-			+bg('../images/chevrons-down.svg')
-
 
 .btn
 	font-family: 'Montserrat', sans-serif
@@ -102,11 +24,11 @@ body
 	text-align: center
 	border-radius: 6px
 	&--purple
-		background-color: var(--accent-purple-color)
+		background-color: var(--accent-color)
 		color: var(--white-color)
 
 \:root
-	--swiper-theme-color: var(--accent-purple-color)
+	--swiper-theme-color: var(--accent-color)
 .swiper
 	&-arrows
 		display: none
@@ -121,10 +43,8 @@ body
 			height: 25px
 			background-color: var(--white-color)
 			border-radius: 50%
-			border: 0.625px solid var(--accent-purple-color)
-			//margin-top: calc(0px - 25px / 2)
+			border: 0.625px solid var(--accent-color)
 			+mq($xl)
-				//margin-top: calc(0px - 25px / 2)
 				&::after
 					font-size: 10px
 		&-prev
@@ -136,32 +56,3 @@ body
 		&-disabled
 			opacity: 0
 			visibility: hidden
-.popup
-	&--success
-		background-color: var(--light-pink-color)
-		border-radius: 6px
-		width: 100vw
-		height: 100vh
-		display: flex
-		align-items: center
-		justify-content: center
-		color: var(--white-color)
-		text-align: center
-		+mq($xl)
-			padding-top: 82px
-			padding-bottom: 122px
-			max-width: 360px
-			width: 100%
-			height: auto
-	&__icon
-		margin-bottom: 20px
-	&__title
-		+fz(24)
-		font-weight: 500
-		line-height: 32px
-		margin-bottom: 8px
-	&__subtitle
-		+fz(16)
-		line-height: 22px
-		max-width: 167px
-		margin: 0 auto
