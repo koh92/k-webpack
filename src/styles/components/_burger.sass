@@ -1,0 +1,49 @@
+@use '../base/mixins' as *
+@use '../base/breakpoints' as *
+
+.menu-toggle
+	--size: 40px
+	background-color: transparent
+	border: 1px solid var(--clr-secondary)
+	cursor: pointer
+	padding: 0
+	width: var(--size)
+	height: var(--size)
+	transition: var(--transition)
+	&:hover
+		background-color: var(--clr-secondary)
+		border: 1px solid var(--clr-white)
+		.k_burger,
+		.k_burger::before,
+		.k_burger::after
+			background-color: var(--clr-white)
+	+mq($md)
+		--size: 47px
+	&[aria-expanded="true"]
+		border-radius: 50%
+		background-color: var(--clr-white-font)
+.k_burger,
+.k_burger::before,
+.k_burger::after
+	--height: 1px
+	--width: 16px
+	content: ""
+	display: block
+	background: var(--clr-grey)
+	height: var(--height)
+	width: var(--width)
+	border-radius: 10px
+	margin-inline: auto
+	transition: all ease-in-out var(--transition)
+.k_burger::before
+	transform: translateY(-8px)
+.k_burger::after
+	transform: translateY(7px)
+[aria-expanded="true"] .k_burger
+	transform: rotate(45deg)
+	--width: 18px
+[aria-expanded="true"] .k_burger::before
+	opacity: 0
+[aria-expanded="true"] .k_burger::after
+	transform: translateY(calc(var(--height) * -1)) rotate(-90deg)
+	--width: 18px

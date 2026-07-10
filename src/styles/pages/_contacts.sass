@@ -1,0 +1,67 @@
+@use '../base/mixins' as *
+@use '../base/breakpoints' as *
+
+.contacts
+	&__grid
+		display: grid
+		+mq($xl)
+			grid-template-columns: repeat(2, 1fr)
+			gap: 0 75px
+	&__subtitle
+		+fz(20)
+		font-weight: 300
+		line-height: 130%
+		margin-bottom: 30px
+		text-wrap: balance
+		+mq($md)
+			+fz(36)
+		+mq($xl)
+			margin-bottom: 40px
+	&__list
+		grid-row: 3/4
+		margin-top: 30px
+		+mq($md)
+			display: grid
+			grid-template-columns: repeat(2, 1fr)
+			gap: 20px 40px
+		+mq($xl)
+			display: block
+			grid-row: 2/3
+			grid-column: 1/2
+			margin-top: 0
+	&__item
+		& + &
+			margin-top: 20px
+			+mq($md)
+				margin-top: 0
+			+mq($xl)
+				margin-top: 32px
+		&-title
+			+fz(16)
+			font-weight: 300
+			line-height: 130%
+			margin-bottom: 8px
+
+			display: flex
+			align-items: center
+			gap: 10px
+		&-value
+			+fz(20)
+			line-height: 130%
+			text-wrap: balance
+	&__map
+		margin-bottom: 70px
+		+mq($xl)
+			margin-bottom: 90px
+		&-area
+			isolation: isolate
+			overflow: hidden
+			height: min(80vh, 460px)
+			+mq($md)
+				height: 380px
+		&-coord
+			display: none
+	.form
+		background-color: var(--clr-secondary)
+		+mq($xl)
+			grid-row: 1/3

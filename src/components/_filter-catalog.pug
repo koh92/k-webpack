@@ -1,0 +1,133 @@
+script
+	include ../js/input_fix.js
+
+//- https://doka.guide/recipes/input-range-style/
+- var rangeStep = 10
+- var rangeMinValue = 0
+- var rangeMaxValue = 8400
+- var rangeBottomValue = 0
+- var rangeTopValue = 8400
+- var rangeBottomPercent = Math.round(rangeBottomValue * 100 / rangeMaxValue)
+- var rangeTopPercent = Math.round(rangeTopValue * 100 / rangeMaxValue)
+
+.filter
+	form
+		.filter__group 
+			.filter__group-title Наличие на складе
+			.filter__options-list
+				.filter__options-item.noselect
+					input(type="checkbox" value="Y" name="arrFilter_1" id="arrFilter_1")
+					+custom-checkbox()
+					label(for="arrFilter_1") В наличии
+				.filter__options-item.noselect
+					input(type="checkbox" value="Y" name="arrFilter_2" id="arrFilter_2")
+					+custom-checkbox()
+					label(for="arrFilter_2") Под заказ
+		.filter__group
+			.filter__group-title Цена	
+			.filter__options-grid
+				.filter__options-item.js-custom-range-extra-input-min
+					input(
+						type="number" 
+						name="arrFilter_P1_MIN" 
+						id="arrFilter_P1_MIN" 
+						min=`${rangeMinValue}`
+						max=`${rangeMaxValue}`
+						value=""
+						size="5" 
+						placeholder="От"
+						onblur="enforceMinMax(this)"
+					)
+				.filter__options-item.js-custom-range-extra-input-max
+					input(
+						type="number" 
+						name="arrFilter_P1_MAX" 
+						id="arrFilter_P1_MAX" 
+						min=`${rangeMinValue}`
+						max=`${rangeMaxValue}`
+						value=""
+						size="5" 
+						placeholder="До"
+						onblur="enforceMinMax(this)"
+					)
+
+			.custom-range.js-custom-range(style=`--value-1: ${rangeBottomPercent};--value-2: ${rangeTopPercent};`)
+				.custom-range__track
+				.custom-range__progress
+				.custom-range__thumbs
+					input(
+						class="custom-range__input js-custom-range-input-min"
+						id="tailmetr1"
+						type="range"
+						min=`${rangeMinValue}`
+						max=`${rangeMaxValue}`
+						value=`${rangeBottomValue}`
+						step=`${rangeStep}`
+						aria-valuemin=`${rangeMinValue}`
+						aria-valuemax=`${rangeMaxValue}`
+						aria-orientation="horizontal"
+					)
+					output.custom-range__output(for="tailmetr1" style="--value: var(--value-1);")= `${rangeBottomValue}`
+					input(
+						class="custom-range__input js-custom-range-input-max"
+						id="tailmetr2"
+						type="range"
+						min=`${rangeMinValue}`
+						max=`${rangeMaxValue}`
+						value=`${rangeTopValue}`
+						step=`${rangeStep}`
+						aria-valuemin=`${rangeMinValue}`
+						aria-valuemax=`${rangeMaxValue}`
+						aria-orientation="horizontal"
+					)
+					output.custom-range__output(for="tailmetr2" style="--value: var(--value-2);")= `${rangeTopValue}`
+		.filter__group 
+			.filter__group-title Акция
+			.filter__options-list
+				.filter__options-item.noselect
+					input(type="checkbox" value="Y" name="arrFilter_3" id="arrFilter_3")
+					+custom-checkbox()
+					label(for="arrFilter_3") Повышенный кэшбек
+				.filter__options-item.noselect
+					input(type="checkbox" value="Y" name="arrFilter_4" id="arrFilter_4")
+					+custom-checkbox()
+					label(for="arrFilter_4") Распродажа
+				.filter__options-item.noselect
+					input(type="checkbox" value="Y" name="arrFilter_5" id="arrFilter_5")
+					+custom-checkbox()
+					label(for="arrFilter_5") Скидка
+		.filter__group.js-filter-group-search
+			.filter__group-title Производитель
+			.filter__group-search
+				input(type="search", placeholder=" ")
+				button.js-filter-group-submit(type="button")
+					svg(viewBox="0 0 16 16")
+						use(xlink:href="#icon_search")
+			.filter__options-list
+				.filter__options-item.noselect.js-filter-option
+					input(type="checkbox" value="Y" name="arrFilter_6" id="arrFilter_6")
+					+custom-checkbox()
+					label(for="arrFilter_6") Retract
+				.filter__options-item.noselect.js-filter-option
+					input(type="checkbox" value="Y" name="arrFilter_7" id="arrFilter_7")
+					+custom-checkbox()
+					label(for="arrFilter_7") Retract2
+		.filter__group.js-filter-group-search
+			.filter__group-title Страна
+			.filter__group-search
+				input(type="search", placeholder=" ")
+				button.js-filter-group-submit(type="button")
+					svg(viewBox="0 0 16 16")
+						use(xlink:href="#icon_search")
+			.filter__options-list
+				.filter__options-item.noselect.js-filter-option
+					input(type="checkbox" value="Y" name="arrFilter_8" id="arrFilter_8")
+					+custom-checkbox()
+					label(for="arrFilter_8") Россия
+				.filter__options-item.noselect.js-filter-option
+					input(type="checkbox" value="Y" name="arrFilter_9" id="arrFilter_9")
+					+custom-checkbox()
+					label(for="arrFilter_9") Казахстан
+		.filter__footer
+			input.btn.--primary(type="button" id="set_filter" name="set_filter" value="Показать")
+			input.btn.--transparent(type="button" id="del_filter" name="del_filter" value="Сбросить")

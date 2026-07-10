@@ -1,0 +1,33 @@
+# Автоматическая нормализация окончаний строк
+* text=auto
+
+# Текстовые файлы — принудительно LF (стандарт для веб-проектов)
+*.js     text eol=lf
+*.json   text eol=lf
+*.md     text eol=lf
+*.html   text eol=lf
+*.pug    text eol=lf
+*.css    text eol=lf
+*.sass   text eol=lf
+*.scss   text eol=lf
+*.xml    text eol=lf
+*.yml    text eol=lf
+*.gitattributes text eol=lf
+*.gitignore     text eol=lf
+
+# Бинарные файлы — не трогать
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.ico    binary
+*.svg    binary
+*.webp   binary
+*.woff   binary
+*.woff2  binary
+*.ttf    binary
+*.eot    binary
+*.otf    binary
+*.mp4    binary
+*.pdf    binary
+*.zip    binary

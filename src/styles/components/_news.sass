@@ -1,0 +1,27 @@
+@use '../base/mixins' as *
+@use '../base/breakpoints' as *
+
+.news
+    --item-width: 250px
+    --gap: 1rem
+    &__list
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(min(var(--item-width), 100%), 1fr))
+        gap: var(--gap)
+    &__item
+        &-image
+            height: 300px
+            img
+                +cover()
+        &-name
+            font-size: 1.2em
+            font-weight: bolder
+            margin-bottom: .5em
+        &-desc
+            margin-bottom: 1em
+    &-detail
+        &__image
+            margin-bottom: 1em
+        &__text
+            p + p
+                margin-top: .5em

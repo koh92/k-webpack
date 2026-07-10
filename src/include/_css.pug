@@ -1,0 +1,28 @@
+//- Don't remove Node path!
+if true === swiper
+	//- Add swiper
+	link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css")
+
+if true === fancybox
+	//- Add fancybox
+	link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css")
+
+if true === wow
+	//- Add Wow js
+	link(href="Node/wow.js/css/libs/animate.css", rel="stylesheet")
+
+if true === google_fonts
+	//- Google fonts goes here
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Unbounded&display=swap" rel="stylesheet">
+	//- Google fonts ends here
+
+link(href="Node/normalize.css/normalize.css", rel="stylesheet")
+if true === separate_output_css
+	link(href="./styles/base.sass", rel="stylesheet")
+	link(href="./styles/components.sass", rel="stylesheet")
+	link(href="./styles/cms.sass", rel="stylesheet")
+	link(href="./styles/pages.sass", rel="stylesheet")
+else
+	link(href="./styles/index.sass", rel="stylesheet")

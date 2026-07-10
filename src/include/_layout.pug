@@ -1,0 +1,52 @@
+doctype html
+html(lang="ru")
+
+	include _settings
+	//- var title - set Page title
+	block variables
+		var title = 'Page title here'
+		var bodyClass = ''
+	
+	include _mixins
+
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(rel="icon" type="image/svg+xml" href="Images/favicon.svg")
+
+		title= title
+
+		// CSS::Start
+		include _css
+		// CSS::End
+
+	body(class=bodyClass)
+		// Header::Start
+		include ../components/_header
+
+		if breadcrumbs === true
+			// Breadcrumbs::Start
+			include ../components/_breadcrumbs
+			block block_breadcrumbs
+			// Breadcrumbs::End
+
+		// Header::End
+
+		// Main::Start
+		main
+			block content
+		// Main::End
+
+		// Footer::Start
+		include ../components/_footer
+		// Footer::End
+
+		if fancyboxAjax === false
+			// Popup::Start
+			include ../components/_popups
+			// Popup::End
+
+		// JavaScript::Start
+		include _js
+		// JavaScript::End

@@ -1,0 +1,11 @@
+extends include/_layout
+
+block variables
+	- var title = "Project name | 404"
+
+block content
+	.page-404
+		.container
+			.page-404__body
+				h1.page-404__title Cтраница не найдена
+				a.btn.--primary.page-404__btn(href= isProd ? "index.html" : "/") Вернуться на главную

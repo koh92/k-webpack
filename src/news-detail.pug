@@ -1,0 +1,21 @@
+extends include/_layout
+
+block variables
+	- var title = "Project name | News detail"
+	- var breadcrumbs = true
+
+block block_breadcrumbs
+	+breadcrumbs("Название новости", {"url": "news", "name": "Новости"}, {"name": "Название новости"})
+
+block content
+	section.news-detail
+		.container 
+			.news-detail__image
+				+img(`Images/CMS/hero_image.jpg`, "")
+			.news-detail__text
+				p Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+				p Obcaecati maiores porro, unde assumenda nam ut iste officiis veritatis quod quisquam quam quae, laborum accusantium non repellendus, explicabo magni eos id.Minima maiores culpa deserunt, cum numquam laboriosam officiis dicta natus eveniet similique ut tempora tempore reprehenderit deleniti ipsum, cumque nemo quia sint recusandae minus quidem, provident amet. 
+				p Saepe, praesentium voluptatibus.Nobis blanditiis alias neque, nemo error enim impedit ullam aliquam eum exercitationem natus, nostrum quis. Iure, quas placeat! Perspiciatis praesentium odio esse? Distinctio earum ad, magni omnis sit optio aliquid!Quasi placeat molestias veritatis? Mollitia animi iure cumque inventore reprehenderit dolore cum corporis cupiditate consectetur aspernatur aliquid repellat, omnis laborum, perferendis autem pariatur in quo. Totam ipsa itaque quas eius?Beatae expedita tempora sequi at impedit quasi doloribus! Adipisci, commodi culpa? Sint eius esse illo a adipisci iste dignissimos totam modi expedita fugiat porro saepe voluptate soluta, ad quas accusamus.Sapiente sed ipsum voluptatem atque ut reprehenderit ipsa placeat asperiores quos possimus id quas quisquam molestiae facilis harum aliquam cumque eveniet qui esse numquam animi natus, quasi quibusdam necessitatibus. Accusantium.Officiis veritatis, debitis nulla quos vitae delectus quaerat neque ut, corrupti, quisquam impedit praesentium excepturi voluptates dicta facere? Doloremque eum, autem reprehenderit repellat necessitatibus esse quo laborum laudantium iusto porro?Excepturi, nobis culpa ullam incidunt odit accusantium similique quisquam ipsum quae dolores quaerat delectus eligendi debitis vitae vel amet nulla quidem consequuntur cum unde tempore aliquam non illum! 
+				p Modi, nesciunt?Veritatis, adipisci voluptatum quis distinctio cupiditate numquam? Deserunt placeat sed rerum tempora cum nostrum aliquam quisquam laborum ex! Iusto recusandae quae dignissimos doloremque impedit esse quibusdam est architecto accusamus. Architecto.Itaque at, dolore commodi, saepe dolores dolor non odit unde tempora quas fuga quam expedita accusamus ullam sit nihil consequatur aliquid blanditiis totam. Aliquam perferendis doloremque, quis consectetur illum ex.
+			
+				

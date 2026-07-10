@@ -1,0 +1,25 @@
+form
+    .form__input
+        input(type="text", placeholder="Имя")
+        //- input.wpcf7-not-valid(type="text", placeholder="Имя")
+        //- span.wpcf7-not-valid-tip(aria-hidden="true") Поле обязательно для заполнения
+    .form__input
+        input(type="tel", placeholder="Телефон")
+    .form__input
+        input(type="email", placeholder="Почта")
+    .form__input.form__input--textarea
+        textarea(cols="30", rows="10", placeholder="Какую запчасть вы не нашли?")
+    .form__input.--file
+        label
+            input(type="file", accept="application/pdf,image/jpeg,image/jpg,image/png,image/bmp", multiple="multiple")
+            .btn.--transparent.--clip-icon Выберите файл
+    .form__footer
+        .form__accept
+            span.wpcf7-form-control-wrap(data-name="acceptance-static")
+                label
+                    input(type="checkbox", checked, name="acceptance-static")
+                    span.wpcf7-list-item-label
+                        +custom-checkbox()
+                        span.form__accept-text.noselect Соглашаюсь с 
+                            a(href="javascript:void(0)") действующей политикой обработки персональных данных
+        input.form__btn.btn.--primary.wpcf7-submit(value="Отправить", readonly) 

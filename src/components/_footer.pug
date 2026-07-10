@@ -1,0 +1,29 @@
+block footer
+	footer.footer
+		.container
+			.footer__top
+				a.footer__logo(href= isProd ? "index.html" : "/")
+					+img("Images/example/logo.svg", "logo")
+				.footer__box
+					ul.footer__menu
+						li.footer__menu-item
+							a(href="example.html") Примеры компонентов
+						li.footer__menu-item
+							a(href="404.html") 404
+						li.footer__menu-item
+							a(href="contacts.html") Контакты
+					.footer__box-item
+						.footer__address г. Москва
+						.footer__schedule Пн-пт: 09:00–18:00
+					.footer__box-item
+						.footer__contacts
+							.footer__contact
+								a(href="tel:+74957777777") +7 495 777-77-77
+							.footer__contact
+								a(href="mailto:email@email.ru") email@email.ru
+				
+			ul.footer__bottom
+				li ® ООО «Company Name» 2024
+				li
+					a(href="javascript:void(0)") Политика конфиденциальности
+					

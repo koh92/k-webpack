@@ -1,0 +1,27 @@
+mixin img(path, name)
+	img(src= path, alt="")
+
+mixin source(path, mediaQuery)
+	source(srcset= path, media= `(min-width: ${mediaQuery})`)
+
+mixin video(path)
+	video(
+		playsinline,
+		muted,
+		autoplay!= attributes.autoplay,
+		loop!= attributes.loop,
+		poster!= attributes.poster
+		loading!= attributes.loading
+		)
+		source(src= path, type!=attributes.type || "video/mp4")
+		
+mixin videoYoutube(code)
+	iframe(
+		src=`https://www.youtube-nocookie.com/embed/${code}?showinfo=0&rel=0&controls=1&modestbranding=0`
+		frameborder="0" 
+		allowfullscreen
+	)
+
+mixin custom-checkbox()
+	span.custom-checkbox
+		include Images/example/icon_tick.svg

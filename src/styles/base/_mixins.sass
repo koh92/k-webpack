@@ -1,0 +1,405 @@
+@use '../base/breakpoints' as *
+
+// Use in unify-parent mixin
+@use "sass:selector"
+
+=mq($point)
+	@if $point == xs
+		@media (min-width: $xs)
+			@content
+
+	@else if $point == sm
+		@media (min-width: $sm)
+			@content
+
+	@else if $point == md
+		@media (min-width: $md)
+			@content
+
+	@else if $point == lg
+		@media (min-width: $lg)
+			@content
+
+	@else if $point == xl
+		@media (min-width: $xl)
+			@content
+
+	@else if $point == hd
+		@media (min-width: $hd)
+			@content
+
+	@else
+		@media (min-width: $point)
+			@content
+
+=mqMax($point)
+	@if $point == xs
+		@media (max-width: $xs - 1px)
+			@content
+
+	@else if $point == sm
+		@media (max-width: $sm - 1px)
+			@content
+
+	@else if $point == md
+		@media (max-width: $md - 1px)
+			@content
+
+	@else if $point == lg
+		@media (max-width: $lg - 1px)
+			@content
+
+	@else if $point == xl
+		@media (max-width: $xl - 1px)
+			@content
+
+	@else if $point == hd
+		@media (max-width: $hd - 1px)
+			@content
+	@else
+		@media (max-width: $point - 1px)
+			@content
+
+=flex()
+	display: flex
+	align-items: center
+
+=flex-center()
+	+flex
+	justify-content: center
+
+=inline-flex()
+	display: inline-flex
+	align-items: center
+	justify-content: center
+
+=flex-column()
+	display: flex
+	flex-direction: column
+
+=flex-column-center()
+	+flex-center
+	flex-direction: column
+
+=bg($image, $position: center, $size: cover)
+	background-image: url($image)
+	background-position: $position
+	background-size: $size
+	background-repeat: no-repeat
+
+// Перевод px в rem
+=fz($sizeValue: 16)
+	font-size: $sizeValue + px
+	font-size: calc($sizeValue / 16) + rem
+
+// Font-family
+=font($alias, $name, $weight: normal, $style: normal)
+	@font-face
+		font-family: $alias
+		// src: local($alias), url("../fonts/" + $name + ".woff") format("woff")
+		src: local($alias), url("Fonts/" + $name + ".woff") format("woff")
+		font-weight: $weight
+		font-style: $style
+		font-display: swap
+// to use:
+//+font(black, cytiapro-black-webfont)
+
+=textLimit($val)
+	overflow: hidden
+	text-overflow: ellipsis
+	display: -webkit-box
+	-webkit-line-clamp: $val
+	line-clamp: $val
+	-webkit-box-orient: vertical
+
+// При изменении размера родительского блока, блок будет сохраняя свои пропорции
+// Например, .block +ratio(16,9)
+=ratio($x,$y, $pseudo: false)
+	$padding: unquote(( $y / $x ) * 100 + '%')
+	@if $pseudo
+		&:before
+			+pseudo($pos: relative)
+			width: 100%
+			padding-top: $padding
+	@else
+		padding-top: $padding
+
+// Прозрачная стрелка
+=arrow($size, $color, $rotate: 45deg)
+	content: ''
+	display: block
+	width: $size
+	height: $size
+	border-bottom: 1px solid $color
+	border-right: 1px solid $color
+	transform: rotate($rotate)
+
+// Triangle
+=arr($width, $height, $bg, $direction)
+	width: 0
+	height: 0
+	border-style: solid
+	@if $direction == t
+		border-width: 0 calc($width / 2) + px $height + px calc($width / 2) + px
+		border-color: transparent transparent $bg transparent
+	@if $direction == r
+		border-width: calc($height / 2) + px 0 calc($height / 2) + px $width + px
+		border-color: transparent transparent transparent $bg
+	@if $direction == b
+		border-width: $height + px calc($width / 2) + px 0 calc($width / 2) + px
+		border-color: $bg transparent transparent transparent
+	@if $direction == l
+		border-width: calc($height / 2) + px $width + px calc($height / 2) + px 0
+		border-color: transparent $bg transparent transparent
+	@if $direction == tl
+		border-width: $height + px $width + px 0 0
+		border-color: $bg transparent transparent transparent
+	@if $direction == tr
+		border-width: 0 $width + px $height + px 0
+		border-color: transparent $bg transparent transparent
+	@if $direction == br
+		border-width: 0 0 $height + px $width + px
+		border-color: transparent transparent $bg transparent
+	@if $direction == bl
+		border-width: $width + px 0 0 $height + px
+		border-color: transparent transparent transparent $bg
+// example
+// +arr(500,50, #000, l)
+// +arr(500,50, #000, bl)
+
+=unify-parent($child)
+	@at-root #{selector.unify(&, $child)}
+		@content
+
+=box($width, $height: $width)
+	width: $width
+	height: $height
+
+=cover()
+	+box(100%)
+	object-fit: cover
+
+=contain()
+	+box(100%)
+	object-fit: contain
+
+=hr($height: 1px, $bg-color: #000)
+	margin-block-start: 0
+	margin-block-end: 0
+	border-width: 0
+	height: $height
+	background-color: $bg-color
+
+=toggle($padding-top: 14px)
+	display: grid
+	grid-template-rows: 0fr
+	overflow: hidden
+	transition-property: grid-template-rows, padding
+	transition-duration: .6s
+	.active > &
+		grid-template-rows: 1fr
+		padding-top: $padding-top
+	> *
+		min-height: 0
+
+=icon-size($size)
+	--icon-size: #{$size}
+	width: var(--icon-size)
+	height: var(--icon-size)
+	flex: 0 0 var(--icon-size)
+
+=icon-size-svg($size)
+	--icon-size: #{$size}
+	flex: 0 0 var(--icon-size)
+	svg
+		width: var(--icon-size)
+		height: var(--icon-size)
+
+=border-radius($border-radius)
+	isolation: isolate
+	border-radius: $border-radius
+	overflow: hidden
+
+// NEW MIXINS
+=height100()
+	display: flex
+	align-items: center
+	justify-content: center
+	height: 100%
+
+=sliding-underline($size: 1px, $speed: .5s)
+	background-image: linear-gradient(90deg, currentColor, currentColor)
+	background-size: 0% $size
+	background-repeat: no-repeat
+	background-position: 0 100%
+	transition: background-size $speed, background-position 0s $speed
+	&:hover
+		background-position: 100% 100%
+		background-size: 100% $size
+
+=col($columns)
+	max-width: calc(100% / 12 * $columns)
+
+=default-styles()
+	p
+		margin-block-start: 1em
+		margin-block-end: 1em
+		margin-inline-start: 0
+		margin-inline-end: 0
+	blockquote
+		margin-block-start: 1em
+		margin-block-end: 1em
+		margin-inline-start: 40px
+		margin-inline-end: 40px
+	figure
+		// margin-block-start: 1em
+		// margin-block-end: 1em
+		// margin-inline-start: 40px
+		// margin-inline-end: 40px
+		margin: 0 0 1em
+	hr
+		overflow: hidden
+		margin-block-start: 0.5em
+		margin-block-end: 0.5em
+		margin-inline-start: auto
+		margin-inline-end: auto
+		border-style: inset
+		border-width: 1px
+	h1
+		font-size: 2em
+		margin-block-start: 0.67em
+		margin-block-end: 0.67em
+		margin-inline-start: 0
+		margin-inline-end: 0
+		font-weight: bold
+	h2
+		font-size: 1.5em
+		margin-block-start: 0.83em
+		margin-block-end: 0.83em
+		margin-inline-start: 0
+		margin-inline-end: 0
+		font-weight: bold
+	h3
+		font-size: 1.17em
+		margin-block-start: 1em
+		margin-block-end: 1em
+		margin-inline-start: 0
+		margin-inline-end: 0
+		font-weight: bold
+	h4
+		margin-block-start: 1.33em
+		margin-block-end: 1.33em
+		margin-inline-start: 0
+		margin-inline-end: 0
+		font-weight: bold
+	h5
+		font-size: .83em
+		margin-block-start: 1.67em
+		margin-block-end: 1.67em
+		margin-inline-start: 0
+		margin-inline-end: 0
+		font-weight: bold
+	h6
+		font-size: .67em
+		margin-block-start: 2.33em
+		margin-block-end: 2.33em
+		margin-inline-start: 0
+		margin-inline-end: 0
+		font-weight: bold
+	ol
+		list-style-type: decimal
+		margin-block-start: 1em
+		margin-block-end: 1em
+		margin-inline-start: 0
+		margin-inline-end: 0
+		padding-inline-start: 40px
+	ul
+		list-style-type: disc
+		margin-block-start: 1em
+		margin-block-end: 1em
+		margin-inline-start: 0
+		margin-inline-end: 0
+		padding-inline-start: 40px
+
+/// Clip corner mixin
+///
+/// @param {number} $card_width
+/// @param {number} $card_height
+/// @param {string} $direction  tl | tr | br | bl
+/// Example +clip-corner(300, 500, tl)
+=clip-corner($card_width, $card_height, $direction: tl )
+	
+	// IMPORTANT RULES
+	// MINIMUM VALUES BELOW
+	// $clip_height: $corners_size / 2
+	// $clip_width: $corners_size / 2
+
+	// $corners_size: $clip_height * 2
+	// $corners_size: $clip_width * 2
+	
+	@if $card_width > 20 and $card_height > 20
+		$corners_size: 10
+		$clip_width: 80
+		$clip_height: 40
+
+		// Percent math START
+		// $corner_size_percent: 30
+		$corner_size_percent: null
+
+		@if $corner_size_percent != null
+			$clip_width: calc($card_width * $corner_size_percent / 100)
+			$clip_height: calc($card_height * $corner_size_percent / 100)
+		// Percent math END
+
+		// clip-path: path(
+		// 	"M 10,40 L 70,40 A 10,10 0,0,0 80,30 
+		// 	L 80,10 A 10,10 0,0,1 90,0 L 290,0 
+		// 	A 10,10 0,0,1 300,10 L 300,690 A 10,10 0,0,1 290,700 
+		// 	L 300,700 L 10,700 A 10,10 0,0,1 0,690 L 0,50 
+		// 	A 10,10 0,0,1 10,40 Z")
+		// clip-path: path(
+		// 	"M #{$corners_size},#{$clip_height} L #{$clip_width - $corners_size},#{$clip_height} A #{$corners_size},#{$corners_size} 0,0,0 #{$clip_width},#{$clip_height - $corners_size} 
+		// 	L #{$clip_width},#{$corners_size} A #{$corners_size},#{$corners_size} 0,0,1 #{$clip_width + $corners_size},0 L #{$card_width - $corners_size},0 
+		// 	A #{$corners_size},#{$corners_size} 0,0,1 #{$card_width},#{$corners_size} L #{$card_width},#{$card_height - $corners_size} A #{$corners_size},#{$corners_size} 0,0,1 #{$card_width - $corners_size},#{$card_height} 
+		// 	L #{$card_width},#{$card_height} L #{$corners_size},#{$card_height} A #{$corners_size},#{$corners_size} 0,0,1 0,#{$card_height - $corners_size} L 0,#{$clip_height + $corners_size} 
+		// 	A #{$corners_size},#{$corners_size} 0,0,1 #{$corners_size},#{$clip_height} Z")
+
+		// TL — верхний левый
+		@if $direction == tl
+			clip-path: path("M #{$corners_size},#{$clip_height} L #{$clip_width - $corners_size},#{$clip_height} A #{$corners_size},#{$corners_size} 0,0,0 #{$clip_width},#{$clip_height - $corners_size} L #{$clip_width},#{$corners_size} A #{$corners_size},#{$corners_size} 0,0,1 #{$clip_width + $corners_size},0 L #{$card_width - $corners_size},0 A #{$corners_size},#{$corners_size} 0,0,1 #{$card_width},#{$corners_size} L #{$card_width},#{$card_height - $corners_size} A #{$corners_size},#{$corners_size} 0,0,1 #{$card_width - $corners_size},#{$card_height} L #{$card_width},#{$card_height} L #{$corners_size},#{$card_height} A #{$corners_size},#{$corners_size} 0,0,1 0,#{$card_height - $corners_size} L 0,#{$clip_height + $corners_size} A #{$corners_size},#{$corners_size} 0,0,1 #{$corners_size},#{$clip_height} Z")
+
+		// TR — верхний правый
+		@if $direction == tr
+			clip-path: path("M #{$card_width - $corners_size},#{$clip_height} L #{$card_width - $clip_width + $corners_size},#{$clip_height} A #{$corners_size},#{$corners_size} 0,0,1 #{$card_width - $clip_width},#{$clip_height - $corners_size} L #{$card_width - $clip_width},#{$corners_size} A #{$corners_size},#{$corners_size} 0,0,0 #{$card_width - $clip_width - $corners_size},0 L #{$corners_size},0 A #{$corners_size},#{$corners_size} 0,0,0 0,#{$corners_size} L 0,#{$card_height - $corners_size} A #{$corners_size},#{$corners_size} 0,0,0 #{$corners_size},#{$card_height} L 0,#{$card_height} L #{$card_width - $corners_size},#{$card_height} A #{$corners_size},#{$corners_size} 0,0,0 #{$card_width},#{$card_height - $corners_size} L #{$card_width},#{$clip_height + $corners_size} A #{$corners_size},#{$corners_size} 0,0,0 #{$card_width - $corners_size},#{$clip_height} Z")
+
+		// BR — нижний правый
+		@if $direction == br
+			clip-path: path("M #{$card_width - $corners_size},#{$card_height - $clip_height} L #{$card_width - $clip_width + $corners_size},#{$card_height - $clip_height} A #{$corners_size},#{$corners_size} 0,0,0 #{$card_width - $clip_width},#{$card_height - $clip_height + $corners_size} L #{$card_width - $clip_width},#{$card_height - $corners_size} A #{$corners_size},#{$corners_size} 0,0,1 #{$card_width - $clip_width - $corners_size},#{$card_height} L #{$corners_size},#{$card_height} A #{$corners_size},#{$corners_size} 0,0,1 0,#{$card_height - $corners_size} L 0,#{$corners_size} A #{$corners_size},#{$corners_size} 0,0,1 #{$corners_size},0 L 0,0 L #{$card_width - $corners_size},0 A #{$corners_size},#{$corners_size} 0,0,1 #{$card_width},#{$corners_size} L #{$card_width},#{$card_height - $clip_height - $corners_size} A #{$corners_size},#{$corners_size} 0,0,1 #{$card_width - $corners_size},#{$card_height - $clip_height} Z")
+
+		// BL — нижний левый
+		@if $direction == bl
+			clip-path: path("M #{$corners_size},#{$card_height - $clip_height} L #{$clip_width - $corners_size},#{$card_height - $clip_height} A #{$corners_size},#{$corners_size} 0,0,1 #{$clip_width},#{$card_height - $clip_height + $corners_size} L #{$clip_width},#{$card_height - $corners_size} A #{$corners_size},#{$corners_size} 0,0,0 #{$clip_width + $corners_size},#{$card_height} L #{$card_width - $corners_size},#{$card_height} A #{$corners_size},#{$corners_size} 0,0,0 #{$card_width},#{$card_height - $corners_size} L #{$card_width},#{$corners_size} A #{$corners_size},#{$corners_size} 0,0,0 #{$card_width - $corners_size},0 L #{$card_width},0 L #{$corners_size},0 A #{$corners_size},#{$corners_size} 0,0,0 0,#{$corners_size} L 0,#{$card_height - $clip_height - $corners_size} A #{$corners_size},#{$corners_size} 0,0,0 #{$corners_size},#{$card_height - $clip_height} Z")
+
+		// Центр по стороне — вспомогательные
+		$cx: calc( ($card_width - $clip_width) / 2 ) // для t/b
+		$cy: calc( ($card_height - $clip_height) / 2 ) // для l/r
+
+		// T - середина сверху
+		@if $direction == t
+			clip-path: path("M #{$corners_size},0 L #{$cx - $corners_size},0 A #{$corners_size},#{$corners_size} 0,0,1 #{$cx},#{$corners_size} L #{$cx},#{$clip_height - $corners_size} A #{$corners_size},#{$corners_size} 0,0,0 #{$cx + $corners_size},#{$clip_height} L #{$cx + $clip_width - $corners_size},#{$clip_height} A #{$corners_size},#{$corners_size} 0,0,0 #{$cx + $clip_width},#{$clip_height - $corners_size} L #{$cx + $clip_width},#{$corners_size} A #{$corners_size},#{$corners_size} 0,0,1 #{$cx + $clip_width + $corners_size},0 L #{$card_width - $corners_size},0 A #{$corners_size},#{$corners_size} 0,0,1 #{$card_width},#{$corners_size} L #{$card_width},#{$card_height - $corners_size} A #{$corners_size},#{$corners_size} 0,0,1 #{$card_width - $corners_size},#{$card_height} L #{$corners_size},#{$card_height} A #{$corners_size},#{$corners_size} 0,0,1 0,#{$card_height - $corners_size} L 0,#{$corners_size} A #{$corners_size},#{$corners_size} 0,0,1 #{$corners_size},0 Z")
+
+		// R - середина справа
+		@if $direction == r
+			clip-path: path("M #{$corners_size},0 L #{$card_width - $corners_size},0 A #{$corners_size},#{$corners_size} 0,0,1 #{$card_width},#{$corners_size} L #{$card_width},#{$cy - $corners_size} A #{$corners_size},#{$corners_size} 0,0,1 #{$card_width - $corners_size},#{$cy} L #{$card_width - $clip_width + $corners_size},#{$cy} A #{$corners_size},#{$corners_size} 0,0,0 #{$card_width - $clip_width},#{$cy + $corners_size} L #{$card_width - $clip_width},#{$cy + $clip_height - $corners_size} A #{$corners_size},#{$corners_size} 0,0,0 #{$card_width - $clip_width + $corners_size},#{$cy + $clip_height} L #{$card_width - $corners_size},#{$cy + $clip_height} A #{$corners_size},#{$corners_size} 0,0,1 #{$card_width},#{$cy + $clip_height + $corners_size} L #{$card_width},#{$card_height - $corners_size} A #{$corners_size},#{$corners_size} 0,0,1 #{$card_width - $corners_size},#{$card_height} L #{$corners_size},#{$card_height} A #{$corners_size},#{$corners_size} 0,0,1 0,#{$card_height - $corners_size} L 0,#{$corners_size} A #{$corners_size},#{$corners_size} 0,0,1 #{$corners_size},0 Z")
+
+		// B - середина снизу
+		@if $direction == b
+			clip-path: path("M #{$corners_size},0 L #{$card_width - $corners_size},0 A #{$corners_size},#{$corners_size} 0,0,1 #{$card_width},#{$corners_size} L #{$card_width},#{$card_height - $corners_size} A #{$corners_size},#{$corners_size} 0,0,1 #{$card_width - $corners_size},#{$card_height} L #{$cx + $clip_width + $corners_size},#{$card_height} A #{$corners_size},#{$corners_size} 0,0,1 #{$cx + $clip_width},#{$card_height - $corners_size} L #{$cx + $clip_width},#{$card_height - $clip_height + $corners_size} A #{$corners_size},#{$corners_size} 0,0,0 #{$cx + $clip_width - $corners_size},#{$card_height - $clip_height} L #{$cx + $corners_size},#{$card_height - $clip_height} A #{$corners_size},#{$corners_size} 0,0,0 #{$cx},#{$card_height - $clip_height + $corners_size} L #{$cx},#{$card_height - $corners_size} A #{$corners_size},#{$corners_size} 0,0,1 #{$cx - $corners_size},#{$card_height} L #{$corners_size},#{$card_height} A #{$corners_size},#{$corners_size} 0,0,1 0,#{$card_height - $corners_size} L 0,#{$corners_size} A #{$corners_size},#{$corners_size} 0,0,1 #{$corners_size},0 Z")
+
+		// L - середина слева
+		@if $direction == l
+			clip-path: path("M #{$corners_size},0 L #{$card_width - $corners_size},0 A #{$corners_size},#{$corners_size} 0,0,1 #{$card_width},#{$corners_size} L #{$card_width},#{$card_height - $corners_size} A #{$corners_size},#{$corners_size} 0,0,1 #{$card_width - $corners_size},#{$card_height} L #{$corners_size},#{$card_height} A #{$corners_size},#{$corners_size} 0,0,1 0,#{$card_height - $corners_size} L 0,#{$cy + $clip_height + $corners_size} A #{$corners_size},#{$corners_size} 0,0,1 #{$corners_size},#{$cy + $clip_height} L #{$clip_width - $corners_size},#{$cy + $clip_height} A #{$corners_size},#{$corners_size} 0,0,0 #{$clip_width},#{$cy + $clip_height - $corners_size} L #{$clip_width},#{$cy + $corners_size} A #{$corners_size},#{$corners_size} 0,0,0 #{$clip_width - $corners_size},#{$cy} L #{$corners_size},#{$cy} A #{$corners_size},#{$corners_size} 0,0,1 0,#{$cy - $corners_size} L 0,#{$corners_size} A #{$corners_size},#{$corners_size} 0,0,1 #{$corners_size},0 Z")
+
+=double-class()
+	&#{&}
+		@content

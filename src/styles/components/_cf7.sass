@@ -1,0 +1,55 @@
+@use '../base/mixins' as *
+@use '../base/breakpoints' as *
+
+// CF7
+// https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors
+span[data-name*="acceptance"] label
+	cursor: pointer
+input[name*="acceptance"]
+	display: none
+input[name*="acceptance"] ~ .wpcf7-list-item-label
+	display: flex
+	align-items: flex-start
+	gap: 10px
+input[name*="acceptance"]:checked ~ .wpcf7-list-item-label .custom-checkbox svg
+	color: currentColor
+.wpcf7-list-item
+	margin: 0
+.wpcf7-response-output,
+.wpcf7-spinner
+	display: none
+.grecaptcha-badge
+	z-index: -999999
+	visibility: hidden
+	opacity: 0
+.wpcf7-not-valid.wpcf7-not-valid
+	border: 1px solid var(--clr-primary)
+	&:placeholder-shown
+		border: 1px solid var(--clr-primary)
+		&:not(:focus)::placeholder
+			color: var(--red-color)
+.wpcf7-not-valid-tip
+	opacity: 0
+	visibility: hidden
+	height: 0
+	margin-top: 0
+	transition: var(--transition)
+	display: block
+	+fz(16)
+	color: var(--clr-primary)
+
+input
+	&:placeholder-shown,
+	&.wpcf7-not-valid
+		& + .wpcf7-not-valid-tip
+			opacity: 1
+			visibility: visible
+			height: auto
+			margin-top: 8px
+	&:not(:placeholder-shown)
+		&:valid
+			outline-color: green
+		&:invalid
+			outline-color: red
+	&:focus:invalid
+		outline-color: yellow

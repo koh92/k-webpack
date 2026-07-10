@@ -1,0 +1,27 @@
+@use 'sass:color';
+
+// https://sass-lang.com/documentation/modules/color/
+
+$colors: (
+	"text": #061D2A,
+	"primary": #EA850B,
+	"primary-hover": color.adjust(#EA850B, $hue: -5deg),
+	"primary-active": color.adjust(#EA850B, $hue: -10deg),
+	"secondary": #1A6C9D,
+	"secondary-hover": color.adjust(#1A6C9D, $hue: -5deg),
+	"secondary-active": color.adjust(#1A6C9D, $hue: -10deg),
+	"accent": "",
+	"accent-hover": "",
+	"accent-active": "",
+	"grey": #3C4A53,
+	"grey-07": color.scale(#3c4a53, $alpha: -30%),
+	"grey-06": color.scale(#061d2b, $alpha: -40%),
+	"grey-05": color.scale(#f4f8fb, $alpha: -50%),
+	"grey-light": #92A2AB,
+	"black": #000000,
+	"black-05": color.scale(#000000, $alpha: -50%),
+	"black-07": color.scale(#000000, $alpha: -30%),
+	"white": #ffffff,
+	"white-05": color.scale(#ffffff, $alpha: -50%),
+	"disabled": #817567,
+)

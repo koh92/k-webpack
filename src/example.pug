@@ -1,0 +1,118 @@
+extends include/_layout
+
+block variables
+	- var title = "Project name | Example components"
+
+include components/_accordion
+include components/_item-example
+
+block content
+	.svg-icons
+		include Images/example/icon_arrow_down.svg
+		include Images/example/icon_star.svg
+
+	.visually-hidden
+
+		picture
+			//- Desktop
+			source(media="(min-width: 1200px)", srcset="Images/CMS/hero_image.jpg")
+			//- Tablet
+			source(media="(min-width: 744px)", srcset="Images/CMS/hero_image.jpg")
+			//- Mobile
+			+img("Images/CMS/hero_image.jpg")
+
+		.container
+			//- Multi row array
+			//- Example item component
+			-
+				var cardItems = [
+					{name: "Название 1"},
+					{name: "Название 2"},
+					{name: "Название 3"},
+				]
+			each cardItem, index in cardItems
+				+item-example(cardItem.name, index)
+			each cardItem, index in cardItems
+				+item-example(cardItem.name, index, true)
+	
+		//- Accordion
+		.container
+			- var accordionList = {1:{name: "Вопрос 1!", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, dignissimos."}, 2:{name: "Вопрос 2!", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, dignissimos."}, 3:{name: "Вопрос 3!", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, dignissimos."}, 4:{name: "Вопрос 4!", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, dignissimos."} }
+			+accordion-section(accordionList, "Тестовый аккордеон")
+
+		//- Dropdown
+		.container
+			.dropdown.js-dropdown
+				.dropdown__heading.js-dropdown-heading
+					.dropdown__heading-text EUR
+					.dropdown__arrow
+						svg(viewBox="0 0 40 40")
+							use(xlink:href="#icon_arrow_down")
+				.dropdown__box
+					.dropdown__content
+						ul
+							li
+								a.dropdown__item.active(href="#") RUB
+							li
+								a.dropdown__item(href="#") TRY
+							li
+								a.dropdown__item(href="#") USD
+
+		//- Rating 
+		.container
+			.rating.small-
+				.rating__stars.js-rating-stars(role="radiogroup" aria-label="Рейтинг")
+					- for (var i = 0; i < 5; i++)
+						.rating__star.js-rating-star(
+							data-count=i, 
+							aria-label=`Оценка ${i+1} из 5`, 
+							role="radio",
+							aria-checked="false",
+							tabindex="0"
+						)
+							svg(viewBox="0 0 24 26")
+								use(xlink:href="#icon_star")
+
+		//- Marquee
+		.container
+			.marquee(style="--marquee-duration: 30s;--marquee-gap: 15px")
+				- var clients = {1:"Client 1", 2:"Client 2", 3:"Client 3", 4:"Client 4",5:"Client 5",6:"Client 6",7:"Client 7",8:"Client 8",9:"Client 9",10:"Client 10",11:"Client 11",12:"Client 12"}
+				ul.marquee__group(role="list")
+					each name, key in clients
+						li.marquee__item.noselect= name
+				ul.marquee__group(aria-hidden="true")
+					each name, key in clients
+						li.marquee__item.noselect= name
+
+		//- Password visibility toggler
+		.container
+			.personal__form-input.js-password-box
+				input(type="password" maxlength="255" autocomplete="off")
+				.personal__form-input-icon.js-password-toggler
+					+img("Images/example/icon_eye.svg", "")
+					+img("Images/example/icon_not_eye.svg", "")
+
+		//- Input type range
+		.container
+			include components/_filter-catalog
+
+		//- Swiper
+		.container
+			// Slider main container
+			.swiper
+				// Additional required wrapper
+				.swiper-wrapper
+					// Slides
+					.swiper-slide
+					.swiper-slide
+					.swiper-slide
+
+				// If we need pagination
+				.swiper-pagination
+
+				// If we need navigation buttons
+				.swiper-button-prev
+				.swiper-button-next
+
+				// If we need scrollbar
+				.swiper-scrollbar
