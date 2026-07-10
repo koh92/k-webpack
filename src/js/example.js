@@ -6,9 +6,10 @@ import Inputmask from "inputmask"
 // usage mobile.matches === true | false
 
 const burger = () => {
-	const menuToggle = document.querySelector(".menu-toggle")
-	// const mobileHeader = document.querySelector('.js-header-nav-menu');
-	const mobileHeader = document.querySelector(".js-header")
+	const menuToggle = document.querySelector(".js-menu-toggle");
+	const mobilePanel = document.querySelector(".js-header-panel");
+	const mobileHeader = document.querySelector(".js-header");
+	const backdrop = document.querySelector(".js-backdrop");
 
 	menuToggle.addEventListener("click", () => {
 		const isOpened = menuToggle.getAttribute("aria-expanded") === "true"
@@ -19,12 +20,14 @@ const burger = () => {
 	function openMenu() {
 		menuToggle.setAttribute("aria-expanded", "true")
 		mobileHeader.setAttribute("data-state", "opened")
+		backdrop.classList.add("active")
 	}
 	function closeMenu() {
 		menuToggle.setAttribute("aria-expanded", "false")
 		mobileHeader.setAttribute("data-state", "closing")
+		backdrop.classList.remove("active")
 
-		mobileHeader.addEventListener(
+		mobilePanel.addEventListener(
 			"animationend",
 			() => {
 				mobileHeader.setAttribute("data-state", "closed")
@@ -111,7 +114,7 @@ const exampleSlider = () => {
 				type: "bullets",
 				clickable: true,
 				renderBullet: function (index, className) {
-					return '<span class="' + className + '">' + (index + 1) + "</span>"
+					return `<span class="${className}">${(index + 1)}</span>`
 				},
 			},
 			effect: "fade", // Эффект переключения слайдов
@@ -482,6 +485,165 @@ function fillInput(slide, datasetName, inputName) {
 	
 }
 
+const passwordToggler = () => {
+	document.addEventListener("click", (e) => {
+		let target = e.target
+
+		if (target.classList.contains("js-password-toggler") || target.closest(".js-password-toggler")) {
+			target = target.classList.contains("js-password-toggler") ? target : target.closest(".js-password-toggler")
+
+			let parent = target.closest(".js-password-box"),
+                input = parent.querySelector("input")
+
+            if (input.getAttribute("type") === "password") {
+                target.classList.add("visible")
+                input.setAttribute("type", "text")
+            } else {
+                target.classList.remove("visible")
+                input.setAttribute("type", "password");
+            }
+		}
+	})
+}
+
+const inputTypeRange = () => {
+	const minHandlerInput = document.querySelector(".js-custom-range-input-min")
+	if (minHandlerInput) {
+		minHandlerInput.addEventListener("input", inputTypeRangeMinHandler)
+	}
+
+	const maxHandlerInput = document.querySelector(".js-custom-range-input-max")
+	if (maxHandlerInput) {
+		maxHandlerInput.addEventListener("input", inputTypeRangeMaxHandler)
+	}
+
+	const minExtraHandlerInput = document.querySelector(".js-custom-range-extra-input-min input")
+	if (minExtraHandlerInput && minHandlerInput) {
+		minExtraHandlerInput.addEventListener("blur", setRangeMinValue)
+	}
+
+	const maxExtraHandlerInput = document.querySelector(".js-custom-range-extra-input-max input")
+	if (maxExtraHandlerInput && maxHandlerInput) {
+		maxExtraHandlerInput.addEventListener("blur", setRangeMaxValue)
+	}
+
+	function setRangeMinValue(){
+		this.value = this.value > 0 ? this.value : 0
+		
+		minHandlerInput.value = this.value
+
+		let customRangeBox = document.querySelector(".js-custom-range")
+		if( ! customRangeBox ) return
+
+		let currentPercent = Math.round(this.value * 100 / this.max)
+		customRangeBox.style.setProperty("--value-1", currentPercent)
+		minHandlerInput.nextElementSibling.value = this.value
+	}
+	function setRangeMaxValue(){
+		if( this.value > 0) {
+			maxHandlerInput.value = this.value
+
+			let customRangeBox = document.querySelector(".js-custom-range")
+			if( ! customRangeBox ) return
+
+			let currentPercent = Math.round(this.value * 100 / this.max)
+			customRangeBox.style.setProperty("--value-2", currentPercent)
+			maxHandlerInput.nextElementSibling.value = this.value
+		}
+			
+	}
+
+	function inputTypeRangeMinHandler() {
+		// Достает значение второго(правого) ползунка
+		const maxHandlerPercent = event.target.parentNode.parentNode.style.getPropertyValue("--value-2")
+        const maxHandlerTopLimit = event.target.max
+
+        let currentValue = event.target.value
+        let currentPercent = Math.round(event.target.value * 100 / maxHandlerTopLimit)
+
+		if (parseInt(currentPercent) >= parseInt(maxHandlerPercent)) {
+            currentValue = maxHandlerInput.value
+			currentPercent = maxHandlerPercent
+
+			event.target.value = maxHandlerInput.value
+		}
+
+		if (currentPercent === "100") {
+			event.target.style.zIndex = "100"
+		} else {
+			event.target.style.zIndex = "0"
+		}
+        
+		event.target.parentNode.parentNode.style.setProperty("--value-1", currentPercent)
+		event.target.nextElementSibling.value = currentValue
+
+        const minExtraHandlerInput = document.querySelector(".js-custom-range-extra-input-min input")
+		if (minExtraHandlerInput) minExtraHandlerInput.value = currentValue
+	}
+
+	function inputTypeRangeMaxHandler() {
+		// Достает значение первого(левого) ползунка
+		const minHandlerPercent = event.target.parentNode.parentNode.style.getPropertyValue("--value-1")
+        const minHandlerTopLimit = event.target.max
+        
+        let currentValue = event.target.value
+        let currentPercent = Math.round(event.target.value * 100 / minHandlerTopLimit)
+
+		if (parseInt(currentPercent) <= parseInt(minHandlerPercent)) {
+            currentValue = minHandlerInput.value
+			currentPercent = minHandlerPercent
+
+			event.target.value = minHandlerInput.value
+		}
+
+		if (currentPercent === "0") {
+			event.target.style.zIndex = "100"
+		} else {
+			event.target.style.zIndex = "0"
+		}
+		event.target.parentNode.parentNode.style.setProperty("--value-2", currentPercent)
+		event.target.nextElementSibling.value = currentValue
+
+        const maxExtraHandlerInput = document.querySelector(".js-custom-range-extra-input-max input")
+		if (maxExtraHandlerInput) maxExtraHandlerInput.value = currentValue
+	}
+}
+
+const tabs = () => {
+	document.addEventListener("click", (e) => {
+		let target = e.target
+
+		if (target.classList.contains("js-tabs-control") || target.closest(".js-tabs-control")) {
+			target = target.classList.contains("js-tabs-control") ? target : target.closest(".js-tabs-control")
+			if( target.classList.contains("active") ) return
+
+			let tabContainer = target.closest(".js-tabs")
+			if( ! tabContainer ) return
+
+			let tabsList = tabContainer.querySelectorAll(".js-tabs-element")
+			let tabsControls = tabContainer.querySelectorAll(".js-tabs-control")
+			if( tabsList.length === 0 || tabsControls === 0 ) return
+
+			let newTab = tabContainer.querySelector(`.js-tabs-element[data-target=${target.dataset.target}]`)
+			if( ! newTab ) return
+
+			resetTabs(tabsControls)
+			resetTabs(tabsList)
+			if (target.classList.contains("active")) {
+				target.classList.remove("active")
+				newTab.classList.remove("active")
+			} else {
+				target.classList.add("active")
+				newTab.classList.add("active")
+			}
+		}
+	})
+
+	function resetTabs(array) {
+		array.forEach(item=>item.classList.remove("active"))
+	}
+}
+
 const appHeight = () => {
 	document.documentElement.style.setProperty("--safari-100-vh", `${window.innerHeight}px`)
 }
@@ -497,6 +659,15 @@ document.addEventListener("DOMContentLoaded", () => {
 		preload: true,
 
 		on: {
+			"*": (fancyboxRef, eventName) => {
+                console.log(`Fancybox eventName: ${eventName}`);
+            },
+			"Carousel.ready": () => {
+                const slide = Fancybox.getSlide();
+                console.log(
+                    `The content of the slide #${slide.index} is loaded`
+                );
+            },
 			done: (fancybox, slide) => {
 
 				fillInput(slide, "event_name", ".js-event-name")

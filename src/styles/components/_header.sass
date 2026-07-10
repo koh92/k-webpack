@@ -52,6 +52,14 @@ header
 		justify-self: end
 		+mq($xl)
 			display: none
+	&__mobile-panel
+		[data-state="opened"] &
+			animation: clipPathCircleOpen var(--transition-slow) ease-in-out forwards
+			display: block
+		[data-state="closing"] &
+			animation: clipPathCircleClose var(--transition-slow) ease-in-out forwards
+		[data-state="closed"] &
+			display: none
 	&__menu
 		--menu-height: 100vh
 		--menu-width: 220px
@@ -203,7 +211,7 @@ header
 					border: unset
 					background-color: transparent
 					box-shadow: unset
-					background-image: url('../images/icon_search_grey.svg')
+					background-image: url('../images/example/icon_search_grey.svg')
 					background-position: center
 					background-size: contain
 					background-repeat: no-repeat
@@ -246,3 +254,39 @@ header
 			display: none
 			+mq($md)
 				display: block
+
+@keyframes clipPathCircleOpen
+	0%
+		clip-path: circle(0% at top right)
+	100%
+		clip-path: circle(250% at top right)
+
+@keyframes clipPathCircleClose
+	0%
+		clip-path: circle(250% at top right)
+	100%
+		clip-path: circle(0% at top right)
+
+@keyframes clipPathInsetOpen
+	0%
+		clip-path: inset(0 0 100% 100%)
+	100%
+		clip-path: inset(0 0 0 0)
+
+@keyframes clipPathInsetClose
+	0%
+		clip-path: inset(0 0 0 0)
+	100%
+		clip-path: inset(0 0 100% 100%)
+
+@keyframes clipPathPolygonOpen
+	0%
+		clip-path: polygon(100% 0, 100% 0, 100% 0, 100% 0)
+	100%
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
+
+@keyframes clipPathPolygonClose
+	0%
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
+	100%
+		clip-path: polygon(100% 0, 100% 0, 100% 0, 100% 0)

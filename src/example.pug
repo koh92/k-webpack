@@ -8,10 +8,19 @@ include components/_example-item
 
 block content
 	.svg-icons
-		include Images/icon_arrow_down.svg
-		include Images/icon_star.svg
+		include Images/example/icon_arrow_down.svg
+		include Images/example/icon_star.svg
 
 	.visually-hidden
+
+		picture
+			//- Desktop
+			source(media="(min-width: 1200px)", srcset="Images/CMS/hero_image.jpg")
+			//- Tablet
+			source(media="(min-width: 744px)", srcset="Images/CMS/hero_image.jpg")
+			//- Mobile
+			+img("Images/CMS/hero_image.jpg")
+
 		.container
 			//- Multi row array
 			//- Example item component
@@ -74,3 +83,36 @@ block content
 				ul.marquee__group(aria-hidden="true")
 					each name, key in clients
 						li.marquee__item.noselect= name
+
+		//- Password visibility toggler
+		.container
+			.personal__form-input.js-password-box
+				input(type="password" maxlength="255" autocomplete="off")
+				.personal__form-input-icon.js-password-toggler
+					+img("Images/example/icon_eye.svg", "")
+					+img("Images/example/icon_not_eye.svg", "")
+
+		//- Input type range
+		.container
+			include components/_filter-catalog
+
+		//- Swiper
+		.container
+			// Slider main container
+			.swiper
+				// Additional required wrapper
+				.swiper-wrapper
+					// Slides
+					.swiper-slide
+					.swiper-slide
+					.swiper-slide
+
+				// If we need pagination
+				.swiper-pagination
+
+				// If we need navigation buttons
+				.swiper-button-prev
+				.swiper-button-next
+
+				// If we need scrollbar
+				.swiper-scrollbar

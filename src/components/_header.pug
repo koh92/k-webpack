@@ -3,23 +3,24 @@ block header
 		.container
 			.header
 				a.header__logo(href= isProd ? "index.html" : "/")
-					+img("Images/logo.svg", "logo")
-				nav.header__menu
-					button.header__menu-trigger.js-menu-trigger
-						include Images/icon_close.svg
-					ul.header__menu-list.js-header-nav-menu#primary-navigation
-						li.header__menu-item
-							a(href="example.html") Примеры компонентов
-						li.header__menu-item
-							a(href="news.html") Новости
-						li.header__menu-item
-							a(href="404.html") 404
-						li.header__menu-item
-							a(href="contacts.html") Контакты
+					+img("Images/example/logo.svg", "logo")
+				.header__mobile-panel.js-header-panel
+					nav.header__menu
+						button.header__menu-trigger.js-menu-trigger
+							include Images/example/icon_close.svg
+						ul.header__menu-list.js-header-nav-menu#primary-navigation
+							li.header__menu-item
+								a(href="example.html") Примеры компонентов
+							li.header__menu-item
+								a(href="news.html") Новости
+							li.header__menu-item
+								a(href="404.html") 404
+							li.header__menu-item
+								a(href="contacts.html") Контакты
 				.header__search
 					//-https://wp-kama.ru/function/get_search_form
 					button.header__search-trigger.js-search-trigger
-						include Images/icon_search.svg
+						include Images/example/icon_search.svg
 					.header__search-popup
 						.container
 							.header__search-box
@@ -27,18 +28,18 @@ block header
 									input(type="submit", value="")
 									input(type="search", placeholder="Что хотите найти?", name="s")
 								button.header__search-trigger.js-search-trigger
-									include Images/icon_close.svg
+									include Images/example/icon_close.svg
 				.header__contacts
 					.header__contact.header__contact--blue
 						a(href="tel:+74957777777") +7 495 777-77-77
 					.header__contact.header__contact--black
 						a(href="mailto:email@email.ru") email@email.ru
 				.header__burger.js-menu-trigger
-					button.menu-toggle(
+					button.menu-toggle.js-menu-toggle(
 						aria-label="Menu"
 						aria-controls="primary-navigation"
 						aria-expanded="false"
 					)
 						span.visually-hidden Menu
 						.k_burger(aria-hidden="true")
-				
+	.backdrop.js-backdrop

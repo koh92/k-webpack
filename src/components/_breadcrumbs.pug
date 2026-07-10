@@ -12,6 +12,7 @@ mixin breadcrumbs(title, ...items)
                     else
                         span.breadcrumbs-separator
                         .breadcrumbs-item
-                            a(href=`${item.url}.html`)= item.name
+                            a(href=`${item.url}.html`)
+                                span= item.name
             .page-title
                 h1 !{title}
