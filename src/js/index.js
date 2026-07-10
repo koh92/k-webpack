@@ -1,4 +1,4 @@
-// import $ from 'jquery';
+import * as $ from 'jquery';
 import avg from './some.js';
 import merge from './some.js';
 
@@ -9,7 +9,7 @@ import '../styles/main.sass';
 
 // import '../images/pop_6.png'
 
-// $('.title').html('Some Dynamic Text')
+$('.title').html('Some Dynamic Text')
 
 // console.log(avg(1,5,10,15));
 

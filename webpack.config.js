@@ -4,23 +4,23 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const postcss = require('postcss');
 const postcssPresetEnv = require('postcss-preset-env');
+
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const imageminMozjpeg = require('imagemin-mozjpeg');
 const imageminJpegtran = require('imagemin-jpegtran');
 const imageminSvgo = require('imagemin-svgo');
 const imageminGifsicle = require('imagemin-gifsicle');
-const imageminWebp = require('imagemin-webp');
 
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const tinyPngWebpackPlugin = require('tinypng-webpack-plugin');
 
 const devConf = {
+	context: path.resolve(__dirname, './src'),
 	mode: 'development',
-  	devtool: 'eval-cheap-source-map',
-  	target: 'web',
-	entry: path.resolve(__dirname, './src/js/index.js'),
+  devtool: 'eval-cheap-source-map',
+  target: 'web',
+	entry: './js/index.js',
 	output: {
-		path: path.resolve(__dirname, './dist'),
+		path: path.resolve(__dirname, 'dist'),
 		filename: 'js/[name].bundle.js',
 		clean: true,
 	},
@@ -42,6 +42,9 @@ const devConf = {
 				test: /\.js$/i,
 				use: {
 			    	loader: 'babel-loader',
+			    	options: {
+		          // presets: ['@babel/preset-env']
+		        }
 			   	},
 				exclude: '/node_modules/'
 			},
@@ -81,15 +84,15 @@ const devConf = {
 		[
 			new HtmlWebpackPlugin({
 		    	title: 'Webpack App K',
-		    	template: path.resolve(__dirname, './src/index.html')
+		    	template: './index.html'
 		    }),
 		    new MiniCssExtractPlugin(),
 		    new CopyWebpackPlugin({
 			    patterns: [
 			      	// images
-			        { from: path.resolve(__dirname, './src/images'), to: path.resolve(__dirname, './dist/images'), noErrorOnMissing: true, },
+			        { from: './images', to: '../dist/images', noErrorOnMissing: true, },
 			        // fonts
-			        { from: path.resolve(__dirname, './src/fonts'), to: path.resolve(__dirname, './dist/fonts'), noErrorOnMissing: true, }
+			        { from: './fonts', to: '../dist/fonts', noErrorOnMissing: true, }
 			    ],
 		    }),
 		]
@@ -98,21 +101,25 @@ const devConf = {
 let htmlPageNames = ['extra-file'];
 let multipleHtmlPlugins = htmlPageNames.map(name => {
   return new HtmlWebpackPlugin({
-    template: `./src/${name}.html`, // relative path to the HTML files
+    template: `./${name}.html`, // relative path to the HTML files
     filename: `${name}.html`, // output HTML files
     chunks: [`${name}`] // respective JS files
   })
 });
 
 const prodConf = {
+	context: path.resolve(__dirname, 'src'),
 	mode: 'production',
-  	devtool: false,
-  	target: 'browserslist',
-	entry: path.resolve(__dirname, './src/js/index.js'),
+  devtool: false,
+  target: 'browserslist',
+	entry: './js/index.js',
 	output: {
-		path: path.resolve(__dirname, './dist'),
+		path: path.resolve(__dirname, 'dist'),
 		filename: 'js/[name].[contenthash].bundle.js',
 		clean: true,
+	},
+	optimization: {
+		splitChunks: {chunks: 'all'}
 	},
 	module: {
 		rules: [
@@ -121,6 +128,10 @@ const prodConf = {
 				test: /\.js$/i,
 				use: {
 			    	loader: 'babel-loader',
+			    	options: {
+		          presets: ['@babel/preset-env']
+		        }
+
 			   	},
 				exclude: '/node_modules/'
 			},
@@ -154,93 +165,35 @@ const prodConf = {
 		        	"sass-loader"
 		        ],
 		    },
-		    // {
-		    // 	test: /\.(jp(g|eg)|png|svg|gif|webp)$/i,
-		    // 	use: [
-		    // 		{
-		    // 			loader: 'file-loader',
-		    // 			options: {
-		    // 				name: '[name].[ext]',
-		    // 				outputPath: './images/',
-		    // 				// context: "src"
-		    // 				// useRelativePath: true
-		    // 			}
-		    // 		},
-		    // 		{
-		    // 			loader: 'image-webpack-loader',
-		    // 			options: {
-		    // 				mozjpeg: {
-		    // 					progressive: true,
-		    // 					quality: 10
-		    // 				},
-		    // 				optipng: {
-					 //          enabled: false,
-					 //        },
-					 //        pngquant: {
-					 //          quality: [0.65, 0.90],
-					 //          speed: 4
-					 //        },
-					 //        gifsicle: {
-					 //          interlaced: false,
-					 //        },
-					 //        // the webp option will enable WEBP
-					 //        webp: {
-					 //          quality: 75
-					 //        }
-		    // 			}
-		    // 		}
-		    // 	]
-		    // }
 		]
 	},
 	plugins: 
 		[
 		    new HtmlWebpackPlugin({
 		    	title: 'Webpack App K',
-		    	template: path.resolve(__dirname, './src/index.html'),
+		    	template: './index.html',
 		    	chunks: ['main']
 		    }),
-		    // new HtmlWebpackPlugin({
-		    // 	title: 'Extra File',
-		    // 	template: path.resolve(__dirname, './src/extra-file.html')
-		    // }),
 		    new MiniCssExtractPlugin({
 		      filename: 'css/[name].[contenthash].css',
 		      chunkFilename: '[id].css'
 		    }),
-		    
-		    // new ImageminPlugin({
-			   //  test: /\.(jpe?g|png|gif|svg)$/i,
-			   //  optipng: {
-			   //    optimizationLevel: 7
-			   //  },
-			   //  pngquant: {
-			   //      quality: '95-100'
-			   //  }
-		    // }),
-		    // new tinyPngWebpackPlugin({
-	     //        key:"TmB1K7SN5pJFGD4NM5jfzNtt1Gy1rpBz"
-	     //    }),
 		    new CopyWebpackPlugin({
 			    patterns: [
 			      	// images
-			        { from: path.resolve(__dirname, './src/images'), to: path.resolve(__dirname, './dist/images'), noErrorOnMissing: true, },
+			        { from: './images', to: '../dist/images', noErrorOnMissing: true },
 			        // fonts
-			        { from: path.resolve(__dirname, './src/fonts'), to: path.resolve(__dirname, './dist/fonts'), noErrorOnMissing: true, }
+			        { from: './fonts', to: '../dist/fonts', noErrorOnMissing: true }
 			    ],
 		    }),
 		    new ImageminPlugin({
 			    test: /\.(jpe?g|png|gif|svg)$/i,
-			    // optipng: {
-			    //   optimizationLevel: 7
-			    // },
 			    pngquant: ({quality: 75}),
 			    plugins: [
 			    	imageminMozjpeg({quality: 75}),
 			    	// imageminJpegtran({progressive: true}), // сжатие хуже
-			    	// imageminSvgo(),
-			    	// imageminGifsicle({optimizationLevel: 3}),
-			    	// imageminWebp()
+			    	imageminSvgo(),
+			    	imageminGifsicle({optimizationLevel: 3}),
 			    ]
 		    }),
 		    
