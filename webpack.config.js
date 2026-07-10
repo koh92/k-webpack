@@ -13,10 +13,14 @@ const imageminGifsicle = require('imagemin-gifsicle');
 
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
+const {BundleAnalyzerPlugin} = require("webpack-bundle-analyzer");
+
 const devConf = {
-	context: path.resolve(__dirname, './src'),
+	context: path.resolve(__dirname, 'src'),
 	mode: 'development',
-  devtool: 'eval-cheap-source-map',
+  // devtool: 'eval-cheap-source-map',
+  // devtool: 'eval',
+  devtool: 'source-map',
   target: 'web',
 	entry: './js/index.js',
 	output: {
@@ -43,7 +47,7 @@ const devConf = {
 				use: {
 			    	loader: 'babel-loader',
 			    	options: {
-		          // presets: ['@babel/preset-env']
+		          presets: ['@babel/preset-env']
 		        }
 			   	},
 				exclude: '/node_modules/'
@@ -196,6 +200,7 @@ const prodConf = {
 			    	imageminGifsicle({optimizationLevel: 3}),
 			    ]
 		    }),
+		    new BundleAnalyzerPlugin()
 		    
 		].concat(multipleHtmlPlugins),
 		performance: {

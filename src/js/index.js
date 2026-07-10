@@ -21,7 +21,7 @@ function func(surname, name, ...rest) {
 
 // console.log(func('Иванов', 'Иван', '20 лет', 'холост', 'без вп'))
 
-// console.log('12345')
+console.log('12345')
 
 // alert('Page is loaded!')
 
