@@ -1,0 +1,19 @@
+mixin breabcrumbs(title, ...items)
+    .breadcrumbs
+        .container
+            .breadcrumbs-wrapper
+                .breadcrumbs-item
+                    a(href= isProd ? "index.html" : "/") Главная страница
+                each item in items
+                    if item == items[items.length - 1]
+                        span.breadcrumbs-separator /
+                        .breadcrumbs-item
+                            span= item
+                    else
+                        span.breadcrumbs-separator /
+                        .breadcrumbs-item
+                            a(href="#")= item
+    .container
+        .page-title
+            h1 !{title}
+

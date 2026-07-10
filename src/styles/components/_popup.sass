@@ -1,6 +1,9 @@
-@use '../base/colors'
 @use '../base/mixins' as *
 @use '../base/breakpoints' as *
 
 .popup
 	display: none
+	padding: 0
+	background: transparent
+	+mq($md)
+		max-width: 560px

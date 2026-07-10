@@ -11,7 +11,8 @@ module.exports = merge(common, {
 	target: 'browserslist',
 	optimization: {
 		splitChunks: {
-			chunks: 'all',
+			// Данное свойство НЕ ВКЛЮЧАТЬ! Ломает сборку
+			// chunks: 'all',
 			cacheGroups: {
 				defaultVendors: {
 					// If you will to use the test as /[\\/]node_modules[\\/], without extension specification, then Webpack concatenates JS code together with CSS in one file, because Webpack can't differentiate CSS module from JS module, therefore you MUST match only JS files.

@@ -3,59 +3,119 @@
 @use 'base/breakpoints' as *
 
 \:root
-	@each $name, $value in colors.$colors
-		--#{$name}-color: #{$value}
-	
-+font('Gilroy', 'Gilroy-Regular', 400)
-+font('Manrope', 'Manrope-Regular', 400)
+    --border-radius: 8px
+    @each $name, $value in colors.$colors
+        --#{$name}-color: #{$value}
 
 html
-	scroll-behavior: smooth
-	
+    scroll-behavior: smooth
+    
 body
-	font-family: 'Gilroy', sans-serif
-	min-height: 100vh
-	display: flex
-	flex-direction: column
-	color: var(--text-color)
-	background-color: var(--white-color)
+    font-family: 'Manrope', sans-serif
+    min-height: 100vh
+    display: flex
+    flex-direction: column
+    color: var(--text-color)
+    background-color: var(--white-color)
 
 .visually-hidden:not(:focus):not(:active)
-	clip: rect(0 0 0 0)
-	clip-path: inset(50%)
-	height: 1px
-	overflow: hidden
-	position: absolute
-	white-space: nowrap
-	width: 1px
-	
+    clip: rect(0 0 0 0)
+    clip-path: inset(50%)
+    height: 1px
+    overflow: hidden
+    position: absolute
+    white-space: nowrap
+    width: 1px
+    
 .mod-noscroll
-	overflow: hidden
-	position: fixed
-	top: 0
-	left: 0
-	right: 0
-	
+    overflow: hidden
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    
+    
 ::-webkit-scrollbar,
 ::-webkit-scrollbar-button,
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-track
-	width: 0
-	
-.noselect
-	-webkit-touch-callout: none /* iOS Safari */
-	-webkit-user-select: none /* Safari */
-	-khtml-user-select: none /* Konqueror HTML */
-	-moz-user-select: none /* Old versions of Firefox */
-	-ms-user-select: none /* Internet Explorer/Edge */
-	user-select: none /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 
-@keyframes waves
-	0%
-		box-shadow: 0 0 0 rgba(255, 255, 255,0.3),0 0 0 0 rgba(255, 255, 255,0.2),0 0 0 0 rgba(255, 255, 255,0.2)
-	40%
-		box-shadow: 0 0 0 rgba(255, 255, 255,0.3),0 0 0 15px rgba(255, 255, 255,0.2),0 0 0 0 rgba(255, 255, 255,0.2)
-	80%
-		box-shadow: 0 0 0 rgba(255, 255, 255,0.3),0 0 0 30px rgba(255, 255, 255,0),0 0 0 26.7px rgba(255, 255, 255,0.067)
-	100%
-		box-shadow: 0 0 0 rgba(255, 255, 255,0.3),0 0 0 30px rgba(255, 255, 255,0),0 0 0 40px rgba(255, 255, 255,0.0)
++mq($xl)
+    ::-webkit-scrollbar
+        background-color: var(--light-grey-color)
+        width: 8px
+        
+    ::-webkit-scrollbar-thumb
+        border-radius: 8px
+        background-color: var(--grey-color)
+    
+.noselect
+    -webkit-touch-callout: none /* iOS Safari */
+    -webkit-user-select: none /* Safari */
+    -khtml-user-select: none /* Konqueror HTML */
+    -moz-user-select: none /* Old versions of Firefox */
+    -ms-user-select: none /* Internet Explorer/Edge */
+    user-select: none /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+
+.page-title
+    +fz(24)
+    line-height: 120%
+    font-weight: 700
+    margin-bottom: 16px
+    +mq($xl)
+        +fz(42)
+        margin-bottom: 30px
+    +mq($hd)
+        margin-bottom: 40px
+
+.cms-content
+    +fz(14)
+    line-height: 130%
+    color: var(--black-color)
+    
+    +mq($xl)
+        max-width: calc(100% / 12 * 8)
+        
+    +mq($hd)
+        max-width: calc(100% / 12 * 7)
+    + *:not(footer)
+        margin-bottom: 60px
+        +mq($xl)
+            margin-bottom: 120px
+    p
+        +fz(14)
+        line-height: 130%
+        color: var(--black-color)
+        a
+            color: var(--dark-yellow-color)
+    b
+        display: inline-block
+    * + *
+        margin-top: 16px
+        +mq($xl)
+            margin-top: 20px
+    h2, h3, h4, h5, h6
+        +fz(18)
+        line-height: 140%
+        font-weight: 600
+        +mq($xl)
+            +fz(24)
+            font-weight: 700
+    picture, img
+        width: 100%
+        border-radius: 20px
+    ul, ol
+        padding-left: 22px
+    li
+       list-style-type: disc 
+    li + li
+        margin-top: 0  
+    &--small-padding
+        * + *
+            margin-top: 8px
+            +mq($xl)
+                margin-top: 10px
+    &--full-width
+        +mq($xl)
+            max-width: unset
+    

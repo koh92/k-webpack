@@ -2,269 +2,125 @@
 @use '../base/breakpoints' as *
 
 .footer
-	--f-grey: #6880A7
-	background-color: var(--dark-blue-color)
-	padding: 20px 0
-	color: var(--white-color)
-	+mq($md)
-		padding: 30px 0 24px
-	+mq($xl)
-		padding: 50px 0 16px
-	+mq($hd)
-		padding: 52px 0 26px
-	&__grid
-		display: grid
-		grid-template-areas: 'logo' 'contacts' 'promise' 'callback' 'download' 'col-1' 'col-2' 'col-3' 'email' 'socials' 'address' 'policy' 'copyright'
-		+mq($md)
-			grid-template-areas: 'logo logo . . . . . .' 'contacts contacts contacts promise promise promise promise .' 'callback callback callback callback download download download download' 'hr hr hr hr hr hr hr hr' 'col-1 col-1 col-1 col-2 col-2 col-2 col-3 col-3' 'email email email email socials socials socials socials' 'address address address address . policy policy policy' 'copyright copyright copyright copyright copyright copyright copyright copyright'
-			grid-template-columns: repeat(8, 1fr)
-		+mq($xl)
-			grid-template-areas: 'logo contacts hr download download .' 'email promise hr col-1 col-2 col-3' 'address callback hr col-1 col-2 col-3' '. socials hr col-1 col-2 col-3' 'policy policy hr . . .' 'copyright copyright copyright copyright copyright copyright'
-			//grid-template-columns: 1fr 1fr 100px .75fr .75fr .75fr
-			grid-template-columns: 1.2fr 1fr 100px .75fr .75fr .75fr
-			grid-template-rows: repeat(6, min-content)
-			//grid-template-rows: 60px 48px 79px 44px 20px 20px
-		+mq($hd)
-			grid-template-columns: 1fr max-content 160px .75fr .75fr .75fr
-	&__icon
-		--size: 44px
-		width: var(--size)
-		height: var(--size)
-		+flex-center
-		border-radius: 50%
-		background-color: #45618F
-		svg
-			width: 20px
-			fill: var(--white-color)
-	&__logo
-		grid-area: logo
-		max-width: 134px
-		margin-bottom: 26px
-		+mq($md)
-			margin-bottom: 45px
-		+mq($xl)
-			max-width: 200px
-			margin-bottom: 54px
-			margin-right: 62px
-		+mq($hd)
-			margin-right: 93px
-	&__email
-		grid-area: email
-		margin-bottom: 20px
-		+mq($md)
-			margin-bottom: 32px
-		+mq($xl)
-			//margin-bottom: 50px
-			//margin-bottom: 36px
-			margin-bottom: 0
-			margin-right: 62px
-		a
-			display: flex
-			align-items: center
-			font-family: 'Manrope', sans-serif
-			+fz(20)
-			line-height: 135%
-			.footer__icon
-				margin-right: 20px
-	&__address
-		grid-area: address
-		margin-bottom: 30px
-		font-family: 'Manrope', sans-serif
-		+fz(14)
-		line-height: 135%
-		color: var(--f-grey)
-		max-width: 250px
-		+mq($md)
-			margin-bottom: 32px
-		+mq($xl)
-			//margin-bottom: 94px
-			margin-bottom: 0
-			//margin-right: 62px
-			margin-right: 30px
-			padding-top: 22px
-	
-	&__policy
-		grid-area: policy
-		margin-bottom: 20px
-		font-family: 'Manrope', sans-serif
-		+fz(14)
-		line-height: 135%
-		color: var(--f-grey)
-		+mq($md)
-			margin-bottom: 32px
-		+mq($xl)
-			margin-bottom: 20px
-	&__copyright
-		grid-area: copyright
-		font-family: 'Manrope', sans-serif
-		+fz(14)
-		line-height: 135%
-		color: var(--f-grey)
-	&__contacts
-		grid-area: contacts
-		margin-bottom: 12px
-		color: var(--white-color)
-		+mqMax($md)
-			display: flex
-			align-items: center
-			justify-content: space-between
-			gap: 22px
-		+mq($md)
-			margin-bottom: 30px
-		+mq($xl)
-			margin-bottom: 24px
-	&__contact
-		display: flex
-		gap: 10px
-		+fz(15)
-		line-height: 135%
-		+mq($md)
-			gap: 16px
-		+mq($xl)
-			+fz(18)
-		& + &
-			+mq($xl)
-				margin-top: 12px
-		&-note
-			flex: 0 0 25px
-			font-family: 'Manrope', sans-serif
-			font-weight: 400
-			text-transform: uppercase
-		&-value
-			flex: 0 0 auto
-			font-weight: 500
-	&__promise
-		grid-area: promise
-		margin-bottom: 24px
-		+fz(18)
-		line-height: 130%
-		font-weight: 500
-		+mq($md)
-			margin-bottom: 30px
-			//margin-top: auto
-		+mq($xl)
-			+fz(20)
-			line-height: 120%
-	&__callback
-		grid-area: callback
-		margin-bottom: 20px
-		+fz(16)
-		height: 52px
-		+mqMax($md)
-			max-width: 262px
-		+mq($md)
-			+fz(14)
-			margin-bottom: 50px
-			margin-right: 10px
-			height: 56px
-		+mq($xl)
-			+fz(16)
-			margin-bottom: 30px
-			margin-right: 0
-			max-width: 245px
-	&__socials
-		grid-area: socials
-		margin-bottom: 45px
-		display: flex
-		+mq($xl)
-			margin-bottom: 43px
-		.footer__icon + .footer__icon
-			margin-left: 32px
-	&__hr
-		grid-area: hr
-		display: none
-		+mq($md)
-			display: block
-			width: 100%
-			height: 1px
-			background-color: var(--f-grey)
-			margin-bottom: 30px
-		+mq($xl)
-			width: 1px
-			height: 100%
-			margin-inline: auto
-	&__download
-		grid-area: download
-		margin-bottom: 44px
-		+fz(16)
-		height: 52px
-		+mqMax($md)
-			max-width: 262px
-			span
-				display: none
-		+mq($md)
-			+fz(14)
-			margin-bottom: 50px
-			margin-left: 10px
-			height: 56px
-		+mq($xl)
-			+fz(16)
-			margin-left: 0
-			margin-bottom: 30px
-			max-width: 325px
-	&__menu
-		&-col--1
-			grid-area: col-1
-			margin-bottom: 26px
-			display: grid
-			gap: 20px
-			grid-template-columns: 1fr 1fr
-			+mq($md)
-				grid-template-columns: 1fr
-				grid-template-rows: 24px 22px 22px 22px 22px
-				margin-bottom: 30px
-			.footer__menu-title
-				grid-column: 1/3
-				+mq($md)
-					grid-column: unset
-		&-col--2
-			grid-area: col-2
-			margin-bottom: 28px
-			border-top: 1px solid var(--f-grey)
-			padding-top: 6px
-			display: grid
-			gap: 20px
-			grid-template-columns: 1fr 1fr
-			+mq($md)
-				grid-template-columns: 1fr
-				grid-template-rows: 24px 22px 22px 22px 22px
-				margin-bottom: 30px
-				border-top: unset
-				padding-top: 0
-			.footer__menu-title
-				grid-column: 1/3
-				+mq($md)
-					grid-column: unset
-		&-col--3
-			grid-area: col-3
-			margin-bottom: 49px
-			border-top: 1px solid var(--f-grey)
-			padding-top: 6px
-			display: grid
-			gap: 20px
-			grid-template-columns: 1fr 1fr 1fr
-			+mq($md)
-				grid-template-columns: 1fr
-				grid-template-rows: 24px 22px 22px 22px
-				margin-bottom: 30px
-				border-top: unset
-				padding-top: 0
-			.footer__menu-title
-				grid-column: 1/4
-				+mq($md)
-					grid-column: unset
-		&-title
-			font-family: 'Manrope', sans-serif
-			+fz(15)
-			line-height: 135%
-			color: var(--f-grey)
-			margin-bottom: 4px
-			+mq($md)
-				+fz(18)
-				margin-bottom: 7px
-		&-item
-			font-family: 'Manrope', sans-serif
-			+fz(15)
-			line-height: 135%
-			+mq($md)
-				+fz(16)
+    border-top: 1px solid var(--fake-black-color)
+    padding: 7px 0 24px
+    margin-top: 60px
+    +mq($md)
+        padding: 14px 0 18px
+    +mq($xl)
+        padding: 20px 0
+        margin-top: 120px
+    &__top
+        &-grid
+            +mq($md)
+                display: grid
+                grid-template-columns: 2fr 4fr
+            +mq($xl)
+                grid-template-columns: auto auto auto
+            +mq($hd)
+                grid-template-columns: 3fr 6fr 3fr
+    &__logo
+        padding-bottom: 14px
+        border-bottom: 1px solid var(--fake-black-color)
+        +mq($xl)
+            border-bottom: unset
+        img
+            margin-bottom: 2px
+            +mq($xl)
+                margin-bottom: 10px
+        span
+            display: block
+            +fz(12)
+            line-height: 124%
+            font-weight: 500
+    &__menu
+        padding-top: 14px
+        padding-bottom: 14px
+        border-bottom: 1px solid var(--fake-black-color)
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        gap: 10px
+        +mq($md)
+            padding-top: 0
+            padding-bottom: 18px
+        +mq($xl)
+            border-bottom: unset
+            padding-bottom: 40px
+        +mq($hd)
+            grid-template-columns: 2fr 4fr
+        li
+            +fz(14)
+            line-height: 130%
+            font-weight: 500
+        li + li
+            margin-top: 10px
+        &-col
+            &--double ul
+                +mq($xl)
+                    columns: 2
+        a
+            transition: .3s
+            &:hover
+                color: var(--dark-yellow-color)
+    &__contact
+        padding-top: 14px
+        padding-bottom: 14px
+        border-bottom: 1px solid var(--fake-black-color)
+        +mq($md)
+            padding-top: 18px
+            padding-bottom: 18px
+            grid-column: 1/3
+            width: 100%
+            padding-left: calc(100% / 6 * 2)
+        +mq($xl)
+            padding-top: 0
+            padding-bottom: 0
+            border-bottom: 0
+            padding-left: 34px
+            grid-column: unset
+            border-left: 1px solid var(--fake-black-color)
+            margin-top: -20px
+            padding-top: 20px
+        &-title
+            +fz(14)
+            line-height: 130%
+            font-weight: 600
+            margin-bottom: 8px
+        &-item
+            display: block
+            +fz(14)
+            line-height: 130%
+            color: var(--grey-color)
+            & + &
+                margin-top: 8px
+    &__bottom
+        padding-top: 14px
+        +mq($xl)
+            padding-top: 20px
+            border-top: 1px solid var(--fake-black-color)
+        &-grid
+            +mq($md)
+                display: flex
+                justify-content: space-between
+        &-item
+            display: block
+            +fz(12)
+            line-height: 124%
+            font-weight: 500
+            color: var(--grey-color)
+            +mqMax($md)
+                & + &
+                    margin-top: 8px
+            &:last-child
+                +mq($hd)
+                    flex: 0 0 calc(100% / 12 * 3)
+                    padding-left: 34px
+                    border-left: 1px solid var(--fake-black-color)
+                    margin-top: -20px
+                    margin-bottom: -20px
+                    padding-top: 20px
+                    padding-bottom: 20px
+        a
+            transition: .3s
+            &:hover
+                color: #BF9348

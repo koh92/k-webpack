@@ -6,267 +6,430 @@
 		opacity: 0
 	100%
 		opacity: 1
-=fadeIn
-	display: block
+=fadeIn( $display: block )
+	display: $display
 	animation: fadeIn 1s ease-in forwards
 	
 header
-	position: fixed
+	position: sticky
 	width: 100%
 	top: 0
 	left: 0
-	z-index: 100000
-	transition: background .5s, top .4s, height .3s
+	z-index: 100
+	background-color: var(--white-color)
+	transition: height .3s
+	// transition: background .5s, top .4s, height .3s
 	&[data-state="opened"]
 		height: 100vh
 		height: 100dvh
-		background-color: var(--dark-blue-color)
-		overflow-y: auto
-	&.mod-fixed
-		top: -64px
-		+mq($md)
-			top: -91px
-		+mq($xl)
-			top: -80px
-		+mq($hd)
-			top: -95px
-	&.mod-backscroll
-		top: 0
-	&.mod-white-bg
 		background-color: var(--white-color)
-	&.mod-blue-bg
-		background-color: var(--dark-blue-color)
+		overflow-y: auto
+	// &.mod-fixed
+	// 	top: -64px
+	// 	+mq($md)
+	// 		top: -91px
+	// 	+mq($xl)
+	// 		top: -80px
+	// 	+mq($hd)
+	// 		top: -95px
+	// &.mod-backscroll
+	// 	top: 0
 		
 .header
-	padding: 9px 0 10px
+	--burger-grid-size: calc(27px + 19px)
+	padding: 8px 0
 	display: grid
-	grid-template-areas: 'logo . socials burger'
-	grid-template-columns: minmax(auto, 126px) 1fr 135px 44px
-	//grid-template-columns: 126px 1fr 135px 44px
+	grid-template-areas: 'logo . phone burger' 'search search search search'
+	grid-template-columns: minmax(auto, 205px) 1fr 19px var(--burger-grid-size)
 	align-items: center
-	background: transparent
-	color: var(--white-color)
+	background: var(--white-color)
+	color: var(--text-color)
 	[data-state="opened"] &
-		grid-template-areas: 'logo . socials burger' 'btn btn btn btn' 'menu menu menu menu' 'contacts contacts contacts contacts' 'callback callback callback callback'
-		grid-template-columns: minmax(auto, 126px) 1fr 100px 44px
+		grid-template-areas: 'logo . phone burger' 'actions actions actions actions' 'catalog catalog catalog catalog' 'menu menu menu menu' 'help help help help' 'btn btn btn btn'
 	+mq($md)
-		grid-template-areas: 'logo . btn burger'
-		grid-template-columns: minmax(auto, 170px) 1fr 282px 50px
-		//grid-template-columns: 170px 1fr 282px 50px
-		padding: 20px 0
+		--burger-grid-size: calc(27px + 24px)
+		grid-template-areas: 'logo search search search search burger' 'hr hr hr hr hr hr' 'catalog . phone schedule btn btn'
+		grid-template-columns: minmax(auto, 205px) 1fr 149px 131px 95px var(--burger-grid-size)
+
+		padding: 14px 0
 		[data-state="opened"] &
-			grid-template-areas: 'logo . btn burger' 'menu menu menu menu' 'contacts contacts contacts contacts' 'callback callback callback callback'
-			//grid-template-columns: 170px 1fr 282px 50px
-			grid-template-columns: minmax(auto, 170px) 1fr 282px 50px
+			grid-template-areas: 'logo search burger' 'hr hr hr' 'actions actions actions' 'catalog catalog catalog' 'menu menu menu' 'help help help' 'btn btn btn' 'phone phone phone'
+			grid-template-columns: minmax(auto, 205px) 448px var(--burger-grid-size)
 	+mq($xl)
-		grid-template-areas: 'logo . contacts socials btn' 'menu menu menu menu menu'
-		//grid-template-columns: 176px 1fr auto 134px 262px
-		//grid-template-columns: 189px 1fr auto 138px 262px
-		grid-template-columns: minmax(auto, 189px) 1fr auto 138px 262px
+		grid-template-areas: 'logo logo search help help help actions actions actions' 'hr hr hr hr hr hr hr hr hr' 'catalog menu menu phone phone schedule schedule btn btn'
+		grid-template-columns: 156px 47px 1fr 70px 74px 45px 75px 77px 77px
+		// grid-template-columns: 156px 47px 1fr 73px 74px 57px 58px 77px 77px
+		// grid-template-columns: 156px 49px 335px 70px 70px 57px 57px 77px 77px
 		padding: 12px 0
 	+mq($hd)
-		//grid-template-columns: 176px 1fr auto 134px 288px
-		grid-template-columns: 196px 1fr auto 138px 288px
-		padding: 25px 0
+		grid-template-areas: 'logo logo search help help help actions actions actions' 'hr hr hr hr hr hr hr hr hr' 'catalog menu menu menu phone phone phone schedule btn'
+		grid-template-columns: 156px 49px auto 70px 70px 57px 57px 131px 170px
+		padding: 14px 0
 	&__logo
 		grid-area: logo
-		margin-right: 0
-		opacity: 1
-		transition: opacity .3s
-		img + img
-			display: none
 	&__burger
 		grid-area: burger
 		justify-self: end
 		+mq($xl)
 			display: none
-	&__menu
-		grid-area: menu
-		+mq($xl)
-			padding-top: 12px
-			margin-top: 15px
-			border-top: .5px solid var(--white-color)
-		&-list
+	&__search
+		grid-area: search
+		display: block
+		margin-top: 7px
+		position: relative
+		[data-state="opened"] &
 			display: none
-			border-bottom: 1px solid var(--white-02-color)
+		+mq($md)
+			margin-left: 15px
+			margin-top: 0
 			[data-state="opened"] &
-				+fadeIn
-				padding-bottom: 26px
-				+mq($md)
-					margin-top: 53px
-					padding-bottom: 37px
+				display: block
+		input[type="search"]
+			width: 100%
+			height: 38px
+			background-color: var(--light-grey-color)
+			border-radius: 30px
+			border: 0
+			padding-left: 56px
+
+			+fz(14)
+			line-height: 140%
+			color: var(--text-color)
+
 			+mq($xl)
-				+flex
-				gap: 36px
-				border-bottom: unset
-			+mq($hd)
-				gap: 40px
-		&-item
-			+mqMax($xl)
-				& + &
-					margin-top: 36px
-			a
-				display: inline-block
-				+fz(16)
-				font-weight: 400
-				line-height: 135%
+				height: 46px
+				min-width: 320px
+			&::-webkit-search-cancel-button
 				cursor: pointer
-				+mq($hd)
-					+fz(18)
-			&:hover a
-				font-weight: 600
-			&--underline
-				a
-					position: relative
-				a::after
-					content: ''
-					display: block
+				padding-right: 10px
+				filter: brightness(0)
+
+			&::placeholder
+				+fz(14)
+				line-height: 140%
+				color: var(--grey-color)
+		[type="submit"]
+			// Safari blue background fix
+			background-color: transparent
+
+			position: absolute
+			left: 24px
+			top: 9px
+			+box(20px)
+
+			padding: 0
+			margin: 0
+			font-size: 0
+			border: 0
+
+			+mq($xl)
+				top: 13px
+			svg
+				stroke: var(--green-color)		
+	&__help
+		grid-area: help
+		display: none
+		+fz(12)
+		line-height: 130%
+		margin-bottom: 18px
+		[data-state="opened"] &
+			+fadeIn
+		span
+			color: var(--text-color)
+			+mq($xl)
+				display: block
+		span + span
+			color: var(--green-color)
+			text-decoration: underline
+		+mq($md)
+			text-align: center
+		+mq($xl)
+			display: block
+			margin-left: 12px
+			text-align: left
+			margin-bottom: 0
+	&__actions
+		grid-area: actions
+		display: none
+		[data-state="opened"] &
+			+fadeIn(flex)
+			gap: 8px
+			margin-top: 14px
+			margin-bottom: 8px
+		+mq($xl)
+			display: flex
+			align-items: center
+			justify-content: space-between
+			gap: 24px
+			// margin-left: auto
+			margin-left: 16px
+		+mq($hd)
+			margin-left: 68px
+	&__action
+		padding: 12px
+		border-radius: var(--border-radius)
+		background-color: var(--green-color)
+		color: var(--white-color)
+		text-align: center
+		flex: 1
+		transition: color .3s
+		+mq($xl)
+			padding: 0
+			background-color: transparent
+			color: var(--text-color)
+		&-icon
+			margin-bottom: 5px
+			svg
+				+box(27px)
+				fill: var(--white-color)
+				transition: fill .3s
+				+mq($xl)
+					fill: var(--grey-color)
+		&-text
+			+fz(12)
+			line-height: 130%
+			font-weight: 500
+			display: inline-block
+			span
+				display: none
+				color: var(--dark-yellow-color)
+				+mq($xl)
+					display: inline-block
 					position: absolute
-					top: calc(100% + 4px)
-					height: 1px
-					width: 100%
-					background-color: var(--white-02-color)
-					+mq($xl)
-						background-color: var(--white-05-color)
-	&__contacts
-		grid-area: contacts
+					&::before
+						content: '('
+					&::after
+						content: ')'
+				+mq($hd)
+					position: relative
+		&:hover
+			color: var(--dark-yellow-color)
+			.header__action-icon svg
+				fill: var(--dark-yellow-color)
+				
+	&__catalog
+		grid-area: catalog
 		display: none
 		[data-state="opened"] &
 			+fadeIn
-			margin-top: 22px
-			margin-bottom: 22px
-		+mq($xl)
-			display: flex
-			gap: 32px
-			padding-right: 30px
-	&__contact
-		display: flex
-		align-items: center
-		gap: 10px
-		+mq($xl)
-			justify-content: space-between
-			white-space: nowrap
-		&-note
-			+flex-center
-			+box(40px)
-			border-radius: 50%
-			border: .6px solid var(--white-color)
-			font-family: 'Manrope', sans-serif
-			+fz(12)
-			font-weight: 500
-		&-value
-			+fz(16)
-			font-weight: 500
-			line-height: 135%
-		+mqMax($xl)
-			& + &
-				margin-top: 20px
-	&__socials
-		grid-area: socials
-		display: flex
-		align-items: center
-		margin-right: 9px
+			margin-bottom: 8px
 		+mq($md)
-			display: none
-			margin-right: 0
-		+mq($xl)
-			display: flex
-	
-	&__social
-		--soc-size: 34px
-		flex: 0 0 var(--soc-size)
-		+flex-center
-		+box(var(--soc-size))
-		border-radius: 50%
-		border: 1px solid var(--white-color)
-		[data-state="opened"] &:nth-child(3)
-			display: none
-		+mq($xl)
-			--soc-size: 46px
-		& + &
-			margin-left: 12px
-		&:nth-child(3)
+			display: block
+			[data-state="opened"] & .btn
+				border-radius: var(--border-radius)
+				background-color: var(--yellow-color)
+				color: var(--white-color)
+				justify-content: center
+				height: 48px
+				max-width: unset
+				&::before
+					display: none
+		.btn
+			width: 100%
+			border-radius: var(--border-radius)
+			background-color: var(--yellow-color)
+			color: var(--white-color)
+			justify-content: center
+			height: 48px
+			+fz(14)
 			+mq($md)
-				display: none
-		svg
-			fill: var(--white-color)
-			width: 13px
+				max-width: 156px
+				border-radius: 30px
+				background-color: var(--green-color)
+				display: flex
+				align-items: center
+				height: 38px
+				padding: 0
+				&::before
+					content: ''
+					+box(27px)
+					margin-right: 12px
+					padding: 4px
+					+bg('Images/icon_squares.svg', center, contain)
 			+mq($xl)
-				width: 17px
+				&:hover
+					background-color: var(--black-color)	
+	&__menu
+		grid-area: menu
+		&-list
+			display: none
+			[data-state="opened"] &
+				+fadeIn
+				margin-bottom: 32px
+			+mq($xl)
+				display: flex
+				justify-content: space-between
+				gap: 8px
+				margin-left: 20px
+			+mq($hd)
+				margin-left: 84px
+		&-item
+			+mqMax($xl)
+				& + &
+					margin-top: 8px
+			a
+				display: block
+				text-align: center
+				+fz(14)
+				font-weight: 600
+				line-height: 130%
+				cursor: pointer
+				padding: 15px
+				border: 1px solid var(--black-color)
+				border-radius: var(--border-radius)
+				+mq($xl)
+					font-weight: 500
+					padding: 10px 0
+					border: unset
+					flex: 1
+					transition: .3s
+					&:hover
+						color: var(--dark-yellow-color)
+			&--has-submenu 
+				position: relative
+				&:hover
+					a::after
+						transform: rotate(180deg)
+					.header__submenu
+						display: block
+				> a
+					display: none
+					+mq($xl)
+						display: flex
+						align-items: center
+						&::after
+							content: ''
+							display: block
+							margin-left: 4px
+							+box(16px)
+							+bg('Images/icon_arrow.svg', center, contain)
+							transition: .3s
+						
+	&__submenu
+		+mq($xl)
+			display: none
+			position: absolute
+			top: calc(100% - 3px)
+			left: -14px
+			z-index: 30
+			background-color: var(--white-color)
+			padding: 14px
+			border-radius: 10px
+			border: 1px solid var(--fake-black-color)
+			&:hover
+				display: block
+		&-item
+			& + &
+				margin-top: 8px
+				+mq($xl)
+					margin-top: 10px
+			a
+				display: block
+				text-align: center
+				+fz(14)
+				font-weight: 600
+				line-height: 130%
+				cursor: pointer
+				padding: 15px
+				border: 1px solid var(--black-color)
+				border-radius: var(--border-radius)
+				+mq($xl)
+					padding: 0
+					border: unset
+					text-align: left
+					white-space: nowrap
+	&__phone
+		grid-area: phone
+		+mq($md)
+			margin-right: 24px
+
+			display: flex
+			align-items: center
+			[data-state="opened"] &
+				justify-content: center
+				margin-top: 24px
+		+mq($xl)
+			margin-right: 0
+			margin-left: 22px
+		&-icon
+			display: flex
+			+mq($md)
+				margin-right: 4px
+			svg
+				+box(19px)
+				fill: var(--black-color)
+				transition: fill .3s
+				+mq($md)
+					+box(16px)
+					fill: var(--dark-yellow-color)
+		&-value 
+			display: none
+			+mq($md)
+				display: block
+
+				+fz(12)
+				line-height: 124%
+				font-weight: 600
+				color: var(--dark-yellow-color)
+				transition: color .3s
+		&:hover
+			.header__phone-icon svg 
+				fill: var(--black-color)
+			.header__phone-value
+				color: var(--text-color)
+
+	&__schedule
+		grid-area: schedule
+		display: none
+		+mq($md)
+			display: grid
+			grid-template-areas: 's-icon s-text' 's-icon s-time'
+			place-items: center
+			margin-right: 24px
+
+			+fz(12)
+			line-height: 130%
+			font-weight: 500
+			[data-state="opened"] &
+				display: none
+		+mq($xl)
+			margin-right: 0
+			margin-left: 8px
+		+mq($hd)
+			margin-left: 24px
+		&-icon
+			grid-area: s-icon
+			+box(27px)
+			padding: 2px
+			margin-right: 6px
+			svg
+				fill: var(--grey-color)
+		&-text
+			grid-area: s-text
+		&-time
+			grid-area: s-time
 	&__btn
 		grid-area: btn
 		display: none
 		[data-state="opened"] &
-			+mqMax($md)
-				+fadeIn
-			margin-top: 32px
-			margin-bottom: 22px
+			+fadeIn
 		+mq($md)
 			display: block
-			[data-state="opened"] &
-				margin-top: 0
-				margin-bottom: 0
-		a
-			+fz(16)
-			+mqMax($md)
-				max-width: 255px
-			+mq($md)
-				padding: 5px
-				margin-right: 20px
+		+mq($xl)
+			margin-left: 8px
+		+mq($hd)
+			margin-left: 24px
+		.btn
+			width: 100%
+			justify-content: center
 			+mq($xl)
-				margin-right: 0
-			+mq($hd)
-				+fz(18)
-	&__callback
-		grid-area: callback
+				height: 46px
+	&__hr
+		grid-area: hr
 		display: none
-		a
-			+mqMax($md)
-				max-width: 252px
-		[data-state="opened"] &
-			+fadeIn
-			+mq($md)
-				a
-					display: inline-flex
-					min-width: 245px
-.mod-white-bg
-	.header
-		color: var(--text-color)
-	.header__logo img
-		display: none
-	.header__logo img + img
-		display: block
-	.header__contact-note
-		border-color: var(--dark-blue-color)
-	.header__menu
-		border-color: var(--dark-blue-color)
-	.header__menu-item--underline a::after
-		background-color: var(--dark-blue-color)
-	.header__social
-		border-color: var(--dark-blue-color)
-	.header__social svg
-		fill: var(--dark-blue-color)
-.mod-blue-bg
-	.header
-		+mq($xl)
-			grid-template-areas: 'logo . menu btn'
-			grid-template-columns: minmax(auto, 189px) 1fr auto 262px
-			padding: 12px 0
-		+mq($hd)
-			grid-template-areas: 'logo . menu socials btn'
-			grid-template-columns: 196px 1fr auto 138px 288px
-			padding: 21px 0 17px
-	.header__menu
-		+mq($xl)
-			padding-top: 0
-			margin-top: 0
-			border-top: 0
-			padding-right: 20px
-	.header__contacts
-		+mq($xl)
-			display: none
-	.header__socials
-		+mq($xl)
-			display: none
-		+mq($hd)
-			display: flex
+		+mq($md)
+			display: block
+			width: 100%
+			height: 1px
+			background-color: var(--fake-black-color)
+			margin: 14px 0

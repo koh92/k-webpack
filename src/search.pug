@@ -1,0 +1,20 @@
+extends include/_layout
+
+block variables
+	- var title = 'Search | Get turbo'
+	- var breadcrumbs = true
+
+block block_breadcrumbs
+	+breabcrumbs(`Поиск по запросу: <span>Турбокомпрессор</span>`, 'Поиск')
+
+include components/_catalog-item
+
+block content
+	.container
+		.catalog
+			.catalog__grid.catalog__grid--one-column-mobile
+				- var searchCount = Math.floor(Math.random() * (1 - 20) + 20)
+				- for (var i = 0; i < searchCount; ++i)
+					+catalog-item()
+		button.btn.btn--yellow-gradient.info__btn Показать еще (20)
+		include ./components/_pagination

@@ -1,2 +1,42 @@
 block popup
-	.popup
+	.popup#help-popup
+		.form.form--decorate.form--popup
+			.form__title Помощь с подбором
+			.form__text Если не знаете номер турбины или вин номер, заполните форму и мы свяжемся с вами! Абсолютно бесплатно.
+			form
+				.form__input
+					input(type="text", placeholder="Ваше имя")
+				.form__input
+					input(type="email", placeholder="E-mail")
+				.form__input
+					input(type="tel", placeholder="+7 (999) 999-99-99")
+				.form__input
+					input(type="text", placeholder="Вин авто *не обязательно")
+				.form__input
+					label
+						input(type="file")
+						.btn.btn--green-transparent.btn--clip-icon Прикепить фотографии
+				input.btn.btn--green.form__btn(type="submit", value="Отправить заявку")
+				.form__accept Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+
+	.popup#callback-popup
+		.form.form--decorate.form--popup
+			.form__title Заказать звонок
+			.form__text Оставьте свои контактные данные и мы свяжемся с вами!
+			form
+				.form__input
+					input(type="text", placeholder="Ваше имя")
+				.form__input
+					input(type="tel", placeholder="+7 (999) 999-99-99")
+				input.btn.btn--green.form__btn(type="submit", value="Отправить заявку")
+				.form__accept Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+
+	.popup#thanks-popup
+		.form.form--decorate.form--popup
+			.form__title Спасибо за Ваше обращение!
+			.form__text Наш специалист свяжется с Вами в ближайшее время.
+
+	.popup#order-success-popup
+		.form.form--decorate.form--popup
+			.form__title Ваш заказ успешно оформлен!
+			.form__text Письмо-подтверждение отправлено на ваш E-mail

@@ -7,11 +7,10 @@ html(lang="ru")
 	//- var fancybox - add CSS for Fancybox
 	//- var wow - add CSS for Wow js
 	block variables
-		// - var fancybox = true
-		// - var yandexMap = false
-		// - var swiper = true
-		// - var wow = true
-
+		//- - var fancybox = false
+		//- - var yandexMap = false
+		//- - var swiper = false
+		//- - var wow = false
 
 	include _mixins
 
@@ -29,6 +28,14 @@ html(lang="ru")
 	body
 		// Header::Start
 		include ../components/_header
+
+
+		if breadcrumbs === true
+			// Breadcrumbs::Start
+			include ../components/_breadcrumbs
+			block block_breadcrumbs
+			// Breadcrumbs::End
+
 		// Header::End
 
 		// Main::Start

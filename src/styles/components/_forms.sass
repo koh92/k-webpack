@@ -1,0 +1,85 @@
+@use '../base/mixins' as *
+@use '../base/breakpoints' as *
+
+.form
+    border-radius: 30px
+    background-color: var(--light-grey-color)
+    +mq($md)
+        padding: 50px
+    +mq($xl)
+        padding: 60px
+    &--static
+        +mqMax($md)
+            padding: 24px 12px
+            width: 100vw
+            position: relative
+            left: 50%
+            transform: translate(-50%)
+            &::before
+                display: none
+        .form__title
+            +fz(18)
+            line-height: 140%
+            font-weight: 700
+            margin-bottom: 16px
+            +mq($xl)
+                +fz(24)
+                margin-bottom: 20px
+        .form__text
+            +fz(14)
+            line-height: 130%
+            color: var(--grey-color)
+            margin-bottom: 24px
+            +mq($xl)
+                margin-bottom: 20px
+        .form__input
+            input
+                height: 48px
+    &--popup
+        .form__title
+            +fz(24)
+            line-height: 120%
+            font-weight: 700
+            margin-bottom: 8px
+            +mq($xl)
+                +fz(42)
+                margin-bottom: 10px
+        .form__text
+            +fz(16)
+            line-height: 140%
+            margin-bottom: 24px
+    &--decorate
+        +decoration-inner-line
+    &__input
+        & + &
+            margin-top: 16px
+            +mq($xl)
+                margin-top: 10px
+        input
+            padding: 13px 24px
+            border-radius: 30px
+            width: 100%
+
+            +fz(16)
+            line-height: 140%
+            color: var(--text-color)
+
+            border: unset
+            background-color: var(--white-color)
+            &::placeholder
+                +fz(16)
+                line-height: 140%
+                color: var(--grey-color)
+            &[type="file"]
+                display: none
+    &__btn
+        margin-top: 24px
+        margin-bottom: 8px
+        width: 100%
+        +mq($xl)
+            margin-top: 20px
+            margin-bottom: 10px
+    &__accept
+        +fz(12)
+        line-height: 130%
+        color: var(--grey-color)

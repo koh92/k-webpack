@@ -1,0 +1,7 @@
+mixin info-item()
+    - var image = Math.floor(Math.random() * (1 - 4) + 4)
+    .info__item
+        a.info__item-image(href="info-element.html")
+            +img(`Images/CMS/info_${image}.png`)
+        a.info__item-title(href="info-element.html") Как подобрать турбину к двигателю
+        .info__item-text Мы предлагаем более 15000 наименований запчастей на все виды автотранспортных средств, тракторную и сельхозтехнику, спецтехнику.

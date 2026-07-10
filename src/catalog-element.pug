@@ -1,0 +1,281 @@
+extends include/_layout
+
+block variables
+	- var title = 'Catalog Element | Get turbo'
+	- var breadcrumbs = true
+	- var swiper = true
+
+block block_breadcrumbs
+	+breabcrumbs('Турбокомпрессор МТА 1501', 'Каталог', 'Турбокомпрессоры', 'Турбокомпрессор МТА 1501')
+
+include components/_catalog-item
+
+block content
+	.container
+		.catalog-element
+			.catalog-element__grid
+				.catalog-element__main
+					.catalog-element__top
+						.catalog-element__image
+							+img('Images/CMS/catalog_item_1.png', 'Турбокомпрессор MTA1501')
+							.catalog-element__fav
+								<svg viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 27V2.23448C3 1.63862 3.225 1.11724 3.675 0.670345C4.125 0.223448 4.65 0 5.25 0H21.75C22.35 0 22.875 0.223448 23.325 0.670345C23.775 1.11724 24 1.63862 24 2.23448V27L13.5 22.531L3 27ZM5.25 23.611L13.5 20.1476L21.75 23.611V2.23448H5.25V23.611Z" fill="#6A6A6A"/></svg>
+								<svg viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 27V2.23448C3 1.63862 3.225 1.11724 3.675 0.670345C4.125 0.223448 4.65 0 5.25 0H21.75C22.35 0 22.875 0.223448 23.325 0.670345C23.775 1.11724 24 1.63862 24 2.23448V27L13.5 22.531L3 27Z" fill="#07422E"/></svg>
+						.catalog-element__info
+							.catalog-element__props
+								.catalog-element__props-title Характеристики:
+								.catalog-element__prop
+									.catalog-element__prop-key vt (тип транспортного средства):
+									.catalog-element__prop-value Industrial
+								.catalog-element__prop
+									.catalog-element__prop-key tt (технология турбокомпрессора):
+									.catalog-element__prop-value Free Floating
+								.catalog-element__prop
+									.catalog-element__prop-key ft (тип топлива):
+									.catalog-element__prop-value Diesel
+								.catalog-element__prop
+									.catalog-element__prop-key ft (тип топлива):
+									.catalog-element__prop-value Diesel
+								.catalog-element__prop
+									.catalog-element__prop-key tt (технология турбокомпрессора):
+									.catalog-element__prop-value Free Floating
+								.catalog-element__prop
+									.catalog-element__prop-key vt (тип транспортного средства):
+									.catalog-element__prop-value Industrial
+								.catalog-element__prop
+									.catalog-element__prop-key tt (технология турбокомпрессора):
+									.catalog-element__prop-value Free Floating
+							a.btn.btn--yellow(href="#") Выбрать бренд
+							a.btn.btn--green-transparent(href="#") Комплектующие
+					.catalog-element__desc
+						.catalog-element__desc-title Описание:
+						.catalog-element__desc-text
+							.catalog-element__desc-text--limit
+								p Турбокомпрессор — основной компонент системы агрегатного наддува двигателей внутреннего сгорания, агрегат для повышения давления во впускном тракте двигателя за счет энергии отработавших газов. 
+								p Турбокомпрессор — основной компонент системы агрегатного наддува двигателей внутреннего сгорания, агрегат для повышения давления во впускном тракте двигателя за счет энергии отработавших газов. 
+								p Турбокомпрессор — основной компонент системы агрегатного наддува двигателей внутреннего сгорания, агрегат для повышения давления во впускном тракте двигателя за счет энергии отработавших газов. 
+								p Турбокомпрессор — основной компонент системы агрегатного наддува двигателей внутреннего сгорания, агрегат для повышения давления во впускном тракте двигателя за счет энергии отработавших газов. 
+							a(href="#") Читать далее
+					.catalog-element__desc
+						.catalog-element__desc-title Применяется для авто:
+						.catalog-element__desc-text 
+							span KOMATSU D355A-3 Excavator Machine, 
+							span KOMATSU Bulldozer (D155, D155A-1) 19.2L [S6D155] 410 H/P
+					.catalog-element__desc
+						.catalog-element__desc-title Номера трубин (кросс-номера)
+						.catalog-element__desc-text <a href="#">MTA2345</a>, <a href="#">MTA2345</a>, <a href="#">MTA2345</a>, <a href="#">MTA2345</a>, <a href="#">MTA2345</a>, <a href="#">MTA2345</a>, <a href="#">MTA2345</a>, <a href="#">MTA2345</a>, <a href="#">MTA2345</a>, <a href="#">MTA2345</a>
+
+				.catalog-element__sidebar
+					.catalog-element__sidebar-title РЕМОНТ ТУРБИН
+					.catalog-element__sidebar-subtitle ОТ 2500 ₽
+					.catalog-element__sidebar-text
+						p Мы специализируемся на ремонте турбин всех видов техники.
+						p Современное оборудование, прямые поставки запчастей и турбин от производителей.
+						p Гарантия на год, без учета пробега!
+					a.btn.btn--yellow-transparent.catalog-element__sidebar-btn(data-fancybox, data-src="#callback-popup") Оставить заявку
+					.catalog-element__sidebar-logo
+						+img("Images/logo.svg", "Get Turbo")
+
+			.catalog-element__section
+				.catalog-element__title Производители:
+				.catalog-element__manufacturer
+					//- Slider main container
+					.catalog-element__manufacturer-slider.js-manufacturer-swiper
+						//- Additional required wrapper
+						ul.catalog-element__manufacturer-list.swiper-wrapper
+							//- Slides
+							li.catalog-element__manufacturer-item.catalog-element__manufacturer-item--active.swiper-slide.js-manufacturer-item(data-filter="all") Все
+							li.catalog-element__manufacturer-item.swiper-slide.js-manufacturer-item(data-filter="Komatsu") Komatsu
+							li.catalog-element__manufacturer-item.swiper-slide.js-manufacturer-item(data-filter="KRAUF") KRAUF
+							li.catalog-element__manufacturer-item.swiper-slide.js-manufacturer-item(data-filter="MAHLE") MAHLE
+							li.catalog-element__manufacturer-item.swiper-slide.js-manufacturer-item(data-filter="ZAUFER") ZAUFER
+							li.catalog-element__manufacturer-item.swiper-slide.js-manufacturer-item(data-filter="Schwitzer") Schwitzer
+				.gt-table
+					.gt-table__row.gt-table__row--heading
+						.gt-table__ceil Артикул
+						.gt-table__ceil Наименование
+						.gt-table__ceil В наличии
+						.gt-table__ceil Цена
+						.gt-table__ceil Приобрести в количестве
+					.gt-table__row.js-manufacturer-table-item(data-filter="KRAUF")
+						.gt-table__ceil А422555
+						.gt-table__ceil MAHLE 639TC15298000
+						.gt-table__ceil 22 шт.
+						.gt-table__ceil 122 420 ₽
+						.gt-table__ceil
+							.gt-table__actions
+								.product-item-amount
+									.product-item-amount-field-container
+										span.product-item-amount-field-btn-minus.no-select.product-item-amount-field-btn-disabled -
+										.product-item-amount-field-block
+											input.product-item-amount-field(type="number", value="1")
+											span.product-item-amount-description-container
+												span#bx_117848907_321_quant_measure шт
+												span#bx_117848907_321_price_total
+										span.product-item-amount-field-btn-plus.no-select +
+								a.btn.btn--green.gt-table__btn(href="basket.html") Купить
+					.gt-table__row.js-manufacturer-table-item(data-filter="MAHLE")
+						.gt-table__ceil А422555
+						.gt-table__ceil MAHLE 639TC15298000
+						.gt-table__ceil 22 шт.
+						.gt-table__ceil 122 420 ₽
+						.gt-table__ceil
+							.gt-table__actions
+								.product-item-amount
+									.product-item-amount-field-container
+										span.product-item-amount-field-btn-minus.no-select.product-item-amount-field-btn-disabled -
+										.product-item-amount-field-block
+											input.product-item-amount-field(type="number", value="1")
+											span.product-item-amount-description-container
+												span#bx_117848907_321_quant_measure шт
+												span#bx_117848907_321_price_total
+										span.product-item-amount-field-btn-plus.no-select +
+								a.btn.btn--green.gt-table__btn(href="basket.html") Купить
+					.gt-table__row.js-manufacturer-table-item(data-filter="ZAUFER")
+						.gt-table__ceil А422555
+						.gt-table__ceil MAHLE 639TC15298000
+						.gt-table__ceil 22 шт.
+						.gt-table__ceil 122 420 ₽
+						.gt-table__ceil
+							.gt-table__actions
+								.product-item-amount
+									.product-item-amount-field-container
+										span.product-item-amount-field-btn-minus.no-select.product-item-amount-field-btn-disabled -
+										.product-item-amount-field-block
+											input.product-item-amount-field(type="number", value="1")
+											span.product-item-amount-description-container
+												span#bx_117848907_321_quant_measure шт
+												span#bx_117848907_321_price_total
+										span.product-item-amount-field-btn-plus.no-select +
+								a.btn.btn--green.gt-table__btn(href="basket.html") Купить
+					.gt-table__row.js-manufacturer-table-item(data-filter="Schwitzer")
+						.gt-table__ceil А422555
+						.gt-table__ceil MAHLE 639TC15298000
+						.gt-table__ceil 22 шт.
+						.gt-table__ceil 122 420 ₽
+						.gt-table__ceil
+							.gt-table__actions
+								.product-item-amount
+									.product-item-amount-field-container
+										span.product-item-amount-field-btn-minus.no-select.product-item-amount-field-btn-disabled -
+										.product-item-amount-field-block
+											input.product-item-amount-field(type="number", value="1")
+											span.product-item-amount-description-container
+												span#bx_117848907_321_quant_measure шт
+												span#bx_117848907_321_price_total
+										span.product-item-amount-field-btn-plus.no-select +
+								a.btn.btn--green.gt-table__btn(href="basket.html") Купить
+					.gt-table__row.js-manufacturer-table-item(data-filter="Komatsu")
+						.gt-table__ceil А422555
+						.gt-table__ceil MAHLE 639TC15298000
+						.gt-table__ceil 22 шт.
+						.gt-table__ceil 122 420 ₽
+						.gt-table__ceil
+							.gt-table__actions
+								.product-item-amount
+									.product-item-amount-field-container
+										span.product-item-amount-field-btn-minus.no-select.product-item-amount-field-btn-disabled -
+										.product-item-amount-field-block
+											input.product-item-amount-field(type="number", value="1")
+											span.product-item-amount-description-container
+												span#bx_117848907_321_quant_measure шт
+												span#bx_117848907_321_price_total
+										span.product-item-amount-field-btn-plus.no-select +
+								a.btn.btn--green.gt-table__btn(href="basket.html") Купить
+					.gt-table__row.js-manufacturer-table-item(data-filter="KRAUF")
+						.gt-table__ceil А422555
+						.gt-table__ceil MAHLE 639TC15298000
+						.gt-table__ceil 22 шт.
+						.gt-table__ceil 122 420 ₽
+						.gt-table__ceil
+							.gt-table__actions
+								.product-item-amount
+									.product-item-amount-field-container
+										span.product-item-amount-field-btn-minus.no-select.product-item-amount-field-btn-disabled -
+										.product-item-amount-field-block
+											input.product-item-amount-field(type="number", value="1")
+											span.product-item-amount-description-container
+												span#bx_117848907_321_quant_measure шт
+												span#bx_117848907_321_price_total
+										span.product-item-amount-field-btn-plus.no-select +
+								a.btn.btn--green.gt-table__btn(href="basket.html") Купить
+					.gt-table__row.js-manufacturer-table-item(data-filter="MAHLE")
+						.gt-table__ceil А422555
+						.gt-table__ceil MAHLE 639TC15298000
+						.gt-table__ceil 22 шт.
+						.gt-table__ceil 122 420 ₽
+						.gt-table__ceil
+							.gt-table__actions
+								.product-item-amount
+									.product-item-amount-field-container
+										span.product-item-amount-field-btn-minus.no-select.product-item-amount-field-btn-disabled -
+										.product-item-amount-field-block
+											input.product-item-amount-field(type="number", value="1")
+											span.product-item-amount-description-container
+												span#bx_117848907_321_quant_measure шт
+												span#bx_117848907_321_price_total
+										span.product-item-amount-field-btn-plus.no-select +
+								a.btn.btn--green.gt-table__btn(href="basket.html") Купить
+					.gt-table__row.js-manufacturer-table-item(data-filter="ZAUFER")
+						.gt-table__ceil А422555
+						.gt-table__ceil MAHLE 639TC15298000
+						.gt-table__ceil 22 шт.
+						.gt-table__ceil 122 420 ₽
+						.gt-table__ceil
+							.gt-table__actions
+								.product-item-amount
+									.product-item-amount-field-container
+										span.product-item-amount-field-btn-minus.no-select.product-item-amount-field-btn-disabled -
+										.product-item-amount-field-block
+											input.product-item-amount-field(type="number", value="1")
+											span.product-item-amount-description-container
+												span#bx_117848907_321_quant_measure шт
+												span#bx_117848907_321_price_total
+										span.product-item-amount-field-btn-plus.no-select +
+								a.btn.btn--green.gt-table__btn(href="basket.html") Купить
+					.gt-table__row.js-manufacturer-table-item(data-filter="Schwitzer")
+						.gt-table__ceil А422555
+						.gt-table__ceil MAHLE 639TC15298000
+						.gt-table__ceil 22 шт.
+						.gt-table__ceil 122 420 ₽
+						.gt-table__ceil
+							.gt-table__actions
+								.product-item-amount
+									.product-item-amount-field-container
+										span.product-item-amount-field-btn-minus.no-select.product-item-amount-field-btn-disabled -
+										.product-item-amount-field-block
+											input.product-item-amount-field(type="number", value="1")
+											span.product-item-amount-description-container
+												span#bx_117848907_321_quant_measure шт
+												span#bx_117848907_321_price_total
+										span.product-item-amount-field-btn-plus.no-select +
+								a.btn.btn--green.gt-table__btn(href="basket.html") Купить
+					.gt-table__row.js-manufacturer-table-item(data-filter="Komatsu")
+						.gt-table__ceil А422555
+						.gt-table__ceil MAHLE 639TC15298000
+						.gt-table__ceil 22 шт.
+						.gt-table__ceil 122 420 ₽
+						.gt-table__ceil
+							.gt-table__actions
+								.product-item-amount
+									.product-item-amount-field-container
+										span.product-item-amount-field-btn-minus.no-select.product-item-amount-field-btn-disabled -
+										.product-item-amount-field-block
+											input.product-item-amount-field(type="number", value="1")
+											span.product-item-amount-description-container
+												span#bx_117848907_321_quant_measure шт
+												span#bx_117848907_321_price_total
+										span.product-item-amount-field-btn-plus.no-select +
+								a.btn.btn--green.gt-table__btn(href="basket.html") Купить
+			.catalog-element__section
+				.catalog-element__title Рекомендации
+				.catalog__grid.catalog__grid--one-column-mobile
+					- for (var i = 0; i < 8; ++i)
+						+catalog-item(true)
+			.catalog-element__section
+				.catalog-element__title Комплектующие
+				.catalog__grid.catalog__grid--one-column-mobile
+					- for (var i = 0; i < 16; ++i)
+						+catalog-item(true)
+
+		

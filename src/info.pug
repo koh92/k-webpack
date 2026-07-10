@@ -1,0 +1,20 @@
+extends include/_layout
+
+block variables
+	- var title = 'Info | Get turbo'
+	- var breadcrumbs = true
+
+block block_breadcrumbs
+	+breabcrumbs('Информационные материалы', 'Информационные материалы')
+
+include components/_info-item
+
+block content
+	.container
+		.info
+			.info__grid
+				- for (var i = 0; i < 16; ++i)
+					+info-item()
+		button.btn.btn--yellow-gradient.info__btn Показать еще (20)
+		include ./components/_pagination
+

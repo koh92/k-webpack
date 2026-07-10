@@ -2,15 +2,16 @@
 @use '../base/breakpoints'
 
 \:root
-	--gutter: 15px
+	--gutter: 12px
 
 .container
 	width: 100%
 	padding: 0 var(--gutter)
 	margin: 0 auto
 	max-width: min(100%, breakpoints.$max_width)
-	//+mq(1280px)
 	+mq(breakpoints.$md)
-		--gutter: 60px
+		--gutter: 20px
+	+mq(breakpoints.$xl)
+		--gutter: 30px
 	+mq(breakpoints.$hd)
 		--gutter: 0

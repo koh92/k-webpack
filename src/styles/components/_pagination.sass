@@ -1,0 +1,34 @@
+@use '../base/mixins' as *
+@use '../base/breakpoints' as *
+
+.pagination
+    --size: 44px
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: 4px
+    &__arrow
+        width: var(--size)
+        height: var(--size)
+        flex: 0 0 var(--size)
+        &--disabled
+            opacity: 0
+            visibility: hidden
+        &--left
+            transform: rotate(180deg)
+    &__items
+        display: flex
+        align-items: center
+        gap: 4px
+    &__item
+        +flex-center
+        width: var(--size)
+        height: var(--size)
+        border-radius: 50%
+        transition: .3s
+        cursor: pointer
+        &--active
+            color: var(--white-color)
+            background-color: var(--yellow-color)
+        &:hover
+            background-color: var(--light-grey-color)

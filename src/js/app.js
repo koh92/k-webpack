@@ -1,16 +1,17 @@
 // Swiper
-// import Swiper, { Navigation, Pagination, Autoplay, Thumbs } from 'swiper';
+import Swiper, { Navigation, Pagination, Autoplay, Thumbs } from 'swiper';
 
 // Fancybox 5
-// import { Fancybox } from '@fancyapps/ui/dist/fancybox/fancybox.umd.js';
-
-// import WOW from 'wow.js'
+import { Fancybox } from '@fancyapps/ui/dist/fancybox/fancybox.umd.js';
 
 // Inputmask
 // import Inputmask from "inputmask";
 
 // const mobile = window.matchMedia('(min-width: 0px) and (max-width: 1159px)');
 // const desktop = window.matchMedia('(min-width: 1160px)');
+
+// ymapsTouchScroll
+import ymapsTouchScroll from 'ymaps-touch-scroll'
 
 const burger = () => {
 	const menuToggle = document.querySelector('.menu-toggle');
@@ -38,127 +39,161 @@ const burger = () => {
 	}
 }
 
-let oldScrollY = 0;
-const scrollTopHeader = () => {
-	let header = document.querySelector('header'),
-		headerBtn = document.querySelector('.js-header-btn')
-	if (document.documentElement.scrollTop < 5) {
-		header.classList.remove('mod-fixed')
-		header.classList.remove('mod-blue-bg')
-		// headerBtn.classList.add('btn-new--white')
-		// headerBtn.classList.remove('btn-new--blue')
-	} else {
-		if (document.documentElement.scrollTop > 130) {
-			header.classList.add('mod-fixed')
-			header.classList.add('mod-blue-bg')
-			// headerBtn.classList.remove('btn-new--white')
-			// headerBtn.classList.add('btn-new--blue')
-		}
-		let scrolled = window.pageYOffset || document.documentElement.scrollTop
-		let dY = scrolled - oldScrollY
-		if (dY < 0) {
-			header.classList.add('mod-backscroll')
-		} else {
-			header.classList.remove('mod-backscroll')
-		}
-		oldScrollY = scrolled;
-	}
-}
-
-const headerAnchors = () => {
-	let anchors = document.querySelectorAll('.js-anchor')
-	if (anchors.length > 0) {
-		anchors.forEach(anchor => {
-			anchor.onclick = function (e) {
-				e.preventDefault();
-				if (document.documentElement.clientWidth < 1160) {
-					document.querySelector('.menu-toggle').click()
-				}
-				document.querySelector(`#${anchor.href.split('#')[1]}`).scrollIntoView({
-					block: 'start',
-					behavior: 'smooth'
-				})
-			}
-		})
-	}
-}
-
-const expertsSlider = () => {
-	if(document.querySelector('.js-experts-swiper')){
-		const expertsSwiper = new Swiper('.js-experts-swiper', {
-			modules: [Navigation],
-			grabCursor: true,
-			loop: true,
+const infoSlider = () => {
+	if(document.querySelector('.js-info-swiper')){
+		const infoSwiper = new Swiper('.js-info-swiper', {
+			grabCursor: false,
+			loop: false,
 			slidesPerView: 1.1,
-			spaceBetween: 15,
+			spaceBetween: 16,
 			speed: 800,
-			navigation: {
-				nextEl: '.js-experts-next',
-				prevEl: '.js-experts-prev',
-			},
-			pagination: {
-				el: '.js-project-pagination',
-				type: 'bullets',
-				clickable: true
-			},
 			breakpoints: {
 				744: {
-					slidesPerView: 1,
-					spaceBetween: 20,
-					centeredSlides: true,
+					slidesPerView: 3
 				},
-				1280: {
-					// slidesPerView: 1,
-					loop: true,
-					slidesPerView: "auto",
-					centeredSlides: true,
-					centeredSlidesBounds: true,
+				1024: {
+					slidesPerView: 4
+				},
+				1160: {
+					slidesPerView: 4,
+					spaceBetween: 8
 				}
 			}
 		});
 	}
 }
 
-const wowInit = () => {
-	const wow = new WOW({
-		boxClass: 'wow', // animated element css class (default is wow)
-		animateClass: 'animated', // animation css class (default is animated)
-		offset: 0, // distance to the element when triggering the animation (default is 0)
-		mobile: true, // trigger animations on mobile devices (default is true)
-		live: true, // act on asynchronously loaded content (default is true)
-		callback: function(box) {
-			// the callback is fired every time an animation is started
-			// the argument that is passed in is the DOM node being animated
-		},
-		scrollContainer: null, // optional scroll container selector, otherwise use window,
-		resetAnimation: true, // reset animation on end (default is true)
-	})
-	wow.init()
+const yandexMap = () => {
+	let mapContainer = document.getElementById('js-contact-map')
+	if(mapContainer) {
+		ymaps.ready(function() {
+			let pl, companyMap, coordArr = [], rawData = mapContainer.querySelectorAll('.js-map-point')
+
+			rawData.forEach(point => {
+				coordArr.push(point.dataset.coord.split(',').map(function(item) { return parseFloat(item) }))
+			})			
+			
+            companyMap = new ymaps.Map("js-contact-map", {
+                center: [55.765326, 37.627735],
+                zoom: 10,
+                controls: []
+            }, {
+                searchControlProvider: 'yandex#search',
+                suppressMapOpenBlock: true
+            })
+
+			coordArr.forEach(mapPoint => {
+				pl = new ymaps.Placemark(mapPoint, {},
+					{
+						preset: 'islands#darkGreenDotIcon',
+						// iconColor: '#07422E'
+					})
+				companyMap.geoObjects.add(pl)
+			})
+
+            companyMap.setBounds(companyMap.geoObjects.getBounds(), { checkZoomRange: true })
+            ymapsTouchScroll(companyMap, { preventScroll: true, preventTouch: true })
+            
+			companyMap.container.fitToViewport()
+        })
+	}
+}
+
+const videoTrigger = () => {
+	let triggers = document.querySelectorAll('.js-video-preview')
+	if(triggers.length > 0) {
+		triggers.forEach(trigger => trigger.addEventListener('click', () => {
+			trigger.classList.add('about__video-preview--hide')
+			// trigger.nextElementSibling.src += "&autoplay=1"
+			trigger.nextElementSibling.play()
+		}))
+	}
+}
+
+const catalogFilter = () => {
+	let filterItems = document.querySelectorAll('.js-catalog-filter-item')
+	if(filterItems.length > 0) {
+		filterItems.forEach(item => item.addEventListener('click', () => {
+			if(item.dataset.state !== 'opened'){
+				// filterItems.forEach(item => {
+				// 	if(item.dataset.state === 'opened') 
+				// 		item.dataset.state = 'closed'
+				// })
+				item.dataset.state = 'opened'
+			} else {
+				item.dataset.state = 'closed'
+			}
+		})
+	)}
+}
+
+const manufacturerFilter = () => {
+	let filterTabs = document.querySelectorAll('.js-manufacturer-item')
+
+	if(document.querySelector('.js-manufacturer-swiper') && filterTabs.length > 0){
+		const manufacturerSwiper = new Swiper('.js-manufacturer-swiper', {
+			grabCursor: true,
+			loop: false,
+			slidesPerView: 'auto',
+			spaceBetween: 8,
+			speed: 800,
+			breakpoints: {
+				744: {
+					spaceBetween: 12,
+				},
+			},
+			// on: {
+			// 	reachEnd: function() {
+			// 		this.snapGrid = [...this.slidesGrid];
+			// 	},
+			// }
+		});
+	}
+
+	filterTabs.forEach(tab => tab.addEventListener('click', ()=> {
+		let currentFilter = tab.dataset.filter,
+			rowsArr = document.querySelectorAll('.js-manufacturer-table-item')
+
+		filterTabs.forEach(item => item.classList.remove('catalog-element__manufacturer-item--active'))
+		tab.classList.add('catalog-element__manufacturer-item--active')
+
+		rowsArr.forEach(row => {
+			if(currentFilter === 'all'){
+				row.style.display = 'grid'
+			} else {
+				row.style.display = row.dataset.filter === currentFilter ? 'grid' : 'none'
+			}
+			
+		})
+	}))
 }
 
 document.addEventListener('DOMContentLoaded', ()=>{
 	
 	// Burger init
 	burger()
-	
-	// Check fix header position
-	scrollTopHeader()
-	
-	// Header anchors behavior
-	headerAnchors()
-	
-	// experts init
-	// expertsSlider()
-	
-	// Init wow animation
-	// wowInit()
+
+	// infoSlider init
+	infoSlider()
+
+	// Yandex Map init
+	yandexMap()
+
+	// Init video trigger
+	videoTrigger()
+
+	// Init catalog filter
+	catalogFilter()
+
+	// manufacturerFilter init
+	manufacturerFilter()
 	
 	// https://fancyapps.com/fancybox/api/methods/
-	// Fancybox.bind("[data-fancybox]", {
-	// 	closeButton: false,
-	// 	dragToClose: false
-	// 	// Your custom options
-	// });
+	Fancybox.bind("[data-fancybox]", {
+		closeButton: true,
+		dragToClose: false
+		// Your custom options
+	});
 
     if(document.documentElement.clientWidth < 744) {
     }
@@ -166,11 +201,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 window.addEventListener('resize', () => {
 	
-	// experts reinit
-	expertsSlider()
+	// infoSlider reinit
+	infoSlider()
+
+	// Reinit yandex map on resize
+	yandexMap()
 })
 
 window.addEventListener('scroll', function () {
-	// Init fix header
-	scrollTopHeader()
+
 })

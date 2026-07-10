@@ -1,0 +1,43 @@
+extends include/_layout
+
+block variables
+	- var title = 'Basket | Get turbo'
+	- var breadcrumbs = true
+
+block block_breadcrumbs
+	+breabcrumbs('Корзина', 'Корзина')
+
+block content
+	.container
+		.gt-table.gt-table--basket
+			.gt-table__row.gt-table__row--heading
+				.gt-table__ceil Товары в корзине
+			.gt-table__row
+				.gt-table__ceil Артикул
+				.gt-table__ceil Наименование
+				.gt-table__ceil В наличии
+				.gt-table__ceil Цена
+				.gt-table__ceil Количество
+			- for (var i = 0; i < 10; ++i)
+				.gt-table__row
+					.gt-table__ceil А422555
+					.gt-table__ceil MAHLE 639TC15298000
+					.gt-table__ceil 22 шт.
+					.gt-table__ceil 122 420 ₽
+					.gt-table__ceil
+						.gt-table__actions
+							.product-item-amount-field-container
+								span.product-item-amount-field-btn-minus.no-select.product-item-amount-field-btn-disabled -
+								.product-item-amount-field-block
+									input.product-item-amount-field(type="number", value="1")
+									span.product-item-amount-description-container
+										span#bx_117848907_321_quant_measure шт
+										span#bx_117848907_321_price_total
+								span.product-item-amount-field-btn-plus.no-select +
+							a.gt-table__delete(href="#")
+								+img('Images/icon_trash.svg')
+		.checkout__summary 
+			.checkout__summary-ceil Итого
+			.checkout__summary-ceil 220 шт.
+			.checkout__summary-ceil 1 224 200 ₽
+			a.btn.btn--green(href="order.html") Оформить заказ

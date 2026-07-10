@@ -1,14 +1,20 @@
+//- Don't remove Node path!
+
 if true === swiper
 	// Add swiper
-	link(href=require('swiper/swiper-bundle.css'), rel='stylesheet')
+	link(href=require('Node/swiper/swiper-bundle.css'), rel='stylesheet')
 
 if true === fancybox
 	// Add fancybox
-	link(href=require('@fancyapps/ui/dist/fancybox/fancybox.css'), rel='stylesheet')
+	link(href=require('Node/@fancyapps/ui/dist/fancybox/fancybox.css'), rel='stylesheet')
 
 if true === wow
 	// Add Wow js
-	link(href=require('wow.js/css/libs/animate.css'), rel='stylesheet')
+	link(href=require('Node/wow.js/css/libs/animate.css'), rel='stylesheet')
 
-link(href=require('normalize.css/normalize.css'), rel='stylesheet')
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+link(href=require('Node/normalize.css/normalize.css'), rel='stylesheet')
 link(href=require('../styles/index.sass'), rel='stylesheet')

@@ -1,0 +1,29 @@
+mixin catalog-item(small= false)
+    - var isSale = Math.floor(Math.random() * 2)
+    - var isFav = Math.floor(Math.random() * 2)
+    - var image = Math.floor(Math.random() * (1 - 4) + 4)
+    .catalog__ceil
+        .catalog__item
+            if isSale === 1
+                .catalog__item-sale Акция
+            .catalog__item-fav
+                if isFav === 0
+                    <svg viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 27V2.23448C3 1.63862 3.225 1.11724 3.675 0.670345C4.125 0.223448 4.65 0 5.25 0H21.75C22.35 0 22.875 0.223448 23.325 0.670345C23.775 1.11724 24 1.63862 24 2.23448V27L13.5 22.531L3 27ZM5.25 23.611L13.5 20.1476L21.75 23.611V2.23448H5.25V23.611Z" fill="#6A6A6A"/></svg>
+                else
+                    <svg viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 27V2.23448C3 1.63862 3.225 1.11724 3.675 0.670345C4.125 0.223448 4.65 0 5.25 0H21.75C22.35 0 22.875 0.223448 23.325 0.670345C23.775 1.11724 24 1.63862 24 2.23448V27L13.5 22.531L3 27Z" fill="#07422E"/></svg>
+            a.catalog__item-image(href="catalog-element.html")
+                +img(`Images/CMS/catalog_item_${image}.png`, 'Турбокомпрессор MTA1501')
+            a.catalog__item-name(href="catalog-element.html") Турбокомпрессор MTA1501
+            if small === false
+                .catalog__item-props
+                    .catalog__item-prop
+                        .catalog__item-prop-key vt:
+                        .catalog__item-prop-value Industrial
+                    .catalog__item-prop
+                        .catalog__item-prop-key ft:
+                        .catalog__item-prop-value Diesel
+                    .catalog__item-prop
+                        .catalog__item-prop-key tt:
+                        .catalog__item-prop-value Free Floating
+                .catalog__item-desc Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam placeat autem aspernatur, doloribus assumenda commodi qui quas iusto fuga accusamus dolore explicabo nisi harum at ipsa suscipit culpa eaque adipisci!Quisquam libero cumque quibusdam molestiae labore ut quaerat obcaecati asperiores ipsum, repudiandae amet sequi eos tempore velit ipsa vero consequatur error magni cum nisi. Esse natus repellendus quae eius minima!
+            a.btn.btn--green(href="catalog-element.html") Подробнее

@@ -1,0 +1,149 @@
+@use '../base/mixins' as *
+@use '../base/breakpoints' as *
+    
+.order
+    +mq($xl)
+        display: grid
+        grid-template-columns: 9fr 3fr
+        gap: 20px
+    +mq($hd)
+        gap: 40px
+    &__section
+        &:first-of-type
+            .order__route
+                justify-content: flex-end
+        &:last-of-type
+            border-bottom: 1px solid var(--fake-black-color)
+            margin-bottom: 16px
+            .order__route
+                justify-content: flex-start
+            +mq($xl)
+                margin-bottom: 20px
+    &__aside
+        display: none
+        +mq($xl)
+            display: block
+    &__subsection
+        & + &
+            margin-top: 16px
+            +mq($xl)
+                margin-top: 20px
+    &__subtitle
+        +fz(14)
+        line-height: 130%
+        font-weight: 700
+        margin-bottom: 12px
+        span
+           color: var(--dark-yellow-color) 
+    &__input
+        input,
+        textarea
+            border: 1px solid var(--fake-black-color)
+            height: 34px
+            padding: 0 16px
+
+            +fz(14)
+            line-height: 130%
+            width: 100%
+
+            &::placeholder
+                +fz(14)
+                line-height: 130%
+                color: var(--grey-color)
+        textarea
+            padding: 16px
+            height: auto
+            resize: none
+    &__route
+        display: flex
+        // justify-content: flex-end
+        .btn
+            height: 34px
+            max-width: 156px
+            // margin-left: auto
+            +mq($md)
+                min-width: 169px
+        &:has(.btn + .btn)
+            justify-content: space-between
+    &__coupon
+        &-inputs
+            display: flex
+            align-items: center
+            gap: 8px
+            +mq($md)
+                gap: 32px
+        &-input
+            flex: 1
+            +mq($md)
+                max-width: 168px
+                flex-basis: 168px
+            input
+                max-width: 100%
+        &-btn
+            flex: 1
+            +mq($md)
+                max-width: 206px
+                flex-basis: 206px
+            .btn
+                height: 34px
+    &__buyer
+        &-item
+            & + &
+                margin-top: 10px
+            input
+                display: none
+            label
+                display: inline-flex
+                align-items: center
+                cursor: pointer
+                &::before
+                    content: ''
+                    display: block
+                    +box(18px)
+                    margin-right: 12px
+                    border: 2px solid var(--grey-color)
+                    transition: background .3s
+                &:hover
+                    border-color: var(--dark-yellow-color)
+            input:checked ~ label,
+            input:checked + label
+                &::before
+                    +bg('Images/icon_tick_grey.svg', center, auto)
+                    border: 0
+                &:hover
+                    &::before
+                        +bg('Images/icon_tick_yellow.svg', center, auto)
+    &__tip
+        +fz(14)
+        line-height: 130%
+        color: var(--grey-color)
+        margin-top: 12px
+    &__location
+        .order__input 
+            position: relative
+            &::before
+                content: ''
+                display: block
+                position: absolute
+                top: calc(50% - 8px)
+                left: 16px
+                +box(16px)
+                +bg('Images/icon_search.svg', center, contain)
+            input
+                padding-left: 44px
+    &__accept
+        display: flex
+        gap: 10px
+        margin-top: 12px
+        cursor: pointer
+        &-input
+            position: relative
+            top: 3px
+            input
+                +box(18px)
+                border-radius: 0
+                accent-color: var(--black-color)
+        &-text
+            +fz(14)
+            line-height: 130%
+            color: var(--grey-color)

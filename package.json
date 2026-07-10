@@ -1,7 +1,7 @@
 {
-	"name": "PROJECT_NAME",
+	"name": "get_turbo",
 	"version": "1.0.0",
-	"description": "PROJECT_NAME layout",
+	"description": "Get turbo layout",
 	"main": "app.js",
 	"private": true,
 	"scripts": {

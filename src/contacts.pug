@@ -1,0 +1,67 @@
+extends include/_layout
+
+block variables
+	- var title = 'Contacts | Get turbo'
+	- var breadcrumbs = true
+	- var yandexMap = true
+
+block block_breadcrumbs
+	+breabcrumbs('Контакты', 'Контакты')
+
+block content
+	.container
+		.contacts__grid
+			.contacts__ceil
+				.contacts__item
+					.contacts__item-title Склад в Москве
+					ul.contacts__item-list
+						li ул. Петровка, д. 18, стр. 3
+						li Ежедневно с 10:00 до 22:00
+						li
+							a(href="mailto:sales22@maseonardo.ru") sales22@maseonardo.ru
+						li
+							a(href="tel:+7 920 107-21-97") +7 920 107-21-97
+			.contacts__ceil
+				.contacts__item
+					.contacts__item-title Интернет магазин
+					ul.contacts__item-list
+						li Обрабатываем заявки<br> ежедневно с 10:00 до 22:00
+						li
+							a(href="mailto:sales22@maseonardo.ru") sales22@maseonardo.ru
+						li
+							a(href="tel:+7 920 107-21-97") +7 920 107-21-97
+			.contacts__ceil
+				.contacts__item
+					.contacts__item-title Склад в Санкт&nbsp;-&nbsp;Петербурге
+					ul.contacts__item-list
+						li ул. Петровка, д. 18, стр. 3
+						li Ежедневно с 10:00 до 22:00
+						li
+							a(href="mailto:sales22@maseonardo.ru") sales22@maseonardo.ru
+						li
+							a(href="tel:+7 920 107-21-97") +7 920 107-21-97
+			.contacts__ceil
+				.contacts__item.contacts__item--map
+					.contacts__map#js-contact-map
+						//- Москва
+						.js-map-point(data-coord="55.763837, 37.617509")
+						//- Санкт-Петербург
+						.js-map-point(data-coord="59.938955, 30.315644")
+			.contacts__ceil.contacts__ceil--social
+				.contacts__item.contacts__item--big-padding.contacts__item--social
+					.contacts__item-title Мы в соц. сетях
+					.contacts__item-text Мы существуем на площадках: ВКОНТАКТЕ, Телеграмме и на DRIVE.RU
+					.contacts__images
+						a.contacts__image(href="#")
+							include ./images/vk.svg
+						a.contacts__image(href="#")
+							include ./images/drive2.svg
+						a.contacts__image(href="#")
+							include ./images/telegram.svg
+			.contacts__ceil.contacts__ceil--form
+				.contacts__item.contacts__item--form
+					include ./components/_static-form
+					+static-form('Возникли вопросы?', 'Оставьте свои контактные данные, мы перезвоним и постараемся помочь со всеми имеющимися у вас вопросами')
+
+		a.btn.btn--yellow-gradient(href="./download/requisites.pdf", download) Наши реквизиты (pdf)
+

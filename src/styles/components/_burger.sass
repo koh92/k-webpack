@@ -2,42 +2,31 @@
 @use '../base/breakpoints' as *
 
 .menu-toggle
-	--size: 44px
+	--size: 27px
 	background-color: var(--white-color)
-	border-radius: 50%
 	border: none
 	cursor: pointer
 	padding: 0
 	width: var(--size)
 	height: var(--size)
 	transition: .3s
-	+mq($md)
-		--size: 50px
-	&[aria-expanded="true"]
-		//background-color: var(--white-color)
 .k_burger,
 .k_burger::before,
 .k_burger::after
-	--height: 1.75px
-	--width: 16px
+	// --height: 1.5px
+	--height: 2px
+	--width: 20px
 	content: ""
 	display: block
-	//background: var(--dark-blue-color)
-	background: #2A3448
+	background: var(--black-color)
 	height: var(--height)
 	width: var(--width)
 	margin-inline: auto
 	transition: all ease-in-out 500ms
-	border-radius: 10px
-.k_burger::before
-	width: 10px
-	margin-left: 0
 
 .k_burger::before
-	//transform: translateY(-6.25px)
 	transform: translateY(-7px)
 .k_burger::after
-	//transform: translateY(4.75px)
 	transform: translateY(5px)
 [aria-expanded="true"] .k_burger
 	transform: rotate(45deg)

@@ -1,0 +1,167 @@
+@use '../base/mixins' as *
+@use '../base/breakpoints' as *
+    
+.contacts
+    &__grid
+        margin-bottom: 16px
+        +mq($md)
+            display: grid
+            grid-template-columns: repeat(2, 1fr)
+            gap: 16px
+        +mq($xl)
+            margin-bottom: 20px
+            gap: 0
+            border-top: 1px solid var(--fake-black-color)
+            border-bottom: 1px solid var(--fake-black-color)
+    &__ceil
+        +mq($xl)
+            padding: 10px
+            &:nth-child(2n)
+                border-left: 1px solid var(--fake-black-color)
+            &:nth-child(2n + 3),
+            &:nth-child(2n + 4)
+                border-top: 1px solid var(--fake-black-color)
+        & + &
+            +mqMax($md)
+                margin-top: 16px 
+        &--form
+            +mq($md)
+                grid-column: 1/3
+            +mq($xl)
+                grid-column: unset
+        &--social
+            +mq($md)
+            +mqMax($xl)
+                grid-column: 1/3
+            +mq($xl)
+                grid-column: unset
+    &__item
+        border-radius: 30px
+        background-color: var(--light-grey-color)
+        padding: 40px 34px
+        +decoration-inner-line
+        min-height: 266px
+        height: 100%
+        +mq($md)
+            min-height: 280px
+        &--big-padding
+            padding: 40px 50px
+            +mq($md)
+                padding: 50px
+            +mq($xl)
+                padding: 60px
+        &--map
+            // padding: 10px
+            padding: 0
+            isolation: isolate
+            position: relative
+            &::before
+                display: none
+        &--form
+            padding: 0
+            &::before
+                display: none
+            .form
+                +mqMax($md)
+                    padding: 24px 12px
+                    width: 100vw
+                    position: relative
+                    left: 50%
+                    transform: translate(-50%)
+                    &::before
+                        display: none
+        &--social
+            +mq($md)
+            +mqMax($xl)
+                display: grid
+                grid-template-columns: 3fr 3fr
+                grid-template-rows: min-content min-content
+        &-title
+            +fz(18)
+            line-height: 140%
+            font-weight: 700
+            margin-bottom: 16px
+            +mq($xl)
+                +fz(24)
+                margin-bottom: 20px
+        &-list
+            li
+                display: flex
+                +fz(14)
+                line-height: 130%
+                &::before
+                    content: ''
+                    display: block
+                    +box(6px)
+                    background-color: var(--dark-yellow-color)
+                    margin-right: 10px
+                    margin-top: 6px
+            li + li
+                margin-top: 10px
+        &-text
+            +fz(14)
+            line-height: 130%
+            color: var(--grey-color)
+            margin-bottom: 24px
+            +mq($xl)
+                margin-bottom: 20px
+    &__images
+        position: relative
+        +mq($md)
+        +mqMax($xl)
+            grid-row: 1/3
+            grid-column: 2/3
+            margin-left: 44px
+            position: relative
+            top: 48px
+            margin-top: -24px
+    &__image
+        display: block
+        width: 100%
+        &:nth-child(1)
+            transform: rotate(-3.33deg)
+            // max-width: 150px
+            max-width: 41.6666%
+            margin-bottom: 21px
+            +mq($xl)
+                margin-bottom: 70px
+                // max-width: 21.49%
+                max-width: 21.49vw
+            +mq($hd)
+                margin-bottom: 39px
+                // max-width: 19.375%
+                max-width: 19.375vw
+        &:nth-child(2)
+            transform: rotate(1.75deg)
+            // max-width: 108px
+            max-width: 30%
+            +mq($xl)
+                // max-width: 15.43%
+                max-width: 15.43vw
+            +mq($hd)
+                // max-width: 13.8888%
+                max-width: min(13.8888vw, 200px)
+        &:nth-child(3)
+            transform: rotate(-13.45deg)
+            max-width: 102px
+            max-width: 28.3333%
+            position: absolute
+            left: 35%
+            bottom: 0
+            +mq($xl)
+                bottom: 11px
+                // max-width: 14.65%
+                max-width: 14.65vw
+                left: calc(100% / 6 * 4)
+            +mq($hd)
+                // max-width: 13.125%
+                max-width: min(13.125vw, 200px)
+                left: calc(100% / 6 * 3)
+    &__map
+        border-radius: 20px
+        overflow: hidden
+        // height: 266px
+        height: calc(100% - 20px)
+        border: 1px solid var(--white-color)
+        position: absolute
+        inset: 10px

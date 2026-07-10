@@ -1,0 +1,22 @@
+extends include/_layout
+
+block variables
+	- var title = 'Partnership | Get turbo'
+	- var breadcrumbs = true
+
+block block_breadcrumbs
+	+breabcrumbs('Сотрудничество', 'Сотрудничество')
+ 
+block content
+	.container
+		.standart_page
+			.standart_page__left
+				.cms-content.cms-content--small-padding.cms-content--full-width
+					p Чтобы начать сотрудничество необходимо связаться с нами любым удобным способом:
+					p По телефону <a href="tel:+74956602200">+7 (495) 660-22-00</a>
+					p Отправить письмо на <a href="mailto:mnogotyrbin@gmail.com">mnogotyrbin@gmail.com</a>
+					p Также вы можете оставить заявку на обратный звонок и мы сами свяжемся с вами.
+					p После получения информации, мы предоставим вам условия сотрудничества.
+			.standart_page__right
+				include ./components/_static-form
+				+static-form('Заказать обратный звонок', 'Оставьте свои контактные данные, мы перезвоним вам')

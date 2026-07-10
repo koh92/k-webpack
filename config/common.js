@@ -12,6 +12,13 @@ const rawPages = fs.readdirSync(paths.src).filter(fileName => fileName.endsWith(
 let pagesList = {}
 rawPages.forEach((value) => pagesList[`${value.replace(/\.pug/,'')}`] = `./${value}`);
 
+let cache = isProd ? false : {
+	type: "filesystem",
+	buildDependencies: {
+		config: [ __filename ] // you may omit this when your CLI automatically adds it
+	}
+}
+
 module.exports = {
 	context: paths.src,
 	entry: pagesList,
@@ -21,13 +28,7 @@ module.exports = {
 		clean: true,
 		publicPath: isProd ? './' : '/',
 	},
-	// cache: true,
-	cache: {
-		type: "filesystem",
-		buildDependencies: {
-			config: [ __filename ] // you may omit this when your CLI automatically adds it
-		}
-	},
+	cache: cache,
 	module: {
 		rules: [
 			// PUG
@@ -55,7 +56,13 @@ module.exports = {
 			{
 				test: /\.(css|sass|scss)$/,
 				use: [
-					'css-loader',
+					// 'css-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							import: false,
+						}
+					},
 					// Settings in postcss.config.js
 					'postcss-loader',
 					// Compiles Sass to CSS
