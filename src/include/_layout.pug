@@ -5,6 +5,7 @@ html(lang="ru")
 	//- var title - set Page title
 	block variables
 		var title = 'Page title here'
+		var bodyClass = ''
 
 	
 	include _mixins
@@ -20,7 +21,7 @@ html(lang="ru")
 		include _css
 		// CSS::End
 
-	body
+	body(class=bodyClass)
 		// Header::Start
 		include ../components/_header
 

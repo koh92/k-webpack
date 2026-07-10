@@ -1,0 +1,43 @@
+@use '../base/mixins' as *
+@use '../base/breakpoints' as *
+    
+.marquee
+    margin-bottom: 40px
+    --duration: var(--marquee-duration, 10s)
+    --gap: var(--marquee-gap, 20px)
+    --scroll-start: 0
+    --scroll-end: calc(-100% - var(--gap))
+    width: fit-content
+    display: flex
+    
+    +mq($md)
+        margin-bottom: 50px
+    +mq($xl)
+        margin-bottom: 60px
+    &__group
+        gap: var(--gap)
+        display: inline-flex
+        width: max-content
+        animation: scroll-x var(--duration) linear infinite
+        & + &
+            margin-left: var(--gap)
+    &__item
+        height: 60px
+        width: fit-content
+        border: 1px solid var(--clr-blue)
+        padding: 2px 20px
+        display: flex
+        align-items: center
+        justify-content: center
+        &:not(.noselect)
+            cursor: pointer
+        +mq($md)
+            height: 96px
+        img
+            max-height: 100%
+
+@keyframes scroll-x
+    from
+        transform: translateX(var(--scroll-start))
+    to
+        transform: translateX(var(--scroll-end))

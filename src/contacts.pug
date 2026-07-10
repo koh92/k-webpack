@@ -1,7 +1,8 @@
 extends include/_layout
 
 block variables
-	- var title = 'Project name | Contacts'
+	- var title = 'Prosensor | Contacts'
+	- var bodyClass = 'page-contacts'
 	- var yandexMap = true
 
 block block_breadcrumbs
@@ -9,29 +10,46 @@ block block_breadcrumbs
 
 block content
 	.contacts
+		.contacts__blue-section
+			.container
+				.contacts__grid.margin-left
+					.contacts__subtitle Ответим на все вопросы и подберём решение для вашей задачи
+					.contacts__list
+						.contacts__item
+							.contacts__item-title Телефон
+							.contacts__item-value
+								a(href="+74956428476") +7 495 642-84-76
+						.contacts__item
+							.contacts__item-title Факс
+							.contacts__item-value +7 495 642-84-76
+						.contacts__item
+							.contacts__item-title E-mail:
+							.contacts__item-value 
+								a(href="mailto:info@prosensor.ru") info@prosensor.ru 
+						.contacts__item
+							.contacts__item-title Адрес
+							.contacts__item-value г. Москва, г. Зеленоград, ул. Заводская, дом 1Б, с. 2.
+					.form(data-view="column-xl")
+						include components/_static-form
 		.container
-			.contacts__list
-				.contacts__item
-					.contacts__item-title Адрес офиса:
-					.contacts__item-value 117105, г. Москва, Варшавское ш., 37 А
-				.contacts__item
-					.contacts__item-title E-mail:
-					.contacts__item-value 
-						a(href="mailto:info@test.ru") info@test.ru 
-				.contacts__item
-					.contacts__item-title Телефон:
-					.contacts__item-value 
-						.contacts__item-row
-							a(href="tel:89991112233") 8 (999) 111-22-33 (Москва МО) 
-						.contacts__item-row
-							a(href="tel:88001112233") 8 (800) 111-22-33 (РФ)
-				.contacts__item
-					.contacts__item-title Время работы:
-					.contacts__item-value
-						.contacts__item-row Пн - Пт 10:00 - 18:00 
-						.contacts__item-row Сб - Вс выходной
 			.contacts__map.js-contacts-map
 				.contacts__map-coord
-					.js-contacts-map-coord(data-coord="55.689040, 37.624534", data-hint="Офис")
-					.js-contacts-map-coord(data-coord="55.820069, 37.621044", data-hint="Склад")
+					.js-contacts-map-coord(data-coord="55.974635, 37.184863", data-hint="Офис")
 				.contacts__map-area#js-contacts-map
+			.contacts__requisites.margin-left
+				.contacts__requisites-title Реквизиты
+				.contacts__requisites-item
+					.contacts__requisites-label Наименование
+					.contacts__requisites-value Общество с ограниченной ответственностью: «Просенсор» (ООО «Просенсор»)
+				.contacts__requisites-item
+					.contacts__requisites-label ИНН / КПП
+					.contacts__requisites-value 7733569400 / 7733569400
+				.contacts__requisites-item
+					.contacts__requisites-label ОГРН
+					.contacts__requisites-value 1067746640345
+				.contacts__requisites-item
+					.contacts__requisites-label Юридический адрес
+					.contacts__requisites-value 124365, город Москва, город Зеленоград, Заводская ул., д. 1б стр. 2, эт., 3 пом., 6 ком., 306.
+				.contacts__requisites-item
+					.contacts__requisites-label Фактический адрес
+					.contacts__requisites-value 124365, город Москва, город Зеленоград, Заводская ул., д. 1б стр. 2, эт., 3 пом., 6 ком., 306.

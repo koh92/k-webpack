@@ -1,16 +1,20 @@
 @use '../base/mixins' as *
 @use '../base/breakpoints' as *
 
-.is-compact .fancybox__content > .f-button.is-close-btn
+.is-compact .fancybox__content > .f-button.is-close-btn,
+.fancybox__content > .f-button.is-close-btn
 	--f-button-width: 37px
 	--f-button-height: 37px
 	--f-button-svg-width: 22px
 	--f-button-svg-height: 22px
 	--f-button-svg-stroke-width: 2px
-	--f-button-bg: var(--clr-dark-white)
-	--f-button-hover-bg: var(--clr-dark-white)
-	--f-button-color: var(--clr-dark-grey)
-	--f-button-hover-color: var(--clr-dark-grey)
+	--f-button-bg: transparent
+	--f-button-hover-bg: transparent
+	--f-button-color: var(--clr-white-2)
+	--f-button-hover-color: var(--clr-white-2)
+
+	--f-button-outline: 0
+	--f-button-outline-color: var(--clr-grey-05) 
 	
 	top: 12px
 	right: 12px
@@ -24,71 +28,47 @@
 	padding: 0
 
 .fancybox__backdrop
-	--fancybox-bg: rgba(0, 0, 0, 0.15)
+	--fancybox-bg: var(--clr-grey-06)
+	backdrop-filter: blur(8px)
 
 .popup
 	display: none
-	padding: 45px 10px
-	background: var(--clr-white)
-	border-radius: var(--border-radius)
-	max-width: 345px
+	padding: 70px 20px 80px
+	background: var(--clr-blue)
+	color: var(--clr-white-2)
+	max-width: 360px
+	width: 100%
 	+mq($md)
-		max-width: 585px
-		padding: 40px
+		max-width: 700px
 	+mq($xl)
+		max-width: $max_width
 		padding: 40px
-		// padding: 25px 30px 40px
+		padding: 90px 100px 100px
 	&__title
-		+fz(20)
-		font-weight: 400
-		line-height: 140%
-		text-transform: uppercase
-		margin-bottom: 15px
-		text-align: center
+		font-family: var(--ff-ex)
+		+fz(26)
+		font-weight: 700
+		line-height: 100%
+		margin-bottom: 13px
 		+mq($md)
-			+fz(28)
+			+fz(40)
+		+mq($xl)
+			+fz(52)
 	&__subtitle
-		+fz(16)
-		line-height: 130%
-		margin-bottom: 30px
-		padding-left: 40px
+		+fz(22)
+		font-weight: 300
+		line-height: 120%
+		color: var(--clr-grey-05)
 		text-wrap: balance
-		color: #1c1c1c
 		+mq($md)
-			+fz(18)
-			margin-bottom: 25px
-			padding-left: 0
-	&--auth
-		// +mq($xl)
-			// padding: 40px
-		.form__input-label
-			font-weight: 400
-			margin-bottom: 8px
-		.form__btns
-			justify-content: center
-			gap: 40px
-
-			.btn
-				margin-inline: unset
-			.btn:nth-child(2)
-				+mq($xl)
-					width: 270px
-	&--reset-password
-		padding: 55px 35px
-		+mq($md)
-			padding: 50px 80px
-		.form__btns
-			display: flex
-			align-items: center
-			gap: 12px
+			+fz(30)
+		+mq($xl)
+			+fz(36)
+	&--request
+		.selection-form__title
+			text-wrap: balance
+		.form__input textarea
 			+mq($md)
-				gap: 40px
-
-	&--report-admission
-		padding: 30px 18px
-		+mq($md)
-			padding: 55px 65px
-			max-width: 700px
-		.form__input-label
-			font-weight: 400
-			margin-bottom: 6px
+				height: 50px
+		.form__accept-text
+			text-wrap: balance

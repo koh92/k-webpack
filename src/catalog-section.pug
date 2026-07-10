@@ -1,0 +1,49 @@
+extends include/_layout
+
+block variables
+	- var title = 'Prosensor | Catalog section'
+
+block block_breadcrumbs
+	+breadcrumbs('Каталог', 'Каталог')
+
+include components/_catalog-item
+
+block content
+	.container
+		.catalog-section
+			.catalog-section__box
+				//- Slider main container
+				.catalog-section__categories.js-catalog-section-categories-swiper
+					//- Additional required wrapper
+					.swiper-wrapper
+						.swiper-slide
+							a.catalog-section__categories-item.active(href="catalog-section.html") Все
+						.swiper-slide
+							a.catalog-section__categories-item(href="catalog-section.html") Углы поворота
+						.swiper-slide
+							a.catalog-section__categories-item(href="catalog-section.html") Датчики
+						.swiper-slide
+							a.catalog-section__categories-item(href="catalog-section.html") Абсолютные энкодеры
+						.swiper-slide
+							a.catalog-section__categories-item(href="catalog-section.html") Реле
+						.swiper-slide
+							a.catalog-section__categories-item(href="catalog-section.html") Муфты
+						.swiper-slide
+							a.catalog-section__categories-item(href="catalog-section.html") В наличии на складе
+				//- .catalog-section__grid(data-view="list")
+				.catalog-section__grid(data-view="grid")
+					.catalog-section__actions
+						a.catalog-section__actions-item.active
+							include Images/icon_grid.svg
+						a.catalog-section__actions-item
+							include Images/icon_list.svg
+					- var products = {1:'Цифровой усилитель Haehne DA', 2:'Измерительный валик Haehne MUW', 3:'Мембранный датчик GHM IL10', 4:'Мерный стакан GHM NA',5:'Усилитель для индуктивных датчиков EGE IU 130',6:'Кондуктометрический сигнализатор уровня GHM MLR420–1',7:'Мерный стакан GHM NA',8:'Мембранный датчик GHM IL10',9:'Юстировочное уст-во Haehne J-Box'}
+						each name, key in products
+							+catalog-item(name, key)
+	section.selection-form
+		.container
+			.selection-form__title.margin-left Не нашли нужную запчасть?
+			.selection-form__subtitle.margin-left Оставьте заявку и мы подберём то, что нужно!
+			.selection-form__text.margin-left Наша фирма уделяет большое внимание работе со своими клиентами и партнёрами, поэтому если у вас есть какие‑либо вопросы или предложения, мы всегда будем рады общению.
+			.form.margin-left
+				include components/_static-form

@@ -1,45 +1,35 @@
 block footer
 	footer.footer
 		.container
-			.footer__grid
+			.footer__top
 				a.footer__logo(href= isProd ? "index.html" : "/")
-					+img("Images/logo_white.svg", "logo")
-				ul.footer__menu
-					li
-						a(href="404.html") 404
-					li
-						a(href="faq.html") FAQ
-					li
-						a(href="contacts.html") Контакты
-				.footer__address 117105, г. Москва,<br>Тверская, 37 А
-				.footer__contacts
-					a.footer__contact(href='tel:89991112233') 8 (999) 111-22-33 (Москва МО)
-					a.footer__contact(href='tel:88001112233') 8 (800) 111-22-33 (РФ)
-				.footer__subscribe
-					.footer__subscribe-title Подписывайтесь и узнавайте<br> первым обо всех акциях и новостях
-					.footer__subscribe-form
-						form
-							input(type='email', placeholder='email')
-							button.btn.btn--green Подписаться
-				ul.footer__bottom-menu
-					li © 2023
-					li
-						a(href='#') Правовая информация
-					li
-						a(href='#') Политика обработки персональных данных
-					li
-						a(href='#') Договор оферты
+					+img("Images/logo_full.png", "logo")
+				.footer__box
+					ul.footer__menu
+						li.footer__menu-item
+							a(href="delivery.html") Доставка и оплата
+						li.footer__menu-item
+							a(href="catalog-section.html") Каталог
+						li.footer__menu-item
+							a(href="about.html") О компании
+						li.footer__menu-item
+							a(href="manufacturers.html") Производители
+						li.footer__menu-item
+							a(href="articles.html") Журнал
+						li.footer__menu-item
+							a(href="contacts.html") Контакты
+					.footer__box-item
+						.footer__address г. Москва, г. Зеленоград, ул. Заводская, дом 1Б, с. 2
+						.footer__schedule Пн-пт: 09:00–22:00
+					.footer__box-item
+						.footer__contacts
+							.footer__contact
+								a(href="tel:+74956428476") +7 495 642-84-76
+							.footer__contact
+								a(href="mailto:info@prosensor.ru") info@prosensor.ru
+				
+			ul.footer__bottom
+				li ® ООО «Просенсор» 2023
+				li
+					a(href='policy.html') Политика конфиденциальности
 					
-				ul.footer__socials
-					li.footer__social
-						a(href="#")
-							+img('Images/icon_youtbe.svg', 'Youtube')
-					li.footer__social
-						a(href="#")
-							+img('Images/icon_telegram.svg', 'Telegram')
-					li.footer__social
-						a(href="#")
-							+img('Images/icon_vk.svg', 'VK')
-					li.footer__social
-						a(href="#")
-							+img('Images/icon_whatsapp.svg', 'WhatsApp')

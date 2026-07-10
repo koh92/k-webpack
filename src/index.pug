@@ -1,64 +1,140 @@
 extends include/_layout
 
 block variables
-	- var title = 'Project name'
+	- var title = 'Prosensor'
 	- var breadcrumbs = false
 
+include components/_catalog-item
+include components/_articles-item
+
 block content
+	.citizenship
+		.container
+			.citizenship__title Гражданство и ВНЖ
+			.citizenship__list
+				.citizenship__item.js-citizenship-item
+					.citizenship__item-head
+						.citizenship__item-icon
+						.citizenship__item-name Свобода наслаждаться жизнью
+						.citizenship__item-close
+							svg(viewBox="0 0 50 50")
+								use(xlink:href="#icon_cross_black")
+					.citizenship__item-toggler
+						.citizenship__item-text Приобретая жилье вместе с PRIORITET, вы не только становитесь собственником уникального дома, но также получаете полную поддержку в процессе получения гражданства. Наша команда обеспечит вас всей необходимой информацией и юридическим  сопровождением, чтобы ваш путь к новому дому включал в себя привилегии гражданства в этой  стране.
+
 	section.hero
 		.container
+			h1.hero__title Комплектация предприятий запасными частями
+			.hero__subtitle
+				.hero__subtitle-text к технологическому оборудованию
+				.btn.btn--orange.hero__subtitle-btn(data-fancybox, data-src="#popup-choose") Подобрать оборудование
+			.hero__image
+				+img('Images/CMS/hero_image.jpg')
+			.hero__advantages
+				ul.hero__advantages-list
+					li.hero__advantages-item
+						.hero__advantages-number 17
+						.hero__advantages-text лет на рынке
+					li.hero__advantages-item.hero__advantages-item--top-shift
+						.hero__advantages-number 3000
+						.hero__advantages-text товаров в ассортименте
+					li.hero__advantages-item
+						.hero__advantages-number 5000
+						.hero__advantages-text довольных клиентов
+	section.top-sale.top-sale--bg
+		.container
+			.page-subtitle.margin-left Хиты продаж
 			//- Slider main container
-			.hero__slider.js-hero-swiper
+			.top-sale__slider.js-top-sale-swiper
 				//- Additional required wrapper
 				.swiper-wrapper
 					//- Slides
-					.hero__slider-item.swiper-slide
-						a.hero__slider-image(href="#")
-							picture
-								//- source(media="(min-width: 1170px)" srcset='Images/CMS/hero_slider_1_1170.jpg')
-								//- source(media="(min-width: 768px)" srcset='Images/CMS/hero_slider_1_768.jpg')
-								//- +img('Images/CMS/hero_slider_1_360.jpg', 'REHUB+ specialist KERATIN MULTILEVEL TECHNOLOGY')
-								+img('Images/CMS/hero_slider_1.jpg', 'Alt + title')
-						.hero__slider-info
-							.hero__slider-title Заголовок слайда
-							.hero__slider-subtitle Подзаголовок слайда
-							a.btn.btn--green.hero__slider-btn(href="#") Подробнее
-					.hero__slider-item.swiper-slide
-						a.hero__slider-image(href="#")
-							picture
-								//- source(media="(min-width: 1170px)" srcset='Images/CMS/hero_slider_2_1170.jpg')
-								//- source(media="(min-width: 768px)" srcset='Images/CMS/hero_slider_2_768.jpg')
-								//- +img('Images/CMS/hero_slider_2_360.jpg', 'BOTANICAL 10/M')
-								+img('Images/CMS/hero_slider_2.jpg', 'Alt + title')
-						.hero__slider-info
-							.hero__slider-title Заголовок слайда
-							.hero__slider-subtitle Подзаголовок слайда
-							a.btn.btn--green.hero__slider-btn(href="#") Подробнее
-					.hero__slider-item.swiper-slide
-						a.hero__slider-image(href="#")
-							picture
-								//- source(media="(min-width: 1170px)" srcset='Images/CMS/hero_slider_3_1170.jpg')
-								//- source(media="(min-width: 768px)" srcset='Images/CMS/hero_slider_3_768.jpg')
-								//- +img('Images/CMS/hero_slider_3_360.jpg', 'REFORCE SPECIFIC 1/L')
-								+img('Images/CMS/hero_slider_3.jpg', 'Alt + title')
-						.hero__slider-info
-							.hero__slider-title Заголовок слайда
-							.hero__slider-subtitle Подзаголовок слайда
-							a.btn.btn--green.hero__slider-btn(href="#") Подробнее
-					.hero__slider-item.swiper-slide
-						a.hero__slider-image(href="#")
-							picture
-								//- source(media="(min-width: 1170px)" srcset='Images/CMS/hero_slider_4_1170.jpg')
-								//- source(media="(min-width: 768px)" srcset='Images/CMS/hero_slider_4_768.jpg')
-								//- +img('Images/CMS/hero_slider_4_360.jpg', 'HYDRA 5/S')
-								+img('Images/CMS/hero_slider_4.jpg', 'Alt + title')
-						.hero__slider-info
-							.hero__slider-title Заголовок слайда
-							.hero__slider-subtitle Подзаголовок слайда
-							a.btn.btn--green.hero__slider-btn(href="#") Подробнее
-				//- If we need pagination
-				.swiper-pagination.hero__slider-pagination.custom__slider-pagination.js-hero-pagination
-				//- If we need navigation buttons
-				.swiper-arrows.hero__slider-arrows
-					.swiper-button-prev.swiper-button--circle.swiper-button--black.swiper-button--inner.js-hero-prev
-					.swiper-button-next.swiper-button--circle.swiper-button--black.swiper-button--inner.js-hero-next
+					- var products = {1:'Цифровой усилитель Haehne DA', 2:'Измерительный валик Haehne MUW', 3:'Мембранный датчик GHM IL10', 4:'Мерный стакан GHM NA'}
+					each name, key in products
+						.swiper-slide
+							+catalog-item(name, key, true)
+	section.manufacturers-section
+		.container
+			.page-subtitle.margin-left Сотрудничаем<br>с ведущими производителями
+			.marquee(style="--marquee-duration: 30s")
+				- var manufacturer = {1:'Belden', 2:'TE', 3:'Евраз', 4:'Готэк',5:'ТМК',6:'Segezha',7:'ОМК',8:'MKM',9:'Baluff'}
+				.marquee__group
+					each name, key in manufacturer
+						a.marquee__item(href="manufacturers-element.html")
+							+img(`Images/CMS/partner_${key}.jpg`, name)
+				.marquee__group(aria-hidden="true")
+					each name, key in manufacturer
+						a.marquee__item(href="manufacturers-element.html")
+							+img(`Images/CMS/partner_${key}.jpg`, name)
+			a.btn.btn--transparent.margin-left(href="manufacturers.html") Все производители
+	section.advantages
+		.container
+			.page-subtitle.margin-left Почему выбирают нас?
+			.advantages__grid
+				.advantages__item 
+					.advantages__item-title Доставка <br>по всей России
+					.advantages__item-text Оставьте заявку и в ближайшее время наши менеджеры ответят на все вопросы
+				.advantages__item 
+					.advantages__item-title Сервисное <br>обслуживание
+					.advantages__item-text Оставьте заявку и в ближайшее время наши менеджеры ответят на все вопросы
+				.advantages__item.advantages__item--span-md
+					.advantages__item-title Модернизация<br>оборудования
+					.advantages__item-text Наша компания предлагает услуги по модернизации промышленного оборудования. Мы заменяем устаревшие компоненты, добавляем новые функции и возможности, повышаем эффективность работы и уменьшаем затраты на эксплуатацию.
+				.advantages__item.advantages__item--span
+					.advantages__item-title Оригинальная продукция
+					.advantages__item-text Поставка оригинальной продукции множества мировых производителей средств автоматизации ушедших с нашего рынка.
+					.advantages__item-image
+						+img('Images/CMS/advantages.jpg', 'Оригинальная продукция')
+	section.articles-section
+		.container
+			.page-subtitle.margin-left Полезные статьи
+			//- Slider main container
+			.articles-section__slider.js-articles-swiper
+				//- Additional required wrapper
+				.swiper-wrapper
+					//- Slides
+					- var articles = {1:'Profibus интерфейс', 2:'Бинарные коды', 3:'Параллельный интерфейс'}
+					each name, key in articles
+						.swiper-slide
+							+articles-item(name, key)
+			a.btn.btn--transparent.margin-left(href="blog.html") Все статьи
+	section.popular
+		.container
+			.page-subtitle.margin-left Популярные категории
+			.popular__grid
+				a.popular__item.popular__item--row-span(href="catalog-section.html")
+					.popular__item-name Угол поворота
+					.popular__item-icon.popular__item-icon--angle
+						include Images/icon_angle.svg
+				a.popular__item(href="catalog-section.html")
+					.popular__item-name Давление
+					.popular__item-icon.popular__item-icon--pressure
+						include Images/icon_pressure.svg
+				a.popular__item(href="catalog-section.html")
+					.popular__item-name Приводная техника
+					.popular__item-icon.popular__item-icon--servo
+						include Images/icon_servo.svg
+				a.popular__item.popular__item--column-span(href="catalog-section.html")
+					.popular__item-name Линейное перемещение
+					.popular__item-icon.popular__item-icon--linear
+						include Images/icon_linear.svg
+	section.clients
+		.container
+			.page-subtitle.margin-left Наши клиенты
+			.marquee(style="--marquee-duration: 30s")
+				- var clients = {1:'Belden', 2:'TE', 3:'Евраз', 4:'Готэк',5:'ТМК',6:'Segezha',7:'ОМК',8:'MKM',9:'Baluff'}
+				.marquee__group
+					each name, key in clients
+						.marquee__item.noselect
+							+img(`Images/CMS/partner_${key}.jpg`, name)
+				.marquee__group(aria-hidden="true")
+					each name, key in clients
+						.marquee__item.noselect
+							+img(`Images/CMS/partner_${key}.jpg`, name)
+	section.selection-form
+		.container
+			.selection-form__title.margin-left Не нашли нужную запчасть?
+			.selection-form__subtitle.margin-left Оставьте заявку и мы подберём то, что нужно!
+			.selection-form__text.margin-left Наша фирма уделяет большое внимание работе со своими клиентами и партнёрами, поэтому если у вас есть какие‑либо вопросы или предложения, мы всегда будем рады общению.
+			.form.margin-left
+				include components/_static-form

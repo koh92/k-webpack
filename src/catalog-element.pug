@@ -1,0 +1,72 @@
+extends include/_layout
+
+block variables
+    - var title = 'Prosensor | Catalog Element'
+
+include components/_catalog-item
+
+block block_breadcrumbs
+    +breadcrumbs('Энкодер абсолютный, оптический. Клеммный фланец 78 мм. ', 'Каталог', 'Угол поворта', 'Энкодер абсолютный, оптический. Клеммный фланец 78 мм. ')
+
+block content
+    .container
+        .catalog-element.margin-left
+            .catalog-element__image
+                +img('Images/CMS/catalog_item_1.jpg', 'Энкодер абсолютный, оптический. Клеммный фланец 78 мм')
+            .catalog-element__info
+                ul.catalog-element__props
+                    li.catalog-element__prop
+                        .catalog-element__prop-key Артикул:
+                        .catalog-element__prop-value 89348974378943
+                    li.catalog-element__prop
+                        .catalog-element__prop-key Производитель:
+                        .catalog-element__prop-value 
+                            a(href="manufacturer.html") Fraba Posital
+                    li.catalog-element__prop
+                        .catalog-element__prop-key Класс защиты:
+                        .catalog-element__prop-value IP66/IP67
+                .catalog-element__description
+                    .catalog-element__description-title Описание:
+                    .catalog-element__description-text Ёмкостной вторичный прибор предназначен для подключения реле уровня типа KGFT. Настройка системы на различные среды измерения или конструктивные исполнения датчиков осуществляется автоматически по нажатии кнопки или по команде через управляющий вход.
+                a.btn.btn--orange.catalog-element__btn(data-fancybox, data-src="#popup-choose") Подобрать оборудование
+            
+
+    section.top-sale
+        .container
+            .page-subtitle.margin-left Хиты продаж
+            //- Slider main container
+            .top-sale__slider.js-top-sale-swiper
+                //- Additional required wrapper
+                .swiper-wrapper
+                    //- Slides
+                    - var products = {1:'Цифровой усилитель Haehne DA', 2:'Измерительный валик Haehne MUW', 3:'Мембранный датчик GHM IL10', 4:'Мерный стакан GHM NA'}
+                    each name, key in products
+                        .swiper-slide
+                            +catalog-item(name, key)
+    section.popular
+        .container
+            .page-subtitle.margin-left Популярные категории
+            .popular__grid
+                a.popular__item.popular__item--row-span(href="catalog-section.html")
+                    .popular__item-name Угол поворота
+                    .popular__item-icon.popular__item-icon--angle
+                        include Images/icon_angle.svg
+                a.popular__item(href="catalog-section.html")
+                    .popular__item-name Давление
+                    .popular__item-icon.popular__item-icon--pressure
+                        include Images/icon_pressure.svg
+                a.popular__item(href="catalog-section.html")
+                    .popular__item-name Приводная техника
+                    .popular__item-icon.popular__item-icon--servo
+                        include Images/icon_servo.svg
+                a.popular__item.popular__item--column-span(href="catalog-section.html")
+                    .popular__item-name Линейное перемещение
+                    .popular__item-icon.popular__item-icon--linear
+                        include Images/icon_linear.svg
+    section.selection-form
+        .container
+            .selection-form__title.margin-left Не нашли нужную запчасть?
+            .selection-form__subtitle.margin-left Оставьте заявку и мы подберём то, что нужно!
+            .selection-form__text.margin-left Наша фирма уделяет большое внимание работе со своими клиентами и партнёрами, поэтому если у вас есть какие‑либо вопросы или предложения, мы всегда будем рады общению.
+            .form.margin-left
+                include components/_static-form

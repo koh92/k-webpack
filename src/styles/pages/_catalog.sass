@@ -1,0 +1,122 @@
+@use '../base/mixins' as *
+@use '../base/breakpoints' as *
+
+.catalog-section
+    margin-bottom: 80px
+    +mq($xl)
+        margin-bottom: 100px
+    &__box
+        +mq($xl)
+            display: grid
+            grid-template-columns: 3fr 9fr
+            gap: 20px
+    &__categories
+        +mqMax($xl)
+            margin-bottom: 30px
+        .swiper-wrapper
+            +mq($xl)
+                flex-direction: column
+        .swiper-slide
+            width: fit-content
+            +mq($xl)
+                flex-shrink: 1
+                height: auto
+                & + .swiper-slide
+                    margin-top: 20px
+        &-item
+            display: block
+            +fz(20)
+            font-weight: 300
+            line-height: 130%
+            +mqMax($xl)
+                padding: 10px
+                border: 1px solid var(--clr-grey)
+                width: fit-content
+            &.active
+                font-weight: 500
+    &__actions
+        display: none
+        +mq($md)
+            display: flex
+            justify-content: flex-end
+            gap: 10px
+            grid-column: 1/-1
+        +mq($xl)
+            position: absolute
+            top: -40px
+            right: 0
+            z-index: 10
+        &-item
+            width: 18px
+            height: 18px
+            svg
+                stroke: var(--clr-grey-light)
+            &.active
+                svg
+                    stroke: var(--clr-text)
+    &__grid
+        display: grid
+        gap: 20px
+        +mq($xl)
+            position: relative
+        &[data-view="grid"]
+            +mq($md)
+                grid-template-columns: repeat(2, 1fr)
+            +mq($xl)
+                grid-template-columns: repeat(3, 1fr)
+        &[data-view="list"]
+            +mq($md)
+                grid-template-columns: 1fr
+
+
+.catalog-element
+    margin-bottom: 70px
+    +mq($md)
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        gap: 20px
+    +mq($xl)
+        margin-bottom: 90px
+    &__image
+        height: 390px
+        background-color: var(--clr-white)
+        display: flex
+        align-items: center
+        justify-content: center
+        +mq($xl)
+            height: 500px
+        +mqMax($md)
+            margin-bottom: 30px
+        img
+            +contain
+    &__props
+        margin-bottom: 20px
+    &__prop
+        display: flex
+        align-items: center
+        gap: 12px
+        & + &
+            margin-top: 10px
+        &-key
+            +fz(20)
+            line-height: 130%
+        &-value
+            +fz(16)
+            font-weight: 300
+            line-height: 130%
+    
+    &__description
+        margin-bottom: 30px
+        +mq($md)
+            margin-bottom: 60px
+        &-title
+            +fz(20)
+            line-height: 130%
+            margin-bottom: 8px
+        &-text
+            +fz(14)
+            font-weight: 300
+            line-height: 130%
+    &__btn
+        +mq($md)
+            --btn-max-width: 290px

@@ -70,7 +70,7 @@ module.exports = {
 			},
 			// Images
 			{
-				test: /\.(png|jpg|jpeg|ico|svg)/,
+				test: /\.(png|jpg|jpeg|ico|svg|webp)/,
 				type: 'asset/resource',
 				generator: {
 					// output filename of images

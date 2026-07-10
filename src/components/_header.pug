@@ -1,29 +1,45 @@
 block header
 	header.js-header(data-state="closed")
+		.backdrop.js-backdrop
 		.container
 			.header
+				.header__subtitle Официальный поставщик BAUMULLER в России
 				a.header__logo(href= isProd ? "index.html" : "/")
-					+img("Images/logo_black.svg", "logo")
+					+img("Images/logo_full.png", "logo")
+				nav.header__menu
+					button.header__menu-trigger.js-menu-trigger
+						include Images/icon_close.svg
+					ul.header__menu-list.js-header-nav-menu#primary-navigation
+						li.header__menu-item
+							a(href="catalog-section.html") Каталог
+						li.header__menu-item
+							a(href="about.html") О компании
+						li.header__menu-item
+							a(href="delivery.html") Доставка и оплата
+						li.header__menu-item
+							a(href="manufacturers.html") Производители
+						li.header__menu-item
+							a(href="articles.html") Журнал
+						li.header__menu-item
+							a(href="contacts.html") Контакты
 				.header__search
 					//-https://wp-kama.ru/function/get_search_form
-					form(role="search", method="get", action="/")
-						input(type="search", placeholder="Поиск товаров...", name="s")
-						input(type="submit", value="")
+					button.header__search-trigger.js-search-trigger
+						include Images/icon_search.svg
+					.header__search-popup
+						.container
+							.header__search-box
+								form(role="search", method="get", action="/")
+									input(type="submit", value="")
+									input(type="search", placeholder="Что хотите найти?", name="s")
+								button.header__search-trigger.js-search-trigger
+									include Images/icon_close.svg
 				.header__contacts
-					.header__contact
-						a.header__contact-value(href="89991112233") 8 (999) 111-22-33
-						.header__contact-note (Москва МО)
-					.header__contact
-						a.header__contact-value(href="88001112233") 8 (800) 111-22-33
-						.header__contact-note (РФ)
-				.header__icons.header__icons--pc
-					a.header__icon.header__icon--mobile-hide(href="#")
-						.header__icon-img(data-counter="8")
-							include Images/icon_favorites.svg
-					a.header__icon.header__icon--mobile-hide(href="#")
-						.header__icon-img(data-counter="12")
-							include  Images/icon_basket.svg
-				.header__burger
+					.header__contact.header__contact--blue
+						a(href="tel:+74956428476") +7 495 642-84-76
+					.header__contact.header__contact--black
+						a(href="mailto:info@prosensor.ru") info@prosensor.ru
+				.header__burger.js-menu-trigger
 					button.menu-toggle(
 						aria-label="Menu"
 						aria-controls="primary-navigation"
@@ -31,35 +47,4 @@ block header
 					)
 						span.visually-hidden Menu
 						.k_burger(aria-hidden="true")
-				nav.header__menu
-					ul.header__menu-list.js-header-nav-menu#primary-navigation
-						li.header__menu-item
-							a(href="404.html") 404
-						li.header__menu-item
-							a(href="faq.html") FAQ
-						li.header__menu-item
-							a(href="contacts.html") Контакты
-				.header__icons.header__icons--mobile
-					a.header__icon(href="#")
-						.header__icon-img
-							include Images/icon_favorites.svg
-					a.header__icon(href="#")
-						.header__icon-img(data-counter="12")
-							+img('Images/icon_basket_black.svg', 'Basket')
-				.header__socials
-					noindex
-						ul.header__socials-list
-							li.header__socials-item
-								a(href="#")
-									+img('Images/icon_youtbe.svg', 'Youtube')
-							li.header__socials-item
-								a(href="#")
-									+img('Images/icon_telegram.svg', 'Telegram')
-							li.header__socials-item
-								a(href="#")
-									+img('Images/icon_vk.svg', 'VK')
-							li.header__socials-item
-								a(href="#")
-									+img('Images/icon_whatsapp.svg', 'WhatsApp')
-				.header__login
-					a.btn.btn--green(data-fancybox, data-src="#auth") Салонам
+				

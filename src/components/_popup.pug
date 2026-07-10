@@ -1,57 +1,17 @@
 block popup
-	.popup.popup--auth#auth
-		.popup__title Авторизация
-		.popup__subtitle Если вы уже зарегистрированы, пожалуйста, авторизуйтесь
+	.popup#popup-choose
+		.selection-form__title Не нашли нужную запчасть?
+		.selection-form__subtitle Оставьте заявку и мы подберём то, что нужно!
+		.selection-form__text Наша фирма уделяет большое внимание работе со своими клиентами и партнёрами, поэтому если у вас есть какие‑либо вопросы или предложения, мы всегда будем рады общению.
 		.form
-			form
-				.form__input
-					label.form__input-label.noselect(for="auth_email") Логин (электронная почта)
-					input(type="email", placeholder="E-mail", id="auth_email")
-				.form__input
-					label.form__input-label.noselect(for="auth_password") Пароль
-					input(type="password", placeholder="Пароль", id="auth_password", autocomplete="on")
-					.form__input-icon.js-password-toggler
-						+img('Images/icon_eye.svg', 'Icon visibility')
-						+img('Images/icon_not_eye.svg', 'Icon hidden')
-				.form__actions
-					label.form__action
-							input(type="checkbox", name="custom-checkbox")
-							.custom-checkbox.custom-checkbox--big
-							.form__action-text Запомнить меня
-					.form__action
-						a(data-fancybox, data-src="#reset_password") <u> Забыли пароль? </u>
-				.form__btns
-					a.btn.btn--green(href="personal.html") Войти
-					a.btn.btn--transparent(href="registration.html") Зарегистрироваться
-
-						
-	.popup.popup--reset-password#reset_password
-		.popup__title Восстановление пароля
+			include _static-form
+	.popup.popup--request#popup-request
+		.selection-form__title Заявка на <span class="js-form-title">оборудование</span>
+		.selection-form__subtitle Оставьте заявку и мы подберём то, что нужно!
+		.selection-form__text Наша фирма уделяет большое внимание работе со своими клиентами и партнёрами, поэтому если у вас есть какие‑либо вопросы или предложения, мы всегда будем рады общению.
 		.form
-			form
-				.form__input
-					input(type="email", placeholder="E-mail")
-				.form__btns
-					a.btn.btn--green(href="#") Восстановить
-					.btn.btn--transparent.js-back-to-auth Назад
+			include _popup-form
 
-	.popup.popup--report-admission#report_admission
-		.popup__title Уведомление о поступлении товара
-		.popup__subtitle Данного товара временно нет в наличии. Оставьте ваши контактные данные и мы сообщим вам, как только он появится.
-		.form
-			form
-				.form__input
-					label.form__input-label.noselect(for="report_admission_email") Ваша почта<span>*</span>
-					input(type="email", placeholder="E-mail", id="report_admission_email")
-				.form__btns
-					a.btn.btn--green(href="#") сообщить мне по e-mail
-
-	.popup#thanks-popup
-		.form.form--decorate.form--popup
-			.form__title Спасибо за Ваше обращение!
-			.form__text Наш специалист свяжется с Вами в ближайшее время.
-
-	.popup#order-success-popup
-		.form.form--decorate.form--popup
-			.form__title Ваш заказ успешно оформлен!
-			.form__text Письмо-подтверждение отправлено на ваш E-mail
+	.popup.popup--thanks#popup-thanks
+		.popup__title Спасибо за заявку!
+		.popup__subtitle В ближайшее время мы с вами свяжемся

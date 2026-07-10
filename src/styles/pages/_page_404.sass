@@ -9,30 +9,16 @@
         +mq($xl)
             margin-top: 65px
     &__title
-        +fz(20)
-        line-height: 28px
-        text-transform: uppercase
+        font-family: var(--ff-ex)
+        +fz(26)
+        font-weight: 700
+        line-height: 100%
         text-align: center
-
-        max-width: 320px
-        margin-inline: auto
-        margin-bottom: 60px
+        margin-bottom: 30px
         +mq($md)
-            +fz(35)
-            line-height: 49px
-            margin-bottom: 50px 
-            max-width: 545px
+            +fz(40)
         +mq($xl)
-            margin-bottom: 45px
-            max-width: 725px
-        
+            +fz(52)
+            margin-bottom: 40px
     &__btn
-        margin-bottom: 75px
         margin-inline: auto
-        +mq($md)
-            margin-bottom: 65px
-        +mq($xl)
-            margin-bottom: 85px
-    &__image
-        img
-            width: 100vw

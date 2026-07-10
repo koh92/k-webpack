@@ -1,0 +1,53 @@
+extends include/_layout
+
+block variables
+	- var title = 'Prosensor | Delivery'
+
+block block_breadcrumbs
+	+breadcrumbs('Доставка и оплата', 'Доставка и оплата')
+
+block content
+	.delivery
+		.container
+			.delivery__subtitle.margin-left Мы доставляем заказы по предоплате 100%.<br>Сроки и стоимость доставки могут варьироваться.<br>Узнать точную информацию вы можете по телефону <a href="tel:+74956428476">+7 495 642-84-76</a>.
+			.delivery__grid
+				.delivery__item
+					.delivery__item-name Способы доставки
+					.delivery__item-icon
+						include Images/icon_delivery.svg
+					.delivery__item-box
+						.delivery__item-title Курьерская доставка
+						.delivery__item-text
+							p Курьерская доставка осуществляется компаниями: «СДЭК», при определённых условиях* «ПЭК», «Деловые Линии».
+							p Сроки доставки заказа вы можете уточнить в «корзине» или у менеджера интернет-магазина перед подтверждением вашего заказа.
+						.delivery__item-title Доставка водителем по Москве
+						.delivery__item-text Доставка на собственном на собственном автотранспорте по Москве.
+						.delivery__item-title Забрать самостоятельно
+						.delivery__item-text В пунктах выдачи и терминалах транспортных компаний: «СДЭК», «ПЭК», «Деловые Линии» — доставка данными транспортными компаниями доступна при 100% предоплате заказа.
+				.delivery__item
+					.delivery__item-name Условия оформления заказа
+					.delivery__item-icon
+						include Images/icon_cart.svg
+					.delivery__item-box
+						.delivery__item-text Мы принимаем заказы ежедневно, кроме субботы и воскресенья, с 10.00 до 19.00 по телефону +7 495 642-84-76 или через форму на сайте.
+						.delivery__item-subtitle Минимальная сумма заказа — 1000 рублей.
+						.delivery__item-subtitle Заявки обрабатываются в течение 2х дней.
+						.delivery__item-subtitle Просим учесть при оформлении заказа, что доставка заказа осуществляется за счёт средств клиента и в стоимость товара не входит.
+						.delivery__item-subtitle После обработки заявки менеджер обязательно свяжется с вами для подтверждения заказа и уточнения деталей.
+				.delivery__item.delivery__item--column-span
+					.delivery__item-name Способ оплаты
+					.delivery__item-icon
+						include Images/icon_credit_card.svg
+					.delivery__item-box
+						.delivery__item-text Оплата возможна только по выставленному счёту любым удобным для вас способом:
+						.delivery__item-subtitle Наличными в банке
+						.delivery__item-subtitle Через интернет-банк
+						.delivery__item-subtitle Через безналичный перевод
+
+	section.selection-form
+		.container
+			.selection-form__title.margin-left Не нашли нужную запчасть?
+			.selection-form__subtitle.margin-left Оставьте заявку и мы подберём то, что нужно!
+			.selection-form__text.margin-left Наша фирма уделяет большое внимание работе со своими клиентами и партнёрами, поэтому если у вас есть какие‑либо вопросы или предложения, мы всегда будем рады общению.
+			.form.margin-left
+				include components/_static-form

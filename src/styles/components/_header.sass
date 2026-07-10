@@ -1,508 +1,258 @@
 @use '../base/mixins' as *
 @use '../base/breakpoints' as *
 
-@keyframes fadeIn
-	0%
-		opacity: 0
-	100%
-		opacity: 1
-=fadeIn( $display: block )
-	display: $display
-	animation: fadeIn 1s ease-in forwards
-	
-=animation($display: block)
-	clip-path: circle(0px at top right)
-	transition: clip-path ease-in-out 700ms
-	[data-state="opened"] &
-		animation: clipPathCircleOpen 750ms ease-in-out forwards
-		display: $display
-	[data-state="closing"] &
-		animation: clipPathCircleClose 750ms ease-in-out forwards
-	[data-state="closed"] &
-		display: none
-
 header
 	position: sticky
-	background-color: var(--clr-bg)
+	background-color: var(--clr-white-2)
 	top: 0
 	left: 0
 	width: 100%
 	z-index: 100
-	transition: var(--transition)
-	&::before
-		content: ''
-		display: block
-		position: absolute
-		z-index: -1
-		// inset: 0
-		width: 100%
-		height: 100vh
-		background-image: url('Images/icon_decor_line_green.svg')
-		background-position: center bottom 0px
-		// background-position: center
-		background-repeat: no-repeat
-		background-size: 100%
-		clip-path: circle(0px at top right)
-		transition: clip-path ease-in-out 700ms
-	&[data-state="opened"]
-		animation: appear 750ms ease-in-out forwards
-		// border-bottom-left-radius: var(--border-radius)
-		// border-bottom-right-radius: var(--border-radius)
-		height: 100vh
-		height: 100dvh
-		overflow-y: auto
-
-		+mqMax($md)
-			background-color: var(--clr-white)
-		&::before
-			animation: clipPathCircleOpen 700ms ease-in-out forwards
-			display: block
-
-		.header
-			// background-image: url('Images/icon_decor_line_green.svg')
-			// background-position: center bottom
-			// // background-position: center
-			// background-repeat: no-repeat
-			// background-size: 100%
-	&[data-state="closing"]
-		animation: disappear 750ms ease-in-out forwards
-		// border-bottom-left-radius: var(--border-radius)
-		// border-bottom-right-radius: var(--border-radius)
-		height: 100vh
-		height: 100dvh
-
-		+mqMax($md)
-			background-color: var(--clr-white)
-		&::before
-			animation: clipPathCircleClose 700ms ease-in-out forwards
-	&[data-state="closed"]
-		// background-color: rgba(255, 255, 255, 0)
-		&::before
-			display: none
+	transition: calc(var(--transition) + 0.5s)
 	&.mod-fixed
-		top: -122px
+		top: -110px
 		+mq($md)
-			top: -154px
+			top: -100px
 		+mq($xl)
-			top: -185px
+			top: -112px
 	&.mod-backscroll
 		top: 0
-	
 .header
-	//padding: 30px 0
-	padding: 50px 0 35px
+	padding: 13px 0
 	display: grid
-	grid-template-areas: 'logo icons burger' 'search search search' 'menu menu menu' 'login login login' 'icons-mobile icons-mobile icons-mobile' 'contacts contacts contacts' 'socials socials socials'
-	grid-template-columns: 1fr 42px 66px
-	align-items: center
+	grid-template-areas: 'logo search burger' 'contacts contacts contacts'
+	grid-template-columns: 1fr 40px 40px
+	gap: 0 20px
 	position: relative
-
+	overflow-x: hidden
 	+mq($md)
-		padding: 35px 0 30px
 		gap: 0 35px
-		// grid-template-areas: 'logo search icons burger' 'menu menu menu menu' 'contacts contacts socials socials'
-		grid-template-areas: 'logo search login icons' 'menu menu menu menu' 'contacts contacts socials socials'
-		//grid-template-columns: 140px 1fr 1fr 30px
-		// grid-template-columns: 1fr 230px 1fr 30px
-		grid-template-columns: 1fr 230px 140px 75px
+		grid-template-areas: 'subtitle subtitle subtitle subtitle' 'logo contacts search burger'
+		grid-template-columns: 135px 1fr 40px 40px
 	+mq($xl)
-		padding: 40px 0 35px
-		grid-template-areas: 'logo search login contacts icons' 'menu menu menu menu menu'
-		gap: 0 30px
-		// grid-template-columns: 1fr 310px 160px 1fr 110px
-		// grid-template-columns: 170px 310px 160px 1fr 110px
-		grid-template-columns: 170px 1fr 160px 230px 110px
+		padding: 20px 0
+		grid-template-areas: 'subtitle subtitle subtitle subtitle' 'logo menu search contacts'
+		gap: 0 20px
+		grid-template-columns: 2fr 7fr 1fr 2fr
+		// grid-template-columns: 1fr 8fr .5fr 2fr
+	&__subtitle
+		grid-area: subtitle
+		display: none
+		+fz(12)
+		font-weight: 500
+		color: var(--clr-orange)
+		text-align: center
+		margin-bottom: 10px
+		+mq($md)
+			display: block
 	&__logo
 		grid-area: logo
-		max-width: 112px
+		display: flex
+		align-items: flex-end
 		+mq($xl)
-			max-width: 170px
+			align-items: center
+		img
+			+mqMax($md)
+				max-width: 120px
+			+mq($xl)
+				// max-width: 205px
+				max-width: 165px
 	&__burger
 		grid-area: burger
 		justify-self: end
-		+mq($md)
+		+mq($xl)
 			display: none
 	&__menu
+		--menu-height: 100vh
+		--menu-width: 220px
 		grid-area: menu
-		position: relative
-		+mqMax($md)
-			+animation
-		&-list
-			padding-top: 35px
-			padding-bottom: 30px
-			text-align: center
+		background-color: var(--clr-blue)
+		height: var(--menu-height)
+		position: fixed
+		z-index: 100
+		right: calc(var(--menu-width) * -1)
+		top: 0
+		width: var(--menu-width)
+		padding: 75px 33px
+		transition: var(--transition)
+		+mq($md)
+			--menu-width: 300px
+		+mq($xl)
+			position: initial
+			--menu-height: 47px
+			--menu-width: 100%
+			padding: 0
+		&.active
+			right: 0
+		&-trigger
+			position: absolute
+			top: 20px
+			right: 20px
+			width: 40px
+			height: 40px
+			display: flex
+			align-items: center
+			justify-content: center
+			border: 1px solid var(--clr-grey-05)
+			cursor: pointer
+			transition: var(--transition)
+			svg
+				stroke: var(--clr-white)
 			+mq($md)
-				display: flex
-				justify-content: space-between
-				gap: 25px
-				padding-top: 30px
-				padding-bottom: 0
+				width: 47px
+				height: 47px
 			+mq($xl)
-				// max-width: calc(100% / 12 * 10)
-				justify-content: center
-				gap: 60px
+				display: none
+			&:hover
+				border: 1px solid var(--clr-white)
+		&-list
+			+mq($xl)
+				display: flex
+				align-items: center
+				justify-content: space-between
+				height: 100%
+				gap: 16px
+				// max-width: calc(100% / 7 * 6)
+				padding: 0 calc(100% / 7 / 2)
 				margin-inline: auto
-				padding-top: 35px
 		&-item
 			> a
-				display: block
-				font-weight: 400
-				+fz(16)
-				line-height: 130%
+				+fz(12)
+				font-weight: 500
+				color: var(--clr-white)
 				cursor: pointer
 				transition: var(--transition)
-				+mq($md)
-					+fz(14)
-				+mq($xl)
-					+fz(16)
 			&:hover
 				color: var(--clr-pink)
-			+mqMax($md)
+			+mqMax($xl)
 				& + &
-					margin-top: 30px
-			&--parent
-				display: flex
-				align-items: center
-				justify-content: center
-				cursor: pointer
-				span
-					+flex-center
-					width: 11px
-					height: 12px
-					// +bg('Images/icon_arrow_down.svg', center, contain)
-					padding-top: 2px
-					margin-left: 5px
-					align-self: center
-					transition: var(--transition)
-					+mq($md)
-						width: 9px
-						height: 10px
-					+mq($xl)
-						width: 11px
-						height: 12px
-					svg
-						fill: var(--clr-dark-grey)
-						transition: var(--transition)
-				&:hover
-					span svg 
-						fill: var(--clr-pink)
-			&--open
-				color: var(--clr-pink)
-				span
-					transform: rotate(180deg)
-				span svg 
-					fill: var(--clr-pink)
-
-	&__submenu
-		position: absolute
-		// top: 115px
-		top: calc(100% - 15px)
-		left: 0
-		height: calc(100vh - 122px - 5vh)
-		overflow-y: scroll
-
-		transition: var(--transition)
-		opacity: 0
-		visibility: hidden
-
-		width: 100%
-		background-color: var(--clr-white)
-		border-radius: var(--border-radius)
-		padding: 45px 40px
-		+mq($md)
-			// top: calc(100% + 25px)
-			top: calc(100% - 5px)
-			padding: 45px 55px
-		+mq($xl)
-			// top: 100%
-			padding: 45px 70px 80px
-			height: max-content
-			overflow-y: unset
-		&--open
-			opacity: 1
-			visibility: visible
-		&-list
-			display: grid
-			grid-template-columns: 1fr
-			+mq($md)
-				grid-template-columns: repeat(2, 1fr)
-				gap: 25px 90px
-			+mq($xl)
-				grid-template-columns: repeat(3, 1fr)
-				gap: 20px 140px
-		&-group
-			display: grid
-			grid-template-columns: 1fr
-			grid-template-rows: min-content
-			&:nth-child(1)
-				+mq($md)
-					grid-column: 1/3
-					display: grid
-					grid-template-columns: repeat(2, 1fr)
-					gap: 25px 90px
-				+mq($xl)
-					grid-column: 1/4
-					grid-template-columns: repeat(3, 1fr)
-					gap: 25px 140px
-					.header__submenu-title
-						margin-bottom: -10px
-			&:not(&:nth-child(1))
-				.header__submenu-category + .header__submenu-category
-					margin-top: 15px
-			+mqMax($md)
-				& + &
-					margin-top: 35px
-
-		&-title
-			+fz(24)
-			line-height: 130%
-			color: var(--clr-pink)
-			margin-bottom: 25px
-			+mq($md)
-				grid-column: 1/-1
-			+mq($xl)
-				+fz(28)
-				line-height: 140%
-				margin-bottom: 15px
-		&-category
-			+mqMax($md)
-				& + &
-					margin-top: 25px
-			&:hover
-				.header__submenu-category-name
-					color: var(--clr-pink)
-			&-name
-				font-weight: 400
-				+fz(18)
-				line-height: 140%
-				text-transform: uppercase
-				margin-bottom: 10px
-				transition: var(--transition)
-				+mq($md)
-					margin-bottom: 2px
-			&-desc
-				+fz(16)
-				line-height: 130%
-				color: var(--clr-grey-font)
-				text-wrap: balance
-	&__icons
-		display: flex
-		gap: 50px
-		+mqMax($md)
-			+animation(flex)
-		+mq($md)
-			gap: 15px
-			justify-content: center
-		+mq($xl)
-			gap: 30px
-			justify-content: flex-end
-		&--pc
-			grid-area: icons
-			+mqMax($md)
-				justify-self: end
-		&--mobile
-			grid-area: icons-mobile
-			padding-top: 38px
-			margin-inline: auto
-			+mq($md)
-				display: none
-	&__icon
-		cursor: pointer
-		display: flex
-		align-items: center
-		gap: 8px
-		&-img
-			+flex-center
-			--img-size: 34px
-			width: var(--img-size)
-			height: var(--img-size)
-			// padding: 5px
-			background-color: var(--clr-green)
-			border-radius: 50%
-			+mq($md)
-				--img-size: 30px
-				background-color: var(--clr-white)
-			+mq($xl)
-				--img-size: 40px
-				// padding: 8px
-			img
-				max-width: 18px
-				max-height: 18px
-				margin-inline: auto
-			&[data-counter]
-				position: relative
-				&::before
-					--label-size: 20px
-					content: attr(data-counter)
-					width: var(--label-size)
-					height: var(--label-size)
-					background-color: var(--clr-pink)
-					border-radius: 50%
-					+flex-center
-					position: absolute
-					top: -7px
-					right: -7px
-					color: var(--clr-white)
-					+fz(14)
-					line-height: 130%
-		&--mobile-hide
-			+mqMax($md)
-				display: none
-		svg
-			stroke: var(--clr-dark-grey)
-			width: 18px
-			height: 18px
-			transition: var(--transition)
-			+mq($xl)
-				width: 22px
-				height: 22px
-		&--active
-			svg
-				stroke: var(--clr-pink)
-				fill: var(--clr-pink)
+					margin-top: 20px
 	&__search
-		
 		grid-area: search
-		padding-top: 30px
-		width: 100%
-		+mqMax($md)
-			+animation
+		--search-height: 40px
 		+mq($md)
-			padding-top: 0
-			max-width: 230px
-		+mq($xl)
-			max-width: 310px
-			margin-left: auto
-		form
-			position: relative
-			input[type="search"]
-				margin: 0
-				padding: 10px 20px
-				width: 100%
-				border: 1px solid var(--clr-grey-font)
-				border-radius: var(--border-radius)
-				background-color: transparent
-
-				+fz(14)
-				line-height: 130%
-				color: var(--dark-clr-grey-font)
+			--search-height: 47px
+		&-trigger
+			width: var(--search-height)
+			height: var(--search-height)
+			display: flex
+			align-items: center
+			justify-content: center
+			background-color: var(--clr-white-2)
+			border: 1px solid var(--clr-blue)
+			cursor: pointer
+			flex: 0 0 var(--search-height)
+			transition: var(--transition)
+			svg
+				stroke: var(--clr-grey)
 				transition: var(--transition)
-				+mq($md)
-					height: 40px
-					padding: 15px
-				+mq($xl)
-					height: 50px
-					padding: 15px 20px
-				&:placeholder-shown
-					border: 1px solid rgba(56, 56, 56, .5)
-					// opacity: .5
-				&:placeholder
-					font-family: var(--ff-open-sans-light)
-					font-weight: 300
-					+fz(14)
-					line-height: 130%
-					color: var(--clr-grey-font)
-					transition: var(--transition)
-					+mq($md)
-						+fz(16)
-				&:focus, &:active
-					outline: unset
-					border: 1px solid var(--clr-dark-grey-font)
-					color: var(--clr-dark-grey-font)
-					border: 1px solid rgba(56, 56, 56, 1)
-					// opacity: 1
-					&:placeholder
-						color: var(--clr-dark-grey-font)
+			&:hover
+				background-color: var(--clr-blue)
+				border: 1px solid var(--clr-white)
+				svg
+					stroke: var(--clr-white)
+		&-box
+			display: flex
+			align-items: center
+			gap: 20px
+			+mq($xl)
+				max-width: calc(100% / 12 * 10)
+				margin-inline: auto
+		&-popup
+			position: fixed
+			--search-box-height: 80px
+			top: calc(var(--search-box-height) * -1)
+			width: 100vw
+			height: var(--search-box-height)
+			left: 0
+			z-index: 100
+			display: flex
+			align-items: center
+			background-color: var(--clr-white-2)
+			transition: var(--transition)
+			+mq($md)
+				--search-box-height: 120px
+			+mq($xl)
+				--search-box-height: 167px
+			&.active
+				top: 0
+			form
+				// max-width: 240px
+				width: 100%
+				height: var(--search-height)
+				position: relative
+				flex: 1 1 auto
+				input[type="search"]
+					margin: 0
+					padding: 10px 20px 10px calc(18px + 24px + 8px)
+					width: 100%
+					height: var(--search-height)
+					border: 1px solid var(--clr-blue)
+					background-color: var(--clr-white-2)
 
-			input[type="submit"]
-				--size: 20px
-				border: unset
-				background-color: transparent
-				box-shadow: unset
-				background-image: url('../images/icon_search.svg')
-				background-position: center
-				background-size: contain
-				background-repeat: no-repeat
-				width: var(--size)
-				height: var(--size)
-				padding: 0
-				position: absolute
-				right: 20px
-				top: calc(50% - var(--size) / 2)
-				cursor: pointer
-				+mq($md)
-					--size: 12px
-				+mq($xl)
-					--size: 20px
+					+fz(16)
+					line-height: 130%
+					color: var(--clr-grey-light)
+					transition: var(--transition)
+					&:placeholder-shown
+						// border: 1px solid rgba(56, 56, 56, .5)
+						// opacity: .5
+					&:placeholder
+						+fz(16)
+						line-height: 130%
+						color: var(--clr-grey-light)
+						transition: var(--transition)
+					&:focus, &:active
+						outline: unset
+						color: var(--clr-text)
+						&:placeholder
+							color: var(--clr-text)
+
+				input[type="submit"]
+					--size: 24px
+					border: unset
+					background-color: transparent
+					box-shadow: unset
+					background-image: url('../images/icon_search_grey.svg')
+					background-position: center
+					background-size: contain
+					background-repeat: no-repeat
+					width: var(--size)
+					height: var(--size)
+					padding: 0
+					position: absolute
+					left: 22px
+					top: calc(50% - var(--size) / 2)
+					cursor: pointer
+					+mq($md)
+						left: 20px
+					+mq($xl)
+						left: 18px
 	&__contacts
 		grid-area: contacts
-		padding-top: 38px
-		+mqMax($xl)
-			+animation
-		+mq($xl)
+		padding-top: 20px
+		+mq($md)
 			padding-top: 0
-	&__contact
-		display: flex
-		justify-content: center
-		align-content: baseline
-		gap: 4px
-		+mq($xl)
-			justify-content: flex-end
-		&-value, &-note
-			+fz(16)
-			
-			line-height: 22px
-			color: #1C1C1C
-	&__socials
-		grid-area: socials
-		+animation
-		&-list
-			padding-top: 42px
 			display: flex
-			justify-content: center
-			gap: 20px
-		&-item
-			a
-				display: flex
-				align-items: center
-				justify-content: center
-				--icon-size: 40px
-				border-radius: 50%
-				width: var(--icon-size)
-				height: var(--icon-size)
-				background-color: var(--clr-white-font)
-	&__login
-		grid-area: login
-		+mqMax($md)
-			+animation
-		.btn 
-			height: 50px
-			max-width: 156px
+			align-items: center
 			margin-inline: auto
+			gap: 8px
+		+mq($xl)
+			flex-direction: column
+			align-items: flex-start
+			padding-left: 40px
+	&__contact
+		&--blue
+			+fz(16)
+			font-weight: 500
+			color: var(--clr-blue)
+			line-height: 130%
+			text-align: right
 			+mq($md)
-				height: 40px
-			+mq($xl)
-				height: 50px
-
-@keyframes clipPathCircleOpen
-	0%
-		clip-path: circle(0% at top right)
-	100%
-		clip-path: circle(250% at top right)
-
-@keyframes clipPathCircleClose
-	0%
-		clip-path: circle(250% at top right)
-	100%
-		clip-path: circle(0% at top right)
-
-@keyframes appear
-	0%
-		background-color: rgba(255, 255, 255, 0)
-	100%
-		background-color: rgba(255, 255, 255, 1)
-@keyframes disappear
-	0%
-		background-color: rgba(255, 255, 255, 1)
-	100%
-		background-color: rgba(255, 255, 255, 0)
+				text-align: left
+		&--black
+			+fz(14)
+			color: var(--clr-text)
+			display: none
+			+mq($md)
+				display: block

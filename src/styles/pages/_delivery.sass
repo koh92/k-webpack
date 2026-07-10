@@ -1,0 +1,77 @@
+@use '../base/mixins' as *
+@use '../base/breakpoints' as *
+
+.delivery
+    margin-bottom: 80px
+    +mq($xl)
+        margin-bottom: 100px
+    &__subtitle
+        +fz(20)
+        font-weight: 300
+        line-height: 120%
+        margin-bottom: 30px
+        +mq($md)
+            +fz(36)
+    &__grid
+        display: grid
+        gap: 20px
+        +mq($xl)
+            grid-template-columns: repeat(2, 1fr)
+    &__item
+        --padding-right: 80px
+        position: relative
+        padding: 26px
+        background-color: var(--clr-white)
+        +mq($xl)
+            &--column-span
+                grid-column: 1/-1
+                display: grid
+                gap: 20px
+                grid-template-columns: repeat(2, 1fr)
+                .delivery__item-box
+                    padding-left: 26px
+                    padding-right: var(--padding-right)
+        &-name
+            font-family: var(--ff-ex)
+            +fz(26)
+            font-weight: 700
+            line-height: 100%
+            margin-bottom: 20px
+            padding-right: var(--padding-right)
+            +mq($md)
+                +fz(40)
+            +mq($xl)
+                +fz(52)
+        &-icon
+            position: absolute
+            top: 26px
+            right: 26px
+        &-title,
+        &-subtitle
+            line-height: 130%
+            display: flex
+            gap: 10px
+            * + &
+                margin-top: 20px
+            &::before
+                --cube-size: 10px
+                content: ''
+                width: var(--cube-size)
+                height: var(--cube-size)
+                flex: 0 0 var(--cube-size)
+                background-color: var(--clr-blue)
+                position: relative
+                top: 5px
+        &-title
+            +fz(20)
+        &-subtitle
+            +fz(16)
+        &-text
+            +fz(16)
+            font-weight: 300
+            line-height: 130%
+            text-wrap: balance
+            * + &
+                margin-top: 8px
+            p + p
+                margin-top: 5px

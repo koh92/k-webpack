@@ -2,147 +2,74 @@
 @use '../base/breakpoints' as *
 
 .footer
-    padding: 60px 0
-    margin-top: 60px
-    background-color: var(--clr-dark-grey)
-
-    +fz(16)
-    line-height: 150%
-    color: var(--clr-white)
-
+    padding: 80px 0
+    background-color: var(--clr-white-2)
     +mq($md)
-        padding: 65px 0
-        margin-top: 70px
+        --column-gap: 60px
     +mq($xl)
-        padding: 75px 0
-        margin-top: 75px
-    &__grid
+        --column-gap: 85px
+        padding: 100px 0
+    &__top
+        +fz(16)
+        line-height: 130%
+        margin-bottom: 60px
         +mq($md)
             display: grid
-            grid-template-areas: 'logo socials' 'address menu' 'contacts menu' 'bottom-menu subscribe' 'bottom-menu subscribe'
+            grid-template-columns: 135px 1fr
+            gap: 0 140px
         +mq($xl)
-            grid-template-areas: 'logo . socials' 'address menu subscribe' 'contacts menu subscribe' 'bottom-menu bottom-menu bottom-menu'
-            grid-template-columns: 3fr 6fr 3fr
-    &__logo
-        grid-area: logo
-        margin-bottom: 28px
+            grid-template-columns: 3fr 9fr
+            gap: 0 20px
+            margin-bottom: 20px
+    &__box
         +mq($md)
-            margin-bottom: 0
+            display: grid
+            grid-template-columns: 1.5fr 1fr
+            gap: 0 var(--column-gap)
         +mq($xl)
-            margin-bottom: 40px
-        img
-            max-width: 112px
-            +mq($xl)
-                max-width: 170px
-    &__menu
-        grid-area: menu
-        display: grid
-        grid-template-columns: repeat(2, 1fr)
-        gap: 15px 20px
-        margin-bottom: 24px
-        +mq($md)
-            margin-bottom: 37px
-            grid-template-columns: repeat(2, max-content)
-        +mq($xl)
-            grid-template-columns: repeat(2, 1fr)
-        a
-            transition: var(--transition)
-            &:hover
-                color: var(--clr-green)
-    &__address
-        grid-area: address
-        margin-bottom: 34px
-    &__contacts
-        grid-area: contacts
-        margin-bottom: 24px
-        +mq($md)
-            margin-bottom: 37px
-        +mq($xl)
-            margin-bottom: 0
-        a
-            display: block
-            transition: var(--transition)
-            &:hover
-                color: var(--clr-green)
-    &__contact
-        & + &
-            margin-top: 7px
+            grid-template-columns: 2.75fr minmax(210px, 1fr) minmax(150px, 1fr)
+        &-item
+            +mqMax($md)
+                & + &
+                    margin-top: 30px
             +mq($md)
-                margin-top: 17px
-    &__subscribe
-        grid-area: subscribe
+                flex: 1
+    &__logo
+        +mqMax($md)
+            margin-bottom: 30px
+        img
+            max-width: 135px
+    &__menu
+        display: grid
+        grid-template-columns: repeat(2, auto)
+        gap: 15px 32px
         margin-bottom: 30px
         +mq($md)
-            // margin-top: auto
-            margin-bottom: 0
-        &-title
-            margin-bottom: 20px
-        &-form
-            input
-                padding: 12px 20px
-                border-radius: var(--border-radius)
-                border: 1px solid var(--clr-dark-white)
-                background-color: transparent
-                margin-bottom: 20px
-
-                width: 100%
-                max-width: 270px
-                height: 50px
-
-                +fz(16)
-                line-height: 150%
-                color: var(--clr-white-font)
-                &::placeholder
-                    +fz(16)
-                    line-height: 150%
-                    color: var(--clr-white-font)
-                    text-transform: uppercase
-            .btn
-                height: 50px
-                border-radius: var(--border-radius)
-    &__bottom-menu
-        grid-area: bottom-menu
-        margin-bottom: 36px
-        +mq($md)
-            +fz(14)
-            padding-top: 20px
-            margin-bottom: 30px
+            grid-template-columns: 1.5fr 1fr
+            gap: 15px var(--column-gap)
+            grid-column: 1/3
         +mq($xl)
-            display: flex
-            justify-content: space-between
+            grid-template-columns: 2.5fr 1fr
             margin-bottom: 0
-            padding-top: 0
-            margin-top: 52px
-        li + li
-            +mqMax($xl)
-                margin-top: 26px
-        +mq($xl)
-            li:nth-child(3)
-                position: relative
-                left: -15px
-        a
-            transition: var(--transition)
-            &:hover
-                color: var(--clr-green)
-    &__socials
-        grid-area: socials
+            grid-column: unset
+        &-item
+            +fz(16)
+            line-height: 130%
+    &__address
+        margin-bottom: 15px
+    &__contact
+        & + &
+            margin-top: 13px
+    &__bottom
         display: flex
-        justify-content: center
-        gap: 20px
-        +mq($md)
-            justify-content: flex-start
-            margin-bottom: 26px
-        +mq($xl)
-            align-items: center
-            margin-bottom: 40px
-    &__social a
-        --size: 40px
-        width: var(--size)
-        height: var(--size)
-        flex: 0 0 var(--size)
-        +flex-center
-        background-color: var(--clr-dark-white)
-        border-radius: 50%
-    
+        flex-direction: column-reverse
 
-        
+        +fz(14)
+        line-height: 130%
+        color: var(--clr-grey)
+        +mq($md)
+            flex-direction: row
+            justify-content: space-between
+        li + li
+            +mqMax($md)
+                margin-bottom: 10px

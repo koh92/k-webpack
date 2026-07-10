@@ -5,12 +5,11 @@
 	--_clr-background: var(--clr-bg, var(--clr-white))
 	--_clr-font: var(--clr-font, var(--clr-black))
 	--_clr-border: var(--clr-border, transparent)
-	--_border-radius: var(--border-radius, 15px)
+	--_border-radius: var(--border-radius, 0)
 	--_max-width: var(--btn-max-width, fit-content)
-	--_height: var(--btn-heigth, 50px)
+	--_height: var(--btn-height, 50px)
 	+fz(16)
 	font-weight: 400
-	text-transform: uppercase
 	color: var(--_clr-font)
 
 	height: var(--_height)
@@ -22,6 +21,7 @@
 	border-style: solid
 	border-color: var(--_clr-border)
 	border-radius: var(--_border-radius)
+	--border-radius: 0
 
 	display: flex
 	align-items: center
@@ -32,16 +32,43 @@
 
 	&[type="submit"]
 		border: unset
-	&--green
-		--clr-bg: var(--clr-green)
+	&--orange
+		--clr-bg: var(--clr-orange)
+		--clr-font: var(--clr-white)
 		&:hover
-			--clr-bg: var(--clr-green-hover)
+			--clr-bg: var(--clr-orange-hover)
+		&:active
+			--clr-bg: var(--clr-orange-active)
+		&[disabled]
+			--clr-bg: var(--clr-disabled)
 	&--transparent
-		--clr-bg: transparent
-		--clr-border: --dark-grey-color
 		border-width: 1px
+		--clr-bg: transparent
+		--clr-border: var(--clr-orange)
+		--clr-font: var(--clr-grey)
 		&:hover
-			--clr-font: var(--clr-pink)
+			--clr-border: var(--clr-orange-hover)
+		&:active
+			--clr-border: var(--clr-orange-active)
+		&[disabled]
+			--clr-border: var(--clr-disabled)
+	&--clip-icon
+		--clr-border: var(--clr-grey-05)
+		--clr-font: var(--clr-grey-05)
+		padding: 10px 8px 10px 12px
+		white-space: nowrap
+		justify-content: start
+		+mq($md)
+			--btn-max-width: 100%
+		&:hover
+			--clr-border: var(--clr-grey-05)
+		&::before
+			content: ''
+			+box(20px)
+			margin-right: 10px
+			+bg('Images/icon_clip.svg', center, contain)
+			transition: var(--transition)
+	
 
 button
 	background-color: transparent

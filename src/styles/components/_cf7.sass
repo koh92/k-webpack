@@ -2,8 +2,17 @@
 @use '../base/breakpoints' as *
 
 // CF7
-input[name^="acceptance-"]
+// https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors
+span[data-name*="acceptance"] label
+	cursor: pointer
+input[name*="acceptance"]
 	display: none
+input[name*="acceptance"] ~ .wpcf7-list-item-label
+	display: flex
+	align-items: flex-start
+	gap: 10px
+input[name*="acceptance"]:checked ~ .wpcf7-list-item-label .custom-checkbox
+	+bg('Images/icon_tick.svg', center, 16px)
 .wpcf7-list-item
 	margin: 0
 .wpcf7-response-output,
@@ -13,9 +22,10 @@ input[name^="acceptance-"]
 	z-index: -999999
 	visibility: hidden
 	opacity: 0
-.wpcf7-not-valid
+.wpcf7-not-valid.wpcf7-not-valid
+	border: 1px solid var(--clr-orange)
 	&:placeholder-shown
-		border: 1px solid var(--clr-red)
+		border: 1px solid var(--clr-orange)
 		&:not(:focus)::placeholder
 			color: var(--red-color)
 .wpcf7-not-valid-tip
@@ -23,13 +33,15 @@ input[name^="acceptance-"]
 	visibility: hidden
 	height: 0
 	margin-top: 0
-	transition: all .6s
+	transition: var(--transition)
 	display: block
 	+fz(16)
 	line-height: 130%
-	color: var(--clr-red)
+	color: var(--clr-orange)
+
 input
-	&:placeholder-shown
+	&:placeholder-shown,
+	&.wpcf7-not-valid
 		& + .wpcf7-not-valid-tip
 			opacity: 1
 			visibility: visible

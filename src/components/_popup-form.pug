@@ -1,0 +1,21 @@
+form
+    input(type="hidden", class="js-product-input")
+    .form__input
+        input(type="text", placeholder="Имя")
+        //- input.wpcf7-not-valid(type="text", placeholder="Имя")
+        //- span.wpcf7-not-valid-tip(aria-hidden="true") Поле обязательно для заполнения
+    .form__input
+        input(type="email", placeholder="Почта")
+    .form__input
+        input(type="tel", placeholder="Телефон")
+    .form__input
+        textarea(cols="10", rows="10", placeholder="Комментарий")
+    .form__accept
+        span.wpcf7-form-control-wrap(data-name="acceptance-popup")
+            label
+                input(type="checkbox", checked, name="acceptance-popup")
+                span.wpcf7-list-item-label
+                    span.custom-checkbox
+                    span.form__accept-text.noselect Соглашаюсь с 
+                        a(href="policy.html") действующей политикой обработки персональных данных
+    input.form__btn.btn.btn--orange.wpcf7-submit(value="Отправить", readonly) 
