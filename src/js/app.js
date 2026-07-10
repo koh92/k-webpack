@@ -258,6 +258,20 @@ const appHeight = () => {
     document.documentElement.style.setProperty('--safari-100-vh', `${window.innerHeight}px`)
 }
 
+const categoriesSlider = () => {
+    if(document.querySelector('.js-catalog-section-categories-swiper')){
+        // Подключение стрелок навигации, если они лежат не в контейнере слайдера
+        const categoriesSwiper = new Swiper('.js-catalog-section-categories-swiper', {
+            slidesPerView: 'auto', // Кол-во слайдов для показа
+            spaceBetween: 20, // Расстояние между слайдами
+            speed: 800, // Скорость переключения слайдера
+            loop: false, // Зациклить слайдер
+            slideToClickedSlide: true, // Перелистывание на слайд по клику
+            simulateTouch: false, // Иммитировать перелистывание на ПК
+        });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', ()=>{
     appHeight()
 
@@ -271,6 +285,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     // cf7()
 
     accordion()
+
+    categoriesSlider()
 
 	// https://fancyapps.com/fancybox/api/methods/
 	Fancybox.bind("[data-fancybox]", {

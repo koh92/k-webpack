@@ -1,5 +1,5 @@
 mixin img(path, name)
-	img(src= require(path), alt= name, title= name)
+	img(src= require(path), alt="")
 
 mixin source(path, mediaQuery)
 	source(srcset= require(path), media= `(min-width: ${mediaQuery})`)
