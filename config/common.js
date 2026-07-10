@@ -51,7 +51,7 @@ const cssOutputConfig =
 	}
 
 // Добавляем в массив все HTML файлы для копирования
-const htmlPageNames = ['index', 'rooms', 'business', 'banquet', 'restaurant', 'spa', 'sales', 'contacts'];
+const htmlPageNames = ['index'];
 const multipleHtmlPlugins = htmlPageNames.map(name => {
 	return new HtmlWebpackPlugin({
 		filename: `${name}.html`, // output HTML files

@@ -15,6 +15,7 @@
   "devDependencies": {
     "@babel/core": "^7.16.5",
     "@babel/preset-env": "^7.16.5",
+    "@fancyapps/fancybox": "^3.5.7",
     "babel-loader": "^8.2.3",
     "copy-webpack-plugin": "^10.1.0",
     "css-loader": "^6.5.1",
@@ -22,6 +23,7 @@
     "html-webpack-plugin": "^5.5.0",
     "image-webpack-loader": "^8.0.1",
     "imagemin-webpack-plugin": "^2.4.2",
+    "inputmask": "^5.0.7",
     "mini-css-extract-plugin": "^2.4.5",
     "postcss": "^8.4.5",
     "postcss-loader": "^6.2.1",

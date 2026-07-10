@@ -8,6 +8,14 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+<!-- 
+	<link
+  rel="stylesheet"
+  href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+/>
+
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script> -->
+
 
 </head>
 <body>
@@ -25,14 +33,13 @@
 								</svg>
 							</a>
 						</li>
-						<li class="header__contact-item">
+						<!-- <li class="header__contact-item">
 							<a href="#">
-								<!-- <img src="./images/whatsapp.svg" alt="WhatsApp"> -->
 								<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M9.00225 0H8.99775C4.03538 0 0 4.0365 0 9C0 10.9688 0.6345 12.7935 1.71338 14.2751L0.59175 17.6186L4.05113 16.5128C5.47425 17.4555 7.17188 18 9.00225 18C13.9646 18 18 13.9624 18 9C18 4.03763 13.9646 0 9.00225 0ZM14.2391 12.7091C14.022 13.3223 13.1603 13.8307 12.4729 13.9792C12.0026 14.0794 11.3884 14.1593 9.32062 13.302C6.67575 12.2063 4.9725 9.51863 4.83975 9.34425C4.71263 9.16988 3.771 7.92113 3.771 6.62963C3.771 5.33813 4.42688 4.70925 4.69125 4.43925C4.90838 4.21763 5.26725 4.11637 5.6115 4.11637C5.72287 4.11637 5.823 4.122 5.913 4.1265C6.17737 4.13775 6.31012 4.1535 6.4845 4.57088C6.70162 5.094 7.23037 6.3855 7.29338 6.51825C7.3575 6.651 7.42163 6.831 7.33163 7.00538C7.24725 7.18538 7.173 7.26525 7.04025 7.41825C6.9075 7.57125 6.7815 7.68825 6.64875 7.8525C6.52725 7.99537 6.39 8.14838 6.543 8.41275C6.696 8.6715 7.22475 9.53437 8.00325 10.2274C9.00788 11.1217 9.82238 11.4075 10.1138 11.529C10.3309 11.619 10.5896 11.5976 10.7483 11.4289C10.9496 11.2118 11.1983 10.8518 11.4514 10.4974C11.6314 10.2431 11.8586 10.2116 12.0971 10.3016C12.3401 10.386 13.626 11.0216 13.8904 11.1532C14.1548 11.286 14.3291 11.349 14.3933 11.4604C14.4563 11.5718 14.4562 12.0949 14.2391 12.7091Z"/>
 								</svg>
 							</a>
-						</li>
+						</li> -->
 					</ul>
 				</div>
                 <div class="header__tel">
@@ -78,7 +85,7 @@
 					</a>
 				</div>
                 <div class="header__btns">
-                    <a href="#" class="header__btn btn btn--colored">
+                    <a href="#" class="header__btn btn btn--colored js-fancybox-trigger">
                         Забронировать
                     </a>
                 </div>
@@ -107,11 +114,12 @@
 						Villa Italy <br> Boutique-hotel
 					</h1>
 					<div class="hero__subtitle wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s">
-						По-итальянски роскошно.<br> По-домашнему уютно.
+						<!-- По-итальянски роскошно.<br> По-домашнему уютно. -->
+						По-итальянски роскошно,<br> по-домашнему уютно
 					</div>
-					<div class="hero__booking wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">
-						<div class="hero__booking-title">Выбрать дату</div>
-						<div class="hero__booking-frame">
+					<div class="booking booking--hero wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">
+						<div class="booking__title">Выбрать дату</div>
+						<div class="booking__frame">
 							<!-- <picture>
  								<source srcset="images/booking_frame.png" media="(min-width: 992px)" >
 								<source srcset="images/booking_frame768.png 768w" media="(min-width: 768px)">
@@ -127,7 +135,7 @@
                 <ul class="testimonials__list">
                     <li class="testimonials__item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.25s">
                         <div class="testimonials__item-icon">
-                            <img src="./images/icon_map_pin.png" alt="Map pin">
+                            <img src="./images/icon_map_pin.svg" alt="Map pin">
                         </div>
                         <div class="testimonials__item-desc">
                             <div class="testimonials__item-name">Центр Краснодара</div>
@@ -136,7 +144,7 @@
                     </li>
                     <li class="testimonials__item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s">
                         <div class="testimonials__item-icon">
-                            <img src="./images/icon_bed.png" alt="Bed">
+                            <img src="./images/icon_bed.svg" alt="Bed">
                         </div>
                         <div class="testimonials__item-desc">
                             <div class="testimonials__item-name">Номерной фонд</div>
@@ -145,7 +153,7 @@
                     </li>
                     <li class="testimonials__item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.75s">
                         <div class="testimonials__item-icon">
-                            <img src="./images/icon_build.png" alt="Building">
+                            <img src="./images/icon_build.svg" alt="Building">
                         </div>
                         <div class="testimonials__item-desc">
                             <div class="testimonials__item-name">Консьерж-сервис</div>
@@ -154,7 +162,7 @@
                     </li>
                     <li class="testimonials__item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">
                         <div class="testimonials__item-icon">
-                            <img src="./images/icon_coffee.png" alt="Coffee">
+                            <img src="./images/icon_coffee.svg" alt="Coffee">
                         </div>
                         <div class="testimonials__item-desc">
                             <div class="testimonials__item-name">Ресторан и SPA</div>
@@ -165,7 +173,7 @@
             </div>
         </section>
         <section class="rooms">
-            <div class="container">
+            <!-- <div class="container1"> -->
                 <div class="rooms__title block-with-line-mobile wow fadeInUp">Уникальные дизайнерские интерьеры <br>и высокий уровень внимания к комфорту гостя</div>
                 <div class="rooms__slider js-rooms-swiper">
                     <ul class="rooms__list swiper-wrapper">
@@ -174,45 +182,48 @@
                                 <div class="rooms__left">
                                     <div class="rooms__left-inner">
                                         <div class="rooms__name">
-                                            Стандарт
+                                            Standart
                                         </div>
-                                        <div class="rooms__image rooms__image--left" style="background-image: url('./images/room_2.jpg');">
+                                        <!-- <div class="rooms__image rooms__image--left" style="background-image: url('./images/room_2.jpg');"> -->
+                                        <div class="rooms__image rooms__image--left" style="background-image: url('./images/rooms/standart.jpg');">
                                         </div>
                                         <div class="rooms__desc">
                                             Стандарт качества и гостеприимства. Уютные номера со всем необходимым путешественнику: от мягкого халата до мини-бара.
                                         </div>
                                         <div class="rooms__btns">
-                                            <a href="#" class="btn btn--colored rooms__btn">Подробнее</a>
-                                            <a href="rooms.html" class="btn btn--transparent-black rooms__btn">Все номера</a>
+                                            <a href="rooms-inner-standart.html" class="btn btn--transparent-black rooms__btn">Подробнее</a>
+                                            <a href="#" class="btn btn--colored rooms__btn">Забронировать</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="rooms__right">
-                                    <div class="rooms__image rooms__image--right" style="background-image: url('./images/room_2.jpg');">
+                                    <div class="rooms__image rooms__image--right" style="background-image: url('./images/rooms/standart.jpg');">
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li class="swiper-slide">
                             <div class="rooms__item">
-                                <div class="rooms__left wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">
+                                <!-- <div class="rooms__left wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s"> -->
+                                <div class="rooms__left">
                                     <div class="rooms__left-inner">
                                         <div class="rooms__name">
-                                            Полулюкс
+                                            De Luxe
                                         </div>
-                                        <div class="rooms__image rooms__image--left" style="background-image: url('./images/room_1.jpg');">
+                                        <div class="rooms__image rooms__image--left" style="background-image: url('./images/rooms/de_luxe.jpg');">
                                         </div>
                                         <div class="rooms__desc">
                                             Просторные номера повышенной комфортности с итальянскими двуспальными кроватями и полной комплектацией для спокойного отдыха
                                         </div>
                                         <div class="rooms__btns">
-                                            <a href="#" class="btn btn--colored rooms__btn">Подробнее</a>
-                                            <a href="rooms.html" class="btn btn--transparent-black rooms__btn">Все номера</a>
+                                            <a href="rooms-inner-de-luxe.html" class="btn btn--transparent-black rooms__btn">Подробнее</a>
+                                            <a href="#" class="btn btn--colored rooms__btn">Забронировать</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="rooms__right">
-                                    <div class="rooms__image rooms__image--right wow bounceInRight" data-wow-duration="1.5s" style="background-image: url('./images/room_1.jpg');">
+                                    <!-- <div class="rooms__image rooms__image--right wow bounceInRight" data-wow-duration="1.5s" style="background-image: url('./images/rooms/de_luxe.jpg');"> -->
+                                    <div class="rooms__image rooms__image--right" style="background-image: url('./images/rooms/de_luxe.jpg');">
                                     </div>
                                 </div>
                             </div>
@@ -222,21 +233,21 @@
                                 <div class="rooms__left">
                                     <div class="rooms__left-inner">
                                         <div class="rooms__name">
-                                            Люкс
+                                            Luxe
                                         </div>
-                                        <div class="rooms__image rooms__image--left" style="background-image: url('./images/room_3.jpg');">
+                                        <div class="rooms__image rooms__image--left" style="background-image: url('./images/rooms/luxe.jpg');">
                                         </div>
                                         <div class="rooms__desc">
-                                            Тематические номера с уникальными дизайнерскими интерьерами и мебелью. Пользуются популярностью для отдыха вдвоём и деловых поездок. В стоимость входит работа консьерж-сервиса и SPA.
+                                            Тематические номера с уникальными дизайнерскими интерьерами и мебелью. Пользуются популярностью для отдыха вдвоём и деловых поездок. В стоимость входит работа службы заботы о госте и SPA.
                                         </div>
                                         <div class="rooms__btns">
-                                            <a href="#" class="btn btn--colored rooms__btn">Подробнее</a>
-                                            <a href="rooms.html" class="btn btn--transparent-black rooms__btn">Все номера</a>
+                                            <a href="rooms-inner-luxe.html" class="btn btn--transparent-black rooms__btn">Подробнее</a>
+                                            <a href="#" class="btn btn--colored rooms__btn">Забронировать</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="rooms__right rooms__image--right">
-                                    <div class="rooms__image" style="background-image: url('./images/room_3.jpg');">
+                                    <div class="rooms__image" style="background-image: url('./images/rooms/luxe.jpg');">
                                     </div>
                                 </div>
                             </div>
@@ -246,21 +257,21 @@
                                 <div class="rooms__left">
                                     <div class="rooms__left-inner">
                                         <div class="rooms__name">
-                                            Королевский люкс
+                                            Royal Suite
                                         </div>
-                                        <div class="rooms__image rooms__image--left" style="background-image: url('./images/room_4.jpg');">
+                                        <div class="rooms__image rooms__image--left" style="background-image: url('./images/rooms/royal_suite.jpg');">
                                         </div>
                                         <div class="rooms__desc">
                                             Гордость виллы — королевские дизайнерские номера. Пользуются популярностью среди молодожёнов как пространства для предсвадебной фотосессии и утренних сборов жениха и невесты. Подходят для искателей новых впечатлений от гостиничного отдыха. В стоимость входит завтрак на двоих и SPA.
                                         </div>
                                         <div class="rooms__btns">
-                                            <a href="#" class="btn btn--colored rooms__btn">Подробнее</a>
-                                            <a href="rooms.html" class="btn btn--transparent-black rooms__btn">Все номера</a>
+                                            <a href="rooms-inner-royal-suite.html" class="btn btn--transparent-black rooms__btn">Подробнее</a>
+                                            <a href="#" class="btn btn--colored rooms__btn">Забронировать</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="rooms__right rooms__image--right">
-                                    <div class="rooms__image" style="background-image: url('./images/room_4.jpg');">
+                                    <div class="rooms__image" style="background-image: url('./images/rooms/royal_suite.jpg');">
                                     </div>
                                 </div>
                             </div>
@@ -268,22 +279,24 @@
                     </ul>
                     <!-- If we need pagination -->
                     <div class="rooms__pagination">
-                        <div class="rooms__pagination-wrapper">
-                            <div class="js-rooms-prev swiper-button-room swiper-button-room-prev">
-                                <svg width="25" height="12" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0.505026 5.50539C0.231659 5.77876 0.231659 6.22197 0.505026 6.49534L4.9598 10.9501C5.23317 11.2235 5.67638 11.2235 5.94975 10.9501C6.22311 10.6767 6.22311 10.2335 5.94975 9.96016L1.98995 6.00037L5.94975 2.04057C6.22311 1.7672 6.22311 1.32399 5.94975 1.05062C5.67638 0.777252 5.23317 0.777252 4.9598 1.05062L0.505026 5.50539ZM25 5.30037H1V6.70037H25V5.30037Z"/>
-                                </svg>
-                            </div>
-                            <div class="js-rooms-pagination swiper-pagination--rooms"></div>
-                            <div class="js-rooms-next swiper-button-room swiper-button-room-next">
-                                <svg width="25" height="12" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M24.495 6.49498C24.7683 6.22161 24.7683 5.77839 24.495 5.50503L20.0402 1.05025C19.7668 0.776887 19.3236 0.776887 19.0503 1.05025C18.7769 1.32362 18.7769 1.76684 19.0503 2.0402L23.01 6L19.0503 9.9598C18.7769 10.2332 18.7769 10.6764 19.0503 10.9497C19.3236 11.2231 19.7668 11.2231 20.0402 10.9497L24.495 6.49498ZM-6.11959e-08 6.7L24 6.7L24 5.3L6.11959e-08 5.3L-6.11959e-08 6.7Z"/>
-                                </svg>
-                            </div>
+                    	<div class="container">
+	                        <div class="rooms__pagination-wrapper">
+	                            <div class="js-rooms-prev swiper-button-room swiper-button-room-prev">
+	                                <svg width="25" height="12" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+	                                    <path d="M0.505026 5.50539C0.231659 5.77876 0.231659 6.22197 0.505026 6.49534L4.9598 10.9501C5.23317 11.2235 5.67638 11.2235 5.94975 10.9501C6.22311 10.6767 6.22311 10.2335 5.94975 9.96016L1.98995 6.00037L5.94975 2.04057C6.22311 1.7672 6.22311 1.32399 5.94975 1.05062C5.67638 0.777252 5.23317 0.777252 4.9598 1.05062L0.505026 5.50539ZM25 5.30037H1V6.70037H25V5.30037Z"/>
+	                                </svg>
+	                            </div>
+	                            <div class="js-rooms-pagination swiper-pagination--rooms"></div>
+	                            <div class="js-rooms-next swiper-button-room swiper-button-room-next">
+	                                <svg width="25" height="12" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+	                                    <path d="M24.495 6.49498C24.7683 6.22161 24.7683 5.77839 24.495 5.50503L20.0402 1.05025C19.7668 0.776887 19.3236 0.776887 19.0503 1.05025C18.7769 1.32362 18.7769 1.76684 19.0503 2.0402L23.01 6L19.0503 9.9598C18.7769 10.2332 18.7769 10.6764 19.0503 10.9497C19.3236 11.2231 19.7668 11.2231 20.0402 10.9497L24.495 6.49498ZM-6.11959e-08 6.7L24 6.7L24 5.3L6.11959e-08 5.3L-6.11959e-08 6.7Z"/>
+	                                </svg>
+	                            </div>
+	                        </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <!-- </div> -->
         </section>
         <section class="likes">
             <div class="container">
@@ -309,7 +322,7 @@
 	                        <div class="likes__desc">
 	                            Утро жениха и невесты в фотогеничном люксе, банкетный зал, 900 метров до Екатерининского зала. Выгодные спецпредложения для молодожёнов.
 	                        </div>
-	                        <a href="#" class="btn btn--transparent-white likes__btn">Подробнее</a>
+	                        <a href="banquet.html" class="btn btn--transparent-white likes__btn">Подробнее</a>
 	                        <span class="likes__arrow likes__arrow-bottom js-likes-toggler">
 								<svg>
 								    <use xlink:href="#arrow_down"/>
@@ -330,7 +343,7 @@
 	                        <div class="likes__desc">
 	                            Встреча с партнёрами в оборудованной переговорной, кофе-брейк, презентация в конференц-зале, отдых в SPA после мероприятия.
 	                        </div>
-	                        <a href="#" class="btn btn--transparent-white likes__btn">Подробнее</a>
+	                        <a href="business.html" class="btn btn--transparent-white likes__btn">Подробнее</a>
 	                        <span class="likes__arrow likes__arrow-bottom js-likes-toggler">
 								<svg>
 								    <use xlink:href="#arrow_down"/>
@@ -351,7 +364,7 @@
 	                        <div class="likes__desc">
 	                            Пешая прогулка по главной исторической улице города, ужин в ресторане традиционной итальянской кухни, отдых в камерной атмосфере отеля.
 	                        </div>
-	                        <a href="#" class="btn btn--transparent-white likes__btn">Подробнее</a>
+	                        <a href="#" class="btn btn--transparent-white likes__btn" style="visibility: hidden; opacity: 0;">Подробнее</a>
 	                        <span class="likes__arrow likes__arrow-bottom js-likes-toggler">
 								<svg>
 								    <use xlink:href="#arrow_down"/>
@@ -372,7 +385,7 @@
 	                        <div class="likes__desc">
 	                            Проживание в концептуальных номерах с люксовой мебелью от известных дизайнеров, коллекция картин итальянского художника Риполля, и забота консьерж-сервиса
 	                        </div>
-	                        <a href="#" class="btn btn--transparent-white likes__btn">Подробнее</a>
+	                        <a href="#" class="btn btn--transparent-white likes__btn" style="visibility: hidden; opacity: 0;">Подробнее</a>
 	                        <span class="likes__arrow likes__arrow-bottom js-likes-toggler">
 								<svg>
 								    <use xlink:href="#arrow_down"/>
@@ -420,7 +433,7 @@
 		        			<p>Для деловых встреч и работы будем рады предложить оборудованную переговорную на 6 человек.</p>
 		        		</div>
                         <div class="wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.6s">
-		        		    <a href="#" class="info__btn btn btn--transparent-black">Подробнее</a>
+		        		    <a href="business.html" class="info__btn btn btn--transparent-black">Подробнее</a>
                         </div>
 	        		</div>
 	        		<div class="info__right">
@@ -463,7 +476,7 @@
 		        		<div class="info__desc wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s">
 		        			<p>Пространство для релаксации тела и души:<br> финская парная, бассейн с подсветкой, подогревом и водопадом, комната отдыха. Идеальное место для совместного отдыха, восстановления после дороги, долгих прогулок или сложной рабочей недели.</p>
 							<p>Парная прогревается до 95 градусов, бассейн имеет пологое дно, максимальная глубина — 160 см. </p>
-							<p>Особые условия для гостей отеля</p>
+							<p>Особые условия для гостей отеля.</p>
 		        		</div>
                         <div class="wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.6s">
 		        		    <a href="spa.html" class="info__btn btn btn--transparent-black">Подробнее</a>
@@ -480,43 +493,50 @@
         		<div class="info__inner">
 	        		<div class="info__left1">
 	        			<div class="info__title wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.25s">
-		        			Консьерж-сервис
+		        			Служба заботы о госте
 		        		</div>
 		        		<div class="info__desc wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s">
 		        			<p>
+		        				Возьмём на себя организацию бытовых дел и досуга, составим туристический маршрут по достопримечательностям города, организуем ужин, обеспечим билетами в театр и закажем трансфер.
+		        			</p>
+		        			<p>
+		        				Служба заботы о госте — это служба исполнения желаний постояльцев.<br>
+		        				Мы воспитываем культуру безукоризненного сервиса на всех уровнях работы.
+		        			</p>
+		        			<!-- <p>
 		        				Исторически консьержи служили в замках, а затем появились в именитых гостиницах.<br> 
 		        				Они берут на себя организацию бытовых дел и досуга гостя, например, составят туристический маршрут по достопримечательностям города, забронируют столик в ресторане или обеспечат билетами в театр.
 		        			</p>
 		        			<p>
 		        				Если коротко, то: служба консьержей — это служба исполнения желаний постояльцев.<br>
 								Мы воспитываем культуру безукоризненного сервиса на всех уровнях работы.
-							</p>
+							</p> -->
 		        		</div>
-                        <div class="wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.6s">
+                        <!-- <div class="wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.6s">
 		        		    <a href="#" class="info__btn btn btn--transparent-black">Подробнее</a>
-                        </div>
+                        </div> -->
 	        		</div>
         		</div>
         	</div>
         </section>
-        <section class="sales">
+        <section class="sales sales--tree">
         	<div class="container">
         		<div class="sales__title">
         			Спецпредложения
         		</div>
         		<ul class="sales__list">
-        			<li class="sales__item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.25s" style="background-image: url('./images/sale_1.jpg');">
+        			<li class="sales__item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.25s" style="background-image: linear-gradient(180deg, rgba(71, 37, 38, 0.7056) 0%, rgba(60, 33, 33, 0.84) 100%), url('./images/sales/weekend.jpg');">
         				<div class="sales__name">
-        					Уикенд  для двоих
+        					Выходные для двоих
         				</div>
         				<div class="sales__desc">
         					Отдых в Villa Italy - прекрасный подарок <br>для самых любимых
         				</div>
         				<div class="sales__btn-wrap">
-        					<a href="#" class="sales__btn btn btn--transparent-white">Забронировать</a>
+        					<a href="sales.html#section-weekend" class="sales__btn btn btn--transparent-white">Подробнее</a>
         				</div>
         			</li>
-        			<li class="sales__item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s" style="background-image: url('./images/sale_2.jpg');">
+        			<li class="sales__item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s" style="background-image: linear-gradient(180deg, rgba(71, 37, 38, 0.7056) 0%, rgba(60, 33, 33, 0.84) 100%), url('./images/sales/sert.jpg');">
         				<div class="sales__name">
         					Подарочный сертификат
         				</div>
@@ -524,10 +544,10 @@
         					Отдых в Villa Italy - прекрасный подарок <br>для самых любимых
         				</div>
         				<div class="sales__btn-wrap">
-        					<a href="#" class="sales__btn btn btn--transparent-white">Забронировать</a>
+        					<a href="sales.html#section-sert" class="sales__btn btn btn--transparent-white">Подробнее</a>
         				</div>
         			</li>
-        			<li class="sales__item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.7s" style="background-image: url('./images/sale_3.jpg');">
+        			<!-- <li class="sales__item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.7s" style="background-image: linear-gradient(180deg, rgba(71, 37, 38, 0.7056) 0%, rgba(60, 33, 33, 0.84) 100%), url('./images/sales/.jpg');">
         				<div class="sales__name">
         					Предложение выходного дня
         				</div>
@@ -535,14 +555,25 @@
         					Подарки при бронировании проживания <br>в выходные дни
         				</div>
         				<div class="sales__btn-wrap">
-        					<a href="#" class="sales__btn btn btn--transparent-white">Забронировать</a>
+        					<a href="#" class="sales__btn btn btn--transparent-white">Подробнее</a>
+        				</div>
+        			</li> -->
+        			<li class="sales__item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.7s" style="background-image: linear-gradient(180deg, rgba(71, 37, 38, 0.7056) 0%, rgba(60, 33, 33, 0.84) 100%), url('./images/sales/spa.jpg');">
+        				<div class="sales__name">
+        					1 час SPA в подарок!
+        				</div>
+        				<div class="sales__desc">
+        					При бронировании номеров “Люкс” или “Королевский люкс”
+        				</div>
+        				<div class="sales__btn-wrap">
+        					<a href="sales.html#section-spa" class="sales__btn btn btn--transparent-white">Подробнее</a>
         				</div>
         			</li>
         		</ul>
         	</div>
         </section>
 	</main>
-	<!-- Main::Start-->
+	<!-- Main::End-->
 
 	<!-- Footer::Start-->
 	<footer>
@@ -562,29 +593,29 @@
 				<div class="footer__col footer__col--menu-left">
 					<ul class="footer__menu">
 						<li>
-							<a href="#">Номера</a>
+							<a href="rooms.html">Номера</a>
 						</li>
 						<li>
-							<a href="#">Для бизнеса</a>
+							<a href="business.html">Для бизнеса</a>
 						</li>
 						<li>
-							<a href="#">Банкетный зал</a>
+							<a href="banquet.html">Банкетный зал</a>
 						</li>
 						<li>
-							<a href="#">Ресторан</a>
+							<a href="restaurant.html">Ресторан</a>
 						</li>
 					</ul>
 				</div>
 				<div class="footer__col footer__col--menu-right">
 					<ul class="footer__menu">
 						<li>
-							<a href="#">Зона SPA</a>
+							<a href="spa.html">Зона SPA</a>
 						</li>
 						<li>
-							<a href="#">Спецпредложения</a>
+							<a href="sales.html">Спецпредложения</a>
 						</li>
 						<li>
-							<a href="#">Контакты</a>
+							<a href="contacts.html">Контакты</a>
 						</li>
 					</ul>
 				</div>
@@ -594,10 +625,7 @@
 							<a href="#">Политика конфиденциальности</a>
 						</li>
 						<li>
-							<a href="#">Пользовательское соглашение</a>
-						</li>
-						<li>
-							<a href="#">Документы</a>
+							<a href="#">Правила проживания</a>
 						</li>
 					</ul>
 				</div>
@@ -620,19 +648,201 @@
 									</svg>
 								</a>
 							</li>
-							<li class="footer__contact-item">
+							<!-- <li class="footer__contact-item">
 								<a href="#">
 									<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M9.00225 0H8.99775C4.03538 0 0 4.0365 0 9C0 10.9688 0.6345 12.7935 1.71338 14.2751L0.59175 17.6186L4.05113 16.5128C5.47425 17.4555 7.17188 18 9.00225 18C13.9646 18 18 13.9624 18 9C18 4.03763 13.9646 0 9.00225 0ZM14.2391 12.7091C14.022 13.3223 13.1603 13.8307 12.4729 13.9792C12.0026 14.0794 11.3884 14.1593 9.32062 13.302C6.67575 12.2063 4.9725 9.51863 4.83975 9.34425C4.71263 9.16988 3.771 7.92113 3.771 6.62963C3.771 5.33813 4.42688 4.70925 4.69125 4.43925C4.90838 4.21763 5.26725 4.11637 5.6115 4.11637C5.72287 4.11637 5.823 4.122 5.913 4.1265C6.17737 4.13775 6.31012 4.1535 6.4845 4.57088C6.70162 5.094 7.23037 6.3855 7.29338 6.51825C7.3575 6.651 7.42163 6.831 7.33163 7.00538C7.24725 7.18538 7.173 7.26525 7.04025 7.41825C6.9075 7.57125 6.7815 7.68825 6.64875 7.8525C6.52725 7.99537 6.39 8.14838 6.543 8.41275C6.696 8.6715 7.22475 9.53437 8.00325 10.2274C9.00788 11.1217 9.82238 11.4075 10.1138 11.529C10.3309 11.619 10.5896 11.5976 10.7483 11.4289C10.9496 11.2118 11.1983 10.8518 11.4514 10.4974C11.6314 10.2431 11.8586 10.2116 12.0971 10.3016C12.3401 10.386 13.626 11.0216 13.8904 11.1532C14.1548 11.286 14.3291 11.349 14.3933 11.4604C14.4563 11.5718 14.4562 12.0949 14.2391 12.7091Z"/>
 									</svg>
 								</a>
-							</li>
+							</li> -->
 						</ul>
 					</div>
 				</div>
 			</div>
+		</div> 
+		<!-- Scrol Top -->
+		<div class="scroll-top js-scroll-top">
+			<svg width="10" height="22" viewBox="0 0 10 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M4.4 21C4.4 21.3314 4.66863 21.6 5 21.6C5.33137 21.6 5.6 21.3314 5.6 21L4.4 21ZM5.42426 0.575735C5.18995 0.341421 4.81005 0.341421 4.57574 0.575735L0.75736 4.39411C0.523045 4.62843 0.523045 5.00833 0.75736 5.24264C0.991675 5.47696 1.37157 5.47696 1.60589 5.24264L5 1.84853L8.39411 5.24264C8.62843 5.47696 9.00833 5.47696 9.24264 5.24264C9.47696 5.00833 9.47696 4.62843 9.24264 4.39411L5.42426 0.575735ZM5.6 21L5.6 11L4.4 11L4.4 21L5.6 21ZM5.6 11L5.6 1L4.4 1L4.4 11L5.6 11Z"/>
+			</svg>
 		</div>
+		<!-- Scrol Top -->
+
+		<!-- Booking label -->
+		<div class="booking-label" data-fancybox data-src="#js-calc-popup">
+			<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M12.9169 6.24984L15.8336 3.33317M17.5002 1.6665L15.8336 3.33317L17.5002 1.6665ZM9.4919 9.67484C9.92218 10.0994 10.2642 10.6049 10.4984 11.1622C10.7325 11.7195 10.8541 12.3176 10.8561 12.922C10.8581 13.5265 10.7405 14.1254 10.5102 14.6843C10.2798 15.2431 9.94111 15.7509 9.51368 16.1783C9.08625 16.6057 8.5785 16.9444 8.01965 17.1748C7.4608 17.4052 6.86189 17.5227 6.25742 17.5207C5.65295 17.5187 5.05485 17.3971 4.49755 17.163C3.94026 16.9288 3.43478 16.5868 3.01023 16.1565C2.17534 15.2921 1.71336 14.1343 1.72381 12.9326C1.73425 11.7308 2.21627 10.5813 3.06606 9.7315C3.91585 8.88172 5.0654 8.39969 6.26714 8.38925C7.46887 8.37881 8.62663 8.84078 9.49106 9.67567L9.4919 9.67484ZM9.4919 9.67484L12.9169 6.24984L9.4919 9.67484ZM12.9169 6.24984L15.4169 8.74984L18.3336 5.83317L15.8336 3.33317L12.9169 6.24984Z" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+			</svg>
+			<div class="booking-label__text">
+				Забронировать
+			</div>
+		</div>
+		<!-- Booking label -->
+
 	</footer>
-	<!-- Footer::Start-->
+	<!-- Footer::End-->
+
+	<!-- Popups::Start-->
+	<svg height="0" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<g id="close_popup_icon" >
+			<!-- <path d="M13.4099 12.0002L19.7099 5.71019C19.8982 5.52188 20.004 5.26649 20.004 5.00019C20.004 4.73388 19.8982 4.47849 19.7099 4.29019C19.5216 4.10188 19.2662 3.99609 18.9999 3.99609C18.7336 3.99609 18.4782 4.10188 18.2899 4.29019L11.9999 10.5902L5.70994 4.29019C5.52164 4.10188 5.26624 3.99609 4.99994 3.99609C4.73364 3.99609 4.47824 4.10188 4.28994 4.29019C4.10164 4.47849 3.99585 4.73388 3.99585 5.00019C3.99585 5.26649 4.10164 5.52188 4.28994 5.71019L10.5899 12.0002L4.28994 18.2902C4.19621 18.3831 4.12182 18.4937 4.07105 18.6156C4.02028 18.7375 3.99414 18.8682 3.99414 19.0002C3.99414 19.1322 4.02028 19.2629 4.07105 19.3848C4.12182 19.5066 4.19621 19.6172 4.28994 19.7102C4.3829 19.8039 4.4935 19.8783 4.61536 19.9291C4.73722 19.9798 4.86793 20.006 4.99994 20.006C5.13195 20.006 5.26266 19.9798 5.38452 19.9291C5.50638 19.8783 5.61698 19.8039 5.70994 19.7102L11.9999 13.4102L18.2899 19.7102C18.3829 19.8039 18.4935 19.8783 18.6154 19.9291C18.7372 19.9798 18.8679 20.006 18.9999 20.006C19.132 20.006 19.2627 19.9798 19.3845 19.9291C19.5064 19.8783 19.617 19.8039 19.7099 19.7102C19.8037 19.6172 19.8781 19.5066 19.9288 19.3848C19.9796 19.2629 20.0057 19.1322 20.0057 19.0002C20.0057 18.8682 19.9796 18.7375 19.9288 18.6156C19.8781 18.4937 19.8037 18.3831 19.7099 18.2902L13.4099 12.0002Z"/> -->
+			<path d="M10.4099 9.00019L16.7099 2.71019C16.8982 2.52188 17.004 2.26649 17.004 2.00019C17.004 1.73388 16.8982 1.47849 16.7099 1.29019C16.5216 1.10188 16.2662 0.996094 15.9999 0.996094C15.7336 0.996094 15.4782 1.10188 15.2899 1.29019L8.99994 7.59019L2.70994 1.29019C2.52164 1.10188 2.26624 0.996094 1.99994 0.996094C1.73364 0.996094 1.47824 1.10188 1.28994 1.29019C1.10164 1.47849 0.995847 1.73388 0.995847 2.00019C0.995847 2.26649 1.10164 2.52188 1.28994 2.71019L7.58994 9.00019L1.28994 15.2902C1.19621 15.3831 1.12182 15.4937 1.07105 15.6156C1.02028 15.7375 0.994141 15.8682 0.994141 16.0002C0.994141 16.1322 1.02028 16.2629 1.07105 16.3848C1.12182 16.5066 1.19621 16.6172 1.28994 16.7102C1.3829 16.8039 1.4935 16.8783 1.61536 16.9291C1.73722 16.9798 1.86793 17.006 1.99994 17.006C2.13195 17.006 2.26266 16.9798 2.38452 16.9291C2.50638 16.8783 2.61698 16.8039 2.70994 16.7102L8.99994 10.4102L15.2899 16.7102C15.3829 16.8039 15.4935 16.8783 15.6154 16.9291C15.7372 16.9798 15.8679 17.006 15.9999 17.006C16.132 17.006 16.2627 16.9798 16.3845 16.9291C16.5064 16.8783 16.617 16.8039 16.7099 16.7102C16.8037 16.6172 16.8781 16.5066 16.9288 16.3848C16.9796 16.2629 17.0057 16.1322 17.0057 16.0002C17.0057 15.8682 16.9796 15.7375 16.9288 15.6156C16.8781 15.4937 16.8037 15.3831 16.7099 15.2902L10.4099 9.00019Z"/>
+		</g>
+	</svg>
+
+	<!-- Cookie -->
+	<div class="js-popup-cookie popup__cookie">
+		<div class="popup__cookie-text">
+			Используя данный веб-сайт, вы даете согласие на обработку файлов cookie с целью улучшения сервиса и предложений на основе ваших предпочтений и интересов.
+		</div>
+		<a href="javascript:void(0);" class="btn btn--transparent-black popup__cookie-btn js-btn-accept">Я согласен</a>
+		<a href="javascript:void(0);" class="popup__close popup__close--small js-btn-close">
+			<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M6.70497 6.00009L9.85497 2.85509C9.94912 2.76094 10.002 2.63324 10.002 2.50009C10.002 2.36694 9.94912 2.23924 9.85497 2.14509C9.76082 2.05094 9.63312 1.99805 9.49997 1.99805C9.36682 1.99805 9.23912 2.05094 9.14497 2.14509L5.99997 5.29509L2.85497 2.14509C2.76082 2.05094 2.63312 1.99805 2.49997 1.99805C2.36682 1.99805 2.23912 2.05094 2.14497 2.14509C2.05082 2.23924 1.99792 2.36694 1.99792 2.50009C1.99792 2.63324 2.05082 2.76094 2.14497 2.85509L5.29497 6.00009L2.14497 9.14509C2.09811 9.19157 2.06091 9.24687 2.03552 9.3078C2.01014 9.36873 1.99707 9.43409 1.99707 9.50009C1.99707 9.5661 2.01014 9.63145 2.03552 9.69238C2.06091 9.75331 2.09811 9.80861 2.14497 9.85509C2.19145 9.90196 2.24675 9.93915 2.30768 9.96454C2.36861 9.98992 2.43396 10.003 2.49997 10.003C2.56598 10.003 2.63133 9.98992 2.69226 9.96454C2.75319 9.93915 2.80849 9.90196 2.85497 9.85509L5.99997 6.70509L9.14497 9.85509C9.19145 9.90196 9.24675 9.93915 9.30768 9.96454C9.36861 9.98992 9.43396 10.003 9.49997 10.003C9.56598 10.003 9.63133 9.98992 9.69226 9.96454C9.75319 9.93915 9.80849 9.90196 9.85497 9.85509C9.90183 9.80861 9.93903 9.75331 9.96442 9.69238C9.9898 9.63145 10.0029 9.5661 10.0029 9.50009C10.0029 9.43409 9.9898 9.36873 9.96442 9.3078C9.93903 9.24687 9.90183 9.19157 9.85497 9.14509L6.70497 6.00009Z"/>
+			</svg>
+		</a>
+	</div>
+	<!-- Cookie -->
+
+	<!-- Thanks -->
+	<div class="popup popup__thanks" id="js-thanks-popup">
+		<div class="popup__thanks-title">Готово!</div>
+		<div class="popup__thanks-subtitle">Мы свяжемся с вами в<br> ближайшее время!</div>
+		<a href="index.html" class="btn btn--transparent-black popup__thanks-btn">На главную</a>
+		<a href="javascript:void(0);" class="popup__close js-btn-close">
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<use xlink:href="#close_popup_icon"/>
+			</svg>
+		</a>
+	</div>
+	<!-- Thanks -->
+
+	<!-- Feedback -->
+	<div class="popup popup__feedback" id="js-feedback-popup">
+		<div class="popup__feedback-top">
+			<div class="popup__feedback-title">Связаться<br> с менеджером:</div>
+			<div class="popup__feedback-contact">
+				<div class="popup__feedback-contact-key">Телефон / WhatsApp:</div>
+				<div class="popup__feedback-contact-value">
+					<a href="tel:+79388000811">+7 (938) 800-08-11</a>
+				</div>
+			</div>
+			<div class="popup__feedback-contact">
+				<div class="popup__feedback-contact-key">E-mail:</div>
+				<div class="popup__feedback-contact-value">
+					<a href="mailto:info@vihotel.ru">info@vihotel.ru</a>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div class="popup__feedback-bottom">
+			<form action="">
+				<div class="popup__feedback-title">Заказать обратный<br> звонок:</div>
+				<div class="popup__feedback-input">
+                    <input class="wpcf7-not-valid" type="tel" placeholder="Номер телефона *">
+                    <span class="wpcf7-not-valid-tip" aria-hidden="true">Поле обязательно для заполнения.</span>
+                </div>
+                <div class="popup__feedback-accept">
+                    <label>
+                        <input type="checkbox" checked style="display: none;">
+                        <span class="popup__feedback-accept-checkbox"></span>
+                        <span class="popup__feedback-accept-text">Соглашаюсь на <a href="/policy">обработку персональных данных</a></span>
+                    </label>
+                </div>
+                <input data-fancybox data-src="#js-thanks-popup" class="popup__feedback-btn btn btn--colored" type="submit">
+			</form>
+		</div>
+		<a href="javascript:void(0);" class="popup__close js-btn-close">
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<use xlink:href="#close_popup_icon"/>
+			</svg>
+		</a>
+	</div>
+	<!-- Feedback -->
+
+	<!-- Calculate -->
+	<div class="popup popup__calc" id="js-calc-popup">
+		<div class="popup__calc-inner">
+			<div class="popup__calc-left">
+				<form action="">
+					<div class="popup__calc-title">Рассчитать банкет:</div>
+					<div class="popup__calc-input">
+	                    <input type="text" placeholder="Ваше имя">
+	                </div>
+	                <div class="popup__calc-input popup__calc-double-input">
+		                <div class="popup__calc-input">
+		                    <!-- <input type="text" placeholder="Дата" onfocus="(this.type='date')"> -->
+		                    <input type="text" data-date-input placeholder="Дата">
+		                </div>
+		                <div class="popup__calc-input">
+		                    <input type="text" placeholder="Число гостей">
+		                </div>
+	                </div>
+	                <div class="popup__calc-input popup__calc-input--select">
+	                    <input type="text" class="js-input-for-custom-select">
+	                    <div class="custom-select">
+	                    	<div class="custom-select__top js-custom-select-trigger">
+	                    		<div class="custom-select__name">
+	                    			Формат мероприятия
+	                    		</div>
+	                    		<div class="custom-select__arrow">
+	                    			<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M1 1.5L6 6.5L11 1.5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+									</svg>
+	                    		</div>
+	                    	</div>
+	                    	<div class="custom-select__bottom js-custom-select-dropdown">
+	                    		<div class="custom-select__child">Свадьба</div>
+	                    		<div class="custom-select__child">Корпоратив</div>
+	                    		<div class="custom-select__child">День рождения</div>
+	                    		<div class="custom-select__child">Выпускной</div>
+	                    		<div class="custom-select__child">Деловой вечер</div>
+	                    		<div class="custom-select__child">Другое</div>
+	                    	</div>
+	                    </div>
+	                </div>
+	                <div class="popup__calc-input">
+	                    <input class="wpcf7-not-valid" type="tel" placeholder="Номер телефона *">
+	                    <span class="wpcf7-not-valid-tip" aria-hidden="true">Поле обязательно для заполнения.</span>
+	                </div>
+	                <div class="popup__calc-input">
+	                    <textarea name="message" cols="30" rows="3" placeholder="Что нам еще нужно зать?"></textarea>
+	                </div>
+	                <div class="popup__calc-accept">
+	                    <label>
+	                        <input type="checkbox" checked style="display: none;">
+	                        <span class="popup__calc-accept-checkbox"></span>
+	                        <span class="popup__calc-accept-text">Соглашаюсь на <a href="/policy">обработку персональных данных</a></span>
+	                    </label>
+	                </div>
+	                <input data-fancybox data-src="#js-thanks-popup" class="popup__feedback-btn btn btn--colored" type="submit" value="Рассчитать">
+				</form>
+			</div>
+			<div class="popup__calc-right">
+				<div class="popup__calc-title">Связаться<br> с менеджером:</div>
+				<div class="popup__calc-contact">
+					<div class="popup__calc-contact-key">Телефон / WhatsApp:</div>
+					<div class="popup__calc-contact-value">
+						<a href="tel:+79388000811">+7 (938) 800-08-11</a>
+					</div>
+				</div>
+				<div class="popup__calc-contact">
+					<div class="popup__calc-contact-key">E-mail:</div>
+					<div class="popup__calc-contact-value">
+						<a href="mailto:info@vihotel.ru">info@vihotel.ru</a>
+					</div>
+				</div>
+			</div>
+			<a href="javascript:void(0);" class="popup__close js-btn-close">
+				<!-- <svg viewBox="0 0 18 18" width="16" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+				<svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<use xlink:href="#close_popup_icon"/>
+				</svg>
+			</a>
+		</div>
+	</div>
+	<!-- Calculate -->
+
+	<!-- Popups::End-->
 </body>
 </html>
