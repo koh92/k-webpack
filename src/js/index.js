@@ -1,15 +1,17 @@
-import * as $ from 'jquery';
+// import * as $ from 'jquery'; // при таком ипорте не подтягивается имя чанка
 import avg from './some.js';
 import merge from './some.js';
 
-
-// import '../css/main.css';
-
 import '../styles/main.sass';
 
-// import '../images/pop_6.png'
+// $('.title').html('Some Dynamic Text') 
 
-$('.title').html('Some Dynamic Text')
+require.ensure ([], function (require) {
+	var $ = require ("jquery")
+	// Что-то классное с jQuery. $
+	$('.title').html('Some Dynamic Text')
+}, "jQuery" // это будет передано в шаблон веб-пакета под [имя] и может использоваться с chunkFileName
+);
 
 // console.log(avg(1,5,10,15));
 
@@ -20,8 +22,6 @@ function func(surname, name, ...rest) {
 }
 
 // console.log(func('Иванов', 'Иван', '20 лет', 'холост', 'без вп'))
-
-console.log('12345')
 
 // alert('Page is loaded!')
 
