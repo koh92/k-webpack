@@ -1,0 +1,274 @@
+.cart_page
+    .page-title
+        margin-bottom: 20px
+        +mq($xl)
+            margin-bottom: 32px
+.cart
+    padding-bottom: 60px
+    +mq($xl)
+        padding-bottom: 80px
+    &--empty
+        +flex
+        padding-bottom: 0
+        .cart__box
+            background-color: transparent
+            text-align: center
+            margin: 60px 0
+            +mq($md)
+                margin: 80px 0
+            +mq($xl)
+                margin: 100px auto
+    &__title
+        font-family: 'Roboto Condensed', sans-serif
+        +fz(28)
+        line-height: 120%
+        font-weight: 700
+        letter-spacing: 0.01em
+        text-transform: uppercase
+        margin-bottom: 12px
+        +mq($xl)
+            +fz(34)
+            line-height: 124%
+            margin-bottom: 16px
+    &__text
+        +fz(14)
+        line-height: 145%
+        margin-bottom: 28px
+        +mq($xl)
+            +fz(15)
+            max-width: 240px
+            margin: 0 auto 32px
+    &__inner
+        +mq($xl)
+            display: flex
+            align-items: flex-start
+            gap: 60px
+    &__aside
+        background-color: var(--white-color)
+        border-radius: 8px
+        margin-top: 28px
+        +mq($md)
+            max-width: 296px
+            margin-left: auto
+        +mq($xl)
+            flex: 0 0 340px
+            max-width: unset
+            margin-left: unset
+            margin-top: unset
+        &-top
+            border-bottom: 1px solid var(--stroke-color)
+            padding: 16px
+            +mq($xl)
+                padding: 16px 28px
+        &-center
+            padding: 20px 16px
+            +mq($xl)
+                padding: 20px 28px
+        &-bottom
+            border-top: 1px solid var(--stroke-color)
+            padding: 12px 16px
+            +mq($xl)
+                padding: 16px 28px
+        &-info
+            display: flex
+            align-items: center
+            justify-content: space-between
+            margin-bottom: 20px
+        &-title
+            font-family: 'Roboto Condensed', sans-serif
+            +fz(18)
+            line-height: 120%
+            font-weight: 700
+            letter-spacing: 0.01em
+            text-transform: uppercase
+            +mq($xl)
+                +fz(20)
+        &-count
+            +fz(14)
+            line-height: 130%
+            +mq($xl)
+                +fz(15)
+                line-height: 145%
+        &-total
+            +fz(16)
+            line-height: 125%
+            font-weight: 700
+            +mq($xl)
+                +fz(18)
+                line-height: 120%
+        &-btn
+            width: 100%
+            height: 48px
+            +mq($xl)
+                height: 56px
+        &-tip
+            +fz(13)
+            line-height: 120%
+            font-weight: 500
+            color: var(--dark-grey-color)
+            +mq($xl)
+                +fz(14)
+                line-height: 130%
+    &__box
+        background-color: var(--white-color)
+        border-radius: 8px
+        &-head
+            padding: 16px
+            display: flex
+            justify-content: space-between
+            align-items: center
+            border-bottom: 1px solid var(--stroke-color)
+            +mq($md)
+                padding: 16px 32px
+        &-title
+            font-family: 'Roboto Condensed', sans-serif
+            +fz(18)
+            line-height: 120%
+            font-weight: 700
+            letter-spacing: 0.01em
+            text-transform: uppercase
+            +mq($xl)
+                +fz(20)
+    &__clear
+        +fz(12)
+        line-height: 120%
+        font-weight: 500
+        color: var(--dark-grey-color)
+        height: 16px
+        padding-left: 22px
+        +bg('../images/icon_clear.svg', left center, auto)
+        +mq($xl)
+            +fz(14)
+            line-height: 115%
+    &__product
+        display: grid
+        grid-template-areas: 'image stock' 'image name' 'image quantity' 'image price'
+        grid-template-columns: 80px 1fr
+        gap: 0 12px
+        position: relative
+        padding: 28px 16px
+        +mq($md)
+            grid-template-areas: 'image stock quantity price' 'image name quantity price' 'image . actions actions'
+            grid-template-columns: 88px auto 96px 100px
+            gap: 14px 16px
+            padding: 20px 32px
+        +mq($xl)
+            grid-template-areas: 'image stock quantity price' 'image name quantity price' 'image . actions actions' 'image . actions actions'
+            grid-template-columns: 144px auto 100px 165px
+            gap: 0
+            padding: 32px
+        & + &
+            border-top: 1px solid var(--stroke-color)
+        &-image
+            grid-area: image
+            +mq($xl)
+                padding-right: 20px
+        &-stock
+            grid-area: stock
+            +fz(11)
+            line-height: 130%
+            font-weight: 500
+            letter-spacing: 0.01em
+            text-transform: uppercase
+            color: var(--light-blue-color)
+        &-name
+            grid-area: name
+            +fz(14)
+            line-height: 130%
+            margin-bottom: 12px
+            +mq($md)
+                margin-bottom: 0
+                padding-right: 24px
+            +mq($xl)
+                +fz(15)
+                line-height: 145%
+                padding-right: 20px
+        &-quantity
+            grid-area: quantity
+            display: flex
+            align-items: center
+            border: 1px solid var(--stroke-color)
+            border-radius: 4px
+            height: 32px
+            max-width: 96px
+            margin-bottom: 16px
+            +mq($xl)
+                height: 40px
+                max-width: 100px
+                margin-bottom: 0
+            .product-item-amount-field-btn-minus,
+            .product-item-amount-field-btn-plus
+                border: unset
+                background: unset
+                padding: 15px 0px
+                flex: 0 0 32px
+                cursor: pointer
+                +mq($xl)
+                    flex: 0 0 34px
+                    +fz(20)
+            input
+                border: unset
+                flex: 1 0 auto
+                max-width: 32px
+                text-align: center
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button
+                    display: none
+                    -webkit-appearance: none
+                    margin: 0
+        &-price
+            grid-area: price
+            &--total
+                +fz(16)
+                line-height: 125%
+                font-weight: 700
+                text-align: right
+                +mq($xl)
+                    +fz(18)
+                    line-height: 120%
+            &--subtotal
+                +fz(13)
+                line-height: 120%
+                font-weight: 500
+                color: var(--dark-grey-color)
+                text-align: right
+                +mq($xl)
+                    +fz(14)
+                    line-height: 130%
+        &-actions
+            grid-area: actions
+            +mqMax($md)
+                display: none
+                flex-direction: column
+                gap: 16px
+                position: absolute
+                right: 16px
+                top: 24px
+                background: var(--white-color)
+                padding: 16px 20px
+                box-shadow: 0px 4px 16px rgba(39, 48, 71, 0.16)
+                &--open
+                    display: flex
+            +mq($md)
+                display: flex
+                justify-content: flex-end
+                gap: 20px
+            +mq($xl)
+                gap: 24px
+            &--toggler
+                display: block
+                position: absolute
+                right: 16px
+                top: 6px
+                +mq($md)
+                    display: none
+        &-action
+            +fz(13)
+            line-height: 125%
+            font-weight: 500
+            color: var(--dark-grey-color)
+            &.wishlist-active
+                color: var(--light-blue-color)
+            +mq($xl)
+                +fz(14)
+                line-height: 115%

@@ -5,11 +5,12 @@ const { merge } = require('webpack-merge')
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const ImageminPlugin = require('imagemin-webpack-plugin').default
-const imageminMozjpeg = require('imagemin-mozjpeg')
-const imageminJpegtran = require('imagemin-jpegtran')
-const imageminSvgo = require('imagemin-svgo')
-const imageminGifsicle = require('imagemin-gifsicle')
+// const ImageminPlugin = require('imagemin-webpack-plugin').default
+// const imageminMozjpeg = require('imagemin-mozjpeg')
+// const imageminJpegtran = require('imagemin-jpegtran')
+// const imageminSvgo = require('imagemin-svgo')
+// const imageminGifsicle = require('imagemin-gifsicle')
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin")
 
 const common = require('./common')
 
@@ -24,7 +25,46 @@ module.exports = merge(common, {
 	optimization: {
 		splitChunks: {
 			chunks: 'all'
-		}
+		},
+		minimizer: [
+			new ImageMinimizerPlugin({
+				minimizer: {
+					implementation: ImageMinimizerPlugin.imageminMinify,
+					options: {
+						// Lossless optimization with custom option
+						// Feel free to experiment with options for better result for you
+						plugins: [
+							["gifsicle", {interlaced: true}],
+							["jpegtran", {progressive: true}],
+							["optipng", {optimizationLevel: 5}],
+							// Svgo configuration here https://github.com/svg/svgo#configuration
+							[
+								"svgo",
+								{
+									plugins: [
+										{
+											name: "preset-default",
+											params: {
+												overrides: {
+													removeViewBox: false,
+													addAttributesToSVGElement: {
+														params: {
+															attributes: [
+																{xmlns: "http://www.w3.org/2000/svg"},
+															],
+														},
+													},
+												},
+											},
+										},
+									],
+								},
+							],
+						],
+					},
+				},
+			})
+		],
 	},
 	plugins: 
 		[
@@ -33,16 +73,16 @@ module.exports = merge(common, {
 		      // chunkFilename: '[id].css'
 		      // chunkFilename: '[name].css'
 		    }),
-		    new ImageminPlugin({
-			    test: /\.(jpe?g|png|gif|svg)$/i,
-			    pngquant: ({quality: 75}),
-			    plugins: [
-			    	imageminMozjpeg({quality: 75}),
-			    	// imageminJpegtran({progressive: true}), // сжатие хуже
-			    	imageminSvgo(),
-			    	imageminGifsicle({optimizationLevel: 3}),
-			    ]
-		    }),
+		    // new ImageminPlugin({
+			//     test: /\.(jpe?g|png|gif|svg)$/i,
+			//     pngquant: ({quality: 75}),
+			//     plugins: [
+			//     	imageminMozjpeg({quality: 75}),
+			//     	// imageminJpegtran({progressive: true}), // сжатие хуже
+			//     	// imageminSvgo(),
+			//     	imageminGifsicle({optimizationLevel: 3}),
+			//     ]
+		    // }),
 		],
 	performance: {
 	    hints: 'warning',

@@ -1,7 +1,7 @@
 {
-  "name": "K-develop",
+  "name": "Techcentral",
   "version": "1.0.0",
-  "description": "K-develop layout create",
+  "description": "Techcentral layout create",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "build": "webpack -c config/prod.js",
     "analyze": "webpack --analyze -c config/analyze.js"
   },
-  "author": "",
+  "author": "Ampodistov Konstantin",
   "license": "ISC",
   "browserslist": "> 1.5%, not dead",
   "devDependencies": {
@@ -21,8 +21,12 @@
     "css-loader": "^6.5.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
-    "image-webpack-loader": "^8.0.1",
-    "imagemin-webpack-plugin": "^2.4.2",
+    "image-minimizer-webpack-plugin": "^3.8.0",
+    "imagemin": "^8.0.1",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^10.0.1",
     "inputmask": "^5.0.7",
     "mini-css-extract-plugin": "^2.4.5",
     "postcss": "^8.4.5",
@@ -42,6 +46,7 @@
     "jquery": "^3.6.0",
     "normalize.css": "^8.0.1",
     "swiper": "^8.1.4",
+    "uuid": "^9.0.0",
     "wow.js": "^1.2.2",
     "ymaps-touch-scroll": "^2.1.0"
   }

@@ -1,0 +1,43 @@
+.faq
+    margin-top: -4px
+    padding-bottom: 60px
+    border-bottom: 1px solid var(--stroke-color)
+    +mq($xl)
+        margin-top: -16px
+        padding-bottom: 80px
+    &__item
+        border-bottom: 1px solid var(--stroke-color)
+        padding-bottom: 16px
+        & + &
+            margin-top: 16px
+        &-q
+            font-family: 'Roboto Condensed', sans-serif
+            +fz(18)
+            line-height: 120%
+            font-weight: 700
+            cursor: pointer
+            display: flex
+            align-items: center
+            justify-content: space-between
+            gap: 8px
+            transition: color .3s
+            &:hover
+                color: var(--light-blue-color)
+            &::after
+                $size: 7px
+                +arrow($size, var(--black-color))
+                flex: 0 0 $size
+                transition: transform .3s
+        &--open
+            border-bottom: 1px solid var(--light-blue-color)
+            .faq__item-q
+                &::after
+                    transform: rotate(-135deg)
+        &-toggler
+            max-height: 0
+            overflow: hidden
+            transition: max-height .6s
+        &-a
+            margin-top: 8px
+            +fz(14)
+            line-height: 145%

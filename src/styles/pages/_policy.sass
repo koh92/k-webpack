@@ -1,16 +1,36 @@
 .policy
-	&__text
-		h3
-			+fz(20)
-			margin: 32px 0
-		p
-			margin: 10px 0
-			line-height: 24px
-		ul
-			padding-left: 40px
-		ul, li
-			list-style-type: disc
-		li + li
-			margin-top: 15px
-		::marker
-			color: var(--accent-aquamarine-color)
+    margin-top: -16px
+    padding-bottom: 60px
+    +mq($md)
+        margin-top: -24px
+        padding-bottom: 80px
+    &__content
+        h2
+            font-family: 'Roboto Condensed', sans-serif
+            +fz(26)
+            line-height: 122%
+            font-weight: 700
+            letter-spacing: 0.01em
+            text-transform: uppercase
+            margin-bottom: 12px
+            +mq($xl)
+                +fz(32)
+                line-height: 125%
+        h4
+            margin-bottom: 12px
+        ul,ol
+            li
+                +fz(14)
+                line-height: 145%
+                list-style: none
+                +mq($xl)
+                    +fz(15)
+        ul
+            margin-bottom: 40px
+            +mq($xl)
+                margin-bottom: 48px
+        ol
+            margin-bottom: 24px
+            li
+                &:not(:has(:is(p, h2, h3, h4)))
+                    margin-left: 0

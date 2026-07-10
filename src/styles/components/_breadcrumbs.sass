@@ -1,3 +1,27 @@
 .breadcrumbs
-    +fz(14)
-    line-height: 30px
+    overflow: hidden
+    &-wrapper
+        display: flex
+        align-items: center
+        padding: 12px 0 18px
+        overflow: auto
+        &::-webkit-scrollbar
+            height: 0
+        +mq($xl)
+            padding: 16px 0 20px
+    &-separator
+        padding: 0 6px
+        +fz(12)
+        font-weight: 500
+        line-height: 120%
+        color: var(--dark-grey-color)
+    &-item
+        +fz(12)
+        font-weight: 500
+        line-height: 120%
+        color: var(--light-blue-color)
+        white-space: nowrap
+        a
+            color: var(--dark-grey-color)
+            &:hover
+                text-decoration: underline

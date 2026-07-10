@@ -1,0 +1,51 @@
+.wishlist_page
+    .page-title
+        margin-bottom: 6px
+.wishlist
+    padding-bottom: 60px
+    +mq($xl)
+        padding-bottom: 80px
+    &--empty
+        +flex
+        padding-bottom: 0
+    &__subtitle
+        +fz(13)
+        line-height: 120%
+        font-weight: 500
+        color: var(--grey-color)
+        margin-bottom: 20px
+        +mq($xl)
+            +fz(14)
+            line-height: 130%
+            margin-bottom: 28px
+    &__box
+        background-color: var(--white-color)
+        border-radius: 8px
+        text-align: center
+        padding: 40px 16px 60px
+        margin: 60px 0
+        +mq($md)
+            margin: 80px 0
+        +mq($xl)
+            margin: 100px auto
+            max-width: 680px
+    &__title
+        font-family: 'Roboto Condensed', sans-serif
+        +fz(28)
+        line-height: 120%
+        font-weight: 700
+        letter-spacing: 0.01em
+        text-transform: uppercase
+        margin-bottom: 12px
+        +mq($xl)
+            +fz(34)
+            line-height: 124%
+            margin-bottom: 16px
+    &__text
+        +fz(14)
+        line-height: 145%
+        margin-bottom: 28px
+        +mq($xl)
+            +fz(15)
+            max-width: 240px
+            margin: 0 auto 32px

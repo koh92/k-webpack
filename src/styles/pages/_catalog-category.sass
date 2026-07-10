@@ -1,0 +1,199 @@
+.catalog_inner_page
+    background-color: var(--white-color)
+    .page-title
+        margin-bottom: 6px
+.catalog-inner
+    padding-bottom: 60px
+    +mq($xl)
+        padding-bottom: 80px
+    &__subtitle
+        +fz(13)
+        line-height: 120%
+        font-weight: 500
+        color: var(--grey-color)
+        margin-bottom: 20px
+        +mq($xl)
+            +fz(14)
+            line-height: 130%
+            margin-bottom: 28px
+    .catalog__main
+        overflow: hidden
+    .catalog-page__slider
+        margin-bottom: 16px
+        +mq($xl)
+            margin-bottom: 20px
+            max-width: 100%
+    hr
+        height: 1px
+        background-color: var(--stroke-color)
+        margin: 0
+        border: 0
+        margin-bottom: 12px
+        +mq($xl)
+            margin-bottom: 16px
+    &__controls
+        display: flex
+        align-items: center
+        justify-content: space-between
+        margin-bottom: 32px
+        +mq($xl)
+            margin-bottom: 40px
+        .sort
+            display: none
+            +mq($xl)
+                display: block
+
+.consultation
+    display: none
+    background-color: var(--blue-color)
+    border-radius: 8px
+    padding: 20px 24px
+    color: var(--white-color)
+    +mq($xl)
+        display: block
+    &--mobile
+        display: block
+        text-align: center
+        +mq($xl)
+            display: none
+        .consultation__icon
+            margin-inline: auto
+        .consultation__btn
+            max-width: 256px
+            margin-inline: auto
+    &__icon
+        width: 48px
+        height: 48px
+        background-color: #84B6FF
+        border-radius: 50%
+        +flex
+        margin-bottom: 16px
+    &__title
+        font-family: 'Roboto Condensed', sans-serif
+        +fz(24)
+        line-height: 125%
+        font-weight: 700
+        letter-spacing: 0.01em
+        text-transform: uppercase
+        margin-bottom: 8px
+    &__text
+        +fz(14)
+        line-height: 145%
+        margin-bottom: 28px
+    &__btn
+        background-color: var(--white-color)
+        width: 100%
+        &:hover
+            color: var(--light-blue-color)
+
+.sort
+    margin-bottom: 24px
+    +mq($md)
+        margin-bottom: 28px
+    +mq($xl)
+        margin-bottom: 0
+    &__label
+        +mq($md)
+            display: flex
+            align-items: center
+            gap: 16px
+        > input
+            display: none
+        span
+            display: block
+            +fz(13)
+            font-weight: 500
+            line-height: 125%
+            color: var(--grey-color)
+            +mq($xl)
+                +fz(14)
+                line-height: 115%
+
+.custom-select
+    +fz(13)
+    line-height: 125%
+    font-weight: 500
+    position: relative
+    z-index: 10
+    +mq($md)
+        +fz(16)
+    &__top
+        display: inline-flex
+        align-items: center
+        gap: 8px
+        cursor: pointer
+    &__name
+        +fz(13)
+        font-weight: 500
+        line-height: 125%
+        +mq($xl)
+            +fz(14)
+            line-height: 115%
+    &__arrow
+        +flex
+        transition: all .6s
+        margin-left: auto
+        svg
+            stroke: var(--main-color)
+            width: 15px
+            height: 7px
+    &__bottom
+        display: none
+        position: absolute
+        width: 240px
+        top: calc(100% + 8px)
+        background-color: #fff
+        border-radius: 2px
+        box-shadow: 0 4px 12px rgba(56, 68, 100, 0.2)
+        padding: 16px
+    &__child
+        text-align: left
+        cursor: pointer
+        +fz(13)
+        font-weight: 500
+        line-height: 125%
+        +mq($xl)
+            +fz(14)
+            line-height: 115%
+        & + &
+            margin-top: 12px
+        &--selected
+            color: var(--light-blue-color)
+    &--open
+        .custom-select__name
+            color: var(--text-color)
+.view
+    &__list
+        display: flex
+        align-items: center
+        gap: 14px
+    &__item
+        cursor: pointer
+        svg,
+        path
+            fill: var(--light-grey-color)
+            transition: fill .3s
+        &--active
+            svg,
+            path
+                fill: var(--light-blue-color)
+.read-more
+    &[data-limit="6"]
+        +textLimit(6)
+    &__toggler
+        +fz(13)
+        line-height: 125%
+        color: var(--light-blue-color)
+        padding-top: 16px
+        display: flex
+        align-items: center
+        gap: 6px
+        cursor: pointer
+        transition: .3s
+        +mq($xl)
+            +fz(14)
+            line-height: 115%
+        &::after
+            $size: 6px
+            +arrow($size, var(--light-blue-color))
+            flex: 0 0 $size

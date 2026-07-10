@@ -1,20 +1,22 @@
-//$white: #F2F2FF;
-//$purple: #1b1043;
-//$yellow: #ffc800;
-//$aquamarine: #0E7688;
-//$purple_complement: complement($purple)
-
 $colors: (
-	"white": #F2F2FF,
-	"purple": #1b1043,
-	//light-purple: lighten($purple, 20%),
-	//light-purple: lighten(#1b1043, 20%),
-	"light-purple": #484CED,
-	"aquamarine": #0E7688,
-	"accent-aquamarine": #00B4B3,
-	"grey": #AAA9D1,
-	"black": #090a0f,
-	//yellow: #ffc800,
-	"yellow": #FAF11A,
-	"red": red
+	"white": #ffffff,
+	"black": rgba(15, 24, 34, 1), // #0F1822
+	"blue": rgba(93, 152, 240, 1), // #5D98F0
+	"light-blue": rgba(104, 142, 239, 1), // #688EEF
+	"green": rgba(75, 177, 51, 1), // #4BB133
+	"orange": #EB8322, // #EB8322
+	"red": #C02020, // #C02020
+	"background": #F4F6FA, // Main background color
+	"stroke": #DDDEE0,
+	"light-grey": #C0C4D2,
+	"grey": #9D9FA4,
+	"dark-grey": #7B8094,
+	"disabled": #F5F5F5,
+	"disabled-input": #F7F7F7,
+	"error": #E7162F,
+	"focus-transparent": rgb(93 152 240 / 50%),
+	"hover-blue": #427FDB,
+	"focus-blue": rgba(75 177 51 / 50%),
+	"hover-green": #3AA422,
+	"focus-green": rgba(75 177 51 / 50%),
 )

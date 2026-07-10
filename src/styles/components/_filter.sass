@@ -1,0 +1,160 @@
+.filter
+    +mqMax($xl)
+        position: fixed
+        width: 100vw
+        height: calc(100vh - 110px)
+        background-color: var(--white-color)
+        z-index: 100
+        top: 0
+        left: -100vw
+        padding: 32px 94px 0
+        overflow-y: auto
+        transition: .3s
+        &--open
+            left: 0
+            .filter__bottom
+                left: 0
+    +mqMax($md)
+        padding: 20px 16px 0
+    +mq($xl)
+        margin-bottom: 60px
+    .sort
+        display: block
+        +mq($xl)
+            display: none
+    &__inner
+        +mqMax($xl)
+            padding-bottom: 10px
+    &__close
+        display: block
+        position: absolute
+        top: 12px
+        right: 12px
+        width: 15px
+        height: 15px
+        +mq($md)
+            top: 16px
+            right: 16px
+        +mq($xl)
+            display: none
+    &__group
+        & + &
+            border-top: 1px solid var(--stroke-color)
+        padding: 16px 0
+    &__label
+        display: flex
+        align-items: center
+        justify-content: space-between
+        +fz(13)
+        font-weight: 700
+        line-height: 125%
+        cursor: pointer
+        +mq($xl)
+            +fz(14)
+            line-height: 130%
+        &::after
+            $size: 8px
+            +arrow($size, var(--dark-grey-color))
+            flex: 0 0 $size
+            transition: transform .3s
+    &__item
+        max-height: 0
+        overflow: hidden
+        transition: max-height .6s
+        &--open
+            .filter__label::after
+                transform: rotate(-135deg)
+    &__toggle-content
+        margin-top: 12px
+    &__row
+        display: flex
+        align-items: center
+        input[type="checkbox"]
+            display: none
+        input[type="text"]
+            width: 100%
+            border-radius: 2px
+            border: 1px solid var(--stroke-color)
+            padding: 12px
+            +fz(13)
+            line-height: 125%
+            +mq($xl)
+                +fz(14)
+                line-height: 130%
+            &::placeholder
+                +fz(13)
+                line-height: 125%
+                color: var(--dark-grey-color)
+                +mq($xl)
+                    +fz(14)
+                    line-height: 130%
+
+        span
+            font-family: 'Roboto', sans-serif
+            +fz(13)
+            line-height: 125%
+            color: var(--dark-grey-color)
+            padding: 0 7px
+        label
+            display: flex
+            align-items: center
+            cursor: pointer
+        & + &
+            margin-top: 14px
+    input:checked + label
+        .filter__checkbox
+            background-color: var(--light-blue-color)
+            +bg('../images/icon_tick.svg', center, auto)
+    &__checkbox
+        width: 16px
+        height: 16px
+        border-radius: 2px
+        border: 1px solid var(--stroke-color)
+        margin-right: 10px
+        background-color: var(--white-color)
+        transition: background-color .3s
+    &__value
+        +fz(13)
+        line-height: 125%
+        +mq($xl)
+            +fz(14)
+            line-height: 130%
+    &__bottom
+        transition: .3s
+        +mqMax($xl)
+            position: fixed
+            z-index: 110
+            width: 100%
+            bottom: 0
+            left: -100vw
+            background-color: var(--white-color)
+            padding: 16px 94px
+        +mqMax($md)
+            padding: 16px
+        +mq($xl)
+            margin-top: 15px
+    &__btn
+        width: 100%
+    &__reset
+        width: 100%
+        border: unset
+        text-align: center
+        color: var(--light-blue-color)
+    &__toggler
+        &--mobile
+            display: flex
+            align-items: center
+            gap: 6px
+            +fz(13)
+            font-weight: 600
+            line-height: 120%
+            letter-spacing: 0.01em
+            text-transform: uppercase
+            &::after
+                content: ''
+                width: 20px
+                height: 20px
+                +bg('../images/icon_filter.svg', center, auto)
+            +mq($xl)
+                display: none
+

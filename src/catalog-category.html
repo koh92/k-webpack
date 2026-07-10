@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto+Condensed:wght@700&display=swap"
+          rel="stylesheet">
+</head>
+<body class="catalog_inner_page">
+<!-- Header::Start-->
+<header class="js-header">
+    <div class="header">
+        <div class="header__bar">
+            <div class="container">
+                <div class="header__flex">
+                    <div class="header__flex-group">
+                        <div class="header__flex-item mod-xl-hide">
+                            <svg viewBox="0 0 12 16" fill="none" class="icon_location"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <g id="icon_location">
+                                    <path d="M5.60997 15.7913C5.69691 15.9217 5.84328 16 6 16C6.15672 16 6.30309 15.9217 6.39003 15.7913C7.49937 14.1273 9.13334 12.0723 10.272 9.98222C11.1824 8.31109 11.625 6.88581 11.625 5.625C11.625 2.52338 9.10163 0 6 0C2.89838 0 0.375 2.52338 0.375 5.625C0.375 6.88581 0.817594 8.31109 1.72803 9.98222C2.86581 12.0707 4.50291 14.1307 5.60997 15.7913ZM6 0.9375C8.58469 0.9375 10.6875 3.04031 10.6875 5.625C10.6875 6.72512 10.2823 8.00369 9.44872 9.53372C8.46725 11.3352 7.06669 13.1627 6 14.699C4.93347 13.1629 3.53281 11.3353 2.55128 9.53372C1.71772 8.00369 1.3125 6.72512 1.3125 5.625C1.3125 3.04031 3.41531 0.9375 6 0.9375Z"
+                                          fill="#7B8094"/>
+                                    <path d="M6 8.4375C7.55081 8.4375 8.8125 7.17581 8.8125 5.625C8.8125 4.07419 7.55081 2.8125 6 2.8125C4.44919 2.8125 3.1875 4.07419 3.1875 5.625C3.1875 7.17581 4.44919 8.4375 6 8.4375ZM6 3.75C7.03387 3.75 7.875 4.59113 7.875 5.625C7.875 6.65887 7.03387 7.5 6 7.5C4.96613 7.5 4.125 6.65887 4.125 5.625C4.125 4.59113 4.96613 3.75 6 3.75Z"
+                                          fill="#7B8094"/>
+                                </g>
+                            </svg>
+                            г.&nbsp;Москва
+                        </div>
+                        <div class="header__flex-item">
+                            <a href="mailto:zakaz@techcentral.ru">
+                                <svg class="icon_mail" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <g id="icon_email">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M0.321277 2.99608C0.182256 3.05457 0.0371229 3.22444 0.0123298 3.35771C0.00138354 3.41663 -0.00314029 5.54732 0.00231558 8.09257C0.0121914 12.7073 0.0124331 12.7206 0.0834285 12.8121C0.122586 12.8626 0.197518 12.9348 0.249971 12.9725L0.345345 13.0411H8.00611H15.6669L15.7623 12.9725C15.8147 12.9348 15.8896 12.8626 15.9288 12.8121C15.9999 12.7204 16 12.7156 16 8.00356C16 3.29154 15.9999 3.28672 15.9288 3.19498C15.8896 3.14448 15.8147 3.07232 15.7623 3.03461L15.6669 2.96605L8.04676 2.95894C1.76418 2.95305 0.408122 2.95957 0.321277 2.99608ZM14.9046 4.50271L14.895 4.99196L11.4518 6.34497L8.00863 7.69802L4.56291 6.34514L1.11721 4.99226L1.10765 4.50284L1.09812 4.01345H8.00611H14.9141L14.9046 4.50271ZM4.65472 7.53489C6.88075 8.40875 7.92086 8.80158 8.00846 8.80158C8.0961 8.80158 9.16076 8.39908 11.4461 7.50197C13.2671 6.78718 14.7919 6.18903 14.8346 6.17277L14.9123 6.14317V9.06842V11.9937H8.00611H1.09995V9.06809V6.14247L1.26397 6.20535C1.3542 6.23993 2.88001 6.83822 4.65472 7.53489Z"
+                                              fill="#7B8094"/>
+                                    </g>
+                                </svg>
+                                zakaz@techcentral.ru
+                            </a>
+                        </div>
+                    </div>
+                    <div class="header__flex-group mod-md-hide">
+                        <div class="header__flex-item">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <rect width="20" height="20" fill="url(#pattern0)"/>
+                                <defs>
+                                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                        <use xlink:href="#image0_163_74" transform="scale(0.00195312)"/>
+                                    </pattern>
+                                    <image id="image0_163_74" width="512" height="512"
+                                           xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAAAXNSR0IArs4c6QAAGFFJREFUeF7t27GqHuQdx/H/856EDoKIs3gNIQSHOmrdLWiHQM0keAMOxlEdvAHBKRQy2CEupZ28AQnBW1CcHKQIDiV536e8Rxqqle6e7+dsgTOc3+f/QL4c3rPGFwECBAgQIJATWLnFBhMgQIAAAQIjADwCAgQIECAQFBAAwaObTIAAAQIEBIA3QIAAAQIEggICIHh0kwkQIECAgADwBggQIECAQFBAAASPbjIBAgQIEBAA3gABAgQIEAgKCIDg0U0mQIAAAQICwBsgQIAAAQJBAQEQPLrJBAgQIEBAAHgDBAgQIEAgKCAAgkc3mQABAgQICABvgAABAgQIBAUEQPDoJhMgQIAAAQHgDRAgQIAAgaCAAAge3WQCBAgQICAAvAECBAgQIBAUEADBo5tMgAABAgQEgDdAgAABAgSCAgIgeHSTCRAgQICAAPAGCBAgQIBAUEAABI9uMgECBAgQEADeAAECBAgQCAoIgODRTSZAgAABAgLAGyBAgAABAkEBARA8uskECBAgQEAAeAMECBAgQCAoIACCRzeZAAECBAgIAG+AAAECBAgEBQRA8OgmEyBAgAABAeANECBAgACBoIAACB7dZAIECBAgIAC8AQIECBAgEBQQAMGjm0yAAAECBASAN0CAAAECBIICAiB4dJMJECBAgIAA8AYIECBAgEBQQAAEj24yAQIECBAQAN4AAQIECBAICgiA4NFNJkCAAAECAsAbIECAAAECQQEBEDy6yQQIECBAQAB4AwQIECBAICggAIJHN5kAAQIECAgAb4AAAQIECAQFBEDw6CYTIECAAAEB4A0QIECAAIGggAAIHt1kAgQIECAgALwBAgQIECAQFBAAwaObTIAAAQIEBIA3QIAAAQIEggICIHh0kwkQIECAgADwBggQIECAQFBAAASPbjIBAgQIEBAA3gABAgQIEAgKCIDg0U0mQIAAAQICwBsgQIAAAQJBAQEQPLrJBAgQIEBAAHgDBAgQIEAgKCAAgkc3mQABAgQICABvgAABAgQIBAUEQPDoJhMgQIAAAQHgDRAgQIAAgaCAAAge3WQCBAgQICAAvAECBAgQIBAUEADBo5tMgAABAgQEgDdAgAABAgSCAgIgeHSTCRAgQICAAPAGCBAgQIBAUEAABI9uMgECBAgQEADeAAECBAgQCAoIgODRTSZAgAABAgLAGyBAgAABAkEBARA8uskECBAgQEAAeAMECBAgQCAoIACCRzeZAAECBAgIAG+AAAECBAgEBQRA8OgmEyBAgAABAeANECBAgACBoIAACB7dZAIECBAgIAC8AQIECBAgEBQQAMGjm0yAAAECBASAN0CAAAECBIICAiB4dJMJECBAgIAA8AYIECBAgEBQQAAEj24yAQIECBD41QDYez/75MmTm4fD4dbM3FxrPY+KAAECBAgQ+G0I7L2/n5lHp9Pp4bVr1x6ttX745U/+swDYe6/T6fTOzHw8M8/8Nmb6KQkQIECAAIH/I/DjzLx7OBw+WWvt/3zf0wDYe7+w9763934FIwECBAgQIHC1BNZaX6y17qy1vj0vuwyAvff10+n05czcuFpzrSFAgAABAgT+S+Crw+Hw0lrr8WUAHI/HD2fmPUQECBAgQIDAlRf46OLi4u7ae984f0hgZi6u/GQDCRAgQIAAgeP5Q/7reDzenZkPeBAgQIAAAQIZgffPn/p/sPd+PTPZUAIECBAgEBdYa31+/g3A1zPzYtzCfAIECBAgUBL45hwAT/8msLTcVgIECBAgUBYQAOXr206AAAECWQEBkD294QQIECBQFhAA5evbToAAAQJZAQGQPb3hBAgQIFAWEADl69tOgAABAlkBAZA9veEECBAgUBYQAOXr206AAAECWQEBkD294QQIECBQFhAA5evbToAAAQJZAQGQPb3hBAgQIFAWEADl69tOgAABAlkBAZA9veEECBAgUBYQAOXr206AAAECWQEBkD294QQIECBQFhAA5evbToAAAQJZAQGQPb3hBAgQIFAWEADl69tOgAABAlkBAZA9veEECBAgUBYQAOXr206AAAECWQEBkD294QQIECBQFhAA5evbToAAAQJZAQGQPb3hBAgQIFAWEADl69tOgAABAlkBAZA9veEECBAgUBYQAOXr206AAAECWQEBkD294QQIECBQFhAA5evbToAAAQJZAQGQPb3hBAgQIFAWEADl69tOgAABAlkBAZA9veEECBAgUBYQAOXr206AAAECWQEBkD294QQIECBQFhAA5evbToAAAQJZAQGQPb3hBAgQIFAWEADl69tOgAABAlkBAZA9veEECBAgUBYQAOXr206AAAECWQEBkD294QQIECBQFhAA5evbToAAAQJZAQGQPb3hBAgQIFAWEADl69tOgAABAlkBAZA9veEECBAgUBYQAOXr206AAAECWQEBkD294QQIECBQFhAA5evbToAAAQJZAQGQPb3hBAgQIFAWEADl69tOgAABAlkBAZA9veEECBAgUBYQAOXr206AAAECWQEBkD294QQIECBQFhAA5evbToAAAQJZAQGQPb3hBAgQIFAWEADl69tOgAABAlkBAZA9veEECBAgUBYQAOXr206AAAECWQEBkD294QQIECBQFhAA5evbToAAAQJZAQGQPb3hBAgQIFAWEADl69tOgAABAlkBAZA9veEECBAgUBYQAOXr206AAAECWQEBkD294QQIECBQFhAA5evbToAAAQJZAQGQPb3hBAgQIFAWEADl69tOgAABAlkBAZA9veEECBAgUBYQAOXr206AAAECWQEBkD294QQIECBQFhAA5evbToAAAQJZAQGQPb3hBAgQIFAWEADl69tOgAABAlkBAZA9veEECBAgUBYQAOXr206AAAECWQEBkD294QQIECBQFhAA5evbToAAAQJZAQGQPb3hBAgQIFAWEADl69tOgAABAlkBAZA9veEECBAgUBYQAOXr206AAAECWQEBkD294QQIECBQFhAA5evbToAAAQJZAQGQPb3hBAgQIFAWEADl69tOgAABAlkBAZA9veEECBAgUBYQAOXr206AAAECWQEBkD294QQIECBQFhAA5evbToAAAQJZAQGQPb3hBAgQIFAWEADl69tOgAABAlkBAZA9veEECBAgUBYQAOXr206AAAECWQEBkD294QQIECBQFhAA5evbToAAAQJZAQGQPb3hBAgQIFAWEADl69tOgAABAlkBAZA9veEECBAgUBYQAOXr206AAAECWQEBkD294QQIECBQFhAA5evbToAAAQJZAQGQPb3hBAgQIFAWEADl69tOgAABAlkBAZA9veEECBAgUBZYL7/29+/KALYTIECAAIGiwPr9H/62i8NtJkCAAAECZQEBUL6+7QQIECCQFRAA2dMbToAAAQJlAQFQvr7tBAgQIJAVEADZ0xtOgAABAmUBAVC+vu0ECBAgkBUQANnTG06AAAECZQEBUL6+7QQIECCQFRAA2dMbToAAAQJlAQFQvr7tBAgQIJAVEADZ0xtOgAABAmUBAVC+vu0ECBAgkBUQANnTG06AAAECZQEBUL6+7QQIECCQFRAA2dMbToAAAQJlAQFQvr7tBAgQIJAVEADZ0xtOgAABAmUBAVC+vu0ECBAgkBUQANnTG06AAAECZQEBUL6+7QQIECCQFRAA2dMbToAAAQJlAQFQvr7tBAgQIJAVEADZ0xtOgAABAmUBAVC+vu0ECBAgkBUQANnTG06AAAECZQEBUL6+7QQIECCQFRAA2dMbToAAAQJlAQFQvr7tBAgQIJAVEADZ0xtOgAABAmUBAVC+vu0ECBAgkBUQANnTG06AAAECZQEBUL6+7QQIECCQFRAA2dMbToAAAQJlAQFQvr7tBAgQIJAVEADZ0xtOgAABAmUBAVC+vu0ECBAgkBUQANnTG06AAAECZQEBUL6+7QQIECCQFRAA2dMbToAAAQJlAQFQvr7tBAgQIJAVEADZ0xtOgAABAmUBAVC+vu0ECBAgkBUQANnTG06AAAECZQEBUL6+7QQIECCQFRAA2dMbToAAAQJlAQFQvr7tBAgQIJAVEADZ0xtOgAABAmUBAVC+vu0ECBAgkBUQANnTG06AAAECZQEBUL6+7QQIECCQFRAA2dMbToAAAQJlAQFQvr7tBAgQIJAVEADZ0xtOgAABAmUBAVC+vu0ECBAgkBUQANnTG06AAAECZQEBUL6+7QQIECCQFRAA2dMbToAAAQJlAQFQvr7tBAgQIJAVEADZ0xtOgAABAmUBAVC+vu0ECBAgkBUQANnTG06AAAECZQEBUL6+7QQIECCQFRAA2dMbToAAAQJlAQFQvr7tBAgQIJAVEADZ0xtOgAABAmUBAVC+vu0ECBAgkBUQANnTG06AAAECZQEBUL6+7QQIECCQFRAA2dMbToAAAQJlAQFQvr7tBAgQIJAVEADZ0xtOgAABAmUBAVC+vu0ECBAgkBUQANnTG06AAAECZQEBUL6+7QQIECCQFRAA2dMbToAAAQJlAQFQvr7tBAgQIJAVEADZ0xtOgAABAmUBAVC+vu0ECBAgkBUQANnTG06AAAECZQEBUL6+7QQIECCQFRAA2dMbToAAAQJlAQFQvr7tBAgQIJAVEADZ0xtOgAABAmUBAVC+vu0ECBAgkBUQANnTG06AAAECZQEBUL6+7QQIECCQFRAA2dMbToAAAQJlAQFQvr7tBAgQIJAVEADZ0xtOgAABAmUBAVC+vu0ECBAgkBUQANnTG06AAAECZQEBUL6+7QQIECCQFRAA2dMbToAAAQJlAQFQvr7tBAgQIJAVEADZ0xtOgAABAmUBAVC+vu0ECBAgkBUQANnTG06AAAECZQEBUL6+7QQIECCQFRAA2dMbToAAAQJlAQFQvr7tBAgQIJAVEADZ0xtOgAABAmUBAVC+vu0ECBAgkBUQANnTG06AAAECZQEBUL6+7QQIECCQFRAA2dMbToAAAQJlAQFQvr7tBAgQIJAVEADZ0xtOgAABAmUBAVC+vu0ECBAgkBUQANnTG06AAAECZQEBUL6+7QQIECCQFVgvv/qP77LrDSdAgAABAlGBtd98a0e3m02AAAECBLICAiB7esMJECBAoCwgAMrXt50AAQIEsgICIHt6wwkQIECgLCAAyte3nQABAgSyAgIge3rDCRAgQKAsIADK17edAAECBLICAiB7esMJECBAoCwgAMrXt50AAQIEsgICIHt6wwkQIECgLCAAyte3nQABAgSyAgIge3rDCRAgQKAsIADK17edAAECBLICAiB7esMJECBAoCwgAMrXt50AAQIEsgICIHt6wwkQIECgLCAAyte3nQABAgSyAgIge3rDCRAgQKAsIADK17edAAECBLICAiB7esMJECBAoCwgAMrXt50AAQIEsgICIHt6wwkQIECgLCAAyte3nQABAgSyAgIge3rDCRAgQKAsIADK17edAAECBLICAiB7esMJECBAoCwgAMrXt50AAQIEsgICIHt6wwkQIECgLCAAyte3nQABAgSyAgIge3rDCRAgQKAsIADK17edAAECBLICAiB7esMJECBAoCwgAMrXt50AAQIEsgICIHt6wwkQIECgLCAAyte3nQABAgSyAgIge3rDCRAgQKAsIADK17edAAECBLICAiB7esMJECBAoCwgAMrXt50AAQIEsgICIHt6wwkQIECgLCAAyte3nQABAgSyAgIge3rDCRAgQKAsIADK17edAAECBLICAiB7esMJECBAoCwgAMrXt50AAQIEsgICIHt6wwkQIECgLCAAyte3nQABAgSyAgIge3rDCRAgQKAsIADK17edAAECBLICAiB7esMJECBAoCwgAMrXt50AAQIEsgICIHt6wwkQIECgLCAAyte3nQABAgSyAgIge3rDCRAgQKAsIADK17edAAECBLICAiB7esMJECBAoCwgAMrXt50AAQIEsgICIHt6wwkQIECgLCAAyte3nQABAgSyAgIge3rDCRAgQKAsIADK17edAAECBLICAiB7esMJECBAoCwgAMrXt50AAQIEsgICIHt6wwkQIECgLCAAyte3nQABAgSyAgIge3rDCRAgQKAsIADK17edAAECBLICAiB7esMJECBAoCwgAMrXt50AAQIEsgICIHt6wwkQIECgLCAAyte3nQABAgSyAgIge3rDCRAgQKAsIADK17edAAECBLICAiB7esMJECBAoCwgAMrXt50AAQIEsgICIHt6wwkQIECgLCAAyte3nQABAgSyAgIge3rDCRAgQKAsIADK17edAAECBLICAiB7esMJECBAoCwgAMrXt50AAQIEsgICIHt6wwkQIECgLCAAyte3nQABAgSyAgIge3rDCRAgQKAsIADK17edAAECBLICAiB7esMJECBAoCwgAMrXt50AAQIEsgICIHt6wwkQIECgLCAAyte3nQABAgSyAgIge3rDCRAgQKAsIADK17edAAECBLICAiB7esMJECBAoCwgAMrXt50AAQIEsgICIHt6wwkQIECgLCAAyte3nQABAgSyAgIge3rDCRAgQKAsIADK17edAAECBLICAiB7esMJECBAoCwgAMrXt50AAQIEsgICIHt6wwkQIECgLCAAyte3nQABAgSyAgIge3rDCRAgQKAsIADK17edAAECBLIC5wD4emZezAoYToAAAQIEegLfnAPgwcy83ttuMQECBAgQyAp8vvYbb92dNR9kCQwnQIAAAQI1gT3vr/3GnRuz9sOZuajtt5cAAQIECAQFjrPXrXUevt+88+HMfi+IYDIBAgQIEIgJrI/WX+/d/SkA3n77+vzzX1/OzI2YgrkECBAgQKAk8NU897uX1qefPr4MgMsI+OPtF+bi2r1Z80pJwlYCBAgQIJAQ2PPFHJ/cWQ/uf3ve+zQALiPg/O8//fmd2evjmXkmAWIkAQIECBC42gI/ztrvzmd/+WRd/lf/09fPAuDpbwNu3352jtdvzmnfmpmbM+v5q21jHQECBAgQuEoC+/uZeTSH9XAuHj9a9+//8Mt1vxoAV4nAFgIECBAgQOB/BQSAV0GAAAECBIICAiB4dJMJECBAgIAA8AYIECBAgEBQQAAEj24yAQIECBAQAN4AAQIECBAICgiA4NFNJkCAAAECAsAbIECAAAECQQEBEDy6yQQIECBAQAB4AwQIECBAICggAIJHN5kAAQIECAgAb4AAAQIECAQFBEDw6CYTIECAAAEB4A0QIECAAIGggAAIHt1kAgQIECAgALwBAgQIECAQFBAAwaObTIAAAQIEBIA3QIAAAQIEggICIHh0kwkQIECAgADwBggQIECAQFBAAASPbjIBAgQIEBAA3gABAgQIEAgKCIDg0U0mQIAAAQICwBsgQIAAAQJBAQEQPLrJBAgQIEBAAHgDBAgQIEAgKCAAgkc3mQABAgQICABvgAABAgQIBAUEQPDoJhMgQIAAAQHgDRAgQIAAgaCAAAge3WQCBAgQICAAvAECBAgQIBAUEADBo5tMgAABAgQEgDdAgAABAgSCAgIgeHSTCRAgQICAAPAGCBAgQIBAUEAABI9uMgECBAgQEADeAAECBAgQCAoIgODRTSZAgAABAgLAGyBAgAABAkEBARA8uskECBAgQEAAeAMECBAgQCAoIACCRzeZAAECBAgIAG+AAAECBAgEBQRA8OgmEyBAgAABAeANECBAgACBoIAACB7dZAIECBAgIAC8AQIECBAgEBQQAMGjm0yAAAECBASAN0CAAAECBIICAiB4dJMJECBAgIAA8AYIECBAgEBQQAAEj24yAQIECBAQAN4AAQIECBAICgiA4NFNJkCAAAECAsAbIECAAAECQQEBEDy6yQQIECBAQAB4AwQIECBAICggAIJHN5kAAQIECAgAb4AAAQIECAQFBEDw6CYTIECAAAEB4A0QIECAAIGggAAIHt1kAgQIECAgALwBAgQIECAQFBAAwaObTIAAAQIEBIA3QIAAAQIEggICIHh0kwkQIECAgADwBggQIECAQFBAAASPbjIBAgQIEBAA3gABAgQIEAgKCIDg0U0mQIAAAQICwBsgQIAAAQJBAQEQPLrJBAgQIEBAAHgDBAgQIEAgKCAAgkc3mQABAgQICABvgAABAgQIBAUEQPDoJhMgQIAAAQHgDRAgQIAAgaCAAAge3WQCBAgQICAAvAECBAgQIBAUEADBo5tMgAABAgQEgDdAgAABAgSCAgIgeHSTCRAgQICAAPAGCBAgQIBAUEAABI9uMgECBAgQEADeAAECBAgQCAoIgODRTSZAgAABAgLAGyBAgAABAkGBfwNkkzIhp+3VwgAAAABJRU5ErkJggg=="/>
+                                </defs>
+                            </svg>
+                            Сделано в России. Мы всегда рядом
+                        </div>
+                    </div>
+                    <div class="header__flex-group">
+                        <div class="header__flex-item mod-xl-hide">
+                            <a data-fancybox data-src="#popup-callback" class="color-light-blue">
+                                Обратный звонок
+                            </a>
+                        </div>
+                        <div class="header__flex-item">
+                            <a href="tel:8-800-222-05-67">
+                                <svg class="icon_tel" viewBox="0 0 16 16" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M3.4707 0.0217961C3.26999 0.0724592 3.20136 0.114385 1.94608 0.953071C0.559995 1.87913 0.444441 1.97928 0.205158 2.46205C-0.00886945 2.89391 -0.0436144 3.25332 0.0464404 4.10288C0.221409 5.75277 0.881708 7.45331 2.01502 9.17265C3.743 11.7942 6.34459 14.0308 8.98554 15.1652C10.1414 15.6617 11.0674 15.8953 12.2271 15.9829C12.8547 16.0303 13.1419 15.9853 13.5728 15.7723C14.0143 15.554 14.1521 15.392 15.0711 14.0107C15.7703 12.9598 15.899 12.7464 15.9524 12.5487C16.0353 12.2423 16.0106 11.9722 15.8728 11.6774C15.7068 11.3224 15.553 11.2013 14.7119 10.7631C11.5335 9.10741 11.5318 9.10661 11.1599 9.15072C10.684 9.20711 10.4423 9.38331 9.99064 10.0029C9.79942 10.2652 9.61593 10.4817 9.56935 10.4998C9.50034 10.5266 9.43723 10.5018 9.18356 10.348C7.79219 9.50432 6.41753 8.12143 5.62087 6.76406C5.51905 6.59056 5.4801 6.49002 5.49376 6.43598C5.50618 6.38683 5.68767 6.23046 5.98509 6.01268C6.49327 5.64056 6.64488 5.47642 6.76174 5.17185C6.85418 4.93093 6.86232 4.53136 6.77941 4.30688C6.6673 4.00339 4.88442 0.586377 4.75931 0.435251C4.67478 0.333096 4.54294 0.234774 4.3747 0.148333C4.16115 0.0385802 4.07586 0.0144745 3.85997 0.00283618C3.71764 -0.00486516 3.54247 0.00366515 3.4707 0.0217961ZM3.90462 1.14105C3.95041 1.18687 5.6827 4.51793 5.73446 4.65966C5.77324 4.76593 5.70506 4.83852 5.25944 5.16505C5.02302 5.33831 4.76721 5.55098 4.69096 5.6377C4.49812 5.85696 4.40185 6.1225 4.39847 6.44437C4.39502 6.7747 4.45913 6.96019 4.72774 7.3973C5.58064 8.7852 6.79393 10.0543 8.13844 10.965C8.9529 11.5165 9.16624 11.6074 9.58963 11.5829C9.80266 11.5705 9.90617 11.5441 10.0834 11.4568C10.3368 11.3319 10.4836 11.1806 10.8925 10.6231C11.0914 10.3519 11.1801 10.2579 11.2444 10.2504C11.3024 10.2436 11.8959 10.5331 13.0726 11.1424C14.0309 11.6385 14.8292 12.0582 14.8466 12.0751C14.9468 12.1725 14.869 12.3205 14.1367 13.4247C13.7223 14.0498 13.3338 14.5981 13.2558 14.668C13.0394 14.8623 12.8211 14.9195 12.3999 14.8922C11.2333 14.8167 10.2253 14.5402 9.04051 13.9705C7.5998 13.2777 6.4028 12.427 5.15742 11.2106C2.657 8.76855 1.13917 5.85371 1.11996 3.45708C1.11651 3.02439 1.16019 2.90179 1.39864 2.67517C1.58293 2.50007 3.70957 1.09142 3.78969 1.09142C3.82564 1.09142 3.87736 1.11376 3.90462 1.14105Z"
+                                          fill="#7B8094"/>
+                                </svg>
+                                8-800-222-05-67
+                            </a>
+                        </div>
+                    </div>
+                    <div class="add-to-cart" id="add-to-cart">
+                        <div class="add-to-cart__box">
+                            <div class="add-to-cart__close js-close-popup">
+                                <img src="./images/icon_close.svg" alt="Close">
+                            </div>
+                            <div class="add-to-cart__top">
+                                <div class="add-to-cart__name js--product-name">
+                                    Датчик диффузионный самообучающийся JLLN18
+                                </div>
+                                <div class="add-to-cart__price js-product-price">
+                                    21 240 руб.
+                                </div>
+                            </div>
+                            <a href="cart.html" class="add-to-cart__btn">Перейти в корзину</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header__main">
+            <div class="container">
+                <div class="header__grid">
+                    <div class="logo header__logo">
+                        <a href="index.html">
+                            <img src="./images/logo.svg" alt="logo">
+                        </a>
+                    </div>
+                    <a class="btn btn--blue header__catalog-btn js-catalog-menu-toggler">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M0.408986 0.0716988C0.223289 0.156981 0.14008 0.244019 0.0592134 0.437532C0.0068764 0.56282 -0.000694763 0.97795 4.67761e-05 3.67566C0.000866371 6.61353 0.00457372 6.7782 0.073849 6.93073C0.11397 7.0191 0.21322 7.14205 0.29436 7.20395L0.441925 7.31651L3.58675 7.32818C5.71317 7.33607 6.77759 7.3265 6.87364 7.29864C7.05048 7.24731 7.28516 6.99424 7.31638 6.82121C7.32922 6.75014 7.33457 5.28556 7.32836 3.56653L7.317 0.441045L7.20445 0.293471C7.14255 0.212326 7.01961 0.113071 6.93125 0.0729477C6.77869 0.00366841 6.61492 0 3.66785 0C0.739673 0 0.556318 0.00401977 0.408986 0.0716988ZM9.07328 0.0720501C8.89266 0.155419 8.76429 0.283674 8.70512 0.439913C8.67687 0.514423 8.66348 1.55494 8.66348 3.67094C8.66348 6.20406 8.67343 6.81587 8.71621 6.91832C8.78623 7.08592 9.0211 7.28751 9.17979 7.31628C9.25 7.329 10.7138 7.33427 12.4328 7.32799L15.5581 7.31651L15.7056 7.20395C15.7868 7.14205 15.886 7.0191 15.9261 6.93073C15.9954 6.7782 15.9991 6.61353 16 3.67566C16.0007 0.97795 15.9931 0.56282 15.9408 0.437532C15.8599 0.244019 15.7767 0.156981 15.591 0.0716988C15.4437 0.00401977 15.2603 0 12.3321 0C9.39799 0 9.22092 0.00390278 9.07328 0.0720501ZM6.00955 3.66716V6.00899H3.66785H1.32615V3.69319C1.32615 2.41947 1.33786 1.36564 1.35218 1.35136C1.36647 1.33703 2.42023 1.32532 3.69388 1.32532H6.00955V3.66716ZM14.6644 3.67691L14.6745 6.00899H12.3325H9.99045V3.66684V1.3247L12.3224 1.33477L14.6543 1.34484L14.6644 3.67691ZM0.409064 8.72454C0.233085 8.8163 0.151711 8.90057 0.0726002 9.07289C0.00492507 9.22023 0.000905524 9.40359 0.000905524 12.3319C0.000905524 15.2603 0.00492507 15.4437 0.0726002 15.591C0.157877 15.7767 0.24491 15.8599 0.438413 15.9408C0.563694 15.9931 0.9788 16.0007 3.67636 16C6.61406 15.9991 6.77872 15.9954 6.93125 15.9261C7.01961 15.886 7.14255 15.7868 7.20445 15.7056L7.317 15.558L7.32836 12.4326C7.33457 10.7135 7.32934 9.24962 7.31665 9.1794C7.28804 9.02074 7.08646 8.78586 6.91884 8.7158C6.81639 8.67298 6.20309 8.66311 3.65934 8.6633C0.894225 8.66354 0.512333 8.67072 0.409064 8.72454ZM9.07254 8.71708C8.91076 8.78808 8.71113 9.02519 8.68335 9.1794C8.67066 9.24962 8.66543 10.7135 8.67164 12.4326L8.683 15.558L8.79555 15.7056C8.85745 15.7868 8.98039 15.886 9.06875 15.9261C9.22131 15.9954 9.38508 15.9991 12.3321 15.9991C15.2603 15.9991 15.4437 15.9951 15.591 15.9274C15.7767 15.8421 15.8599 15.7551 15.9408 15.5616C15.9931 15.4363 16.0007 15.0211 16 12.3234C15.9991 9.38556 15.9954 9.22089 15.9261 9.06836C15.886 8.97999 15.7868 8.85705 15.7056 8.79515L15.5581 8.68258L12.3742 8.674C9.80237 8.66705 9.16773 8.67536 9.07254 8.71708ZM6.00955 12.3323V14.6744L3.67761 14.6643L1.34567 14.6543L1.3356 12.3222L1.32553 9.99011H3.66754H6.00955V12.3323ZM14.6644 12.3222L14.6543 14.6543L12.3224 14.6643L9.99045 14.6744V12.3323V9.99011H12.3325H14.6745L14.6644 12.3222Z"
+                                  fill="white"/>
+                        </svg>
+                        Каталог
+                    </a>
+                    <div class="header__search search">
+                        <!--                        <form action="/search/">-->
+                        <form action="search.html">
+                            <input class="search__input" type="search" name="q" id="" placeholder="Поиск товаров">
+                            <input class="search__btn btn--blue " name="s" type="submit">
+                        </form>
+                    </div>
+                    <div class="header__flex-item header__wishlist">
+                        <a href="wishlist.html">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M5.59951 1.03476C2.93468 1.27277 0.708 3.21621 0.150158 5.7909C-0.244682 7.61324 0.144099 9.40642 1.25806 10.9013C1.51785 11.25 9.41934 19.1929 9.64891 19.3362C9.83681 19.4535 10.1649 19.4535 10.3528 19.3362C10.428 19.2893 12.3289 17.4074 14.5771 15.1543C18.2991 11.4242 18.6878 11.0227 18.9219 10.6668C19.5519 9.7092 19.8763 8.79221 19.9765 7.68626C20.1088 6.22549 19.6778 4.66517 18.8186 3.49394C17.2511 1.35713 14.4539 0.48114 11.8967 1.32625C11.4353 1.47874 10.8531 1.76827 10.4175 2.06191C10.2059 2.20454 10.026 2.32126 10.0176 2.32126C10.0093 2.32126 9.83904 2.21123 9.63934 2.07676C8.73403 1.46724 7.77697 1.12975 6.67829 1.03265C6.18139 0.988713 6.11337 0.988831 5.59951 1.03476ZM6.69783 2.48059C7.70751 2.60064 8.58885 2.99845 9.37545 3.68923C9.7 3.97423 9.77756 4.01328 10.0194 4.01328C10.2639 4.01328 10.3795 3.95402 10.7082 3.66023C12.7078 1.87295 15.8908 2.10479 17.506 4.15537C18.2603 5.11298 18.6054 6.17679 18.5497 7.37198C18.5038 8.35625 18.2155 9.18326 17.6398 9.98275C17.5015 10.1749 16.1489 11.5555 13.7148 13.9893L10.0009 17.7027L6.47901 14.1848C4.54203 12.2499 2.82695 10.5195 2.66778 10.3395C1.87305 9.4409 1.50214 8.51968 1.45386 7.32468C1.42963 6.72462 1.48982 6.25364 1.65943 5.71593C2.33161 3.58517 4.46518 2.21514 6.69783 2.48059Z"
+                                      fill="#C0C4D2"/>
+                            </svg>
+                            Избранное
+                        </a>
+                    </div>
+                    <div class="header__flex-item header__cart">
+                        <a href="cart.html">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M0.508536 0.0315594C0.323232 0.0860209 0.0829664 0.342142 0.0289048 0.542825C-0.0647447 0.890394 0.0743996 1.25571 0.370526 1.4397C0.514638 1.52923 0.553796 1.53314 1.49542 1.55203L2.47099 1.57157L2.77619 2.78357C3.06669 3.93723 3.11813 4.21528 3.84456 8.55946L4.60772 13.1234V14.3081V15.4927L4.36323 15.6133C4.00619 15.7893 3.70123 16.0561 3.48134 16.3846C3.21643 16.7805 3.11785 17.0799 3.09376 17.5621C3.05816 18.2749 3.26818 18.8246 3.76605 19.3218C4.49169 20.0465 5.58239 20.2068 6.49768 19.7233C7.00857 19.4535 7.48664 18.839 7.63607 18.2602C7.73019 17.8955 7.71626 17.3557 7.60368 17.0049L7.57544 16.917H10.7708H13.9661L13.941 17.0049C13.811 17.459 13.8168 17.9912 13.9561 18.4026C14.2625 19.3077 15.0604 19.9268 16.0063 19.9934C17.1176 20.0718 18.1549 19.3045 18.421 18.2072C18.6074 17.4386 18.3244 16.5266 17.7314 15.985C17.4647 15.7413 17.2533 15.6182 16.867 15.4817L16.5584 15.3727L11.3654 15.3619L6.17245 15.3512V14.6093V13.8674H11.9447C16.2153 13.8674 17.7641 13.8556 17.8982 13.8218C18.1413 13.7606 18.388 13.516 18.4457 13.2788C18.469 13.1833 18.8365 11.0103 19.2626 8.45007C19.9766 4.15879 20.0333 3.78241 19.9886 3.63317C19.9272 3.42827 19.7789 3.25128 19.5867 3.15326C19.4394 3.07816 19.3036 3.07679 11.9532 3.07679H4.46963L4.14279 1.76647C3.78607 0.336161 3.74152 0.228098 3.44848 0.0827367C3.30926 0.0136531 3.19171 0.00716307 1.96722 0.00071214C1.20246 -0.00327571 0.582509 0.0098217 0.508536 0.0315594ZM18.2999 4.66998C18.3004 4.68608 18.0158 6.41024 17.6676 8.50144L17.0345 12.3036H11.5466H6.05866L6.0353 12.1765C6.02243 12.1066 5.73409 10.3825 5.39451 8.34505L4.7771 4.64065H11.5381C15.2567 4.64065 18.2995 4.65387 18.2999 4.66998ZM5.74215 17.0156C6.05502 17.1766 6.21975 17.6217 6.09171 17.9603C5.99677 18.2114 5.66247 18.44 5.39009 18.44C5.1177 18.44 4.7834 18.2114 4.68846 17.9603C4.54481 17.5804 4.79153 17.0506 5.14861 16.9722C5.20611 16.9596 5.27077 16.943 5.29229 16.9353C5.35762 16.9121 5.63817 16.9621 5.74215 17.0156ZM16.498 17.0139C16.6603 17.0977 16.8433 17.3266 16.8916 17.5062C17.0039 17.9229 16.6856 18.3825 16.2508 18.4315C15.6608 18.498 15.2286 17.891 15.4866 17.3583C15.669 16.9818 16.1314 16.8244 16.498 17.0139Z"
+                                      fill="#C0C4D2"/>
+                            </svg>
+                            Корзина
+                        </a>
+                    </div>
+                    <div class="header__flex-item header__enter">
+                        <a href="enter.html">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M9.5662 0.0563039C6.78255 0.471338 5.05244 3.02526 5.56398 5.96429C6.015 8.55592 8.33193 10.4273 10.7597 10.161C11.5421 10.0752 12.1859 9.8399 12.8472 9.39798C14.9747 7.97625 15.7664 4.96818 14.6241 2.64668C13.7026 0.77393 11.6847 -0.259572 9.5662 0.0563039ZM11.129 1.56544C12.0393 1.77133 12.8778 2.4316 13.2931 3.2696C13.5686 3.82552 13.6774 4.32147 13.6726 4.99909C13.6518 7.93155 10.7818 9.6869 8.51395 8.15425C8.23581 7.96629 7.75745 7.45659 7.55636 7.13399C7.14644 6.4763 6.9484 5.77192 6.94516 4.96002C6.94227 4.23485 7.07764 3.67237 7.38758 3.12157C8.11595 1.82724 9.585 1.21619 11.129 1.56544ZM9.5076 11.2924C6.07852 11.451 3.62266 12.5796 2.25387 14.626C1.50244 15.7493 1.10308 17.0455 1.01369 18.6511C0.964772 19.5294 1.03506 19.7501 1.42024 19.9279C1.5707 19.9973 1.90162 20 10.3085 20C18.7154 20 19.0463 19.9973 19.1968 19.9279C19.582 19.7501 19.6523 19.5294 19.6034 18.6511C19.403 15.0541 17.5549 12.7335 14.0984 11.7386C12.8803 11.388 11.1263 11.2175 9.5076 11.2924ZM11.5587 12.7752C14.9462 13.0773 16.9334 14.3293 17.763 16.6839C17.9147 17.1147 18.0713 17.8228 18.1056 18.2338L18.1325 18.5562H10.3136H2.49465V18.4477C2.49465 18.2084 2.58166 17.6699 2.6889 17.2452C3.11687 15.5507 4.0997 14.3418 5.64747 13.6061C6.56064 13.172 7.53057 12.9268 8.86296 12.793C9.47267 12.7318 10.9622 12.722 11.5587 12.7752Z"
+                                      fill="#C0C4D2"/>
+                            </svg>
+                            Войти
+                        </a>
+                    </div>
+                    <div class="header__burger js-burger">
+                        <div class="header__burger-text">
+                            Меню
+                        </div>
+                        <div class="header__burger-cross">
+                            <div class="b1"></div>
+                            <div class="b2"></div>
+                            <div class="b3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header__bottom mobile-toggle-menu js-mobile-toggle-menu">
+            <div class="container">
+                <div class="header__flex">
+                    <nav class="header__nav-menu">
+                        <ul class="header__nav-menu-list js-menu">
+                            <li class="header__nav-menu-item"><a href="about.html">О компании</a></li>
+                            <li class="header__nav-menu-item"><a href="delivery.html">Доставка и оплата</a></li>
+                            <li class="header__nav-menu-item"><a href="articles.html">Публикации</a></li>
+                            <li class="header__nav-menu-item"><a href="faq.html">Вопросы и ответы</a></li>
+                            <li class="header__nav-menu-item"><a href="contacts.html">Контакты</a></li>
+                        </ul>
+                    </nav>
+                    <div class="header__btns">
+                        <a data-fancybox data-src="#popup-question" class="btn btn--transparent">Тех. поддержка</a>
+                        <a href="#" class="btn btn--green">Запрос в WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+            <div class="header__account">
+                <div class="header__flex-item header__account-wishlist">
+                    <div class="container">
+                        <a href="#">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M5.59951 1.03476C2.93468 1.27277 0.708 3.21621 0.150158 5.7909C-0.244682 7.61324 0.144099 9.40642 1.25806 10.9013C1.51785 11.25 9.41934 19.1929 9.64891 19.3362C9.83681 19.4535 10.1649 19.4535 10.3528 19.3362C10.428 19.2893 12.3289 17.4074 14.5771 15.1543C18.2991 11.4242 18.6878 11.0227 18.9219 10.6668C19.5519 9.7092 19.8763 8.79221 19.9765 7.68626C20.1088 6.22549 19.6778 4.66517 18.8186 3.49394C17.2511 1.35713 14.4539 0.48114 11.8967 1.32625C11.4353 1.47874 10.8531 1.76827 10.4175 2.06191C10.2059 2.20454 10.026 2.32126 10.0176 2.32126C10.0093 2.32126 9.83904 2.21123 9.63934 2.07676C8.73403 1.46724 7.77697 1.12975 6.67829 1.03265C6.18139 0.988713 6.11337 0.988831 5.59951 1.03476ZM6.69783 2.48059C7.70751 2.60064 8.58885 2.99845 9.37545 3.68923C9.7 3.97423 9.77756 4.01328 10.0194 4.01328C10.2639 4.01328 10.3795 3.95402 10.7082 3.66023C12.7078 1.87295 15.8908 2.10479 17.506 4.15537C18.2603 5.11298 18.6054 6.17679 18.5497 7.37198C18.5038 8.35625 18.2155 9.18326 17.6398 9.98275C17.5015 10.1749 16.1489 11.5555 13.7148 13.9893L10.0009 17.7027L6.47901 14.1848C4.54203 12.2499 2.82695 10.5195 2.66778 10.3395C1.87305 9.4409 1.50214 8.51968 1.45386 7.32468C1.42963 6.72462 1.48982 6.25364 1.65943 5.71593C2.33161 3.58517 4.46518 2.21514 6.69783 2.48059Z"
+                                      fill="#C0C4D2"/>
+                            </svg>
+                            Избранное
+                        </a>
+                    </div>
+                </div>
+                <div class="header__flex-item header__account-cart">
+                    <div class="container">
+                        <a href="#">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M0.508536 0.0315594C0.323232 0.0860209 0.0829664 0.342142 0.0289048 0.542825C-0.0647447 0.890394 0.0743996 1.25571 0.370526 1.4397C0.514638 1.52923 0.553796 1.53314 1.49542 1.55203L2.47099 1.57157L2.77619 2.78357C3.06669 3.93723 3.11813 4.21528 3.84456 8.55946L4.60772 13.1234V14.3081V15.4927L4.36323 15.6133C4.00619 15.7893 3.70123 16.0561 3.48134 16.3846C3.21643 16.7805 3.11785 17.0799 3.09376 17.5621C3.05816 18.2749 3.26818 18.8246 3.76605 19.3218C4.49169 20.0465 5.58239 20.2068 6.49768 19.7233C7.00857 19.4535 7.48664 18.839 7.63607 18.2602C7.73019 17.8955 7.71626 17.3557 7.60368 17.0049L7.57544 16.917H10.7708H13.9661L13.941 17.0049C13.811 17.459 13.8168 17.9912 13.9561 18.4026C14.2625 19.3077 15.0604 19.9268 16.0063 19.9934C17.1176 20.0718 18.1549 19.3045 18.421 18.2072C18.6074 17.4386 18.3244 16.5266 17.7314 15.985C17.4647 15.7413 17.2533 15.6182 16.867 15.4817L16.5584 15.3727L11.3654 15.3619L6.17245 15.3512V14.6093V13.8674H11.9447C16.2153 13.8674 17.7641 13.8556 17.8982 13.8218C18.1413 13.7606 18.388 13.516 18.4457 13.2788C18.469 13.1833 18.8365 11.0103 19.2626 8.45007C19.9766 4.15879 20.0333 3.78241 19.9886 3.63317C19.9272 3.42827 19.7789 3.25128 19.5867 3.15326C19.4394 3.07816 19.3036 3.07679 11.9532 3.07679H4.46963L4.14279 1.76647C3.78607 0.336161 3.74152 0.228098 3.44848 0.0827367C3.30926 0.0136531 3.19171 0.00716307 1.96722 0.00071214C1.20246 -0.00327571 0.582509 0.0098217 0.508536 0.0315594ZM18.2999 4.66998C18.3004 4.68608 18.0158 6.41024 17.6676 8.50144L17.0345 12.3036H11.5466H6.05866L6.0353 12.1765C6.02243 12.1066 5.73409 10.3825 5.39451 8.34505L4.7771 4.64065H11.5381C15.2567 4.64065 18.2995 4.65387 18.2999 4.66998ZM5.74215 17.0156C6.05502 17.1766 6.21975 17.6217 6.09171 17.9603C5.99677 18.2114 5.66247 18.44 5.39009 18.44C5.1177 18.44 4.7834 18.2114 4.68846 17.9603C4.54481 17.5804 4.79153 17.0506 5.14861 16.9722C5.20611 16.9596 5.27077 16.943 5.29229 16.9353C5.35762 16.9121 5.63817 16.9621 5.74215 17.0156ZM16.498 17.0139C16.6603 17.0977 16.8433 17.3266 16.8916 17.5062C17.0039 17.9229 16.6856 18.3825 16.2508 18.4315C15.6608 18.498 15.2286 17.891 15.4866 17.3583C15.669 16.9818 16.1314 16.8244 16.498 17.0139Z"
+                                      fill="#C0C4D2"/>
+                            </svg>
+                            Корзина
+                        </a>
+                    </div>
+                </div>
+                <div class="header__flex-item header__account-enter">
+                    <div class="container">
+                        <a href="#">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M9.5662 0.0563039C6.78255 0.471338 5.05244 3.02526 5.56398 5.96429C6.015 8.55592 8.33193 10.4273 10.7597 10.161C11.5421 10.0752 12.1859 9.8399 12.8472 9.39798C14.9747 7.97625 15.7664 4.96818 14.6241 2.64668C13.7026 0.77393 11.6847 -0.259572 9.5662 0.0563039ZM11.129 1.56544C12.0393 1.77133 12.8778 2.4316 13.2931 3.2696C13.5686 3.82552 13.6774 4.32147 13.6726 4.99909C13.6518 7.93155 10.7818 9.6869 8.51395 8.15425C8.23581 7.96629 7.75745 7.45659 7.55636 7.13399C7.14644 6.4763 6.9484 5.77192 6.94516 4.96002C6.94227 4.23485 7.07764 3.67237 7.38758 3.12157C8.11595 1.82724 9.585 1.21619 11.129 1.56544ZM9.5076 11.2924C6.07852 11.451 3.62266 12.5796 2.25387 14.626C1.50244 15.7493 1.10308 17.0455 1.01369 18.6511C0.964772 19.5294 1.03506 19.7501 1.42024 19.9279C1.5707 19.9973 1.90162 20 10.3085 20C18.7154 20 19.0463 19.9973 19.1968 19.9279C19.582 19.7501 19.6523 19.5294 19.6034 18.6511C19.403 15.0541 17.5549 12.7335 14.0984 11.7386C12.8803 11.388 11.1263 11.2175 9.5076 11.2924ZM11.5587 12.7752C14.9462 13.0773 16.9334 14.3293 17.763 16.6839C17.9147 17.1147 18.0713 17.8228 18.1056 18.2338L18.1325 18.5562H10.3136H2.49465V18.4477C2.49465 18.2084 2.58166 17.6699 2.6889 17.2452C3.11687 15.5507 4.0997 14.3418 5.64747 13.6061C6.56064 13.172 7.53057 12.9268 8.86296 12.793C9.47267 12.7318 10.9622 12.722 11.5587 12.7752Z"
+                                      fill="#C0C4D2"/>
+                            </svg>
+                            Войти
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header__menu mobile-toggle-menu js-catalog-menu">
+            <div class="catalog-menu">
+                <div class="container">
+                    <ul class="catalog-menu__list">
+                        <li class="catalog-menu__item catalog-menu__item-level-1">
+                            <div class="catalog-menu__item-head">
+                                <a href="catalog-category.html">
+                                    Контроллеры
+                                </a>
+                                <span class="arrow arrow-1"></span>
+                            </div>
+                            <ul class="catalog-menu__list catalog-menu__list-level-1">
+                                <li class="catalog-menu__item-level-2">
+                                    <div class="catalog-menu__item-head">
+                                        <a href="catalog-subcategory.html">
+                                            Тут будут подкатегории
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="catalog-menu__item catalog-menu__item-level-1">
+                            <div class="catalog-menu__item-head">
+                                <a href="catalog-category.html">
+                                    Датчики
+                                </a>
+                                <span class="arrow arrow-1"></span>
+                            </div>
+                            <ul class="catalog-menu__list catalog-menu__list-level-1">
+                                <li class="catalog-menu__item-level-2">
+                                    <div class="catalog-menu__item-head">
+                                        <a href="catalog-subcategory.html">
+                                            Индуктивные датчики
+                                        </a>
+                                        <span class="arrow arrow-2"></span>
+                                    </div>
+                                    <ul class="catalog-menu__list catalog-menu__list-level-2">
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                С аналоговым выходом
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                Для контроля оборотов
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                Для контроля сдвоенного металлического листа
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                На постоянное напряжение
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                HIDDEN CATEGORY
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                HIDDEN CATEGORY
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                HIDDEN CATEGORY
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                HIDDEN CATEGORY
+                                            </a>
+                                        </li>
+                                        <a class="open-all js-open-all">Раскрыть все</a>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__item-level-2">
+                                    <div class="catalog-menu__item-head">
+                                        <a href="catalog-subcategory.html">
+                                            Емкостные датчики
+                                        </a>
+                                        <span class="arrow arrow-2"></span>
+                                    </div>
+                                    <ul class="catalog-menu__list catalog-menu__list-level-2">
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                В цилиндрическом корпусе
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                В прямоугольном корпусе
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                Для монтажа на трубе
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                Модуль универсального питания и релейного выхода
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__item-level-2">
+                                    <div class="catalog-menu__item-head">
+                                        <a href="catalog-subcategory.html">
+                                            Магнитные датчики
+                                        </a>
+                                        <span class="arrow arrow-2"></span>
+                                    </div>
+                                    <ul class="catalog-menu__list catalog-menu__list-level-2">
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                Для пневмоцилиндров
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                В цилиндрическом корпусе
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                В прямоугольном корпусе
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                Модуль универсального питания и релейного выхода
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__item-level-2">
+                                    <div class="catalog-menu__item-head">
+                                        <a href="catalog-subcategory.html">
+                                            Уровнемеры
+                                        </a>
+                                        <span class="arrow arrow-2"></span>
+                                    </div>
+                                    <ul class="catalog-menu__list catalog-menu__list-level-2">
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                Датчики потока
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                Датчики уровня
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                Контроллер для регулировки уровня
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                Модуль универсального питания и релейного выхода
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__item-level-2">
+                                    <div class="catalog-menu__item-head">
+                                        <a href="catalog-subcategory.html">
+                                            Оптические датчики
+                                        </a>
+                                        <span class="arrow arrow-2"></span>
+                                    </div>
+                                    <ul class="catalog-menu__list catalog-menu__list-level-2">
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                Барьерного типа
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                Диффузионного типа
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                Датчики этикетки
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                Датчики метки
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                HIDDEN CATEGORY
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                HIDDEN CATEGORY
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                HIDDEN CATEGORY
+                                            </a>
+                                        </li>
+                                        <a class="open-all js-open-all">Раскрыть все</a>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__item-level-2">
+                                    <div class="catalog-menu__item-head">
+                                        <a href="catalog-subcategory.html">
+                                            Ультразвуковые датчики
+                                        </a>
+                                        <span class="arrow arrow-2"></span>
+                                    </div>
+                                    <ul class="catalog-menu__list catalog-menu__list-level-2">
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                Датчики расстояния с аналоговым выходом
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                Датчики уровня с одним или двумя дискретными выходами
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                Датчики сдвоенного (неметаллического) листа
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                Датчики этикетки
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                HIDDEN CATEGORY
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                HIDDEN CATEGORY
+                                            </a>
+                                        </li>
+                                        <li class="catalog-menu__item-level-3">
+                                            <a href="catalog-subcategory.html">
+                                                HIDDEN CATEGORY
+                                            </a>
+                                        </li>
+                                        <a class="open-all js-open-all">Раскрыть все</a>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="catalog-menu__item catalog-menu__item-level-1">
+                            <div class="catalog-menu__item-head">
+                                <a href="catalog-category.html">
+                                    Счетчики
+                                </a>
+                                <span class="arrow arrow-1"></span>
+                            </div>
+                            <ul class="catalog-menu__list catalog-menu__list-level-1">
+                                <li class="catalog-menu__item-level-2">
+                                    <div class="catalog-menu__item-head">
+                                        <a href="catalog-subcategory.html">
+                                            Тут будут подкатегории
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="catalog-menu__item catalog-menu__item-level-1">
+                            <div class="catalog-menu__item-head">
+                                <a href="catalog-category.html">
+                                    Таймеры
+                                </a>
+                                <span class="arrow arrow-1"></span>
+                            </div>
+                            <ul class="catalog-menu__list catalog-menu__list-level-1">
+                                <li class="catalog-menu__item-level-2">
+                                    <div class="catalog-menu__item-head">
+                                        <a href="catalog-subcategory.html">
+                                            Тут будут подкатегории
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="catalog-menu__item catalog-menu__item-level-1">
+                            <div class="catalog-menu__item-head">
+                                <a href="catalog-category.html">
+                                    Тахометры
+                                </a>
+                            </div>
+                        </li>
+                        <li class="catalog-menu__item catalog-menu__item-level-1">
+                            <div class="catalog-menu__item-head">
+                                <a href="catalog-category.html">
+                                    Индикаторы процессов
+                                </a>
+                            </div>
+                        </li>
+                        <li class="catalog-menu__item catalog-menu__item-level-1">
+                            <div class="catalog-menu__item-head">
+                                <a href="catalog-category.html">
+                                    Электронные потенциометры
+                                </a>
+                            </div>
+                        </li>
+                        <li class="catalog-menu__item catalog-menu__item-level-1">
+                            <div class="catalog-menu__item-head">
+                                <a href="catalog-category.html">
+                                    Специализированные системы контроля
+                                </a>
+                                <span class="arrow arrow-1"></span>
+                            </div>
+                            <ul class="catalog-menu__list catalog-menu__list-level-1">
+                                <li class="catalog-menu__item-level-2">
+                                    <div class="catalog-menu__item-head">
+                                        <a href="catalog-subcategory.html">
+                                            Тут будут подкатегории
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="catalog-menu__item catalog-menu__item-level-1">
+                            <div class="catalog-menu__item-head">
+                                <a href="catalog-category.html">
+                                    Блоки питания
+                                </a>
+                                <span class="arrow arrow-1"></span>
+                            </div>
+                            <ul class="catalog-menu__list catalog-menu__list-level-1">
+                                <li class="catalog-menu__item-level-2">
+                                    <div class="catalog-menu__item-head">
+                                        <a href="catalog-subcategory.html">
+                                            Тут будут подкатегории
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="catalog-menu__item catalog-menu__item-level-1">
+                            <div class="catalog-menu__item-head">
+                                <a href="catalog-category.html">
+                                    Фотореле
+                                </a>
+                            </div>
+                        </li>
+                        <li class="catalog-menu__item catalog-menu__item-level-1">
+                            <div class="catalog-menu__item-head">
+                                <a href="catalog-category.html">
+                                    Устройства контроля симметрии трехфазной линии
+                                </a>
+                            </div>
+                        </li>
+                        <li class="catalog-menu__item catalog-menu__item-level-1">
+                            <div class="catalog-menu__item-head">
+                                <a href="catalog-category.html">
+                                    Вспомогательные электронные устройства
+                                </a>
+                                <span class="arrow arrow-1"></span>
+                            </div>
+                            <ul class="catalog-menu__list catalog-menu__list-level-1">
+                                <li class="catalog-menu__item-level-2">
+                                    <div class="catalog-menu__item-head">
+                                        <a href="catalog-subcategory.html">
+                                            Тут будут подкатегории
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="catalog-menu__item catalog-menu__item-level-1">
+                            <div class="catalog-menu__item-head">
+                                <a href="catalog-category.html">
+                                    Аксессуары
+                                </a>
+                                <span class="arrow arrow-1"></span>
+                            </div>
+                            <ul class="catalog-menu__list catalog-menu__list-level-1">
+                                <li class="catalog-menu__item-level-2">
+                                    <div class="catalog-menu__item-head">
+                                        <a href="catalog-subcategory.html">
+                                            Тут будут подкатегории
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="catalog-menu__item catalog-menu__item-level-1">
+                            <div class="catalog-menu__item-head">
+                                <a href="catalog-category.html">
+                                    Без категорий
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header::End-->
+
+<!-- Main::Start-->
+<main>
+    <!-- Breadcrumbs::Start-->
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="breadcrumbs-wrapper" itemprop="http://schema.org/breadcrumb" itemscope=""
+                 itemtype="http://schema.org/BreadcrumbList">
+                <div class="breadcrumbs-item" id="bx_breadcrumb_0" itemprop="itemListElement" itemscope=""
+                     itemtype="http://schema.org/ListItem">
+                    <a href="index.html" title="Главная" itemprop="item">
+                        Главная
+                    </a>
+                    <meta itemprop="position" content="1">
+                </div>
+                <span class="breadcrumbs-separator">—</span>
+                <div class="breadcrumbs-item" id="bx_breadcrumb_1" itemprop="itemListElement" itemscope=""
+                     itemtype="http://schema.org/ListItem">
+                    <a href="catalog.html" title="Главная" itemprop="item">
+                        Каталог
+                    </a>
+                    <meta itemprop="position" content="2">
+                </div>
+                <span class="breadcrumbs-separator">—</span>
+                <div class="breadcrumbs-item" itemprop="item">
+                    Датчики
+                </div>
+            </div>
+            <h1 class="page-title">Датчики</h1>
+        </div>
+    </div>
+    <!-- Breadcrumbs::End-->
+    <section class="catalog-inner">
+        <div class="container">
+            <div class="catalog-inner__subtitle">
+                42 товара
+            </div>
+            <div class="catalog__inner">
+                <div class="catalog__aside">
+                    <div class="catalog__filter filter js-catalog-filter">
+                        <div class="filter__close js-close-filter">
+                            <img src="./images/icon_close.svg" alt="Close">
+                        </div>
+                        <div class="sort">
+                            <label class="sort__label">
+                                <span>Сортировка: </span>
+                                <input type="text" class="js-input-for-custom-select">
+                                <div class="custom-select">
+                                    <div class="custom-select__top js-custom-select-trigger">
+                                        <div class="custom-select__name">
+                                            По выбору производителя
+                                        </div>
+                                        <div class="custom-select__arrow">
+                                            <svg width="10" height="6" viewBox="0 0 10 6" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5.3902 5.7779L9.84025 1.32777C9.94325 1.22485 10 1.08745 10 0.940948C10 0.794445 9.94325 0.657048 9.84025 0.554122L9.51261 0.226401C9.29911 0.0131509 8.95212 0.0131509 8.73895 0.226401L5.00207 3.96328L1.26105 0.222255C1.15804 0.119329 1.02072 0.0625 0.874302 0.0625C0.727717 0.0625 0.590401 0.119329 0.487312 0.222255L0.159754 0.549976C0.0567474 0.652983 0 0.790299 0 0.936802C0 1.0833 0.0567474 1.2207 0.159754 1.32363L4.61386 5.7779C4.7172 5.88107 4.85516 5.93774 5.00183 5.93741C5.14906 5.93774 5.28695 5.88107 5.3902 5.7779Z"
+                                                      fill="#0F1822"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="custom-select__bottom js-custom-select-dropdown">
+                                        <div class="custom-select__child custom-select__child--selected">По выбору
+                                            производителя
+                                        </div>
+                                        <div class="custom-select__child">По возрастанию цены</div>
+                                        <div class="custom-select__child">По убыванию цены</div>
+                                        <div class="custom-select__child">В наличии</div>
+                                        <div class="custom-select__child">Под заказ</div>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="filter__inner">
+                            <div class="filter__group js-filter-item">
+                                <div class="filter__label js-filter-item-toggler">
+                                    Цена, руб.
+                                </div>
+                                <div class="filter__item js-filter-toggle-content">
+                                    <div class="filter__toggle-content">
+                                        <div class="filter__row">
+                                            <input class="input-min" type="text" name="arrFilter_P1_MIN"
+                                                   id="arrFilter_P1_MIN" placeholder="от 380" size="5">
+                                            <span>—</span>
+                                            <input class="input-max" type="text" name="arrFilter_P1_MAX"
+                                                   id="arrFilter_P1_MAX" placeholder="до 280 980" size="5">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter__group js-filter-item">
+                                <div class="filter__label js-filter-item-toggler">
+                                    Расстояние сканирования
+                                </div>
+                                <div class="filter__item js-filter-toggle-content">
+                                    <div class="filter__toggle-content">
+                                        <div class="filter__row">
+                                            <input type="checkbox" id="1">
+                                            <label for="1">
+                                                <div class="filter__checkbox"></div>
+                                                <div class="filter__value">
+                                                    До 300 мм
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="filter__row">
+                                            <input type="checkbox" id="2">
+                                            <label for="2">
+                                                <div class="filter__checkbox"></div>
+                                                <div class="filter__value">
+                                                    До 800 мм
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter__group js-filter-item">
+                                <div class="filter__label js-filter-item-toggler">
+                                    Выходной сигнал
+                                </div>
+                                <div class="filter__item js-filter-toggle-content">
+                                    <div class="filter__toggle-content">
+                                        <div class="filter__row">
+                                            <input type="checkbox" id="3">
+                                            <label for="3">
+                                                <div class="filter__checkbox"></div>
+                                                <div class="filter__value">
+                                                    NPN
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="filter__row">
+                                            <input type="checkbox" id="4">
+                                            <label for="4">
+                                                <div class="filter__checkbox"></div>
+                                                <div class="filter__value">
+                                                    PNP
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter__group js-filter-item">
+                                <div class="filter__label js-filter-item-toggler">
+                                    Схема внутренних соединений проводников
+                                </div>
+                                <div class="filter__item js-filter-toggle-content">
+                                    <div class="filter__toggle-content">
+                                        <div class="filter__row">
+                                            <input type="checkbox" id="5">
+                                            <label for="5">
+                                                <div class="filter__checkbox"></div>
+                                                <div class="filter__value">
+                                                    2-х проводная
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="filter__row">
+                                            <input type="checkbox" id="6">
+                                            <label for="6">
+                                                <div class="filter__checkbox"></div>
+                                                <div class="filter__value">
+                                                    3-х проводная
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="filter__row">
+                                            <input type="checkbox" id="7">
+                                            <label for="7">
+                                                <div class="filter__checkbox"></div>
+                                                <div class="filter__value">
+                                                    4-х проводная
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter__bottom">
+                            <!-- <span id="filter__counter">Подобрано 290 товаров</span>-->
+                            <input class="btn btn--blue filter__btn" type="button" id="set_filter" name="set_filter"
+                                   value="Применить фильтры">
+                            <input class="btn filter__reset" type="button" id="del_filter" name="del_filter"
+                                   value="Сбросить фильтры">
+                        </div>
+                    </div>
+                    <div class="consultation">
+                        <div class="consultation__icon">
+                            <img src="./images/icon_tel_white.svg" alt="Phone">
+                        </div>
+                        <div class="consultation__title">
+                            Нужна консультация?
+                        </div>
+                        <div class="consultation__text">
+                            Оставьте заявку и мы свяжемся с вами в ближайшее время. Сэкономим ваше время и предложим
+                            лучшее решение для вашей задачи.
+                        </div>
+                        <a data-fancybox data-src="#popup-callback" class="btn btn--white consultation__btn">
+                            Оставить заявку
+                        </a>
+                    </div>
+                </div>
+                <div class="catalog__main">
+                    <div class="catalog-page__slider js-categories-slider">
+                        <ul class="catalog-page__slider-list swiper-wrapper">
+                            <li class="catalog-page__slider-item swiper-slide">
+                                <a href="catalog-subcategory.html">
+                                    Контроллеры
+                                </a>
+                            </li>
+                            <li class="catalog-page__slider-item swiper-slide">
+                                <a href="catalog-subcategory.html">
+                                    Индуктивные датчики
+                                </a>
+                            </li>
+                            <li class="catalog-page__slider-item swiper-slide">
+                                <a href="catalog-subcategory.html">
+                                    Емкостные датчики
+                                </a>
+                            </li>
+                            <li class="catalog-page__slider-item swiper-slide">
+                                <a href="catalog-subcategory.html">
+                                    Магнитные датчики
+                                </a>
+                            </li>
+                            <li class="catalog-page__slider-item swiper-slide">
+                                <a href="catalog-subcategory.html">
+                                    Уровнемеры
+                                </a>
+                            </li>
+                            <li class="catalog-page__slider-item swiper-slide">
+                                <a href="catalog-subcategory.html">
+                                    Оптические датчики
+                                </a>
+                            </li>
+                            <li class="catalog-page__slider-item swiper-slide">
+                                <a href="catalog-subcategory.html">
+                                    Ультразвуковые датчики
+                                </a>
+                            </li>
+                            <li class="catalog-page__slider-item swiper-slide">
+                                <a href="catalog-subcategory.html">
+                                    Датчики температуры
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- If we need navigation buttons -->
+                        <div class="catalog-page__slider-arrows swiper-arrows">
+                            <div class="swiper-button-prev swiper-button--circle swiper-button--small swiper-button--blue js-catalog-page-prev"></div>
+                            <div class="swiper-button-next swiper-button--circle swiper-button--small swiper-button--blue js-catalog-page-next"></div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="catalog-inner__controls">
+                        <div class="filter__toggler--mobile js-open-filter">
+                            Фильтры
+                        </div>
+                        <div class="sort">
+                            <label class="sort__label">
+                                <span>Сортировка: </span>
+                                <input type="text" class="js-input-for-custom-select">
+                                <div class="custom-select">
+                                    <div class="custom-select__top js-custom-select-trigger">
+                                        <div class="custom-select__name">
+                                            По выбору производителя
+                                        </div>
+                                        <div class="custom-select__arrow">
+                                            <svg width="10" height="6" viewBox="0 0 10 6" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5.3902 5.7779L9.84025 1.32777C9.94325 1.22485 10 1.08745 10 0.940948C10 0.794445 9.94325 0.657048 9.84025 0.554122L9.51261 0.226401C9.29911 0.0131509 8.95212 0.0131509 8.73895 0.226401L5.00207 3.96328L1.26105 0.222255C1.15804 0.119329 1.02072 0.0625 0.874302 0.0625C0.727717 0.0625 0.590401 0.119329 0.487312 0.222255L0.159754 0.549976C0.0567474 0.652983 0 0.790299 0 0.936802C0 1.0833 0.0567474 1.2207 0.159754 1.32363L4.61386 5.7779C4.7172 5.88107 4.85516 5.93774 5.00183 5.93741C5.14906 5.93774 5.28695 5.88107 5.3902 5.7779Z"
+                                                      fill="#0F1822"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="custom-select__bottom js-custom-select-dropdown">
+                                        <div class="custom-select__child custom-select__child--selected">По выбору
+                                            производителя
+                                        </div>
+                                        <div class="custom-select__child">По возрастанию цены</div>
+                                        <div class="custom-select__child">По убыванию цены</div>
+                                        <div class="custom-select__child">В наличии</div>
+                                        <div class="custom-select__child">Под заказ</div>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="view">
+                            <div class="view__list">
+                                <div class="view__item view__item--active js-change-view">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.5 5.25C4.5 6.49265 3.49265 7.5 2.25 7.5C1.00736 7.5 0 6.49265 0 5.25C0 4.00735 1.00736 3 2.25 3C3.49265 3 4.5 4.00735 4.5 5.25Z"/>
+                                        <path d="M4.5 12.75C4.5 13.9926 3.49265 15 2.25 15C1.00736 15 0 13.9926 0 12.75C0 11.5074 1.00736 10.5 2.25 10.5C3.49265 10.5 4.5 11.5074 4.5 12.75Z"/>
+                                        <path d="M4.5 20.25C4.5 21.4926 3.49265 22.5 2.25 22.5C1.00736 22.5 0 21.4926 0 20.25C0 19.0074 1.00736 18 2.25 18C3.49265 18 4.5 19.0074 4.5 20.25Z"/>
+                                        <path d="M6 5.25C6 4.00735 7.00735 3 8.25 3H21.75C22.9926 3 24 4.00735 24 5.25C24 6.49265 22.9926 7.5 21.75 7.5H8.25C7.00735 7.5 6 6.49265 6 5.25Z"/>
+                                        <path d="M6 12.75C6 11.5074 7.00735 10.5 8.25 10.5H21.75C22.9926 10.5 24 11.5074 24 12.75C24 13.9926 22.9926 15 21.75 15H8.25C7.00735 15 6 13.9926 6 12.75Z"/>
+                                        <path d="M6 20.25C6 19.0074 7.00735 18 8.25 18H21.75C22.9926 18 24 19.0074 24 20.25C24 21.4926 22.9926 22.5 21.75 22.5H8.25C7.00735 22.5 6 21.4926 6 20.25Z"/>
+                                    </svg>
+                                </div>
+                                <div class="view__item js-change-view">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.5 3.3C1.5 2.30589 2.30589 1.5 3.3 1.5H8.7C9.69411 1.5 10.5 2.30589 10.5 3.3V8.7C10.5 9.69411 9.69411 10.5 8.7 10.5H3.3C2.30589 10.5 1.5 9.69411 1.5 8.7V3.3Z"/>
+                                        <path d="M1.5 15.3C1.5 14.3059 2.30589 13.5 3.3 13.5H8.7C9.69411 13.5 10.5 14.3059 10.5 15.3V20.7C10.5 21.694 9.69411 22.5 8.7 22.5H3.3C2.30589 22.5 1.5 21.694 1.5 20.7V15.3Z"/>
+                                        <path d="M13.5 3.3C13.5 2.30589 14.3059 1.5 15.3 1.5H20.7C21.694 1.5 22.5 2.30589 22.5 3.3V8.7C22.5 9.69411 21.694 10.5 20.7 10.5H15.3C14.3059 10.5 13.5 9.69411 13.5 8.7V3.3Z"/>
+                                        <path d="M13.5 15.3C13.5 14.3059 14.3059 13.5 15.3 13.5H20.7C21.694 13.5 22.5 14.3059 22.5 15.3V20.7C22.5 21.694 21.694 22.5 20.7 22.5H15.3C14.3059 22.5 13.5 21.694 13.5 20.7V15.3Z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="catalog__list js-catalog-box">
+                        <div class="catalog-item">
+                            <div class="catalog-item__label">
+                                Новинка
+                            </div>
+                            <a href="product.html" class="catalog-item__image">
+                                <img src="./images/product_1.jpg" alt="Product">
+                            </a>
+                            <div class="catalog-item__stock">
+                                В наличии
+                            </div>
+                            <a href="product.html" class="catalog-item__name">
+                                Бесконтактная система управления мытьем CEV-15
+                            </a>
+                            <ul class="catalog-item__desc">
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Напряжение питания
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        10-30В
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Пульсации напряжения питания
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        10%
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Разрешающая способность
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        0,1мм
+                                    </span>
+                                </li>
+                            </ul>
+                            <div class="catalog-item__price">
+                                19 440 руб.
+                            </div>
+                            <div class="catalog-item__btns">
+                                <div class="catalog-item__btns-top">
+                                    <a href="#" class="btn btn--blue catalog-item__buy">Купить</a>
+                                    <a href="#" class="catalog-item__wishlist">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.120126 4.6335C0.5664 2.57375 2.34774 1.019 4.4796 0.82859C4.8907 0.791846 4.94511 0.791752 5.34263 0.826901C6.22158 0.904579 6.98722 1.17458 7.71147 1.66219C7.87123 1.76976 8.00742 1.85779 8.01408 1.85779C8.02077 1.85779 8.16472 1.76442 8.33399 1.65031C8.68248 1.4154 9.1482 1.18377 9.51736 1.06178C11.5631 0.385693 13.8009 1.08648 15.0549 2.79593C15.7423 3.73292 16.087 4.98118 15.9812 6.14979C15.9011 7.03455 15.6415 7.76814 15.1375 8.53423C14.9502 8.81896 14.6393 9.14011 11.6617 12.1242C9.86313 13.9267 8.3424 15.4322 8.28226 15.4697C8.13194 15.5636 7.86945 15.5636 7.71913 15.4697C7.53547 15.3551 1.21428 9.00077 1.00645 8.72186C0.115279 7.52592 -0.195746 6.09137 0.120126 4.6335Z"
+                                                  fill="#688EEF"/>
+                                        </svg>
+
+                                        <!--                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+                                        <!--                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.4796 0.82859C2.34774 1.019 0.5664 2.57375 0.120126 4.6335C-0.195746 6.09137 0.115279 7.52592 1.00645 8.72186C1.21428 9.00077 7.53547 15.3551 7.71913 15.4697C7.86945 15.5636 8.13194 15.5636 8.28226 15.4697C8.3424 15.4322 9.86313 13.9267 11.6617 12.1242C14.6393 9.14011 14.9502 8.81896 15.1375 8.53423C15.6415 7.76814 15.9011 7.03455 15.9812 6.14979C16.087 4.98118 15.7423 3.73292 15.0549 2.79593C13.8009 1.08648 11.5631 0.385693 9.51736 1.06178C9.1482 1.18377 8.68248 1.4154 8.33399 1.65031C8.16472 1.76442 8.02077 1.85779 8.01408 1.85779C8.00742 1.85779 7.87123 1.76976 7.71147 1.66219C6.98722 1.17458 6.22158 0.904579 5.34263 0.826901C4.94511 0.791752 4.8907 0.791846 4.4796 0.82859ZM5.35827 1.98526C6.16601 2.08129 6.87108 2.39954 7.50036 2.95217C7.76 3.18017 7.82204 3.21141 8.01555 3.21141C8.21115 3.21141 8.30362 3.164 8.56658 2.92896C10.1662 1.49914 12.7126 1.68461 14.0048 3.32508C14.6082 4.09116 14.8843 4.94221 14.8397 5.89837C14.803 6.68578 14.5724 7.34739 14.1119 7.98698C14.0012 8.14071 12.9192 9.24522 10.9719 11.1922L8.0007 14.163L5.18321 11.3486C3.63362 9.80069 2.26156 8.4164 2.13422 8.2724C1.49844 7.5535 1.20171 6.81652 1.16309 5.86053C1.1437 5.38048 1.19186 5.00369 1.32754 4.57352C1.86529 2.86892 3.57214 1.77289 5.35827 1.98526Z" fill="#0F1822"/>-->
+                                        <!--                                            </svg>-->
+                                    </a>
+                                </div>
+                                <a class="btn catalog-item__btn-one-click">Купить в 1 клик</a>
+                            </div>
+
+                        </div>
+                        <div class="catalog-item">
+                            <div class="catalog-item__label">
+                                Новинка
+                            </div>
+                            <a href="product.html" class="catalog-item__image">
+                                <img src="./images/product_2.jpg" alt="Product">
+                            </a>
+                            <div class="catalog-item__stock">
+                                Под заказ: 2-4 недели
+                            </div>
+                            <a href="product.html" class="catalog-item__name">
+                                Ультразвуковой датчик этикетки щель 1 или 3 мм ELT231R, ELT231BR
+                            </a>
+                            <ul class="catalog-item__desc">
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Напряжение питания
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        10-30В
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Пульсации напряжения питания
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        10%
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Разрешающая способность
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        0,1мм
+                                    </span>
+                                </li>
+                            </ul>
+                            <div class="catalog-item__price">
+                                Цена по запросу
+                            </div>
+                            <div class="catalog-item__btns">
+                                <div class="catalog-item__btns-top">
+                                    <a href="#" class="btn btn--blue catalog-item__buy catalog-item__buy--ask-price">Узнать цену</a>
+                                    <a href="#" class="catalog-item__wishlist">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M4.4796 0.82859C2.34774 1.019 0.5664 2.57375 0.120126 4.6335C-0.195746 6.09137 0.115279 7.52592 1.00645 8.72186C1.21428 9.00077 7.53547 15.3551 7.71913 15.4697C7.86945 15.5636 8.13194 15.5636 8.28226 15.4697C8.3424 15.4322 9.86313 13.9267 11.6617 12.1242C14.6393 9.14011 14.9502 8.81896 15.1375 8.53423C15.6415 7.76814 15.9011 7.03455 15.9812 6.14979C16.087 4.98118 15.7423 3.73292 15.0549 2.79593C13.8009 1.08648 11.5631 0.385693 9.51736 1.06178C9.1482 1.18377 8.68248 1.4154 8.33399 1.65031C8.16472 1.76442 8.02077 1.85779 8.01408 1.85779C8.00742 1.85779 7.87123 1.76976 7.71147 1.66219C6.98722 1.17458 6.22158 0.904579 5.34263 0.826901C4.94511 0.791752 4.8907 0.791846 4.4796 0.82859ZM5.35827 1.98526C6.16601 2.08129 6.87108 2.39954 7.50036 2.95217C7.76 3.18017 7.82204 3.21141 8.01555 3.21141C8.21115 3.21141 8.30362 3.164 8.56658 2.92896C10.1662 1.49914 12.7126 1.68461 14.0048 3.32508C14.6082 4.09116 14.8843 4.94221 14.8397 5.89837C14.803 6.68578 14.5724 7.34739 14.1119 7.98698C14.0012 8.14071 12.9192 9.24522 10.9719 11.1922L8.0007 14.163L5.18321 11.3486C3.63362 9.80069 2.26156 8.4164 2.13422 8.2724C1.49844 7.5535 1.20171 6.81652 1.16309 5.86053C1.1437 5.38048 1.19186 5.00369 1.32754 4.57352C1.86529 2.86892 3.57214 1.77289 5.35827 1.98526Z"
+                                                  fill="#0F1822"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="catalog-item">
+                            <div class="catalog-item__label">
+                                Новинка
+                            </div>
+                            <a href="product.html" class="catalog-item__image">
+                                <img src="./images/product_3.jpg" alt="Product">
+                            </a>
+                            <div class="catalog-item__stock">
+                                Под заказ: 2-4 недели
+                            </div>
+                            <a href="product.html" class="catalog-item__name">
+                                Датчик диффузионный самообучающийся JLLN18
+                            </a>
+                            <ul class="catalog-item__desc">
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Напряжение питания
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        10-30В
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Пульсации напряжения питания
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        10%
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Разрешающая способность
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        0,1мм
+                                    </span>
+                                </li>
+                            </ul>
+                            <div class="catalog-item__price">
+                                Цена по запросу
+                            </div>
+                            <div class="catalog-item__btns">
+                                <div class="catalog-item__btns-top">
+                                    <a href="#" class="btn btn--blue catalog-item__buy catalog-item__buy--ask-price">Узнать цену</a>
+                                    <a href="#" class="catalog-item__wishlist">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M4.4796 0.82859C2.34774 1.019 0.5664 2.57375 0.120126 4.6335C-0.195746 6.09137 0.115279 7.52592 1.00645 8.72186C1.21428 9.00077 7.53547 15.3551 7.71913 15.4697C7.86945 15.5636 8.13194 15.5636 8.28226 15.4697C8.3424 15.4322 9.86313 13.9267 11.6617 12.1242C14.6393 9.14011 14.9502 8.81896 15.1375 8.53423C15.6415 7.76814 15.9011 7.03455 15.9812 6.14979C16.087 4.98118 15.7423 3.73292 15.0549 2.79593C13.8009 1.08648 11.5631 0.385693 9.51736 1.06178C9.1482 1.18377 8.68248 1.4154 8.33399 1.65031C8.16472 1.76442 8.02077 1.85779 8.01408 1.85779C8.00742 1.85779 7.87123 1.76976 7.71147 1.66219C6.98722 1.17458 6.22158 0.904579 5.34263 0.826901C4.94511 0.791752 4.8907 0.791846 4.4796 0.82859ZM5.35827 1.98526C6.16601 2.08129 6.87108 2.39954 7.50036 2.95217C7.76 3.18017 7.82204 3.21141 8.01555 3.21141C8.21115 3.21141 8.30362 3.164 8.56658 2.92896C10.1662 1.49914 12.7126 1.68461 14.0048 3.32508C14.6082 4.09116 14.8843 4.94221 14.8397 5.89837C14.803 6.68578 14.5724 7.34739 14.1119 7.98698C14.0012 8.14071 12.9192 9.24522 10.9719 11.1922L8.0007 14.163L5.18321 11.3486C3.63362 9.80069 2.26156 8.4164 2.13422 8.2724C1.49844 7.5535 1.20171 6.81652 1.16309 5.86053C1.1437 5.38048 1.19186 5.00369 1.32754 4.57352C1.86529 2.86892 3.57214 1.77289 5.35827 1.98526Z"
+                                                  fill="#0F1822"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="catalog-item">
+                            <div class="catalog-item__label">
+                                Новинка
+                            </div>
+                            <a href="product.html" class="catalog-item__image">
+                                <img src="./images/product_4.jpg" alt="Product">
+                            </a>
+                            <div class="catalog-item__stock">
+                                В наличии
+                            </div>
+                            <a href="product.html" class="catalog-item__name">
+                                Бесконтактная система управления мытьем CEV-15
+                            </a>
+                            <ul class="catalog-item__desc">
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Напряжение питания
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        10-30В
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Пульсации напряжения питания
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        10%
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Разрешающая способность
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        0,1мм
+                                    </span>
+                                </li>
+                            </ul>
+                            <div class="catalog-item__price">
+                                19 440 руб.
+                            </div>
+                            <div class="catalog-item__btns">
+                                <div class="catalog-item__btns-top">
+                                    <a href="#" class="btn btn--blue catalog-item__buy">Купить</a>
+                                    <a href="#" class="catalog-item__wishlist">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M4.4796 0.82859C2.34774 1.019 0.5664 2.57375 0.120126 4.6335C-0.195746 6.09137 0.115279 7.52592 1.00645 8.72186C1.21428 9.00077 7.53547 15.3551 7.71913 15.4697C7.86945 15.5636 8.13194 15.5636 8.28226 15.4697C8.3424 15.4322 9.86313 13.9267 11.6617 12.1242C14.6393 9.14011 14.9502 8.81896 15.1375 8.53423C15.6415 7.76814 15.9011 7.03455 15.9812 6.14979C16.087 4.98118 15.7423 3.73292 15.0549 2.79593C13.8009 1.08648 11.5631 0.385693 9.51736 1.06178C9.1482 1.18377 8.68248 1.4154 8.33399 1.65031C8.16472 1.76442 8.02077 1.85779 8.01408 1.85779C8.00742 1.85779 7.87123 1.76976 7.71147 1.66219C6.98722 1.17458 6.22158 0.904579 5.34263 0.826901C4.94511 0.791752 4.8907 0.791846 4.4796 0.82859ZM5.35827 1.98526C6.16601 2.08129 6.87108 2.39954 7.50036 2.95217C7.76 3.18017 7.82204 3.21141 8.01555 3.21141C8.21115 3.21141 8.30362 3.164 8.56658 2.92896C10.1662 1.49914 12.7126 1.68461 14.0048 3.32508C14.6082 4.09116 14.8843 4.94221 14.8397 5.89837C14.803 6.68578 14.5724 7.34739 14.1119 7.98698C14.0012 8.14071 12.9192 9.24522 10.9719 11.1922L8.0007 14.163L5.18321 11.3486C3.63362 9.80069 2.26156 8.4164 2.13422 8.2724C1.49844 7.5535 1.20171 6.81652 1.16309 5.86053C1.1437 5.38048 1.19186 5.00369 1.32754 4.57352C1.86529 2.86892 3.57214 1.77289 5.35827 1.98526Z"
+                                                  fill="#0F1822"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <a class="btn catalog-item__btn-one-click">Купить в 1 клик</a>
+                            </div>
+                        </div>
+                        <div class="catalog-item">
+                            <div class="catalog-item__label">
+                                Новинка
+                            </div>
+                            <a href="product.html" class="catalog-item__image">
+                                <img src="./images/product_5.jpg" alt="Product">
+                            </a>
+                            <div class="catalog-item__stock">
+                                В наличии
+                            </div>
+                            <a href="product.html" class="catalog-item__name">
+                                Ультразвуковой датчик этикетки щель 1 или 3 мм ELT231R, ELT231BR
+                            </a>
+                            <ul class="catalog-item__desc">
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Напряжение питания
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        10-30В
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Пульсации напряжения питания
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        10%
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Разрешающая способность
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        0,1мм
+                                    </span>
+                                </li>
+                            </ul>
+                            <div class="catalog-item__price">
+                                19 440 руб.
+                            </div>
+                            <div class="catalog-item__btns">
+                                <div class="catalog-item__btns-top">
+                                    <a href="#" class="btn btn--blue catalog-item__buy">Купить</a>
+                                    <a href="#" class="catalog-item__wishlist">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M4.4796 0.82859C2.34774 1.019 0.5664 2.57375 0.120126 4.6335C-0.195746 6.09137 0.115279 7.52592 1.00645 8.72186C1.21428 9.00077 7.53547 15.3551 7.71913 15.4697C7.86945 15.5636 8.13194 15.5636 8.28226 15.4697C8.3424 15.4322 9.86313 13.9267 11.6617 12.1242C14.6393 9.14011 14.9502 8.81896 15.1375 8.53423C15.6415 7.76814 15.9011 7.03455 15.9812 6.14979C16.087 4.98118 15.7423 3.73292 15.0549 2.79593C13.8009 1.08648 11.5631 0.385693 9.51736 1.06178C9.1482 1.18377 8.68248 1.4154 8.33399 1.65031C8.16472 1.76442 8.02077 1.85779 8.01408 1.85779C8.00742 1.85779 7.87123 1.76976 7.71147 1.66219C6.98722 1.17458 6.22158 0.904579 5.34263 0.826901C4.94511 0.791752 4.8907 0.791846 4.4796 0.82859ZM5.35827 1.98526C6.16601 2.08129 6.87108 2.39954 7.50036 2.95217C7.76 3.18017 7.82204 3.21141 8.01555 3.21141C8.21115 3.21141 8.30362 3.164 8.56658 2.92896C10.1662 1.49914 12.7126 1.68461 14.0048 3.32508C14.6082 4.09116 14.8843 4.94221 14.8397 5.89837C14.803 6.68578 14.5724 7.34739 14.1119 7.98698C14.0012 8.14071 12.9192 9.24522 10.9719 11.1922L8.0007 14.163L5.18321 11.3486C3.63362 9.80069 2.26156 8.4164 2.13422 8.2724C1.49844 7.5535 1.20171 6.81652 1.16309 5.86053C1.1437 5.38048 1.19186 5.00369 1.32754 4.57352C1.86529 2.86892 3.57214 1.77289 5.35827 1.98526Z"
+                                                  fill="#0F1822"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <a class="btn catalog-item__btn-one-click">Купить в 1 клик</a>
+                            </div>
+                        </div>
+                        <div class="catalog-item">
+                            <div class="catalog-item__label">
+                                Новинка
+                            </div>
+                            <a href="product.html" class="catalog-item__image">
+                                <img src="./images/product_6.jpg" alt="Product">
+                            </a>
+                            <div class="catalog-item__stock">
+                                В наличии
+                            </div>
+                            <a href="product.html" class="catalog-item__name">
+                                Датчик диффузионный самообучающийся JLLN18
+                            </a>
+                            <ul class="catalog-item__desc">
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Напряжение питания
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        10-30В
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Пульсации напряжения питания
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        10%
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Разрешающая способность
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        0,1мм
+                                    </span>
+                                </li>
+                            </ul>
+                            <div class="catalog-item__price">
+                                19 440 руб.
+                            </div>
+                            <div class="catalog-item__btns">
+                                <div class="catalog-item__btns-top">
+                                    <a href="#" class="btn btn--blue catalog-item__buy">Купить</a>
+                                    <a href="#" class="catalog-item__wishlist">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M4.4796 0.82859C2.34774 1.019 0.5664 2.57375 0.120126 4.6335C-0.195746 6.09137 0.115279 7.52592 1.00645 8.72186C1.21428 9.00077 7.53547 15.3551 7.71913 15.4697C7.86945 15.5636 8.13194 15.5636 8.28226 15.4697C8.3424 15.4322 9.86313 13.9267 11.6617 12.1242C14.6393 9.14011 14.9502 8.81896 15.1375 8.53423C15.6415 7.76814 15.9011 7.03455 15.9812 6.14979C16.087 4.98118 15.7423 3.73292 15.0549 2.79593C13.8009 1.08648 11.5631 0.385693 9.51736 1.06178C9.1482 1.18377 8.68248 1.4154 8.33399 1.65031C8.16472 1.76442 8.02077 1.85779 8.01408 1.85779C8.00742 1.85779 7.87123 1.76976 7.71147 1.66219C6.98722 1.17458 6.22158 0.904579 5.34263 0.826901C4.94511 0.791752 4.8907 0.791846 4.4796 0.82859ZM5.35827 1.98526C6.16601 2.08129 6.87108 2.39954 7.50036 2.95217C7.76 3.18017 7.82204 3.21141 8.01555 3.21141C8.21115 3.21141 8.30362 3.164 8.56658 2.92896C10.1662 1.49914 12.7126 1.68461 14.0048 3.32508C14.6082 4.09116 14.8843 4.94221 14.8397 5.89837C14.803 6.68578 14.5724 7.34739 14.1119 7.98698C14.0012 8.14071 12.9192 9.24522 10.9719 11.1922L8.0007 14.163L5.18321 11.3486C3.63362 9.80069 2.26156 8.4164 2.13422 8.2724C1.49844 7.5535 1.20171 6.81652 1.16309 5.86053C1.1437 5.38048 1.19186 5.00369 1.32754 4.57352C1.86529 2.86892 3.57214 1.77289 5.35827 1.98526Z"
+                                                  fill="#0F1822"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <a class="btn catalog-item__btn-one-click">Купить в 1 клик</a>
+                            </div>
+                        </div>
+                        <div class="catalog-item">
+                            <div class="catalog-item__label">
+                                Новинка
+                            </div>
+                            <a href="product.html" class="catalog-item__image">
+                                <img src="./images/product_1.jpg" alt="Product">
+                            </a>
+                            <div class="catalog-item__stock">
+                                В наличии
+                            </div>
+                            <a href="product.html" class="catalog-item__name">
+                                Бесконтактная система управления мытьем CEV-15
+                            </a>
+                            <ul class="catalog-item__desc">
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Напряжение питания
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        10-30В
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Пульсации напряжения питания
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        10%
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Разрешающая способность
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        0,1мм
+                                    </span>
+                                </li>
+                            </ul>
+                            <div class="catalog-item__price">
+                                19 440 руб.
+                            </div>
+                            <div class="catalog-item__btns">
+                                <div class="catalog-item__btns-top">
+                                    <a href="#" class="btn btn--blue catalog-item__buy">Купить</a>
+                                    <a href="#" class="catalog-item__wishlist">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M4.4796 0.82859C2.34774 1.019 0.5664 2.57375 0.120126 4.6335C-0.195746 6.09137 0.115279 7.52592 1.00645 8.72186C1.21428 9.00077 7.53547 15.3551 7.71913 15.4697C7.86945 15.5636 8.13194 15.5636 8.28226 15.4697C8.3424 15.4322 9.86313 13.9267 11.6617 12.1242C14.6393 9.14011 14.9502 8.81896 15.1375 8.53423C15.6415 7.76814 15.9011 7.03455 15.9812 6.14979C16.087 4.98118 15.7423 3.73292 15.0549 2.79593C13.8009 1.08648 11.5631 0.385693 9.51736 1.06178C9.1482 1.18377 8.68248 1.4154 8.33399 1.65031C8.16472 1.76442 8.02077 1.85779 8.01408 1.85779C8.00742 1.85779 7.87123 1.76976 7.71147 1.66219C6.98722 1.17458 6.22158 0.904579 5.34263 0.826901C4.94511 0.791752 4.8907 0.791846 4.4796 0.82859ZM5.35827 1.98526C6.16601 2.08129 6.87108 2.39954 7.50036 2.95217C7.76 3.18017 7.82204 3.21141 8.01555 3.21141C8.21115 3.21141 8.30362 3.164 8.56658 2.92896C10.1662 1.49914 12.7126 1.68461 14.0048 3.32508C14.6082 4.09116 14.8843 4.94221 14.8397 5.89837C14.803 6.68578 14.5724 7.34739 14.1119 7.98698C14.0012 8.14071 12.9192 9.24522 10.9719 11.1922L8.0007 14.163L5.18321 11.3486C3.63362 9.80069 2.26156 8.4164 2.13422 8.2724C1.49844 7.5535 1.20171 6.81652 1.16309 5.86053C1.1437 5.38048 1.19186 5.00369 1.32754 4.57352C1.86529 2.86892 3.57214 1.77289 5.35827 1.98526Z"
+                                                  fill="#0F1822"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <a class="btn catalog-item__btn-one-click">Купить в 1 клик</a>
+                            </div>
+                        </div>
+                        <div class="catalog-item">
+                            <div class="catalog-item__label">
+                                Новинка
+                            </div>
+                            <a href="product.html" class="catalog-item__image">
+                                <img src="./images/product_2.jpg" alt="Product">
+                            </a>
+                            <div class="catalog-item__stock">
+                                В наличии
+                            </div>
+                            <a href="product.html" class="catalog-item__name">
+                                Бесконтактная система управления мытьем CEV-15
+                            </a>
+                            <ul class="catalog-item__desc">
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Напряжение питания
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        10-30В
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Пульсации напряжения питания
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        10%
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="catalog-item__desc-key">
+                                        Разрешающая способность
+                                    </span>
+                                    <span class="catalog-item__desc-dotted"></span>
+                                    <span class="catalog-item__desc-value">
+                                        0,1мм
+                                    </span>
+                                </li>
+                            </ul>
+                            <div class="catalog-item__price">
+                                19 440 руб.
+                            </div>
+                            <div class="catalog-item__btns">
+                                <div class="catalog-item__btns-top">
+                                    <a href="#" class="btn btn--blue catalog-item__buy">Купить</a>
+                                    <a href="#" class="catalog-item__wishlist">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M4.4796 0.82859C2.34774 1.019 0.5664 2.57375 0.120126 4.6335C-0.195746 6.09137 0.115279 7.52592 1.00645 8.72186C1.21428 9.00077 7.53547 15.3551 7.71913 15.4697C7.86945 15.5636 8.13194 15.5636 8.28226 15.4697C8.3424 15.4322 9.86313 13.9267 11.6617 12.1242C14.6393 9.14011 14.9502 8.81896 15.1375 8.53423C15.6415 7.76814 15.9011 7.03455 15.9812 6.14979C16.087 4.98118 15.7423 3.73292 15.0549 2.79593C13.8009 1.08648 11.5631 0.385693 9.51736 1.06178C9.1482 1.18377 8.68248 1.4154 8.33399 1.65031C8.16472 1.76442 8.02077 1.85779 8.01408 1.85779C8.00742 1.85779 7.87123 1.76976 7.71147 1.66219C6.98722 1.17458 6.22158 0.904579 5.34263 0.826901C4.94511 0.791752 4.8907 0.791846 4.4796 0.82859ZM5.35827 1.98526C6.16601 2.08129 6.87108 2.39954 7.50036 2.95217C7.76 3.18017 7.82204 3.21141 8.01555 3.21141C8.21115 3.21141 8.30362 3.164 8.56658 2.92896C10.1662 1.49914 12.7126 1.68461 14.0048 3.32508C14.6082 4.09116 14.8843 4.94221 14.8397 5.89837C14.803 6.68578 14.5724 7.34739 14.1119 7.98698C14.0012 8.14071 12.9192 9.24522 10.9719 11.1922L8.0007 14.163L5.18321 11.3486C3.63362 9.80069 2.26156 8.4164 2.13422 8.2724C1.49844 7.5535 1.20171 6.81652 1.16309 5.86053C1.1437 5.38048 1.19186 5.00369 1.32754 4.57352C1.86529 2.86892 3.57214 1.77289 5.35827 1.98526Z"
+                                                  fill="#0F1822"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <a class="btn catalog-item__btn-one-click">Купить в 1 клик</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pagination" data-pagination-num="1">
+                        <!-- pagination-container -->
+                        <button type="button" class="btn btn--transparent pagination__show-more" data-use="show-more-1">
+                            Показать ещё
+                        </button>
+                        <div class="pagination__container">
+                            <a class="pagination__item pagination__arrow pagination__arrow-prev" href="javascript:void(0)"></a>
+                            <a class="pagination__item pagination__item--active" href="javascript:void(0)" title="">1</a>
+                            <a class="pagination__item" href="javascript:void(0)" title="">2</a>
+                            <a class="pagination__item" href="javascript:void(0)" title="">3</a>
+                            <a class="pagination__item" href="javascript:void(0)" title="">4</a>
+                            <a class="pagination__item" href="javascript:void(0)" title="">5</a>
+                            <a class="pagination__item" href="javascript:void(0)" title="">...</a>
+                            <a class="pagination__item" href="javascript:void(0)" title="">9</a>
+                            <a class="pagination__item pagination__arrow pagination__arrow-next" href="javascript:void(0)" title=""></a>
+                        </div>
+                        <!-- pagination-container -->
+                    </div>
+
+                    <div class="consultation consultation--mobile">
+                        <div class="consultation__icon">
+                            <img src="./images/icon_tel_white.svg" alt="Phone">
+                        </div>
+                        <div class="consultation__title">
+                            Нужна консультация?
+                        </div>
+                        <div class="consultation__text">
+                            Оставьте заявку и мы свяжемся с вами в ближайшее время. Сэкономим ваше время и предложим
+                            лучшее решение для вашей задачи.
+                        </div>
+                        <a data-fancybox data-src="#popup-callback" class="btn btn--white consultation__btn">
+                            Оставить заявку
+                        </a>
+                    </div>
+
+                    <div class="catalog-page__seo catalog-page__seo--grey-bg">
+                        <div class="catalog-page__seo-title">
+                            Датчики компании техцентраль
+                        </div>
+                        <div class="catalog-page__seo-text">
+                            <div class="read-more js-read-more" data-limit="6">
+                                Датчик профиля проецирует лазерную линию на объект и определяет высоту профиля вдоль
+                                лазерной линии с помощью принципа триангуляции. Полученные данные сравниваются
+                                электроникой
+                                с эталонным значением в памяти датчика и на основании этого коммутируется выходной
+                                сигнал,
+                                информация через интерфейс передается далее на ПК или в контроллер. Контур объекта может
+                                быть визуализирован с помощью программного обеспечения, что значительно упрощает
+                                настройку и
+                                анализ ошибок.
+                                <br>
+                                Датчик профиля проецирует лазерную линию на объект и определяет высоту профиля вдоль
+                                лазерной линии с помощью принципа триангуляции. Полученные данные сравниваются
+                                электроникой
+                                с эталонным значением в памяти датчика и на основании этого коммутируется выходной
+                                сигнал,
+                                информация через интерфейс передается далее на ПК или в контроллер. Контур объекта может
+                                быть визуализирован с помощью программного обеспечения, что значительно упрощает
+                                настройку и
+                                анализ ошибок.
+                            </div>
+                            <div class="read-more__toggler js-read-more-toggler">
+                                Читать полностью
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<!-- Main::Start-->
+
+<!-- Footer::Start-->
+<footer>
+    <div class="footer">
+        <div class="footer__block footer__block-top">
+            <div class="container">
+                <div class="footer__row">
+                    <div class="footer__col">
+                        <ul class="footer__menu">
+                            <li class="footer__menu-item">
+                                <a href="about.html">О компании</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a href="catalog.html">Каталог продукции</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a href="articles.html">Публикации</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a href="faq.html">Вопросы и ответы</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a href="delivery.html">Доставка и оплата</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a href="contacts.html">Контакты</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__col">
+                        <div class="footer__btn">
+                            <a href="#" class="btn btn--green">Запрос в WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__block footer__block-middle">
+            <div class="container">
+                <div class="footer__row">
+                    <div class="footer__col">
+                        <div class="logo footer__logo">
+                            <a href="index.html">
+                                <img src="./images/logo_grey.svg" alt="logo">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer__col footer__center">
+                        <div class="footer__address">
+                            <svg width="12" height="16" viewBox="0 0 12 16" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5.60997 15.7913C5.69691 15.9217 5.84328 16 6 16C6.15672 16 6.30309 15.9217 6.39003 15.7913C7.49937 14.1273 9.13334 12.0723 10.272 9.98222C11.1824 8.31109 11.625 6.88581 11.625 5.625C11.625 2.52338 9.10163 0 6 0C2.89838 0 0.375 2.52338 0.375 5.625C0.375 6.88581 0.817594 8.31109 1.72803 9.98222C2.86581 12.0707 4.50291 14.1307 5.60997 15.7913ZM6 0.9375C8.58469 0.9375 10.6875 3.04031 10.6875 5.625C10.6875 6.72512 10.2823 8.00369 9.44872 9.53372C8.46725 11.3352 7.06669 13.1627 6 14.699C4.93347 13.1629 3.53281 11.3353 2.55128 9.53372C1.71772 8.00369 1.3125 6.72512 1.3125 5.625C1.3125 3.04031 3.41531 0.9375 6 0.9375Z"
+                                      fill="#C0C4D2"/>
+                                <path d="M6 8.4375C7.55081 8.4375 8.8125 7.17581 8.8125 5.625C8.8125 4.07419 7.55081 2.8125 6 2.8125C4.44919 2.8125 3.1875 4.07419 3.1875 5.625C3.1875 7.17581 4.44919 8.4375 6 8.4375ZM6 3.75C7.03387 3.75 7.875 4.59113 7.875 5.625C7.875 6.65887 7.03387 7.5 6 7.5C4.96613 7.5 4.125 6.65887 4.125 5.625C4.125 4.59113 4.96613 3.75 6 3.75Z"
+                                      fill="#C0C4D2"/>
+                            </svg>
+                            г. Москва, ул. Красного маяка 17, к3
+                        </div>
+                        <div class="footer__email">
+                            <a href="mailto:zakaz@techcentral.ru">
+                                <svg width="16" height="12" viewBox="0 0 16 12" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M0.321277 0.997054C0.182256 1.05554 0.0371229 1.22542 0.0123298 1.35869C0.00138354 1.41761 -0.00314029 3.54829 0.00231558 6.09355C0.0121914 10.7083 0.0124331 10.7215 0.0834285 10.8131C0.122586 10.8636 0.197518 10.9358 0.249971 10.9735L0.345345 11.042H8.00611H15.6669L15.7623 10.9735C15.8147 10.9358 15.8896 10.8636 15.9288 10.8131C15.9999 10.7214 16 10.7165 16 6.00454C16 1.29252 15.9999 1.2877 15.9288 1.19596C15.8896 1.14545 15.8147 1.0733 15.7623 1.03559L15.6669 0.967028L8.04676 0.959912C1.76418 0.954027 0.408122 0.960544 0.321277 0.997054ZM14.9046 2.50368L14.895 2.99294L11.4518 4.34595L8.00863 5.69899L4.56291 4.34611L1.11721 2.99324L1.10765 2.50382L1.09812 2.01443H8.00611H14.9141L14.9046 2.50368ZM4.65472 5.53586C6.88075 6.40973 7.92086 6.80256 8.00846 6.80256C8.0961 6.80256 9.16076 6.40005 11.4461 5.50295C13.2671 4.78815 14.7919 4.19 14.8346 4.17374L14.9123 4.14415V7.06939V9.99464H8.00611H1.09995V7.06906V4.14345L1.26397 4.20633C1.3542 4.24091 2.88001 4.83919 4.65472 5.53586Z"
+                                          fill="#C0C4D2"/>
+                                </svg>
+                                zakaz@techcentral.ru
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer__col footer__right">
+                        <div class="footer__tel">
+                            <a href="tel:8-800-222-05-67">
+                                8-800-222-05-67
+                            </a>
+                        </div>
+                        <div class="footer__schedule">
+                            Пн-Пт с 09:00 до 19:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__block footer__block-menu">
+            <div class="container">
+                <ul class="footer__grid-menu">
+                    <li class="footer__grid-item">
+                        <a href="catalog-subcategory.html">
+                            Контроллеры
+                        </a>
+                    </li>
+                    <li class="footer__grid-item">
+                        <a href="catalog-subcategory.html">
+                            Тахометры
+                        </a>
+                    </li>
+                    <li class="footer__grid-item">
+                        <a href="catalog-subcategory.html">
+                            Блоки питания
+                        </a>
+                    </li>
+
+                    <li class="footer__grid-item">
+                        <a href="catalog-subcategory.html">
+                            Датчики
+                        </a>
+                    </li>
+                    <li class="footer__grid-item">
+                        <a href="catalog-subcategory.html">
+                            Индикаторы процессов
+                        </a>
+                    </li>
+                    <li class="footer__grid-item">
+                        <a href="catalog-subcategory.html">
+                            Фотореле
+                        </a>
+                    </li>
+                    <li class="footer__grid-item">
+                        <a href="catalog-subcategory.html">
+                            Аксессуары
+                        </a>
+                    </li>
+                    <li class="footer__grid-item">
+                        <a href="catalog-subcategory.html">
+                            Счетчики
+                        </a>
+                    </li>
+                    <li class="footer__grid-item">
+                        <a href="catalog-subcategory.html">
+                            Электронные потенциометры
+                        </a>
+                    </li>
+
+                    <li class="footer__grid-item">
+                        <a href="catalog-subcategory.html">
+                            Без категорий
+                        </a>
+                    </li>
+                    <li class="footer__grid-item">
+                        <a href="catalog-subcategory.html">
+                            Таймеры
+                        </a>
+                    </li>
+                    <li class="footer__grid-item">
+                        <a href="catalog-subcategory.html">
+                            Специализированные системы контроля
+                        </a>
+                    </li>
+                    <li class="footer__grid-item">
+                        <a href="catalog-subcategory.html">
+                            Устройства контроля симметрии трехфазной линии
+                        </a>
+                    </li>
+                    <li class="footer__grid-item">
+                        <a href="catalog-subcategory.html">
+                            Вспомогательные электронные устройства
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__block footer__block-bottom">
+            <div class="container">
+                <div class="footer__row">
+                    <div class="footer__col">
+                        <div class="footer__copyright">
+                            ТЕХЦентраль © 2022 Промышленная электроника и средства автоматизации. Все права защищены
+                        </div>
+                    </div>
+                    <div class="footer__col">
+                        <div class="footer__docs">
+                            <div class="footer__docs-item">
+                                <a href="policy.html">Пользовательское соглашение</a>
+                            </div>
+                            <div class="footer__docs-item">
+                                <a href="public_offer.html">Публичная оферта</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer::Start-->
+
+<!-- Popups::Start-->
+<div class="popup popup__ask" id="popup-question" style="display: none;">
+    <div class="popup__title">
+        Вопрос тех.специалисту
+    </div>
+    <div class="popup__ask-form">
+        <form action="javascript:void(0)">
+            <div class="popup__ask-grid">
+                <div class="popup__form-input popup__ask-name">
+                    <label class="popup__form-label" for="name_ask">
+                        Имя
+                    </label>
+                    <input id="name_ask" type="email" placeholder="Укажите имя">
+                </div>
+                <div class="popup__form-input popup__ask-email">
+                    <label class="popup__form-label" for="email_ask">
+                        Email
+                    </label>
+                    <input id="email_ask" type="emil" placeholder="Укажите эл. почту">
+                </div>
+                <div class="popup__form-input popup__ask-msg">
+                    <label class="popup__form-label" for="msg_ask">
+                        Вопрос <span>*</span>
+                    </label>
+                    <textarea id="msg_ask" cols="30" rows="6" placeholder="Укажите ваш вопрос"></textarea>
+                </div>
+            </div>
+            <input type="submit" name="submit" class="popup__form-btn btn btn--blue" value="Отправить" onclick="sendForm(this)">
+            <div class="popup__form-tip">
+                Нажимая на кнопку «Отправить», вы даете согласие на обработку <a href="policy.html">персональных данных</a>
+            </div>
+        </form>
+    </div>
+    <div class="popup__success" style="display: none;">
+        <div class="popup__success-icon">
+            <img src="./images/icon_success.svg" alt="Success">
+        </div>
+        <div class="popup__success-text">
+            Ваша заявка принята, мы ответим в ближайшее время!
+        </div>
+    </div>
+</div>
+<div class="popup popup__callback" id="popup-callback" style="display: none;">
+    <div class="popup__title">
+        Обратный звонок
+    </div>
+    <div class="popup__callback-form">
+        <form action="javascript:void(0)">
+            <div class="popup__form-input">
+                <label class="popup__form-label" for="name_callback">
+                    Имя
+                </label>
+                <input id="name_callback" type="email" placeholder="Укажите имя">
+            </div>
+            <div class="popup__form-input">
+                <label class="popup__form-label" for="phone_callback">
+                    Телефон <span>*</span>
+                </label>
+                <input id="phone_callback" type="tel" placeholder="+7 (___) ___-__-__">
+            </div>
+            <input type="submit" name="submit" class="popup__form-btn btn btn--blue" value="Отправить" onclick="sendForm(this)">
+            <div class="popup__form-tip">
+                Нажимая на кнопку «Отправить», вы даете согласие на обработку <a href="policy.html">персональных данных</a>
+            </div>
+        </form>
+    </div>
+    <div class="popup__success" style="display: none;">
+        <div class="popup__success-icon">
+            <img src="./images/icon_success.svg" alt="Success">
+        </div>
+        <div class="popup__success-text">
+            Спасибо! Ваша заявка принята.
+        </div>
+    </div>
+</div>
+<div class="popup popup__callback" id="popup-price" style="display: none;">
+    <div class="popup__title">
+        Узнать цену
+    </div>
+    <div class="popup__callback-form">
+        <form action="javascript:void(0)">
+            <div class="popup__form-input">
+                <label class="popup__form-label" for="name_price">
+                    Имя
+                </label>
+                <input id="name_price" type="email" placeholder="Укажите имя">
+            </div>
+            <div class="popup__form-input">
+                <label class="popup__form-label" for="phone_price">
+                    Телефон <span>*</span>
+                </label>
+                <input id="phone_price" type="tel" placeholder="+7 (___) ___-__-__">
+            </div>
+            <input type="submit" name="submit" class="popup__form-btn btn btn--blue" value="Отправить" onclick="sendForm(this)">
+            <div class="popup__form-tip">
+                Нажимая на кнопку «Отправить», вы даете согласие на обработку <a href="policy.html">персональных данных</a>
+            </div>
+        </form>
+    </div>
+    <div class="popup__success" style="display: none;">
+        <div class="popup__success-icon">
+            <img src="./images/icon_success.svg" alt="Success">
+        </div>
+        <div class="popup__success-text">
+            Спасибо! Ваша заявка принята.
+        </div>
+    </div>
+</div>
+<div class="popup popup__success" id="success" style="display: none;">
+    <div class="popup__success-icon">
+        <img src="./images/icon_success.svg" alt="Success">
+    </div>
+    <div class="popup__success-text">
+        Ваша заявка принята, мы позвоним в ближайшее время!
+    </div>
+</div>
+<script>
+    function sendForm(e) {
+        let currentPopup = e.closest('.popup'),
+            success = currentPopup.querySelector('.popup__success'),
+            currentForm = e.closest('form')
+        success.style.display = 'block'
+        currentForm.style.display = 'none'
+    }
+</script>
+<!-- Popups::End-->
+</body>
+</html>

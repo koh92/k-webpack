@@ -1,26 +1,194 @@
 footer
-    //+bg('../images/bg_bottom.png', center top)
-    font-family: 'Jura'
-
+    background-color: #303D50
+    color: var(--light-grey-color)
 .footer
-    color: var(--white-color)
-    padding: 35px 0
-    &__row
-        &--center
+    +mqMax($md)
+        display: flex
+        flex-direction: column
+    &__block
+        +mqMax($md)
+            border-bottom: 1px solid #495464
+        +mq($md)
+            border-bottom: unset
+            & + &
+                border-top: 1px solid #495464
+        &-top
+            padding: 24px 0
+            order: 2
+            +mq($md)
+                order: unset
+                padding: 28px 0
+                .footer__row
+                    display: flex
+                    justify-content: space-between
+                .footer__col
+                    &:first-child
+                        flex: 0 0 calc(100% / 9 * 6)
+                    &:last-child
+                        flex: 0 0 calc(100% / 9 * 3)
+        &-middle
+            padding: 32px 0 24px
+            order: 1
+            +mq($md)
+                padding: 28px 0
+                order: unset
+                .footer__row
+                    display: flex
+                    justify-content: space-between
+        &-menu
+            padding: 24px 0
+            order: 3
+            +fz(13)
+            line-height: 125%
+            font-weight: 500
+            +mq($md)
+                padding: 28px 0
+                order: unset
+            +mq($xl)
+                padding: 40px 0
+        &-bottom
+            padding: 20px 0 28px
+            order: 4
+            +fz(12)
+            line-height: 120%
+            +mq($md)
+                order: unset
+            +mq($xl)
+                +fz(13)
+                padding: 24px 0
+    &__logo
+        margin: 0 auto
+        +mq($md)
+            margin: unset
+    &__center
+        text-align: center
+        margin-top: 20px
+        +fz(13)
+        line-height: 120%
+        +mq($md)
+            text-align: left
+            margin-top: 0
+        +mq($xl)
+            display: flex
+            align-items: center
+            flex-grow: 1
+            margin-left: 40px
+    &__address
+        +flex
+        margin-bottom: 13px
+        +fz(13)
+        line-height: 120%
+        +mq($md)
+            margin-bottom: 9px
+        +mq($xl)
+            margin-bottom: 0
+            margin-right: 28px
+            +fz(14)
+            line-height: 130%
+        svg
+            width: 12px
+            height: 16px
+            margin-right: 8px
+
+    &__email
+        +fz(13)
+        line-height: 120%
+        +mq($xl)
+            +fz(14)
+            line-height: 130%
+        a
+            +flex
+            +mq($md)
+                justify-content: flex-start
+        svg
+            width: 16px
+            height: 13px
+            margin-right: 8px
+    &__right
+        text-align: center
+        margin-top: 13px
+        +mq($md)
+            margin-top: 0
+    &__tel
+        font-family: 'Roboto Condensed', sans-serif
+        +fz(20)
+        font-weight: 700
+        line-height: 120%
+        letter-spacing: 0.01em
+        text-transform: uppercase
+        margin-bottom: 2px
+        +mq($xl)
+            line-height: 125%
+    &__schedule
+        +fz(13)
+        line-height: 120%
+        +mq($md)
+            text-align: right
+    &__menu
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        gap: 16px 20px
+
+        +fz(13)
+        line-height: 125%
+        +mq($xl)
+            display: flex
+            justify-content: space-between
+            gap: unset
+            +fz(14)
+            line-height: 115%
+            font-weight: 500
+        &-item
+            a
+                transition: .3s
+                &:hover
+                    color: var(--white-color)
+    &__btn
+        .btn
+            min-width: 172px
+        +mqMax($md)
             text-align: center
-        +mq($lg)
+            margin-top: 24px
+        +mq($md)
+            text-align: right
+    &__copyright
+        text-align: center
+        +mq($md)
+            text-align: left
+    &__docs
+        +mqMax($xl)
+            margin-top: 12px
+        +mqMax($md)
+            text-align: center
+        +mq($md)
+            display: flex
+            align-items: center
+        &-item
+            & + &
+                margin-top: 10px
+            +mq($md)
+                & + &
+                    margin-top: 0
+                    margin-left: 20px
+    &__grid
+        &-menu
+            display: grid
+            grid-template-columns: repeat(2, 1fr)
+            //gap: 16px 20px
+            gap: 16px 30px
+            +fz(13)
+            line-height: 125%
+            +mq($md)
+                grid-template-columns: repeat(3, 1fr)
+            +mq($xl)
+                grid-template-columns: repeat(4, 1fr)
+                +fz(14)
+                line-height: 115%
+                font-weight: 500
+        &-item
+            a
+                word-break: break-word
+    &__row
+        +mq($xl)
             +flex()
             justify-content: space-between
-            &--center
-                justify-content: center
-        & + &
-            margin-top: 60px
-    &__col
-        +mqMax($lg)
-            text-align: center
-            & + &
-                margin-top: 60px
-        > * + *
-            margin-top: 20px
-        a
-            display: block

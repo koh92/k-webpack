@@ -1,0 +1,249 @@
+.feedback
+    padding: 48px 0 60px
+    +mq($md)
+        padding: 48px 0
+    +mq($xl)
+        padding: 60px 0
+    &__title
+        font-family: "Roboto Condensed"
+        +fz(26)
+        font-weight: 700
+        line-height: 122%
+        letter-spacing: 0.01em
+        text-align: center
+        text-transform: uppercase
+        margin-bottom: 8px
+        +mq($md)
+            margin-bottom: 12px
+        +mq($xl)
+            +fz(32)
+            line-height: 125%
+    &__subtitle
+        +fz(14)
+        line-height: 145%
+        color: var(--dark-grey-color)
+        text-align: center
+        margin-bottom: 24px
+        +mq($md)
+            margin-bottom: 32px
+        +mq($xl)
+            +fz(15)
+            margin-bottom: 40px
+    &__form
+        form
+            display: grid
+            grid-template-areas: 'name' 'phone' 'msg' 'submit'
+            gap: 16px
+            +mq($md)
+                grid-template-areas: 'name phone' 'msg msg' 'submit submit'
+                gap: 20px
+            +mq($xl)
+                grid-template-areas: 'name msg' 'phone msg' 'submit submit'
+                gap: 20px 32px
+        &-input
+            display: flex
+            flex-direction: column
+            overflow: hidden
+            input:not([type="submit"]),
+            textarea
+                background: transparent
+                border: 1px solid var(--stroke-color)
+                border-radius: 4px
+                padding: 14px 16px
+                transition: .3s border
+                +mq($xl)
+                    padding: 16px
+                &::placeholder
+                    +fz(14)
+                    line-height: 130%
+                    color: var(--dark-grey-color)
+                &:focus
+                    border: 1px solid var(--blue-color)
+                    box-shadow: 0px 0px 3px var(--focus-blue-color)
+                &:not(:placeholder-shown)
+                    font-weight: 500
+                &[disabled],
+                &.disabled
+                    background-color: var(--disabled-input-color)
+                    color: var(--grey-color)
+                    border: unset
+                    pointer-events: none
+                    &:hover,
+                    &:focus
+                        color: inherit
+            &:has(.error)
+                input:not([type="submit"]),
+                textarea
+                    &:placeholder-shown
+                        border: 1px solid var(--error-color)
+                    &:not(:placeholder-shown)
+                        + .error
+                            display: none
+            textarea
+                +mq($xl)
+                    height: 100%
+            &--phone
+                grid-area: phone
+            &--name
+                grid-area: name
+            &--message
+                grid-area: msg
+            &--submit
+                grid-area: submit
+        &-label
+            +fz(13)
+            font-weight: 500
+            line-height: 125%
+            margin-bottom: 8px
+            span
+                color: var(--blue-color)
+        &-btn
+            width: 100%
+            margin-bottom: 8px
+        &-accept
+            +fz(11)
+            line-height: 130%
+            text-align: center
+            +mq($xl)
+                +fz(12)
+            a
+                color: var(--blue-color)
+.callback
+    background-color: var(--white-color)
+    padding: 76px 0 60px
+    +mq($xl)
+        padding: 93px 0 80px
+    &__box
+        position: relative
+        border: 1px solid var(--stroke-color)
+        background-color: var(--background-color)
+        border-radius: 12px
+        padding: 52px 12px 48px
+        +mq($md)
+            padding: 52px 32px 48px
+        +mq($xl)
+            padding: 64px 150px 40px
+            border-radius: 16px
+    &__padlock
+        --size: 56px
+        position: absolute
+        top: calc(0px - var(--size) / 2)
+        left: calc(50% - var(--size) / 2)
+        width: var(--size)
+        height: var(--size)
+        border-radius: 50%
+        border: 1px solid var(--stroke-color)
+        background-color: var(--background-color)
+        +flex
+        +mq($xl)
+            --size: 64px
+    &__title
+        font-family: "Roboto Condensed"
+        +fz(20)
+        line-height: 120%
+        font-weight: 700
+        text-align: center
+        letter-spacing: 0.01em
+        text-transform: uppercase
+        margin-bottom: 8px
+        +mq($xl)
+            +fz(24)
+            line-height: 125%
+    &__subtitle
+        +fz(14)
+        line-height: 145%
+        text-align: center
+        margin-bottom: 28px
+        +mq($md)
+            margin-bottom: 32px
+        +mq($xl)
+            +fz(15)
+            margin-bottom: 40px
+    &__form
+        form
+            display: grid
+            grid-template-areas: 'name' 'phone' 'submit' 'accept'
+            gap: 16px
+            +mq($md)
+                grid-template-areas: 'name phone' 'submit submit' 'accept accept'
+                gap: 24px 16px
+            +mq($xl)
+                grid-template-areas: 'name phone submit' 'accept accept accept'
+                gap: 12px 20px
+        &-input
+            display: flex
+            flex-direction: column
+            overflow: hidden
+            input:not([type="submit"])
+                height: 50px
+                background: transparent
+                border: 1px solid var(--stroke-color)
+                border-radius: 4px
+                padding: 14px 16px
+                transition: .3s border
+                +mq($xl)
+                    padding: 16px
+                &::placeholder
+                    +fz(14)
+                    line-height: 130%
+                    color: var(--dark-grey-color)
+                &:focus
+                    border: 1px solid var(--blue-color)
+                    box-shadow: 0px 0px 3px var(--focus-blue-color)
+                &:not(:placeholder-shown)
+                    font-weight: 500
+                &[disabled],
+                &.disabled
+                    background-color: var(--disabled-input-color)
+                    color: var(--grey-color)
+                    border: unset
+                    pointer-events: none
+                    &:hover,
+                    &:focus
+                        color: inherit
+            &:has(.error)
+                input:not([type="submit"])
+                    &:placeholder-shown
+                        border: 1px solid var(--error-color)
+                    &:not(:placeholder-shown)
+                        + .error
+                            display: none
+            &--name
+                grid-area: name
+            &--phone
+                grid-area: phone
+            &--submit
+                grid-area: submit
+        &-label
+            +fz(13)
+            font-weight: 500
+            line-height: 125%
+            margin-bottom: 8px
+            span
+                color: var(--blue-color)
+        &-btn
+            width: 100%
+            margin-bottom: 8px
+            +mq($xl)
+                margin-bottom: 0
+                margin-top: 26px
+                height: 48px
+        &-accept-pc
+            display: none
+            +mq($xl)
+                display: block
+                grid-area: accept
+                +fz(12)
+                line-height: 130%
+                text-align: center
+                text-align: left
+                a
+                    color: var(--blue-color)
+        &-accept
+            +fz(11)
+            line-height: 130%
+            text-align: center
+            +mq($xl)
+                display: none
+            a
+                color: var(--blue-color)

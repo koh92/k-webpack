@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, h6
     font-size: 100%
 
 img
-    max-width:100%
+    max-width: 100%
     vertical-align: middle
 
 ul, li
@@ -31,16 +31,18 @@ ul, li
 a
     display: inline-block
     color: inherit
-    line-height: 1
+    //line-height: 1
     text-decoration: none
     cursor: pointer
 
 a:active, a:hover
     outline: 0
 
-input:focus
+input:focus,
+:focus
     outline: none
-    border: none
+    &:not([class])
+        border: none
 
 fieldset
     border: 0

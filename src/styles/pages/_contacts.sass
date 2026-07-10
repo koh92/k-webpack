@@ -1,0 +1,148 @@
+.contact
+    margin-top: -4px
+    margin-bottom: 48px
+    +mq($xl)
+        margin-top: -12px
+        margin-bottom: 60px
+    &__inner
+        +mq($xl)
+            display: flex
+            justify-content: space-between
+            gap: max(calc(100% / 12), 120px)
+    &__left
+        +mq($xl)
+            flex: 0 0 calc(100% / 12 * 5)
+    &__right
+        +mq($xl)
+            flex: 0 0 calc(100% / 12 * 6)
+    &__left
+        margin-bottom: 48px
+        +mq($xl)
+            display: flex
+            flex-direction: column
+            margin-bottom: 0
+    &__right
+        background-color: var(--background-color)
+        border-radius: 8px
+        padding: 32px 16px
+        +mq($md)
+            padding: 32px
+        +mq($xl)
+            padding: 32px 40px
+    &__list
+        margin-bottom: 24px
+    &__item
+        border-bottom: 1px solid var(--stroke-color)
+        padding-bottom: 12px
+        & + &
+            padding-top: 12px
+        &-name
+            +fz(12)
+            font-weight: 500
+            line-height: 120%
+            color: var(--dark-grey-color)
+            margin-bottom: 4px
+            +mq($xl)
+                +fz(13)
+        &-content
+            font-family: 'Roboto Condensed', sans-serif
+            +fz(16)
+            line-height: 125%
+            font-weight: 700
+            letter-spacing: 0.01em
+            text-transform: uppercase
+            +mq($xl)
+                +fz(18)
+                line-height: 120%
+            a
+                color: var(--light-blue-color)
+                +fz(20)
+                line-height: 120%
+                +mq($xl)
+                    +fz(24)
+                    line-height: 125%
+                &:hover
+                    text-decoration: underline
+
+    &__whatsapp
+        display: flex
+        align-items: center
+        gap: 8px
+        +fz(13)
+        font-weight: 600
+        line-height: 120%
+        letter-spacing: 0.01em
+        text-transform: uppercase
+        color: var(--green-color)
+        +mq($xl)
+            +fz(14)
+            line-height: 130%
+            gap: 12px
+            margin-top: auto
+        &-icon
+            width: 40px
+            height: 40px
+            border-radius: 50%
+            background-color: var(--green-color)
+            +flex
+    .feedback__title
+        +fz(20)
+        line-height: 120%
+        text-align: left
+        margin-bottom: 24px
+        +mq($xl)
+            +fz(24)
+            line-height: 125%
+            margin-bottom: 28px
+    .feedback__form form
+        gap: 16px
+        +mq($xl)
+            grid-template-areas: "name phone" "msg msg" "submit submit"
+            gap: 20px
+    &__map
+        padding-bottom: 48px
+        +mq($xl)
+            padding-bottom: 60px
+        .map
+            height: 480px
+            +mq($md)
+                height: 380px
+            +mq($xl)
+                height: 500px
+    &__title
+        font-family: 'Roboto Condensed', sans-serif
+        +fz(26)
+        line-height: 122%
+        font-weight: 700
+        letter-spacing: 0.01em
+        text-transform: uppercase
+        margin-bottom: 20px
+        +mq($xl)
+            +fz(32)
+            line-height: 125%
+            margin-bottom: 24px
+.requisites
+    background-color: var(--background-color)
+    padding: 48px 0
+    +mq($xl)
+        padding: 60px 0
+    &__list
+        max-width: calc(100% / 12 * 6)
+    &__item
+        border-bottom: 1px solid var(--stroke-color)
+        padding-bottom: 12px
+        & + &
+            padding-top: 12px
+        &-name
+            +fz(12)
+            font-weight: 500
+            line-height: 120%
+            color: var(--dark-grey-color)
+            margin-bottom: 6px
+            +mq($xl)
+                +fz(13)
+        &-content
+            +fz(14)
+            line-height: 145%
+            +mq($xl)
+                +fz(15)

@@ -51,8 +51,40 @@ const cssOutputConfig =
 	    }
 	}
 
+const minifyImages =
+	isProd ?
+		{
+			test: /\.(jpe?g|png|gif|svg)$/i,
+			type: "asset",
+		} :
+		{}
+
 // Добавляем в массив все HTML файлы для копирования
-const htmlPageNames = ['index', 'portfolio', 'portfolio-inner', 'knowledge', 'knowledge-inner', 'policy'];
+const htmlPageNames = [
+	'index',
+	'about',
+	'delivery',
+	'articles',
+	'articles-inner',
+	'faq',
+	'contacts',
+	'catalog',
+	'catalog-category',
+	'catalog-subcategory',
+	'product',
+	'wishlist',
+	'cart',
+	'order',
+	'order-success',
+	'account-main',
+	'account-orders',
+	'search',
+	'public_offer',
+	'policy',
+	'404',
+	'registration',
+	'enter'
+];
 const multipleHtmlPlugins = htmlPageNames.map(name => {
 	return new HtmlWebpackPlugin({
 		title: name,
@@ -110,6 +142,7 @@ module.exports = {
                     "sass-loader"
                 ]
 		    },
+			minifyImages,
 		]
 	},
 	plugins: 

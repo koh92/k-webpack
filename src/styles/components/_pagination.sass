@@ -1,0 +1,36 @@
+.pagination
+    padding: 40px 0 60px
+    +mq($xl)
+        padding: 48px 0 80px
+    &__show-more
+        width: 100%
+        margin-bottom: 24px
+    &__container
+        +flex
+    &__item
+        --pagination-size: 32px
+        border-radius: 4px
+        width: var(--pagination-size)
+        height: var(--pagination-size)
+        +inline-flex
+        +mq($xl)
+            --pagination-size: 40px
+        &--active
+            background-color: var(--blue-color)
+            color: var(--white-color)
+    &__arrow
+        --arrow-size: 32px
+        width: var(--arrow-size)
+        height: var(--arrow-size)
+        +inline-flex
+        +mq($xl)
+            --arrow-size: 40px
+        &::after
+            content: ''
+            flex: 0 0 8px
+        &-prev
+            &::after
+                +arrow(8px, var(--grey-color), 135deg)
+        &-next
+            &::after
+                +arrow(8px, var(--grey-color), -45deg)
