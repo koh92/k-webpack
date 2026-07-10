@@ -1,7 +1,8 @@
 // Use in unify-parent mixin
 @use "sass:selector"
 
-// @mixin breakpoint($point) 
+//@mixin - alternate declare mixin's
+
 =mq($point) 
     @if $point == xs 
         @media (min-width: $xs) 
@@ -31,7 +32,6 @@
         @media (min-width: $point)
             @content
 
-// @mixin breakpointMax($point) 
 =mqMax($point) 
     @if $point == xs 
         @media (max-width: $xs - 1px)
@@ -60,21 +60,21 @@
         @media (max-width: $point - 1px)
             @content
 
-@mixin flex()
+=flex()
     display: flex
     align-items: center
     justify-content: center
 
-@mixin inline-flex()
+=inline-flex()
     display: inline-flex
     align-items: center
     justify-content: center
 
-@mixin flex-column()
+=flex-column()
     display: flex
     flex-direction: column
 
-@mixin flex-column-center()
+=flex-column-center()
     @include flex
     flex-direction: column
 
@@ -97,7 +97,7 @@
 
 // При изменении размера родительского блока, блок будет сохраняя свои пропорции
 // Например, .block +ratio(16,9)
-@mixin ratio($width, $height) 
+=ratio($width, $height)
     position: relative
     overflow: hidden
     padding-top: ($height / $width) * 100%
@@ -179,7 +179,7 @@
 
 
 // Прозрачная стрелка
-@mixin arrow($size, $color)
+=arrow($size, $color)
     content: ''
     display: block
     width: $size
@@ -201,6 +201,14 @@
 =lts($value)
   letter-spacing: $value
 
-@mixin unify-parent($child)
+=unify-parent($child)
   @at-root #{selector.unify(&, $child)}
     @content
+
+=textLimit($val)
+    overflow: hidden
+    text-overflow: ellipsis
+    display: -webkit-box
+    -webkit-line-clamp: $val
+    line-clamp: $val
+    -webkit-box-orient: vertical

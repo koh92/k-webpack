@@ -40,20 +40,22 @@ const cssOutputConfig =
 	    options: {
 	        outputPath: 'css/',
 	        name: '[name].min.css',
-	        url: false // prevent creating images from styles
+	        url: false, // prevent creating images from styles
+			sourceMap: true,
 	    }
 	} : {
 	    
 	    loader: "css-loader",
 	    options: {
-	        url: false // prevent creating images from styles
+	        url: false, // prevent creating images from styles
 	    }
 	}
 
 // Добавляем в массив все HTML файлы для копирования
-const htmlPageNames = ['index'];
+const htmlPageNames = ['index', 'portfolio', 'portfolio-inner', 'knowledge', 'knowledge-inner', 'policy'];
 const multipleHtmlPlugins = htmlPageNames.map(name => {
 	return new HtmlWebpackPlugin({
+		title: name,
 		filename: `${name}.html`, // output HTML files
 		template: `./${name}.html`, // relative path to the HTML files
         minify: isMinifyHTMLFiles ? minifyOptions : false // isMinify HTML files
@@ -64,6 +66,7 @@ const multipleHtmlPlugins = htmlPageNames.map(name => {
 
 module.exports = {
 	context: paths.src,
+	// entry: './js/index.js',
 	entry: './js/index.js',
 	output: {
 		path: paths.dist,

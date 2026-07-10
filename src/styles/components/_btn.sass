@@ -1,0 +1,66 @@
+.btn
+	+inline-flex
+	// width: fit-content
+	width: 100%
+	height: fit-content
+
+	+fz(16)
+	font-weight: 500
+	color: var(--white-color)
+	padding: 1em 2em
+	max-width: 215px
+	background: transparent
+	border: unset
+
+	transition: all .3s
+	cursor: pointer
+	&--edge
+		//--background-color: #000
+		--background-color: var(--black-color)
+		//--border-color: var(--purple-color)
+		--border-color: var(--accent-aquamarine-color)
+		--border-width: 3px
+		--edge-size: 1.225em
+		position: relative
+		isolation: isolate
+		display: inline-grid
+		place-content: center
+		clip-path: polygon(var(--edge-size) 0%, 100% 0, 100% calc(100% - var(--edge-size)), calc(100% - var(--edge-size)) 100%, 0 100%, 0% var(--edge-size))
+		border-radius: 3px
+		&::before
+			content: ""
+			position: absolute
+			inset: 0
+			background: var(--border-color)
+			z-index: -2
+			border-radius: 3px
+		&::after
+			content: ""
+			position: absolute
+			inset: 0
+			background: var(--background-color)
+			z-index: -1
+			clip-path: polygon(var(--border-width) calc(var(--edge-size) + var(--border-width) * 0.5), calc(var(--edge-size) + var(--border-width) * 0.5) var(--border-width), calc(100% - var(--border-width)) var(--border-width), calc(100% - var(--border-width)) calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5)), calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width)), calc(var(--border-width)) calc(100% - var(--border-width)))
+			transition: clip-path 500ms
+			border-radius: 3px
+		&:hover::after
+			clip-path: polygon(calc(100% - var(--border-width)) calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5)), calc(100% - var(--border-width)) var(--border-width), calc(100% - var(--border-width)) var(--border-width), calc(100% - var(--border-width)) calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5)), calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width)), calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width)))
+	&--colored
+		--background-color: radial-gradient(134.29% 338.88% at 72.78% -13.57%, #4CC9F0 0%, rgba(226, 54, 198, 0) 100%), linear-gradient(275.4deg, #1414FE -5.68%, #3376F3 49.88%, #C347FD 107.81%)
+		--border-width: 3px
+		--border-color: transparent
+		//box-shadow: 0px 27px 45px -22px rgba(46, 69, 188, 0.64), 0px 5px 0px -2px #5C2EBC, inset 0px 0px 9px rgba(255, 255, 255, 0.37)
+
+		//--background-color: unset
+		//+bg('../images/bg_btn.png')
+		&::before
+			background-image: url('../images/bg_btn.png')
+			background-repeat: no-repeat
+			background-size: cover
+		&::after
+			//--background-color: #000
+			--background-color: rgba(0, 0, 0, .7)
+	&--center
+		width: 100%
+		margin-left: 50%
+		transform: translateX(-50%)

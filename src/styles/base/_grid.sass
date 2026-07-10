@@ -5,57 +5,17 @@ $lg: 992px
 $xl: 1200px
 $hd: 1600px
 
-$gutter: 20px
-
 \:root
-	--gutter: 20px
+    --gutter: 20px
 
-$on_max_width: false
-$max_width: 1200px
-// $max_width: 1600px
+//$max_width: 1200px
+$max_width: 1600px
 
 .container 
-	width: 100%
-	padding: 0 calc($gutter / 2)
-	margin: 0 auto
-	@if not $on_max_width and $max_width
-		max-width: min(100%, $max_width)
+    width: 100%
+    padding: 0 var(--gutter)
+    margin: 0 auto
+    max-width: min(100%, $max_width)
 
-	@media (min-width: $xs) 
-		$gutter: 24px
-		--gutter: 24px
-		padding: 0 calc($gutter / 2)
-	@media (min-width: $xs) 
-		$gutter: 40px
-		--gutter: 40px
-		padding: 0 calc($gutter / 2)
-	@media (min-width: $xl) 
-		$gutter: 30px
-		--gutter: 30px
-		padding: 0 calc($gutter / 2)
-
-
-@if $on_max_width
-	@media (min-width: $sm) 
-		.container
-			$max_width: 540px
-			max-width: min(100%, $max_width)
-	@media (min-width: $md)
-		.container 
-			$gutter: 40px
-			--gutter: 40px
-			padding: 0 calc($gutter / 2)
-			$max_width: 720px
-			max-width: min(100%, $max_width)
-	@media (min-width: $lg)
-		.container 
-			$max_width: 960px
-			max-width: min(100%, $max_width)
-	@media (min-width: $xl)
-		.container
-			$max_width: 1170px
-			max-width: min(100%, $max_width)
-	// @media (min-width: $hd)
-	//     .container
-	//         $max_width: 1570px 
-	//         max-width: min(100%, $max_width)
+    @media (min-width: $xl)
+        --gutter: 40px

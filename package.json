@@ -1,7 +1,7 @@
 {
-  "name": "Vihotel",
+  "name": "K-develop",
   "version": "1.0.0",
-  "description": "Vihotel layout create",
+  "description": "K-develop layout create",
   "main": "index.js",
   "private": true,
   "scripts": {

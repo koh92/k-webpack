@@ -1,0 +1,55 @@
+.knowledge
+	background-repeat: no-repeat
+	background-position: center center
+	background-size: cover
+	&__desc
+		margin-bottom: 20px
+
+	&__grid
+		display: grid
+		grid-template-columns: 1fr
+		gap: 2rem
+		+mq($md)
+			grid-template-columns: repeat(2, 1fr)
+		+mq($lg)
+			grid-template-columns: repeat(4, 1fr)
+		+mq($xl)
+			grid-template-columns: repeat(5, 1fr)
+	&__item
+		border: 3px solid var(--aquamarine-color)
+		border-radius: 5px
+		box-shadow: 0px 1px 5px #1C2059
+		transition: .3s border
+		text-align: center
+		+flex-column-center()
+		&:hover
+			border: 3px solid var(--accent-aquamarine-color)
+		&-image
+			flex: 1 0 auto
+			+flex()
+			transition: .2s
+			&:hover
+				//filter: drop-shadow(1px 1px 3px var(--accent-aquamarine-color))
+				filter: drop-shadow(1px 1px 3px var(--light-purple-color))
+		&-name
+			+fz(16)
+			font-weight: 700
+			line-height: 150%
+			color: rgba(72, 76, 237, 1)
+			margin-bottom: 5px
+			+mq($xs)
+				+fz(18)
+			+mq($md)
+				+fz(20)
+		&-btn
+			+fz(0)
+			line-height: 150%
+			color: var(--grey-color)
+			display: inline-flex
+			transition: .3s
+			&:hover
+				color: var(--accent-aquamarine-color)
+			+mq($md)
+				+fz(18)
+	&__btn
+		text-align: center

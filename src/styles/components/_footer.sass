@@ -1,123 +1,26 @@
 footer
-    background-color: #553337
-    
-.footer 
-    padding: 36px 0 48px
-    color: var(--white-color)
-    display: grid
-    grid-template-areas: 'logo' 'menu-left' 'menu-right' 'contact' 'ex-menu'
-    +mq($xs)
-        grid-template-areas: 'logo logo' 'menu-left menu-right' 'contact contact' 'ex-menu ex-menu'
-    +mq($md)
-        grid-template-areas: 'logo logo' 'menu-left contact' 'menu-right contact' 'ex-menu ex-menu'
-        max-width: 600px
-        margin-inline: auto
-        grid-template-columns: 1fr 1fr
-    +mq($xl)
-        grid-template-areas: 'logo menu-left menu-right ex-menu contact'
-        --two-cols: calc(100% / 12 * 2)
-        --three-cols: calc(100% / 12 * 3)
-        grid-template-columns: var(--two-cols) var(--two-cols) var(--two-cols) var(--three-cols) var(--three-cols)
-        padding: 52px 0
-        max-width: unset
-        margin-inline: unset
-    &__col
-        &--logo
-            grid-area: logo
-            +mqMax($xl)
-                text-align: center
-        &--menu-left
-            grid-area: menu-left
-            text-align: center
-            +mq($xs)
-                text-align: left
-                padding-left: 68px
-            +mq($md)
-                padding-left: 0
-        &--menu-right
-            grid-area: menu-right
-            text-align: center
-            +mq($xs)
-                text-align: left
-                padding-left: 50px
-            +mq($md)
-                padding-left: 0
-        &--ex-menu
-            grid-area: ex-menu
-            +mqMax($xl)
-                text-align: center
-            +mq($md)
-                padding-top: 40px
-                margin-top: 44px
-                border-top: 1px solid var(--dark-color)
-            +mq($xl)
-                padding-top: 0
-                margin-top: 0
-                border-top: unset
-        &--contact
-            grid-area: contact
-            +mqMax($md)
-                text-align: center
-                padding: 32px 0
-                margin: 32px 0
-                border-top: 1px solid var(--dark-color)
-                border-bottom: 1px solid var(--dark-color)
-            +mq($md)
-                padding-left: 70px
-            +mq($xl)
-                padding-left: unset
-                justify-self: flex-end
+    //+bg('../images/bg_bottom.png', center top)
+    font-family: 'Jura'
 
-    &__logo
-        margin-bottom: 36px
-        +mq($xs)
-            margin-bottom: 40px
-        +mq($xl)
-            margin-bottom: 0
-        svg
-            fill: #E4D5D5
-    &__menu
-        +fz(14)
-        line-height: 17px
-        font-weight: 400
-        li
-            color: var(--text-color)
-            margin-bottom: 16px
-            transition: color .3s
-            &:hover, &:focus
-                color: var(--white-color)
-    &__tel
-        margin-bottom: 24px
-        .btn
-            +fz(14)
-            padding: 0
-            font-weight: 400
-            margin-left: 0
-            transform: unset
-            width: fit-content
-    &__address
-        margin-bottom: 28px
-        +mq($xl)
-            margin-bottom: 24px
-    &__contact
-        justify-self: center
-        +mq($xl)
-            justify-self: start
-        &-list
-            +flex
-            +mq($md)
-                justify-content: flex-start
-        &-item
-            +flex
-            width: 43px
-            height: 43px
-            border-radius: 53px
-            background-color: var(--main-color)
+.footer
+    color: var(--white-color)
+    padding: 35px 0
+    &__row
+        &--center
+            text-align: center
+        +mq($lg)
+            +flex()
+            justify-content: space-between
+            &--center
+                justify-content: center
+        & + &
+            margin-top: 60px
+    &__col
+        +mqMax($lg)
+            text-align: center
             & + &
-                margin-left: 20px
-            a
-                +flex
-            svg
-                fill: var(--white-color)
-    
-    
+                margin-top: 60px
+        > * + *
+            margin-top: 20px
+        a
+            display: block

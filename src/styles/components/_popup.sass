@@ -1,0 +1,117 @@
+.popup
+	overflow: visible
+	&__title
+		font-family: 'Jura'
+		+fz(24)
+		font-weight: 700
+		line-height: 120%
+		color: var(--white-color)
+		text-align: center
+		margin-bottom: 24px
+		+mq($xs)
+			+fz(32)
+	&__cookie
+		position: fixed
+		bottom: 10px
+		left: 15px
+		width: 100%
+		max-width: min(calc(100vw - 40px), 900px)
+		opacity: 0
+		visibility: hidden
+		z-index: 100
+		transform: translateY(1rem)
+		border: 3px solid var(--purple-color)
+		padding: 15px
+
+		+fz(12)
+		line-height: 18px
+		color: var(--white-color)
+		+mq($lg)
+			+flex()
+			padding: 1rem 2rem
+			left: 2rem
+			bottom: 2rem
+		&-text
+			flex: 0 0 auto
+			margin-bottom: 10px
+			+mq($lg)
+				padding-right: 35px
+				margin-bottom: 0
+		a
+			text-decoration: underline
+		&-btn
+			--fz: 14
+			max-width: 150px
+			flex: 0 0 150px
+			+mqMax($lg)
+				margin-left: 50%
+				transform: translateX(-50%)
+	&--active
+		animation: .5s fadeInCookie 1s ease-in forwards
+	&--hiding
+		animation: .5s fadeOutCookie ease-in forwards
+	&__thanks
+		display: none
+		color: var(--white-color)
+		text-align: center
+		background: unset
+		p
+			max-width: 80%
+			margin: 0 auto
+			+fz(18)
+			line-height: 24px
+	&__feedback
+		display: none
+	&__review
+		display: none
+	&--edge
+		background: unset
+		max-width: min(795px, 100%)
+		position: relative
+		--edge-size: 25px
+		--border-width: 5px
+		--correct-size: 3px
+		--border-radius: 5px
+		//clip-path: polygon(0% 0%, calc(100% - var(--edge-size)) 0, 100% var(--edge-size), 100% 100%, var(--edge-size) 100%, 0% calc(100% - var(--edge-size)))
+		+mq($md)
+			--edge-size: 50px
+		&::before
+			content: ""
+			position: absolute
+			inset: 0
+			clip-path: polygon(0% 0%, calc(100% - var(--edge-size)) 0, 100% var(--edge-size), 100% 100%, var(--edge-size) 100%, 0% calc(100% - var(--edge-size)))
+			background-color: #1b1043
+			z-index: -2
+			border-radius: var(--border-radius)
+		&::after
+			content: ""
+			position: absolute
+			inset: 0
+			clip-path: polygon(var(--border-width) var(--border-width), calc(100% - var(--edge-size) - var(--correct-size)) var(--border-width), calc(100% - var(--border-width)) calc(var(--edge-size) + var(--correct-size)), calc(100% - var(--border-width)) calc(100% - var(--border-width)), calc(var(--edge-size) + var(--correct-size)) calc(100% - var(--border-width)), var(--border-width) calc(100% - var(--edge-size) - var(--correct-size)))
+			background-color: rgba(9, 10, 15, 1)
+			z-index: -1
+			border-radius: var(--border-radius)
+		.fancybox-close-small
+			//right: var(--edge-size)
+			color: var(--white-color)
+			right: -10px
+			top: -10px
+			padding: 0
+	&__feedback
+
+
+@keyframes fadeInCookie
+	100%
+		transform: translateY(0)
+		opacity: 1
+		visibility: visible
+
+@keyframes fadeOutCookie
+	0%
+		transform: translateY(0)
+		opacity: 1
+		visibility: visible
+	100%
+		transform: translateY(1rem)
+		opacity: 0
+		visibility: hidden

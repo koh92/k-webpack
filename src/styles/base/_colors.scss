@@ -1,0 +1,20 @@
+//$white: #F2F2FF;
+//$purple: #1b1043;
+//$yellow: #ffc800;
+//$aquamarine: #0E7688;
+//$purple_complement: complement($purple)
+
+$colors: (
+	"white": #F2F2FF,
+	"purple": #1b1043,
+	//light-purple: lighten($purple, 20%),
+	//light-purple: lighten(#1b1043, 20%),
+	"light-purple": #484CED,
+	"aquamarine": #0E7688,
+	"accent-aquamarine": #00B4B3,
+	"grey": #AAA9D1,
+	"black": #090a0f,
+	//yellow: #ffc800,
+	"yellow": #FAF11A,
+	"red": red
+)

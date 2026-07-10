@@ -1,24 +1,8 @@
 \:root
-	--main-color: #915F68
-	// rgba(144, 95, 104, 1)
-	--accent-color: #A93944
-	// rgba(169, 57, 68, 1)
-	--dark-color: #64454B
-	// rgba(100, 69, 75, 1)
-	--hover-color: #95323C
-	// rgba(149, 50, 60, 1)
-	--white-color: #F9F3F3
-	// rgba(249, 243, 243, 1)
-	// --text-color: #E0C2C2
-	// --text-color: #DAC5C5
-	--text-color: #D7C5C4
-	// rgba(215, 197, 196, 1)
-	--btn-text-color: #FCFCFC
-	// rgba(252, 252, 252, 1)
+	@each $name, $value in $colors
+		--#{$name}-color: #{$value}
 
-// Debug style
-// *
-// 	outline: 1px solid limegreen
++font("Fungis", "fungis", 700)
 
 html
 	scroll-behavior: smooth
@@ -28,12 +12,25 @@ body
 	min-height: calc(100vh - 80px - 100px)
 	display: flex
 	flex-direction: column
-	background-color: var(--btn-text-color)
-	overflow-x: hidden
-	max-width: 100vw
+	//background-color: rgb(4,7,18)
+	background-color: rgb(5,6,9)
 
 main
 	flex: 1 0 auto
+	color: var(--white-color)
+	padding-bottom: 80px
+	+mq($md)
+		padding-bottom: 110px
+	+mq($xl)
+		padding-bottom: 200px
+
+body:not(.home_page) main
+	padding-top: 80px
+	+mq($md)
+		padding-top: 110px
+
+
+body:not(.single-portfolio) main
 	overflow-x: hidden
 
 input,
@@ -42,238 +39,133 @@ textarea
 	outline: none
 	box-shadow: none
 
-section:not([class]) 
-	padding: 28px 0
-	+mq($xs)
-		padding: 32px 0
-	+mq($md)
-		padding: 40px 0
-	+mq($xl)
-		padding: 60px 0
+details
+	summary
+		cursor: pointer
+		list-style: none
+		&::marker,
+		&::-webkit-details-marker
+			display: none
 
+::-webkit-scrollbar
+	background-color: rgb(5,6,9)
+	//background-color: rgb(4,7,18)
+	width: 5px
 
-// Fancybox fix
-.compensate-for-scrollbar
-	margin-right: 0 !important
-.fancybox-close-small
-	display: none
-.fancybox-content
-	padding: 0
-.fancybox-is-open .fancybox-bg
-	background: rgba(48, 29, 32, 0.8)
+::-webkit-scrollbar-thumb
+	border-radius: 5px
+	//background-color: #0E7688
+	background-color: var(--aquamarine-color)
 
-// CF7
-input[name^="acceptance-"]
-	display: none
-.wpcf7-list-item 
-	margin: 0
-.popup__feedback-accept 
-	text-align: left
-.wpcf7-response-output,
-.wpcf7-spinner 
-	display: none
-.grecaptcha-badge
-	// position: absolute !important
-	z-index: -999999
-	visibility: hidden
-	opacity: 0
-	// left: 100000px
-
-
-.center
-	text-align: center
-
-.mod-noscroll 
+.mod-noscroll
 	overflow: hidden
 	position: fixed
 	top: 0
 	left: 0
 	right: 0
 
-.btn
-	+inline-flex
-	// width: fit-content
-	width: 100%
-	height: fit-content
-	+fz(16)
-	font-weight: 500
-	padding: 12px 59px
-	transition: all .3s
-	max-width: 300px
-	margin-left: 50%
-	transform: translateX(-50%)
-	cursor: pointer
-	+mq($xs)
-		max-width: 222px
-	+mq($md)
-		max-width: 358px
-	&--colored
-		color: var(--btn-text-color)
-		border: 1px solid var(--accent-color)
-		background-color: var(--accent-color)
-		&:hover, &:focus
-			color: var(--btn-text-color)
-			background-color: var(--hover-color)
-	&--transparent-white
+.mod-blur-bg
+	//backdrop-filter: blur(5px)
+	background-color: rgba(0,0,0,.6)
+
+.logo
+	user-select: none
+	img
+		margin-right: 10px
+	a
+		+flex
+	span
+		font-family: 'Jura'
+		+fz(18)
+		font-weight: 700
+		line-height: 21px
 		color: var(--white-color)
-		border: 1px solid var(--white-color)
-		background-color: transparent
-		&:hover, &:focus
-			// border: 1px solid var(--accent-color)
-			background-color: rgba(249, 243, 243, .08)
-	&--transparent-black
-		color: var(--dark-color)
-		border: 1px solid var(--dark-color)
-		background-color: transparent
-		&:hover, &:focus
-			color: var(--accent-color)
-			border-color: var(--accent-color)
 
-.scroll-top
-	position: fixed
-	right: 10px
-	// bottom: min(170px, 15vmin)
-	// bottom: min(170px, 15vmax)
-	// bottom: min(170px, 5vmax)
-	// bottom: 56px
-	bottom: 50px
-	z-index: 100
+//section
+//	padding-bottom: 100px
 
-	+flex()
-	border-radius: 50%
-	width: 52px
-	height: 52px
-	// background-color: var(--main-color)
-	background-color: rgba(144, 95, 104, .8)
-	cursor: pointer
-	opacity: 0
-	visibility: hidden
-	transition: all .6s
-	&:hover, &:focus
-		background-color: var(--main-color)
-	+mq($xs)
-		right: 12px
+section + section
+	margin-top: 25px
+	padding-top: 25px
 	+mq($md)
-		right: 20px
-	&--visible
-		opacity: 1
-		visibility: visible
-	svg
-		fill: var(--white-color)
-
-.booking-label
-	position: fixed
-	right: 10px
-	bottom: calc(50px + 12px + 52px)
-	z-index: 100
-	padding: 0 30px
-
-	+flex()
-	justify-content: flex-start
-	border-radius: 28px
-	height: 52px
-	background-color: var(--accent-color)
-	cursor: pointer
-	overflow-x: hidden
-	transition: all .6s
-
-	// animation: squeeze 1s 3s ease-in forwards
-	animation: squeeze 1s 3s linear forwards
-	&:hover, &:focus
-		background-color: var(--hover-color)
-
-	+mq($xs)
-		right: 12px
-	+mq($md)
-		right: 20px
+		margin-top: 55px
+		padding-top: 55px
 	+mq($xl)
-		display: none
-	svg
-		// padding-right: 18px
-		padding-right: 16px
-		// width: 38px
-		width: 36px
-		flex: 0 0 auto
-		stroke: var(--btn-text-color)
-	&__text
-		+fz(14)
-		line-height: 172%
-		color: var(--btn-text-color)
-		+mq($md)
-			+fz(16)
+		margin-top: 100px
+		padding-top: 100px
 
-@keyframes squeeze
+.section-title
+	font-family: 'Jura'
+	+fz(32)
+	line-height: 120%
+	color: var(--white-color)
+	text-shadow: 0px 1px 2px #5D2897
+	text-align: center
+	margin-bottom: 50px
+	+mq($md)
+		margin-bottom: 75px
+	+mq($xl)
+		margin-bottom: 105px
+
+.page-title
+	font-family: 'Jura'
+	+fz(28)
+	font-weight: 700
+	line-height: 120%
+	color: var(--white-color)
+	//margin-top: 15px
+	//margin-bottom: 60px
+
+	margin-top: 30px
+	margin-bottom: 15px
+	+mq($xs)
+		+fz(32)
+	+mq($lg)
+		+fz(42)
+		margin-top: 60px
+
+//.bg-wrapper
+//	background-repeat: no-repeat
+//	background-position: center center
+//	background-size: cover
+
+.image-zoom:not(:hover)
+	transition: .3s background linear
+
+.wow.animated
+	transition: .3s
+	//-webkit-backface-visibility: hidden
+	//animation: font-weight .0000001s forwards
+	//animation-delay: 5s
+
+
+@keyframes font-weight
 	0%
-		// width: 228px
-		// width: 207px
-		max-width: 300px
+
 	100%
-		padding-left: 16px
-		padding-right: 0
-		// width: 52px
-		max-width: 52px
+		-webkit-font-smoothing: antialiased
+
 
 .swiper
-	&-pagination
-		&--rooms
-			+fz(20)
-			line-height: 24px
-			font-weight: 400
-			color: var(--main-color)
-			text-align: center
-			+flex
-		&-current
-			+fz(32)
-			line-height: 39px
-			font-weight: 200
-			padding-right: 10px
-			+mq($md)
-				+fz(40)
-				line-height: 49px
-			+mq($xl)
-				+fz(48)
-				line-height: 59px
-			&::before
-				content: '0'
-				font-size: inherit
-				font-weight: inherit
-				line-height: inherit
-				color: inherit
-		&-total
-			+fz(14)
-			line-height: 17px
-			font-weight: 400
-			padding-left: 10px
-			+mq($xl)
-				+fz(16)
-				line-height: 20px
-			&::before
-				content: '0'
-				font-size: inherit
-				font-weight: inherit
-				line-height: inherit
-				color: inherit
+	&-arrow
+		cursor: pointer
+		&-next
+			transform: rotateY(180deg)
 	&-scrollbar
 		&-drag
-			height: 1.5px
-			background-color: var(--main-color)
+			height: 6px
+			//border-radius: 0
+			border-radius: 5px
+			//background-color: #0E7688
+			background-color: var(--light-purple-color)
 
-	&-button
-		&-room
-			cursor: pointer
-			svg
-				fill: var(--main-color)
+.contacts
+	+flex()
+	&__item
+		& + &
+			margin-left: 30px
 
-.content
-	+fz(14)
-	line-height: 172.9%
-	font-weight: 400
-	color: #64454B
-	color: var(--dark-color)
-	+mq($md)
-		+fz(16)
-
-.content * + *
-	margin-top: 28px
-	+mq($md)
-		margin-top: 32px
+.grecaptcha-badge
+	z-index: -999999
+	visibility: hidden
+	opacity: 0

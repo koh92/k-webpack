@@ -22,7 +22,6 @@ module.exports = merge(common, {
 	},
 	target: 'browserslist',
 	optimization: {
-		// minimize: false,
 		splitChunks: {
 			chunks: 'all'
 		}
