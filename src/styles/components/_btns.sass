@@ -50,7 +50,7 @@
 			border: unset
 		// Changing the text of input type='file'
 		// https://open-code.tech/en/post-3514/
-	&--arrow
+	&.--arrow
 		&::after
 			background: currentColor
 			mask: var(--arrow) center center / 100% auto no-repeat
@@ -58,7 +58,7 @@
 	&[disabled]
 		--clr-bg: var(--clr-disabled)
 	
-	&--primary
+	&.--primary
 		--clr-bg: var(--clr-primary)
 		--clr-font: var(--clr-white)
 		&:hover
@@ -66,7 +66,7 @@
 		&:active
 			--clr-bg: var(--clr-primary-active)
 		
-	&--secondary
+	&.--secondary
 		--clr-bg: var(--clr-secondary)
 		--clr-font: var(--clr-white)
 		&:hover
@@ -74,7 +74,7 @@
 		&:active
 			--clr-bg: var(--clr-secondary-active)
 
-	&--transparent
+	&.--transparent
 		border-width: 1px
 		--clr-bg: transparent
 		--clr-border: var(--clr-primary)
@@ -84,10 +84,10 @@
 		&:active
 			--clr-border: var(--clr-primary-active)
 
-	&--center
+	&.--center
 		margin-inline: auto
 			
-	&--clip-icon
+	&.--clip-icon
 		--clr-border: var(--clr-grey-05)
 		--clr-font: var(--clr-grey-05)
 		padding: 10px 8px 10px 12px

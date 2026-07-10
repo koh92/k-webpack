@@ -54,11 +54,11 @@ const scrollTopHeader = () => {
 	let header = document.querySelector("header")
 	if (document.documentElement.scrollTop < 5) {
 		header.classList.remove("mod-fixed")
-		// header.classList.remove('mod-blue-bg')
+		// header.classList.remove("mod-blue-bg")
 	} else {
 		if (document.documentElement.scrollTop > 130) {
 			header.classList.add("mod-fixed")
-			// header.classList.add('mod-blue-bg')
+			// header.classList.add("mod-blue-bg")
 		}
 		let scrolled = window.scrollY || document.documentElement.scrollTop
 		let dY = scrolled - oldScrollY
@@ -88,7 +88,8 @@ const exampleSlider = () => {
 			slidesPerView: 1.2, // Кол-во слайдов для показа
 			spaceBetween: 20, // Расстояние между слайдами
 			speed: 800, // Скорость переключения слайдера
-			loop: false, // Зациклить слайдер
+			loop: false, // Зациклить слайдер (дублирует DOM)
+			rewind: true, // Перемотка в начало (просто перематыввает)
 			slideToClickedSlide: true, // Перелистывание на слайд по клику
 			simulateTouch: false, // Иммитировать перелистывание на ПК
 			navigation: {

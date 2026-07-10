@@ -1,10 +1,10 @@
 extends include/_layout
 
 block variables
-	- var title = 'Project name | Example components'
+	- var title = "Project name | Example components"
 
 include components/_accordion
-include components/_example-item
+include components/_item-example
 
 block content
 	.svg-icons
@@ -26,19 +26,19 @@ block content
 			//- Example item component
 			-
 				var cardItems = [
-					{name: 'Название 1'},
-					{name: 'Название 2'},
-					{name: 'Название 3'},
+					{name: "Название 1"},
+					{name: "Название 2"},
+					{name: "Название 3"},
 				]
 			each cardItem, index in cardItems
-				+example-item(cardItem.name, index)
+				+item-example(cardItem.name, index)
 			each cardItem, index in cardItems
-				+example-item(cardItem.name, index, true)
+				+item-example(cardItem.name, index, true)
 	
 		//- Accordion
 		.container
-			- var accordionList = {1:{name: 'Вопрос 1!', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, dignissimos.'}, 2:{name: 'Вопрос 2!', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, dignissimos.'}, 3:{name: 'Вопрос 3!', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, dignissimos.'}, 4:{name: 'Вопрос 4!', text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, dignissimos.'} }
-			+accordion-section(accordionList, 'Тестовый аккордеон')
+			- var accordionList = {1:{name: "Вопрос 1!", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, dignissimos."}, 2:{name: "Вопрос 2!", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, dignissimos."}, 3:{name: "Вопрос 3!", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, dignissimos."}, 4:{name: "Вопрос 4!", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, dignissimos."} }
+			+accordion-section(accordionList, "Тестовый аккордеон")
 
 		//- Dropdown
 		.container
@@ -76,7 +76,7 @@ block content
 		//- Marquee
 		.container
 			.marquee(style="--marquee-duration: 30s;--marquee-gap: 15px")
-				- var clients = {1:'Client 1', 2:'Client 2', 3:'Client 3', 4:'Client 4',5:'Client 5',6:'Client 6',7:'Client 7',8:'Client 8',9:'Client 9',10:'Client 10',11:'Client 11',12:'Client 12'}
+				- var clients = {1:"Client 1", 2:"Client 2", 3:"Client 3", 4:"Client 4",5:"Client 5",6:"Client 6",7:"Client 7",8:"Client 8",9:"Client 9",10:"Client 10",11:"Client 11",12:"Client 12"}
 				ul.marquee__group(role="list")
 					each name, key in clients
 						li.marquee__item.noselect= name

@@ -1,17 +1,17 @@
 extends include/_layout
 
 block variables
-	- var title = 'Project name | News detail'
+	- var title = "Project name | News detail"
 	- var breadcrumbs = true
 
 block block_breadcrumbs
-	+breadcrumbs('Название новости', {'url': 'news', 'name': 'Новости'}, {'name': 'Название новости'})
+	+breadcrumbs("Название новости", {"url": "news", "name": "Новости"}, {"name": "Название новости"})
 
 block content
 	section.news-detail
 		.container 
 			.news-detail__image
-				+img(`Images/CMS/hero_image.jpg`, '')
+				+img(`Images/CMS/hero_image.jpg`, "")
 			.news-detail__text
 				p Lorem ipsum dolor sit amet consectetur adipisicing elit. 
 				p Obcaecati maiores porro, unde assumenda nam ut iste officiis veritatis quod quisquam quam quae, laborum accusantium non repellendus, explicabo magni eos id.Minima maiores culpa deserunt, cum numquam laboriosam officiis dicta natus eveniet similique ut tempora tempore reprehenderit deleniti ipsum, cumque nemo quia sint recusandae minus quidem, provident amet. 

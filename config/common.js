@@ -1,16 +1,16 @@
-const webpack = require('webpack')
+const webpack = require("webpack")
 
-const paths = require('./paths')
+const paths = require("./paths")
 
-const PugPlugin = require('pug-plugin')
+const PugPlugin = require("pug-plugin")
 
 // https://github.com/webdiscus/pug-plugin/blob/master/CHANGELOG.md#500-2024-02-08
 // const HtmlBundlerPlugin = require('html-bundler-webpack-plugin')
 
-const isProd = process.env.NODE_ENV === 'production'
+const isProd = process.env.NODE_ENV === "production"
 
-const fs = require('fs')
-const rawPages = fs.readdirSync(paths.src).filter(fileName => fileName.endsWith('.pug'))
+const fs = require("fs")
+const rawPages = fs.readdirSync(paths.src).filter(fileName => fileName.endsWith(".pug"))
 
 let pagesList = {}
 rawPages.forEach((value) => pagesList[`${value.replace(/\.pug/,'')}`] = `./${value}`);
@@ -18,12 +18,14 @@ rawPages.forEach((value) => pagesList[`${value.replace(/\.pug/,'')}`] = `./${val
 let cache = isProd ? false : {
 	type: "filesystem",
 	memoryCacheUnaffected: true,
-	store: 'pack',
-	// compression: 'brotli',
-	compression: 'gzip',
+	store: "pack",
+	// compression: "brotli",
+	compression: "gzip",
 	buildDependencies: {
 		config: [ __filename ] // you may omit this when your CLI automatically adds it
-	}
+	},
+
+	version: isProd ? "prod" : "dev-" + Date.now(), 
 }
 
 module.exports = {
@@ -31,7 +33,7 @@ module.exports = {
 	entry: pagesList,
 	output: {
 		path: paths.dist,
-		filename: './js/[name].bundle.js',
+		filename: "./js/[name].bundle.js",
 		clean: true,
 	},
 	cache: cache,
@@ -81,8 +83,7 @@ module.exports = {
 				type: 'asset/resource',
 				generator: {
 					// output filename of images
-					filename: `[name][ext]`,
-					outputPath: 'assets/images/',
+					filename: `assets/[path][name][ext][query]`,
 				},
 			},
 			// Fonts

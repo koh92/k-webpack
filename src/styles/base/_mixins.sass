@@ -328,16 +328,15 @@
 /// @param {string} $direction  tl | tr | br | bl
 /// Example +clip-corner(300, 500, tl)
 =clip-corner($card_width, $card_height, $direction: tl )
-	/*
-	 IMPORTANT RULES
-	 MINIMUM VALUES BELOW
-	 $clip_height = $corners_size / 2
-	 $clip_width = $corners_size / 2
+	
+	// IMPORTANT RULES
+	// MINIMUM VALUES BELOW
+	// $clip_height: $corners_size / 2
+	// $clip_width: $corners_size / 2
 
-	 $corners_size = $clip_height * 2
-	 $corners_size = $clip_width * 2
-
-	 */
+	// $corners_size: $clip_height * 2
+	// $corners_size: $clip_width * 2
+	
 	@if $card_width > 20 and $card_height > 20
 		$corners_size: 10
 		$clip_width: 80

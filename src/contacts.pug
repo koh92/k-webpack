@@ -1,13 +1,13 @@
 extends include/_layout
 
 block variables
-	- var title = 'Project name | Contacts'
-	- var bodyClass = 'page-contacts'
+	- var title = "Project name | Contacts"
+	- var bodyClass = "page-contacts"
 	- var yandexMap = true
 	- var breadcrumbs = true
 
 block block_breadcrumbs
-	+breadcrumbs('Контакты', {'name': 'Контакты'})
+	+breadcrumbs("Контакты", {"name": "Контакты"})
 
 block content
 	.contacts
@@ -30,7 +30,7 @@ block content
 						.contacts__item-title Адрес
 						.contacts__item-value г. Москва
 				.form(data-view="column-xl")
-					include components/_static-form
+					include components/_form-static
 		.container
 			.contacts__map.js-contacts-map
 				.contacts__map-coord

@@ -1,14 +1,14 @@
-const webpack = require('webpack')
+const webpack = require("webpack")
 
-const paths = require('./paths')
-const { merge } = require('webpack-merge')
+const paths = require("./paths")
+const { merge } = require("webpack-merge")
 
-const common = require('./common')
+const common = require("./common")
 
 module.exports = merge(common, {
-	mode: 'development',
-	devtool: 'eval-source-map',
-	target: 'web',
+	mode: "development",
+	devtool: "eval-source-map",
+	target: "web",
 	devServer: {
 		compress: true,
 		historyApiFallback: true,
@@ -16,7 +16,7 @@ module.exports = merge(common, {
 		open: true,
 		port: 8000,
 		watchFiles: {
-			paths: ['src/**/*.*'],
+			paths: ["src/**/*.*"],
 			options: {
 				usePolling: true,
 			},

@@ -35,20 +35,20 @@
 			height: var(--swiper-custom-button-size)
 			svg
 				position: relative
-		&--black
+		&.--black
 			background-color: var(--clr-dark-grey)
 			--swiper-navigation-color: var(--clr-white)
 			transition: var(--transition)
 			&:hover
 				background-color: var(--clr-black-hover)
-		&--circle
+		&.--circle
 			border-radius: 50%
-		&--inner
+		&.--inner
 			&.swiper-button-prev,
 			&.swiper-button-next
 				+mq($xl)
 					--swiper-navigation-sides-offset: 20px
-		&--outer
+		&.--outer
 			&.swiper-button-prev,
 			&.swiper-button-next
 				+mq($xl)

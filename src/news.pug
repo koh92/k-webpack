@@ -1,13 +1,13 @@
 extends include/_layout
 
 block variables
-	- var title = 'Project name | News'
+	- var title = "Project name | News"
 	- var breadcrumbs = true
 
-include components/_news-item
+include components/_item-news
 
 block block_breadcrumbs
-	+breadcrumbs('Новости', {'url': 'news', 'name': 'Новости'})
+	+breadcrumbs("Новости", {"url": "news", "name": "Новости"})
 
 block content
 	section.news
@@ -20,5 +20,5 @@ block content
 						{name: 'Название третей новости'},
 					]
 				each newsItem, index in newsItems
-					+news-item(newsItem.name, index)
+					+item-news(newsItem.name, index)
 				

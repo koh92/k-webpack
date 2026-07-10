@@ -1,7 +1,7 @@
 extends include/_layout
 
 block variables
-	- var title = 'Project name'
+	- var title = "Project name"
 
 block content
 	section.hero
@@ -10,11 +10,11 @@ block content
 				.hero__info 
 					h1.hero__title Заголовок H1
 					.hero__subtitle Подзаголовок
-					.btn.btn--primary.hero__btn(data-fancybox, data-type="ajax", data-src="ajax.html", data-filter="#popup-request") Call to action
+					.btn.--primary.hero__btn(data-fancybox, data-type="ajax", data-src="ajax.html", data-filter="#popup-request") Call to action
 				.hero__image
-					+img('Images/CMS/hero_image.jpg')
+					+img("Images/CMS/hero_image.jpg")
 
 	section.selection-form
 		.container
 			.form
-				include components/_static-form
+				include components/_form-static
