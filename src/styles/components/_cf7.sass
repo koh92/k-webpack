@@ -1,0 +1,31 @@
+@use '../base/colors'
+@use '../base/mixins' as *
+@use '../base/breakpoints' as *
+
+// CF7
+input[name^="acceptance-"]
+	display: none
+.wpcf7-list-item
+	margin: 0
+.wpcf7-response-output,
+.wpcf7-spinner
+	display: none
+.grecaptcha-badge
+	z-index: -999999
+	visibility: hidden
+	opacity: 0
+.wpcf7-not-valid
+	&:placeholder-shown
+		border: 1px solid var(--red-color)
+		&:not(:focus)::placeholder
+//color: var(--red-color)
+.wpcf7-not-valid-tip
+	opacity: 0
+	visibility: hidden
+	height: 0
+	margin-top: 0
+	transition: all .6s
+	display: block
+	+fz(16)
+	line-height: 130%
+	color: var(--red-color)

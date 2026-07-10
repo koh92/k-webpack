@@ -1,0 +1,64 @@
+@use '../base/colors'
+@use '../base/mixins' as *
+@use '../base/breakpoints' as *
+
+.btn
+	+fz(18)
+	font-weight: 500
+	line-height: 135%
+	text-align: center
+	
+	display: flex
+	align-items: center
+	padding: 6px
+	border-radius: 100px
+	transition: .3s
+	+mq($md)
+		padding: 8px
+	&--waves
+		animation: waves 3s linear infinite
+	&--white
+		background-color: var(--white-color)
+		color: var(--text-color)
+		&:hover
+			background-color: var(--white-08-color)
+	&--blue
+		background-color: var(--dark-blue-color)
+		color: var(--white-color)
+		&:hover
+			background-color: var(--hover-blue-color)
+	&--download
+		&::before
+			content: ''
+			+box(40px)
+			border-radius: 50%
+			margin-right: 10px
+			background-repeat: no-repeat
+			background-position: center
+			flex: 0 0 40px
+		&.btn--white
+			&::before
+				background-color: var(--dark-blue-color)
+				background-image: url('Images/icon_file.svg')
+		&.btn--blue
+			&::before
+				background-color: var(--white-color)
+				background-image: url('Images/icon_file_blue.svg')
+	
+	&--callback
+		&::before
+			content: ''
+			+box(40px)
+			border-radius: 50%
+			margin-right: 10px
+			background-repeat: no-repeat
+			background-position: center
+			flex: 0 0 40px
+		&.btn--white
+			&::before
+				background-color: var(--dark-blue-color)
+				background-image: url('Images/icon_phone.svg')
+		&.btn--blue
+			&::before
+				background-color: var(--white-color)
+				background-image: url('Images/icon_phone_white.svg')

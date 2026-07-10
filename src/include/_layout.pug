@@ -1,14 +1,17 @@
 doctype html
 html(lang="ru")
-	block variables
 	//- Available variables
 	//- var title - set Page title
 	//- vat yandexMap - add JS for Yandex Map
 	//- var swiper - add CSS for Swiper
 	//- var fancybox - add CSS for Fancybox
-	//- var fancybox = true
-	//- var yandexMap = true
-	- var swiper = true
+	//- var wow - add CSS for Wow js
+	block variables
+		// - var fancybox = true
+		// - var yandexMap = false
+		// - var swiper = true
+		// - var wow = true
+
 
 	include _mixins
 
@@ -36,6 +39,10 @@ html(lang="ru")
 		// Footer::Start
 		include ../components/_footer
 		// Footer::End
+
+		// Popup::Start
+		include ../components/_popup
+		// Popup::End
 
 		// JavaScript::Start
 		include _js

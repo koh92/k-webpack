@@ -2,8 +2,6 @@ const webpack = require('webpack')
 
 const paths = require('./paths')
 
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const postcssPresetEnv = require('postcss-preset-env')
 const PugPlugin = require('pug-plugin')
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -23,7 +21,13 @@ module.exports = {
 		clean: true,
 		publicPath: isProd ? './' : '/',
 	},
-	cache: false,
+	// cache: true,
+	cache: {
+		type: "filesystem",
+		buildDependencies: {
+			config: [ __filename ] // you may omit this when your CLI automatically adds it
+		}
+	},
 	module: {
 		rules: [
 			// PUG
@@ -52,49 +56,62 @@ module.exports = {
 				test: /\.(css|sass|scss)$/,
 				use: [
 					'css-loader',
-					{
-						loader: 'postcss-loader',
-						options: {
-							postcssOptions: {
-								plugins: [
-									postcssPresetEnv({
-										stage: 2, // 0 (experimental) - 4 (stable) | default is 2
-										browsers: 'defaults'
-									})
-								],
-							},
-						}
-					},
+					// Settings in postcss.config.js
+					'postcss-loader',
 					// Compiles Sass to CSS
 					'sass-loader',
 				]
 			},
+			// Images
+			{
+				test: /\.(png|jpg|jpeg|ico|svg)/,
+				type: 'asset/resource',
+				generator: {
+					// output filename of images
+					filename: `[name][ext]`,
+					outputPath: 'assets/images/',
+				},
+			},
+			// Fonts
+			{
+				test: /\.(woff|woff2|eot|ttf|otf)$/i,
+				type: 'asset/resource',
+				generator: {
+					// output filename of fonts
+					filename: `[name][ext][query]`,
+					outputPath: 'assets/fonts/',
+				},
+			},
 		]
+	},
+	resolve: {
+		alias: {
+			// use alias to avoid relative paths like `./../../images/`
+			Images: `${paths.src}/images/`,
+			Fonts: `${paths.src}/fonts/`,
+			Node: `${paths.public}/node_modules/`,
+		}
 	},
 	plugins:
 		[
-			new CopyWebpackPlugin({
-				patterns: [
-					// images
-					{ from: './images', to: `${paths.dist}/images`, noErrorOnMissing: true, },
-					// fonts
-					{ from: './fonts', to: `${paths.dist}/fonts`, noErrorOnMissing: true, }
-				],
-			}),
 			new PugPlugin({
-				pretty: !isProd, // formatting HTML, useful for development mode
+				pretty: true, // formatting HTML, useful for development mode
+				// Минифицированный HTML на выходе не удобно редактировать
+				// pretty: !isProd, // formatting HTML, useful for development mode
 				js: {
 					// output filename of extracted JS file from source script
 					// filename: '/js/[name].[contenthash:8].js',
-					filename: '[name].min.js',
-					outputPath: 'js',
+					filename: 'assets/js/[name].min.js',
+					// Использование outputPath ломает картинки из стилей
+					// outputPath: 'assets/js/',
 				},
 				css: {
 					// output filename of extracted CSS file from source style
 					// filename: '/css/[name].[contenthash:8].css',
-					filename: '[name].min.css',
-					outputPath: 'css',
+					filename: 'assets/css/[name].min.css',
+					// Использование outputPath ломает картинки из стилей
+					// outputPath: 'assets/css/',
 				},
-			}),
+			})
 		]
 }

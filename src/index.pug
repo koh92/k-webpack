@@ -1,10 +1,24 @@
 extends include/_layout
 
 block variables
-	- var title = 'Home page'
+	- var title = 'Azpo Sur Yapi'
+	- var swiper = true
 	- var fancybox = true
+	- var wow = true
 
 block content
-	.container
-		h1 Hello Pug!
-		a.btn(data-fancybox, data-src="#fancybox") Trigger popup
+	section.hero
+		.hero__image
+			picture
+				//+source("Images/hero_1600.jpg", "1600px")
+				//+source("Images/hero_1280.jpg", "1160px")
+				//+source("Images/hero_744.jpg", "744px")
+				//+img('Images/hero_360.jpg', 'Azpo Sur Yapi')
+				+img('Images/hero_1600.jpg', 'Azpo Sur Yapi')
+		.container
+			.hero__box
+				.hero__subtitle Sur yapi ANTALYA
+				h1.hero__title
+					span Город будущего
+					span в сердце Антальи
+				a.btn.btn--white.btn--callback.btn--waves.hero__btn(data-fancybox, data-src="#callback-popup") Заказать звонок

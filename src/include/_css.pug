@@ -1,10 +1,14 @@
-if swiper == true
-	//- Add swiper
-	link(href=require('../../node_modules/swiper/swiper-bundle.css'), rel='stylesheet')
-if fancybox == true
-	//- Add fancybox
-	link(href=require('../../node_modules/@fancyapps/ui/dist/fancybox/fancybox.css'), rel='stylesheet')
+if true === swiper
+	// Add swiper
+	link(href=require('swiper/swiper-bundle.css'), rel='stylesheet')
 
+if true === fancybox
+	// Add fancybox
+	link(href=require('@fancyapps/ui/dist/fancybox/fancybox.css'), rel='stylesheet')
 
-link(href=require('../../node_modules/normalize.css/normalize.css'), rel='stylesheet')
+if true === wow
+	// Add Wow js
+	link(href=require('wow.js/css/libs/animate.css'), rel='stylesheet')
+
+link(href=require('normalize.css/normalize.css'), rel='stylesheet')
 link(href=require('../styles/index.sass'), rel='stylesheet')

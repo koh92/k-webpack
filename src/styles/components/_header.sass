@@ -1,8 +1,272 @@
 @use '../base/mixins' as *
 @use '../base/breakpoints' as *
 
-.header
-	+flex
-	&__logo
-		max-width: 200px
+@keyframes fadeIn
+	0%
+		opacity: 0
+	100%
+		opacity: 1
+=fadeIn
+	display: block
+	animation: fadeIn 1s ease-in forwards
 	
+header
+	position: fixed
+	width: 100%
+	top: 0
+	left: 0
+	z-index: 100000
+	transition: background .5s, top .4s, height .3s
+	&[data-state="opened"]
+		height: 100vh
+		height: 100dvh
+		background-color: var(--dark-blue-color)
+		overflow-y: auto
+	&.mod-fixed
+		top: -64px
+		+mq($md)
+			top: -91px
+		+mq($xl)
+			top: -80px
+		+mq($hd)
+			top: -95px
+	&.mod-backscroll
+		top: 0
+	&.mod-white-bg
+		background-color: var(--white-color)
+	&.mod-blue-bg
+		background-color: var(--dark-blue-color)
+		
+.header
+	padding: 9px 0 10px
+	display: grid
+	grid-template-areas: 'logo . socials burger'
+	grid-template-columns: minmax(auto, 126px) 1fr 135px 44px
+	//grid-template-columns: 126px 1fr 135px 44px
+	align-items: center
+	background: transparent
+	color: var(--white-color)
+	[data-state="opened"] &
+		grid-template-areas: 'logo . socials burger' 'btn btn btn btn' 'menu menu menu menu' 'contacts contacts contacts contacts' 'callback callback callback callback'
+		grid-template-columns: minmax(auto, 126px) 1fr 100px 44px
+	+mq($md)
+		grid-template-areas: 'logo . btn burger'
+		grid-template-columns: minmax(auto, 170px) 1fr 282px 50px
+		//grid-template-columns: 170px 1fr 282px 50px
+		padding: 20px 0
+		[data-state="opened"] &
+			grid-template-areas: 'logo . btn burger' 'menu menu menu menu' 'contacts contacts contacts contacts' 'callback callback callback callback'
+			//grid-template-columns: 170px 1fr 282px 50px
+			grid-template-columns: minmax(auto, 170px) 1fr 282px 50px
+	+mq($xl)
+		grid-template-areas: 'logo . contacts socials btn' 'menu menu menu menu menu'
+		//grid-template-columns: 176px 1fr auto 134px 262px
+		//grid-template-columns: 189px 1fr auto 138px 262px
+		grid-template-columns: minmax(auto, 189px) 1fr auto 138px 262px
+		padding: 12px 0
+	+mq($hd)
+		//grid-template-columns: 176px 1fr auto 134px 288px
+		grid-template-columns: 196px 1fr auto 138px 288px
+		padding: 25px 0
+	&__logo
+		grid-area: logo
+		margin-right: 0
+		opacity: 1
+		transition: opacity .3s
+		img + img
+			display: none
+	&__burger
+		grid-area: burger
+		justify-self: end
+		+mq($xl)
+			display: none
+	&__menu
+		grid-area: menu
+		+mq($xl)
+			padding-top: 12px
+			margin-top: 15px
+			border-top: .5px solid var(--white-color)
+		&-list
+			display: none
+			border-bottom: 1px solid var(--white-02-color)
+			[data-state="opened"] &
+				+fadeIn
+				padding-bottom: 26px
+				+mq($md)
+					margin-top: 53px
+					padding-bottom: 37px
+			+mq($xl)
+				+flex
+				gap: 36px
+				border-bottom: unset
+			+mq($hd)
+				gap: 40px
+		&-item
+			+mqMax($xl)
+				& + &
+					margin-top: 36px
+			a
+				display: inline-block
+				+fz(16)
+				font-weight: 400
+				line-height: 135%
+				cursor: pointer
+				+mq($hd)
+					+fz(18)
+			&:hover a
+				font-weight: 600
+			&--underline
+				a
+					position: relative
+				a::after
+					content: ''
+					display: block
+					position: absolute
+					top: calc(100% + 4px)
+					height: 1px
+					width: 100%
+					background-color: var(--white-02-color)
+					+mq($xl)
+						background-color: var(--white-05-color)
+	&__contacts
+		grid-area: contacts
+		display: none
+		[data-state="opened"] &
+			+fadeIn
+			margin-top: 22px
+			margin-bottom: 22px
+		+mq($xl)
+			display: flex
+			gap: 32px
+			padding-right: 30px
+	&__contact
+		display: flex
+		align-items: center
+		gap: 10px
+		+mq($xl)
+			justify-content: space-between
+			white-space: nowrap
+		&-note
+			+flex-center
+			+box(40px)
+			border-radius: 50%
+			border: .6px solid var(--white-color)
+			font-family: 'Manrope', sans-serif
+			+fz(12)
+			font-weight: 500
+		&-value
+			+fz(16)
+			font-weight: 500
+			line-height: 135%
+		+mqMax($xl)
+			& + &
+				margin-top: 20px
+	&__socials
+		grid-area: socials
+		display: flex
+		align-items: center
+		margin-right: 9px
+		+mq($md)
+			display: none
+			margin-right: 0
+		+mq($xl)
+			display: flex
+	
+	&__social
+		--soc-size: 34px
+		flex: 0 0 var(--soc-size)
+		+flex-center
+		+box(var(--soc-size))
+		border-radius: 50%
+		border: 1px solid var(--white-color)
+		[data-state="opened"] &:nth-child(3)
+			display: none
+		+mq($xl)
+			--soc-size: 46px
+		& + &
+			margin-left: 12px
+		&:nth-child(3)
+			+mq($md)
+				display: none
+		svg
+			fill: var(--white-color)
+			width: 13px
+			+mq($xl)
+				width: 17px
+	&__btn
+		grid-area: btn
+		display: none
+		[data-state="opened"] &
+			+mqMax($md)
+				+fadeIn
+			margin-top: 32px
+			margin-bottom: 22px
+		+mq($md)
+			display: block
+			[data-state="opened"] &
+				margin-top: 0
+				margin-bottom: 0
+		a
+			+fz(16)
+			+mqMax($md)
+				max-width: 255px
+			+mq($md)
+				padding: 5px
+				margin-right: 20px
+			+mq($xl)
+				margin-right: 0
+			+mq($hd)
+				+fz(18)
+	&__callback
+		grid-area: callback
+		display: none
+		a
+			+mqMax($md)
+				max-width: 252px
+		[data-state="opened"] &
+			+fadeIn
+			+mq($md)
+				a
+					display: inline-flex
+					min-width: 245px
+.mod-white-bg
+	.header
+		color: var(--text-color)
+	.header__logo img
+		display: none
+	.header__logo img + img
+		display: block
+	.header__contact-note
+		border-color: var(--dark-blue-color)
+	.header__menu
+		border-color: var(--dark-blue-color)
+	.header__menu-item--underline a::after
+		background-color: var(--dark-blue-color)
+	.header__social
+		border-color: var(--dark-blue-color)
+	.header__social svg
+		fill: var(--dark-blue-color)
+.mod-blue-bg
+	.header
+		+mq($xl)
+			grid-template-areas: 'logo . menu btn'
+			grid-template-columns: minmax(auto, 189px) 1fr auto 262px
+			padding: 12px 0
+		+mq($hd)
+			grid-template-areas: 'logo . menu socials btn'
+			grid-template-columns: 196px 1fr auto 138px 288px
+			padding: 21px 0 17px
+	.header__menu
+		+mq($xl)
+			padding-top: 0
+			margin-top: 0
+			border-top: 0
+			padding-right: 20px
+	.header__contacts
+		+mq($xl)
+			display: none
+	.header__socials
+		+mq($xl)
+			display: none
+		+mq($hd)
+			display: flex

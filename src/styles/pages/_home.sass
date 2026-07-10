@@ -1,0 +1,1348 @@
+@use '../base/mixins' as *
+@use '../base/breakpoints' as *
+
+.hero
+	--min-height: 660px
+	min-height: min(100vh, var(--min-height))
+	min-height: min(100dvh, var(--min-height))
+	position: relative
+	color: var(--white-color)
+	margin-bottom: 80px
+	+flex-center
+	text-align: center
+	+mq($md)
+		--min-height: 970px
+		margin-bottom: 110px
+	+mq($xl)
+		--min-height: 830px
+		margin-bottom: 160px
+	+mq($hd)
+		--min-height: 1070px
+		margin-bottom: 215px
+	&__image
+		position: absolute
+		inset: 0
+		z-index: -1
+		img
+			width: 100%
+			height: 100%
+			object-fit: cover
+	&__box
+		+flex-column-center
+	&__subtitle
+		+fz(20)
+		font-weight: 600
+		line-height: 110%
+		text-transform: uppercase
+		margin-bottom: 36px
+		+mq($md)
+			+fz(26)
+		+mq($xl)
+			+fz(36)
+			margin-bottom: 30px
+		+mq($hd)
+			+fz(46)
+			margin-bottom: 46px
+	&__title
+		+fz(32)
+		font-weight: 700
+		line-height: 110%
+		text-align: center
+		text-transform: uppercase
+		margin-bottom: 36px
+		+mq($md)
+			+fz(50)
+			margin-bottom: 50px
+		+mq($xl)
+			+fz(80)
+			margin-bottom: 30px
+		+mq($hd)
+			+fz(100)
+			margin-bottom: 80px
+		span
+			display: block
+		span + span
+			margin-top: 10px
+			+mq($md)
+				margin-top: 20px
+			+mq($xl)
+				margin-top: 5px
+			+mq($hd)
+				margin-top: 20px
+	&__btn
+		width: 100%
+		max-width: 245px
+.about
+	margin-bottom: 80px
+	+mq($md)
+		margin-bottom: 107px
+	+mq($xl)
+		margin-bottom: 160px
+		position: relative
+	&__header
+		+mq($md)
+			display: flex
+			gap: 80px
+		+mq($xl)
+			gap: 180px
+		+mq($hd)
+			gap: 275px
+	&__box
+		+mq($xl)
+			display: flex
+			gap: 97px
+	&__image
+		margin-left: calc(var(--gutter) * -1)
+		width: 100vw
+		min-height: 371px
+		margin-bottom: 30px
+		+mq($md)
+			min-height: 760px
+			margin-bottom: 40px
+		+mq($xl)
+			min-height: 683px
+			margin-bottom: 0
+			width: calc(100% / 12 * 6)
+		+mq($hd)
+			min-height: 759px
+		img
+			width: 100%
+			+mq($xl)
+				position: absolute
+				width: auto
+				max-width: calc(50vw - 98px)
+				max-height: 683px
+				left: 0
+			+mq($hd)
+				width: 100%
+				max-width: calc(50vw - 96px)
+				max-height: 759px
+				
+	&__info
+		+mq($xl)
+			padding-top: 85px
+			max-width: calc(100% / 12 * 6)
+	&__subtitle
+		max-width: 300px
+		+mq($md)
+			max-width: calc(100% / 8 * 6)
+		+mq($xl)
+			max-width: 500px
+		+mq($hd)
+			max-width: 930px
+	&__numbers
+		margin-bottom: 20px
+		+mq($md)
+			display: flex
+			gap: 20px
+		+mq($xl)
+			gap: 30px
+	&__number
+		flex: 1
+		+mqMax($md)
+			& + &
+				margin-top: 20px
+		&-value
+			span
+				+fz(24)
+				line-height: 140%
+				font-weight: 700
+				+mq($md)
+					+fz(32)
+				+mq($xl)
+					+fz(36)
+					
+			span + span
+				font-family: 'Manrope', sans-serif
+				+fz(22)
+				line-height: 135%
+				font-weight: 500
+		&-text
+			font-family: 'Manrope', sans-serif
+			+fz(16)
+			line-height: 135%
+			font-weight: 500
+			+mq($xl)
+				+fz(20)
+			+mq($hd)
+				+fz(22)
+
+.infrastructure
+	margin-bottom: 80px
+	+mq($md)
+		margin-bottom: 120px
+	+mq($xl)
+		margin-bottom: 160px
+	&__header
+		.section__subtitle
+			margin-bottom: 20px
+			padding-left: 36px
+			+mq($md)
+				margin-bottom: 20px
+				padding-left: calc(100% / 12 * 2)
+			+mq($hd)
+				margin-bottom: 26px
+		.section__text
+			margin-bottom: 20px
+			padding-left: 36px
+			+mq($md)
+				margin-bottom: 40px
+				padding-left: calc(100% / 12 * 2)
+			+mq($xl)
+				margin-bottom: 30px
+			+mq($hd)
+				margin-bottom: 40px
+.tiles
+	position: relative
+	overflow: hidden
+	
+	border-radius: 15px
+	display: grid
+	grid-template-columns: repeat(2, 1fr)
+	grid-template-rows: repeat(4, 1fr)
+	+mq($xl)
+		grid-template-columns: repeat(4, 1fr)
+		grid-template-rows: repeat(2, 1fr)
+	&__item
+		display: flex
+		flex-direction: column
+		width: 100%
+		height: 100%
+		padding: 16px 20px
+		min-height: 165px
+		border: .25px solid var(--white-color)
+		transition: .3s
+		cursor: pointer
+		+mq($md)
+			min-height: 310px
+			padding: 20px 30px
+		+mq($xl)
+			min-height: 290px
+		+mq($hd)
+			min-height: 400px
+		&--active
+			background-color: var(--dark-blue-color)
+			.tiles__image
+				opacity: 1
+	&__name
+		+fz(14)
+		line-height: 120%
+		font-weight: 600
+		color: var(--white-color)
+		margin-top: auto
+		margin-left: auto
+		text-align: right
+		+mq($md)
+			+fz(20)
+		+mq($xl)
+			+fz(18)
+		+mq($hd)
+			+fz(26)
+			
+	&__image
+		position: absolute
+		inset: 0
+		z-index: -1
+		opacity: 0
+		transition: 1s
+		&--start
+			opacity: 1
+			z-index: -1
+		img
+			width: 100%
+			height: 100%
+			object-fit: cover
+.nature
+	margin-bottom: 80px
+	+mq($md)
+		margin-bottom: 120px
+	+mq($xl)
+		margin-bottom: 160px
+	&__header
+		+mq($md)
+			display: flex
+			gap: calc(100% / 12)
+		+mq($xl)
+			gap: calc(100% / 12 * 2)
+		+mq($hd)
+			gap: calc(100% / 12 * 1)
+	&__slider
+		border-radius: 10px
+		overflow: hidden
+		position: relative
+		+mq($md)
+			border-radius: 20px
+		.swiper-pagination-bullet
+			width: 20px
+			border-radius: 20px
+			transition: .3s
+		.swiper-pagination-bullet-active
+			width: 40px
+	&__item
+		min-height: 320px
+		height: auto
+		+mq($md)
+			min-height: 594px
+		+mq($xl)
+			min-height: 590px
+		+mq($hd)
+			min-height: 790px
+		img
+			width: 100%
+			height: 100%
+			object-fit: cover
+.location
+	margin-bottom: 80px
+	+mq($md)
+		margin-bottom: 120px
+	+mq($xl)
+		margin-bottom: 160px
+	+mq($hd)
+		margin-bottom: 185px
+	&__grid
+		+mq($xl)
+			display: grid
+			grid-template-areas: 'name . .' 'title text text' 'map map districts'
+			grid-template-columns: 5fr 1fr 6fr
+		.section__name
+			grid-area: name
+		.section__title
+			grid-area: title
+	&__text
+		grid-area: text
+		margin-bottom: 30px
+		+mq($md)
+			padding-left: calc(100% / 8)
+			margin-bottom: 40px
+		+mq($xl)
+			padding-left: 0
+	&__map
+		grid-area: map
+		margin-bottom: 20px
+		border-radius: 8px
+		overflow: hidden
+		+mq($md)
+			border-radius: 15px
+		+mq($xl)
+			margin-right: 10px
+			margin-bottom: 0
+		+mq($hd)
+			border-radius: 20px
+		img
+			width: 100%
+			height: 100%
+			object-fit: cover
+	&__districts
+		grid-area: districts
+		+mq($xl)
+			margin-left: 10px
+			border-radius: 20px
+			overflow: hidden
+		svg
+			height: 100%
+			+mqMax($xl)
+				max-width: 100%
+.map
+	min-height: 255px
+	border-radius: 20px
+	+mq($md)
+		min-height: 435px
+	+mq($hd)
+		min-height: 602px
+	&__area
+		&--popup,
+		&--line
+			opacity: 0
+			visibility: hidden
+			transition: .3s
+		&--active
+			.map__area--popup,
+			.map__area--line
+				opacity: 1
+				visibility: visible
+		&:hover
+			opacity: 1
+			visibility: visible
+		&--shape
+			position: relative
+			z-index: 20
+			cursor: pointer
+			path
+				fill: rgba(255,255,255,0)
+				transition: .3s
+			&:hover,
+			&.map__area--active
+				path
+					fill: rgba(255,255,255,0.4)
+		&--point
+			cursor: pointer
+.antalya
+	margin-bottom: 80px
+	+mq($md)
+		margin-bottom: 120px
+	+mq($xl)
+		margin-bottom: 160px
+	+mq($hd)
+		margin-bottom: 150px
+	&__box
+		+mq($xl)
+			display: grid
+			grid-template-areas: 'name title' '. text' '. flex-slide'
+			grid-template-columns: 2fr 10fr
+		.section__name
+			grid-area: name
+		.section__title
+			grid-area: title
+	&__text
+		grid-area: text
+		margin-bottom: 20px
+		+mq($md)
+			margin-bottom: 50px
+		+mq($xl)
+			padding-left: calc(100% / 12)
+			margin-bottom: 40px
+		+mq($hd)
+			margin-bottom: 60px
+	&__flex-slide
+		grid-area: flex-slide
+		+mq($md)
+			padding-left: calc(100% / 8)
+		+mq($xl)
+			padding-left: calc(100% / 12)
+.flex-slide
+	&__box
+		display: flex
+		gap: 8px
+		overflow: hidden
+	&__item
+		height: 360px
+		flex: 1
+		border-radius: 10px
+		overflow: hidden
+		transition: all 1s ease
+		cursor: pointer
+		&:nth-child(4)
+			display: none
+			+mq($md)
+				display: block
+		&:nth-child(5)
+			display: none
+			+mq($xl)
+				display: block
+			img
+				object-position: right
+		+mq($md)
+			height: 480px
+			gap: 10px
+		+mq($xl)
+			gap: 15px
+		img
+			width: 100%
+			height: 100%
+			object-fit: cover
+		&:hover
+			flex-grow: 3
+.project
+	margin-bottom: 80px
+	+mq($md)
+		margin-bottom: 120px
+	+mq($xl)
+		margin-bottom: 160px
+	&__header
+		+mq($xl)
+			display: grid
+			grid-template-areas: 'project-name project-name' 'project-title .' '. project-subtitle' '. project-text'
+			grid-template-columns: 5fr 7fr
+			grid-template-rows: auto 90px auto auto
+			gap: 0 20px
+			margin-bottom: 40px
+			+mq($hd)
+				margin-bottom: 60px
+		.section__name
+			+mq($xl)
+				grid-area: project-name
+		.section__title
+			+mq($xl)
+				grid-area: project-title
+				position: sticky
+				top: 74px
+				height: max-content
+		.section__subtitle
+			margin-bottom: 14px
+			+mq($md)
+				margin-bottom: 20px
+				padding-left: calc(100% / 8)
+			+mq($xl)
+				grid-area: project-subtitle
+				padding-left: 0
+			+mq($hd)
+				margin-bottom: 26px
+	&__text
+		margin-bottom: 20px
+		+mq($md)
+			margin-bottom: 40px
+			padding-left: calc(100% / 8)
+		+mq($xl)
+			grid-area: project-text
+			padding-left: 0
+			margin-bottom: 0
+		
+	&__slider
+		border-radius: 10px
+		overflow: hidden
+		position: relative
+		margin-bottom: 15px
+		+mq($md)
+			border-radius: 20px
+			margin-bottom: 35px
+		+mq($xl)
+			margin-bottom: 25px
+		+mq($hd)
+			margin-bottom: 30px
+	&__item
+		min-height: 320px
+		height: auto
+		+mq($md)
+			min-height: 500px
+		+mq($hd)
+			min-height: 590px
+		img
+			width: 100%
+			height: 100%
+			object-fit: cover
+.marquee
+	--duration: 60s
+	--gap: 7px
+	--scroll-start: 0
+	--scroll-end: calc(-100% - var(--gap))
+	+mq($md)
+		--gap: 10px
+	display: flex
+	overflow: hidden
+	user-select: none
+	& + &
+		margin-top: 8px
+		+mq($md)
+			margin-top: 14px
+	&:nth-child(2)
+		.marquee__group
+			animation-direction: reverse
+			animation-delay: -3s
+	&:nth-child(3)
+		.marquee__group
+			--duration: 30s
+	&__group
+		gap: var(--gap)
+		display: flex
+		align-items: center
+		justify-content: space-around
+		animation: scroll-x var(--duration) linear infinite
+		& + &
+			margin-left: var(--gap)
+	&__item
+		font-family: 'Manrope', sans-serif
+		+fz(14)
+		line-height: 135%
+		font-weight: 500
+		color: var(--text-color)
+		white-space: nowrap
+		padding: 10px 11px
+		background-color: var(--light-grey-color)
+		border: 1px solid var(--grey-color)
+		border-radius: 10px
+		+mq($md)
+			+fz(18)
+			padding: 13px 16px
+@keyframes scroll-x
+	from
+		transform: translateX(var(--scroll-start))
+	to
+		transform: translateX(var(--scroll-end))
+.developer
+	margin-bottom: 80px
+	+mq($md)
+		margin-bottom: 120px
+	+mq($xl)
+		margin-bottom: 160px
+	+mq($hd)
+		margin-bottom: 170px
+	&__header
+		+mq($md)
+			display: grid
+			grid-template-areas: 'name title' '. text'
+			grid-template-columns: 2fr 6fr
+		+mq($xl)
+			display: block
+		.section__name
+			grid-area: name
+		.section__title
+			grid-area: title
+	&__text
+		grid-area: text
+		margin-bottom: 20px
+		+mq($md)
+			margin-bottom: 30px
+		+mq($xl)
+			margin-left: calc(100% / 12 * 2)
+			margin-bottom: 40px
+			max-width: calc(100% / 10 * 6)
+		+mq($hd)
+			margin-bottom: 50px
+			max-width: calc(100% / 10 * 5)
+	&__images
+		display: grid
+		grid-template-areas: 'type1 type2' 'type3 type3'
+		gap: 15px
+		padding-top: 50px
+		+mq($md)
+			gap: 20px
+			padding-top: 90px
+		+mq($xl)
+			grid-template-areas: 'type1 type2 type3'
+			padding-top: 0
+			gap: 18px
+		+mq($hd)
+			gap: 30px
+	&__image
+		border-radius: 10px
+		overflow: hidden
+		position: relative
+		transition: .6s
+		+mq($md)
+			border-radius: 20px
+		img
+			width: 100%
+			height: 100%
+			object-fit: cover
+		&--type1
+			grid-area: type1
+			top: -50px
+			+mq($md)
+				top: -90px
+			+mq($xl)
+				top: 0
+				align-self: start
+		&--type2
+			grid-area: type2
+			+mq($xl)
+				align-self: end
+		&--type3
+			grid-area: type3
+			+mq($xl)
+				min-height: 430px
+			+mq($hd)
+				min-height: 600px
+		&-label
+			font-family: 'Manrope', sans-serif
+			+fz(14)
+			line-height: 120%
+			font-weight: 700
+			color: var(--white-color)
+			
+			position: absolute
+			bottom: 16px
+			left: 17px
+			+mq($md)
+				+fz(22)
+				bottom: 20px
+				left: 22px
+			+mq($hd)
+				+fz(32)
+.flats
+	margin-bottom: 80px
+	overflow-x: hidden
+	+mq($md)
+		margin-bottom: 100px
+	+mq($xl)
+		margin-bottom: 130px
+	+mq($hd)
+		margin-bottom: 112px
+	&__header
+		display: flex
+		//gap: 18px
+		gap: 12px
+		margin-bottom: 20px
+		+mq($md)
+			margin-bottom: 40px
+		+mq($xl)
+			margin-bottom: 50px
+		.section__name
+			--basis: 70px
+			flex: 0 0 var(--basis)
+			+mq($md)
+				--basis: calc(100% / 8 * 2)
+	&__nav
+		+mq($xl)
+			position: relative
+		&-item
+			+flex-center
+			border: 1px solid var(--grey-color)
+			width: 90px
+			height: 40px
+			margin-bottom: 20px
+			border-radius: 8px
+			cursor: pointer
+			
+			+fz(16)
+			line-height: 135%
+			font-weight: 500
+			color: var(--text-color)
+			transition: .3s
+			
+			+mq($md)
+				width: 140px
+				height: 50px
+				margin-bottom: 30px
+				border-radius: 10px
+				+fz(22)
+			+mq($xl)
+				width: 130px
+				margin-bottom: 26px
+			&.swiper-slide-active
+				background-color: var(--light-grey-color)
+	&__slider
+		margin-bottom: 44px
+		+mq($md)
+			margin-bottom: 80px
+		+mq($xl)
+			margin-bottom: 60px
+			overflow-x: hidden
+		+mq($hd)
+			margin-bottom: 80px
+		&-item
+			border: 1px solid var(--grey-color)
+			border-radius: 14px
+			padding: 15px 14px
+			+mq($md)
+				padding: 18px 20px
+		&-image
+			// Minus top padding
+			min-height: calc(245px - 15px)
+			border-bottom: 1px solid var(--grey-color)
+			margin-bottom: 14px
+			+mq($md)
+				// Minus top padding
+				min-height: calc(358px - 18px)
+				margin-bottom: 16px
+		&-prop
+			display: flex
+			justify-content: space-between
+			align-items: center
+			
+			font-family: 'Manrope', sans-serif
+			+fz(14)
+			line-height: 135%
+			font-weight: 500
+			+mq($md)
+				+fz(18)
+			+mq($hd)
+				+fz(20)
+			& + &
+				margin-top: 8px
+				+mq($md)
+					margin-top: 10px
+		&-arrows
+			position: absolute
+			right: 0
+			top: 0
+			
+			display: none
+			align-items: center
+			gap: 10px
+			+mq($xl)
+				display: flex
+	&__btn
+		a
+			+fz(16)
+			+mq($md)
+				max-width: 320px
+				margin-inline: auto
+			+mq($hd)
+				max-width: 400px
+				+fz(22)
+.offer
+	margin-bottom: 80px
+	+mq($md)
+		margin-bottom: 120px
+	+mq($xl)
+		margin-bottom: 160px
+	&__header
+		margin-bottom: 26px
+		+mq($md)
+			margin-bottom: 31px
+		+mq($xl)
+			display: grid
+			grid-template-areas: 'name title' '. subtitle' '. advantages'
+			grid-template-columns: 2fr 10fr
+			margin-bottom: 60px
+		+mq($hd)
+			grid-template-columns: 1fr 11fr
+		.section__name
+			grid-area: name
+		.section__title
+			grid-area: title
+		.section__subtitle
+			grid-area: subtitle
+			margin-bottom: 20px
+			+mq($md)
+				margin-bottom: 30px
+				max-width: calc(100% / 8 * 7)
+			+mq($xl)
+				margin-bottom: 50px
+				max-width: calc(100% / 12 * 9)
+			+mq($hd)
+				margin-bottom: 60px
+				max-width: calc(100% / 12 * 8)
+	&__advantages
+		grid-area: advantages
+		+mq($md)
+			display: flex
+			gap: 20px
+	&__advantage
+		color: var(--text-color)
+		+mq($md)
+			gap: 16px
+		+mq($xl)
+			gap: 20px
+		&:nth-child(1)
+			+mq($md)
+				flex: 0 0 calc(100% / 8 * 3)
+			+mq($xl)
+				flex: 0 0 calc(100% / 10 * 4)
+			+mq($hd)
+				flex: 0 0 calc(100% / 11 * 3)
+		&:nth-child(2)
+			+mq($md)
+				flex: 0 0 calc(100% / 8 * 5)
+			+mq($xl)
+				flex: 0 0 calc(100% / 10 * 5)
+			+mq($hd)
+				flex: 0 0 calc(100% / 11 * 4)
+		&-text
+			font-family: 'Manrope', sans-serif
+			+fz(16)
+			line-height: 110%
+			font-weight: 500
+			+mq($xl)
+				+fz(22)
+		&-bold
+			+fz(24)
+			line-height: 120%
+			font-weight: 700
+			+mq($md)
+				+fz(30)
+			+mq($md)
+				+fz(34)
+		+mqMax($md)
+			& + &
+				margin-top: 12px
+	&__grid
+		+mq($xl)
+			display: grid
+			grid-template-areas: 'offer-blue offer-image' 'offer-grey offer-image'
+			grid-template-columns: 5fr 7fr
+			gap: 20px
+		+mq($hd)
+			gap: 30px
+		&-item
+			border-radius: 20px
+			overflow: hidden
+			padding: 30px
+			+mqMax($xl)
+				& + &
+					margin-top: 20px
+			+mq($md)
+				padding: 60px 50px
+			+mq($xl)
+				padding: 40px
+			&--blue
+				grid-area: offer-blue
+				background-color: var(--dark-blue-color)
+				color: var(--white-color)
+			&--grey
+				grid-area: offer-grey
+				background-color: var(--light-grey-color)
+				color: var(--text-color)
+			&--image
+				grid-area: offer-image
+				position: relative
+				display: flex
+				flex-direction: column
+				padding: 20px 12px
+				min-height: 362px
+				+mq($md)
+					padding: 30px 48px
+					min-height: 560px
+				+mq($xl)
+					padding: 43px 72px
+					min-height: 710px
+				+mq($hd)
+					padding: 36px 25px
+					min-height: 660px
+				.offer__grid-item-title
+					+fz(20)
+					margin-bottom: 6px
+					+mq($md)
+						+fz(22)
+						margin-bottom: 16px
+						span
+							display: block
+					+mq($xl)
+						+fz(26)
+					+mq($hd)
+						+fz(34)
+						margin-bottom: 18px
+				.offer__grid-item-text
+					+fz(16)
+					+mq($md)
+						+fz(16)
+					+mq($xl)
+						+fz(18)
+					+mq($hd)
+						+fz(22)
+			&-title
+				+fz(20)
+				line-height: 110%
+				font-weight: 600
+				margin-bottom: 15px
+				+mq($md)
+					+fz(22)
+					margin-bottom: 26px
+				+mq($xl)
+					+fz(26)
+					margin-bottom: 30px
+			&-list
+				font-family: 'Manrope', sans-serif
+				+fz(16)
+				line-height: 135%
+				margin-left: 20px
+				+mq($xl)
+					+fz(18)
+				li
+					list-style-type: disc
+				li + li
+					margin-top: 5px
+			&-text
+				font-family: 'Manrope', sans-serif
+				+fz(16)
+				line-height: 135%
+				font-weight: 500
+				+mq($xl)
+					+fz(18)
+			&-image
+				position: absolute
+				inset: 0
+				img
+					width: 100%
+					height: 100%
+					object-fit: cover
+			&-info
+				position: relative
+				z-index: 10
+				color: var(--white-color)
+				margin-top: auto
+				margin-left: auto
+				//max-width: 240px
+				max-width: 66vw
+				+mq($md)
+					//max-width: 260px
+					max-width: 35vw
+				+mq($xl)
+					//max-width: 280px
+					max-width: 22vw
+				+mq($hd)
+					//max-width: 370px
+					max-width: 23vw
+			&-btn
+				--circle-size: 123px
+				--top: 54px
+				//--left: 77px
+				--left: 21vw
+				+box(var(--circle-size))
+				display: grid
+				grid-template-columns: 1fr
+				grid-template-rows: 1fr min-content min-content min-content min-content 1fr
+				place-items: center
+				border-radius: 50%
+				background-color: var(--blue-color)
+				color: var(--white-color)
+				
+				position: absolute
+				top: var(--top)
+				left: var(--left)
+				+mq($md)
+					--circle-size: 235px
+					--top: 70px
+					//--left: 227px
+					--left: 30vw
+				+mq($xl)
+					--top: 156px
+					//--left: 262px
+					--left: 20vw
+				+mq($hd)
+					--top: 105px
+					//--left: 436px
+					--left: min(27vw, 500px)
+					grid-template-columns: 1fr min-content min-content 1fr
+					//grid-template-rows: .75fr min-content min-content min-content min-content 1fr
+					grid-template-rows: 56px min-content min-content min-content min-content 69px
+				span
+					display: block
+					position: relative
+					z-index: 10
+					&:nth-child(2),
+					&:nth-child(3)
+						display: inline-block
+					+mq($hd)
+						&:nth-child(1),
+						&:nth-child(2)
+							grid-column: 1/5
+						&:nth-child(3)
+							grid-column: 2/3
+						&:nth-child(4)
+							grid-column: 3/4
+							position: relative
+							bottom: -6px
+							left: 3px
+						&:nth-child(5),
+						&:nth-child(6)
+							grid-column: 1/5
+				&-subtitle
+					+fz(15)
+					line-height: 135%
+					font-weight: 500
+					+mq($md)
+						+fz(27)
+					+mq($hd)
+						+fz(30)
+				&-title
+					+fz(32)
+					//line-height: 135%
+					line-height: 0.8
+					font-weight: 600
+					+mq($md)
+						+fz(60)
+					+mq($hd)
+						+fz(50)
+				&-text
+					+fz(8)
+					line-height: 110%
+					font-weight: 500
+					max-width: 60px
+					margin-inline: auto
+					text-align: center
+					+mq($md)
+						+fz(14)
+						max-width: 110px
+					+mq($hd)
+						+fz(16)
+						max-width: 100%
+.experts
+	margin-bottom: 80px
+	overflow-x: hidden
+	+mq($md)
+		margin-bottom: 120px
+	+mq($xl)
+		margin-bottom: 160px
+	&__slider
+		+mq($xl)
+			position: relative
+		&-arrows
+			.swiper-button-prev,
+			.swiper-button-next
+				position: absolute
+				top: 0
+				z-index: 10
+				width: 66px
+				height: 100%
+				margin-top: 0
+			.swiper-button-prev::after,
+			.swiper-button-next::after
+				font-size: 0
+				width: 66px
+				height: 15px
+				+bg('Images/icon_long_arrow.svg', center, contain)
+			.swiper-button-next::after
+				transform: rotate(180deg)
+	&__item
+		border-radius: 20px
+		border: 1px solid var(--grey-color)
+		overflow: hidden
+		position: relative
+		height: auto
+		display: flex
+		flex-direction: column
+		+mq($md)
+			display: flex
+			flex-direction: row
+			max-height: 400px
+		+mq($xl)
+			width: calc(100% / 12 * 8)
+		+mq($hd)
+			max-height: 410px
+		&::before
+			content: ''
+			position: absolute
+			inset: 0
+			background-color: transparent
+			transition: .3s
+			border-radius: 20px
+		&:not(.swiper-slide-active)
+			&::before
+				background-color: rgba(45, 72, 116, 0.8)
+		&-image
+			+mq($md)
+				flex: 0 0 50%
+			+mq($xl)
+				flex: 0 0 42%
+			+mq($hd)
+				flex: 0 0 calc(100% / 8 * 3)
+			img
+				width: 100%
+				height: 100%
+				object-fit: cover
+				object-position: top
+		&-quotes
+			width: 53px
+			height: 44px
+			+bg('Images/icon_quotes.svg', center, contain)
+			+mqMax($md)
+				position: absolute
+				top: calc((20px + 44px) * -1)
+			+mq($md)
+				width: 63px
+				height: 52px
+				margin-bottom: 20px
+		&-info
+			padding: 20px
+			position: relative
+			flex: 1 0 auto
+			+mq($md)
+				padding: 30px
+				border-left: 0
+				flex: 0 0 50%
+				transition: .3s
+			+mq($xl)
+				padding: 30px 50px
+				flex: 1 0 58%
+			+mq($hd)
+				padding: 40px 60px
+				flex: 0 0 calc(100% / 8 * 5)
+		&-title
+			+fz(18)
+			line-height: 130%
+			font-weight: 600
+			margin-bottom: 8px
+			+mq($md)
+				+fz(20)
+				margin-bottom: 10px
+			+mq($xl)
+				+fz(22)
+			+mq($hd)
+				+fz(26)
+		&-text
+			font-family: 'Manrope', sans-serif
+			+fz(14)
+			line-height: 135%
+			margin-bottom: 16px
+			+mq($md)
+				margin-bottom: 20px
+			+mq($xl)
+				+fz(16)
+			+mq($hd)
+				+fz(18)
+				margin-bottom: 18px
+		&-name
+			+fz(16)
+			line-height: 130%
+			font-weight: 600
+			margin-bottom: 2px
+			+mq($xl)
+				+fz(18)
+				margin-bottom: 4px
+		&-position
+			+fz(12)
+			line-height: 135%
+			color: rgba(49, 49, 49, 0.7)
+			+mq($xl)
+				+fz(14)
+
+.prices
+	margin-bottom: 80px
+	+mq($md)
+		margin-bottom: 120px
+	+mq($xl)
+		margin-bottom: 160px
+	+mq($hd)
+		margin-bottom: 140px
+	&__header
+		.section__subtitle
+			margin-bottom: 20px
+			+mq($md)
+				margin-bottom: 65px
+			+mq($xl)
+				margin-bottom: 48px
+			+mq($hd)
+				margin-bottom: 50px
+	&__image
+		img
+			width: 100%
+.feedback
+	margin-bottom: 80px
+	+mq($md)
+		margin-bottom: 120px
+	+mq($xl)
+		margin-bottom: 160px
+	+mq($hd)
+		margin-bottom: 140px
+	&__box
+		border-radius: 20px
+		background-color: var(--dark-blue-color)
+		color: var(--white-color)
+		padding: 30px 20px
+		+mq($md)
+			padding: 40px 80px
+		+mq($xl)
+			display: grid
+			grid-template-areas: 'title form' 'text form' '. form'
+			grid-template-columns: 1fr 380px
+			gap: 0 110px
+			padding: 60px 60px 60px 80px
+		+mq($hd)
+			padding: 65px 75px 55px 80px
+			gap: 0 100px
+	&__title
+		+fz(18)
+		line-height: 135%
+		font-weight: 500
+		text-transform: uppercase
+		margin-bottom: 20px
+		+mq($md)
+			+fz(24)
+			line-height: 150%
+		+mq($xl)
+			+fz(30)
+			line-height: 140%
+			margin-top: 30px
+			margin-bottom: 35px
+			grid-area: title
+		+mq($hd)
+			+fz(36)
+			margin-bottom: 30px
+	&__text
+		font-family: 'Manrope', sans-serif
+		+fz(16)
+		line-height: 135%
+		margin-bottom: 20px
+		+mq($xl)
+			+fz(18)
+			margin-bottom: 0
+			grid-area: text
+		+mq($hd)
+			+fz(22)
+	&__form
+		+mq($xl)
+			grid-area: form
+			background-color: #F7F9FD
+			padding: 52px 50px
+			border-radius: 20px
+	&__input
+		& + &
+			margin-top: 20px
+		input
+			border-radius: 10px
+			border: 1px solid var(--white-color)
+			padding: 17px 20px
+			width: 100%
+			height: 56px
+			
+			font-family: "Manrope", sans-serif
+			+fz(16)
+			line-height: 130%
+			font-weight: 500
+			color: var(--white-color)
+			
+			background-color: transparent
+			+mq($md)
+				+fz(18)
+			+mq($xl)
+				color: var(--dark-blue-color)
+				border: 1px solid #DAE2F0
+				&:active,&:focus
+					border: 1px solid #DAE2F0
+			&::placeholder
+				font-family: "Manrope", sans-serif
+				+fz(16)
+				line-height: 130%
+				font-weight: 500
+				color: var(--white-color)
+				+mq($md)
+					+fz(18)
+				+mq($xl)
+					color: var(--dark-blue-color)
+			&:placeholder-shown
+				& + .wpcf7-not-valid-tip
+					opacity: 1
+					visibility: visible
+					height: auto
+					margin-top: 8px
+	&__accept
+		+fz(14)
+		line-height: 130%
+		margin-top: 10px
+		margin-bottom: 20px
+		label,
+		.wpcf7-list-item-label
+			+flex
+			justify-content: flex-start
+			align-items: center
+			cursor: pointer
+			+mq($md)
+				align-items: center
+		&-text
+			display: block
+			+mq($xl)
+				color: #9BA3AF
+			a
+				display: inline-block
+				color: var(--white-color)
+				text-decoration: underline
+				+mq($xl)
+					color: #9BA3AF
+		&-checkbox
+			--size: 26px
+			flex: 0 0 var(--size)
+			width: var(--size)
+			height: var(--size)
+			border-radius: 5px
+			
+			display: inline-flex
+			align-items: center
+			justify-content: center
+			
+			border: 1px solid var(--white-color)
+			margin-right: 12px
+			+mq($xl)
+				border-color: var(--dark-blue-color)
+		input:checked + .wpcf7-list-item-label .feedback__accept-checkbox,
+		input:checked + .feedback__accept-checkbox
+			+bg('Images/icon_accept_white.svg', center, var(--size))
+			background-color: transparent
+			+mq($xl)
+				+bg('Images/icon_accept_blue.svg', center, var(--size))
+	&__btn
+		height: 56px
+		width: 100%
+		border: 1px solid transparent
+		
+		+fz(16)
+		line-height: 130%
+		font-weight: 500
+		//color: #2A3448
+		justify-content: center
+		cursor: pointer
+		+mq($md)
+			+fz(18)
+			height: 66px
+		+mq($xl)
+			border-radius: 50px

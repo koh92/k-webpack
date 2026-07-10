@@ -1,13 +1,10 @@
 html 
     // font-size: 62.5%
     box-sizing: border-box
-    color-scheme: dark light
+    //color-scheme: dark light
 
 body
     font-family: system-ui
-
-html, body 
-    height: 100%
 
 *,
 *::before,
@@ -45,13 +42,17 @@ a:active, a:hover
 
 input:focus,
 :focus
-    //outline: none
-    outline-color: transparent
-    &:not([class])
-        border: none
+    outline: none
+    //outline-color: transparent
+    //&:not([class])
+    //    border: none
 
 fieldset
     border: 0
     margin: 0
     padding: 0
     min-width: 0
+	
+@media (prefers-reduced-motion: reduce)
+	*
+		transition: none !important

@@ -1,45 +1,47 @@
 {
-  "name": "Project name",
-  "version": "1.0.0",
-  "description": "Project description",
-  "main": "index.js",
-  "private": true,
-  "scripts": {
-    "dev": "webpack serve -c config/dev.js",
-    "build": "webpack --node-env=production -c config/prod.js",
-    "analyze": "webpack --analyze -c config/analyze.js"
-  },
-  "author": "Ampodistov Konstantin",
-  "license": "ISC",
-  "browserslist": "> 1.5%, not dead",
-  "devDependencies": {
-    "@babel/core": "^7.16.5",
-    "@babel/preset-env": "^7.16.5",
-    "autoprefixer": "^10.4.14",
-    "babel-loader": "^8.2.3",
-    "copy-webpack-plugin": "^10.1.0",
-    "css-loader": "^6.5.1",
-    "file-loader": "^6.2.0",
-    "postcss": "^8.4.5",
-    "postcss-loader": "^6.2.1",
-    "postcss-preset-env": "^7.0.1",
-    "pug": "^3.0.2",
-    "pug-plugin": "^4.9.7",
-    "sass": "^1.45.0",
-    "sass-loader": "^12.4.0",
-    "webpack": "^5.65.0",
-    "webpack-bundle-analyzer": "^4.5.0",
-    "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.6.0",
-    "webpack-hmr": "^1.0.2",
-    "webpack-hot-middleware": "^2.25.1"
-  },
-  "dependencies": {
-    "@fancyapps/ui": "^5.0.16",
-    "inputmask": "^5.0.8",
-    "normalize.css": "^8.0.1",
-    "swiper": "^8.1.4",
-    "wow.js": "^1.2.2",
-    "ymaps-touch-scroll": "^2.2.0"
-  }
+	"name": "PROJECT_NAME",
+	"version": "1.0.0",
+	"description": "PROJECT_NAME layout",
+	"main": "app.js",
+	"private": true,
+	"scripts": {
+		"dev": "webpack serve -c config/dev.js --hot --compress",
+		"build": "webpack --node-env=production -c config/prod.js",
+		"analyze": "webpack --analyze -c config/analyze.js"
+	},
+	"author": "Ampodistov Konstantin",
+	"license": "ISC",
+	"postcss": {
+		"plugins": {
+			"autoprefixer": {}
+		}
+	},
+	"browserslist": "defaults",
+	"devDependencies": {
+		"@babel/core": "^7.21.8",
+		"@babel/preset-env": "^7.21.5",
+		"autoprefixer": "^10.4.14",
+		"babel-loader": "^9.1.2",
+		"css-loader": "^6.7.3",
+		"postcss": "^8.4.23",
+		"postcss-loader": "^7.3.0",
+		"postcss-preset-env": "^8.3.2",
+		"pug": "^3.0.2",
+		"pug-plugin": "^4.9.7",
+		"sass": "^1.62.1",
+		"sass-loader": "^13.2.2",
+		"webpack": "^5.82.0",
+		"webpack-bundle-analyzer": "^4.8.0",
+		"webpack-cli": "^5.1.0",
+		"webpack-dev-server": "^4.15.0",
+		"webpack-hmr": "^1.0.2"
+	},
+	"dependencies": {
+		"@fancyapps/ui": "^5.0.17",
+		"inputmask": "^5.0.8",
+		"normalize.css": "^8.0.1",
+		"swiper": "^9.3.0",
+		"wow.js": "^1.2.2",
+		"ymaps-touch-scroll": "^2.2.0"
+	}
 }
