@@ -1,18 +1,27 @@
+@use 'sass:color';
+
+// https://sass-lang.com/documentation/modules/color/
+
 $colors: (
 	"text": #061D2A,
-	"orange": #EA850B,
-	"orange-hover": #EA680B,
-	"orange-active": #EA5B0B,
-	"blue": #1A6C9D,
+	"primary": #EA850B,
+	"primary-hover": color.adjust(#EA850B, $hue: -5deg),
+	"primary-active": color.adjust(#EA850B, $hue: -10deg),
+	"secondary": #1A6C9D,
+	"secondary-hover": color.adjust(#1A6C9D, $hue: -5deg),
+	"secondary-active": color.adjust(#1A6C9D, $hue: -10deg),
+	"accent": "",
+	"accent-hover": "",
+	"accent-active": "",
 	"grey": #3C4A53,
 	"grey-07": rgba(60, 74, 83, 0.7),
 	"grey-06": rgba(6, 29, 43, 0.6),
 	"grey-05": rgba(244, 248, 251, 0.5),
 	"grey-light": #92A2AB,
 	"black": #000000,
-	"black-05": rgba(0, 0, 0, 0.50),
-	"black-07": rgba(0, 0, 0, 0.70),
+	"black-05": color.scale(#000000, $alpha: -50%),
+	"black-07": color.scale(#000000, $alpha: -70%),
 	"white": #ffffff,
-	"white-05": rgba(255, 255, 255, 0.50),
+	"white-05": color.scale(#ffffff, $alpha: -50%),
 	"disabled": #817567,
 )

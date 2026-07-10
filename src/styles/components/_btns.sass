@@ -50,26 +50,36 @@
 		&::after
 			background: currentColor
 			mask: var(--arrow) center center / 100% auto no-repeat
-	&--orange
-		--clr-bg: var(--clr-orange)
+
+	&[disabled]
+		--clr-bg: var(--clr-disabled)
+	
+	&--primary
+		--clr-bg: var(--clr-primary)
 		--clr-font: var(--clr-white)
 		&:hover
-			--clr-bg: var(--clr-orange-hover)
+			--clr-bg: var(--clr-primary-hover)
 		&:active
-			--clr-bg: var(--clr-orange-active)
-		&[disabled]
-			--clr-bg: var(--clr-disabled)
+			--clr-bg: var(--clr-primary-active)
+		
+	&--secondary
+		--clr-bg: var(--clr-secondary)
+		--clr-font: var(--clr-white)
+		&:hover
+			--clr-bg: var(--clr-secondary-hover)
+		&:active
+			--clr-bg: var(--clr-secondary-active)
+
 	&--transparent
 		border-width: 1px
 		--clr-bg: transparent
-		--clr-border: var(--clr-orange)
+		--clr-border: var(--clr-primary)
 		--clr-font: var(--clr-grey)
 		&:hover
-			--clr-border: var(--clr-orange-hover)
+			--clr-border: var(--clr-primary-hover)
 		&:active
-			--clr-border: var(--clr-orange-active)
-		&[disabled]
-			--clr-border: var(--clr-disabled)
+			--clr-border: var(--clr-primary-active)
+			
 	&--clip-icon
 		--clr-border: var(--clr-grey-05)
 		--clr-font: var(--clr-grey-05)

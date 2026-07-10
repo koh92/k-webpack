@@ -19,4 +19,4 @@ mixin example-item(name, image, isLight = false)
         .example__item-box
             a.example__item-name(href="javascript:void(0)")= name
             .example__item-desc Описание
-            a.btn.btn--orange.example__item-btn(data-fancybox, data-src="#popup-request",data-product=name) Заказать
+            a.btn.btn--primary.example__item-btn(data-fancybox, data-type="ajax", data-src="ajax.html", data-filter="#popup-request",data-product=name) Заказать

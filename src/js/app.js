@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 	burger()
 
-    scrollTopHeader()
+    // scrollTopHeader()
 
 	// https://fancyapps.com/fancybox/api/methods/
 	Fancybox.bind("[data-fancybox]", {
@@ -80,5 +80,5 @@ window.addEventListener('resize', () => {
 })
 
 window.addEventListener('scroll', function () {
-    scrollTopHeader()
+    // scrollTopHeader()
 })

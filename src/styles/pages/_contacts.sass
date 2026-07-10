@@ -2,23 +2,6 @@
 @use '../base/breakpoints' as *
 
 .contacts
-	--page-header-height: 130px
-	+mq($md)
-		--page-header-height: 140px
-	+mq($xl)
-		--page-header-height: 175px
-	&__blue-section
-		background-color: var(--clr-blue)
-		color: var(--clr-white-05)
-		padding-top: calc(20px + var(--page-header-height))
-		margin-top: calc(var(--page-header-height) * -1)
-		z-index: -1
-		padding-bottom: 80px
-		margin-bottom: 80px
-		+mq($xl)
-			padding-top: calc(40px + var(--page-header-height))
-			padding-bottom: 100px
-			margin-bottom: 100px
 	&__grid
 		display: grid
 		+mq($xl)
@@ -62,18 +45,9 @@
 			display: flex
 			align-items: center
 			gap: 10px
-			&::before
-				--cube-size: 10px
-				content: ''
-				width: var(--cube-size)
-				height: var(--cube-size)
-				flex: 0 0 var(--cube-size)
-				background-color: var(--clr-orange)
-				position: relative
 		&-value
 			+fz(20)
 			line-height: 130%
-			padding-left: 20px
 			text-wrap: balance
 	&__map
 		margin-bottom: 70px
@@ -88,5 +62,6 @@
 		&-coord
 			display: none
 	.form
+		background-color: var(--clr-secondary)
 		+mq($xl)
 			grid-row: 1/3

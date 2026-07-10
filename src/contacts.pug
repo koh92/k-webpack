@@ -11,27 +11,26 @@ block block_breadcrumbs
 
 block content
 	.contacts
-		.contacts__blue-section
-			.container
-				.contacts__grid
-					.contacts__subtitle Ответим на все вопросы и подберём решение для вашей задачи
-					.contacts__list
-						.contacts__item
-							.contacts__item-title Телефон
-							.contacts__item-value
-								a(href="+74957777777") +7 495 777-77-77
-						.contacts__item
-							.contacts__item-title Факс
-							.contacts__item-value +7 495 777-77-77
-						.contacts__item
-							.contacts__item-title E-mail:
-							.contacts__item-value 
-								a(href="mailto:email@email.ru") email@email.ru 
-						.contacts__item
-							.contacts__item-title Адрес
-							.contacts__item-value г. Москва
-					.form(data-view="column-xl")
-						include components/_static-form
+		.container
+			.contacts__grid
+				.contacts__subtitle Ответим на все вопросы и подберём решение для вашей задачи
+				.contacts__list
+					.contacts__item
+						.contacts__item-title Телефон
+						.contacts__item-value
+							a(href="+74957777777") +7 495 777-77-77
+					.contacts__item
+						.contacts__item-title Факс
+						.contacts__item-value +7 495 777-77-77
+					.contacts__item
+						.contacts__item-title E-mail:
+						.contacts__item-value 
+							a(href="mailto:email@email.ru") email@email.ru 
+					.contacts__item
+						.contacts__item-title Адрес
+						.contacts__item-value г. Москва
+				.form(data-view="column-xl")
+					include components/_static-form
 		.container
 			.contacts__map.js-contacts-map
 				.contacts__map-coord

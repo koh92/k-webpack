@@ -4,11 +4,13 @@
 .hero
 	margin-top: 30px
 	margin-bottom: 80px
-	+mq($md)
-		margin-top: 40px
 	+mq($xl)
 		margin-top: 60px
 		margin-bottom: 100px
+	&__box
+		+mq($xl)
+			display: grid
+			grid-template-columns: 4fr 6fr
 	&__title
 		font-family: var(--ff-ex)
 		+fz(32)
@@ -23,37 +25,41 @@
 			max-width: unset
 			margin-bottom: 16px
 	&__subtitle
+		+fz(20)
+		font-weight: 300
+		line-height: 120%
+		margin-bottom: 20px
+	&__btn
 		margin-bottom: 40px
-		+mq($xl)
-			display: flex
-			align-items: center
-			margin-left: calc(100% / 12 * 2)
-			margin-bottom: 50px
-		&-text
-			+fz(20)
-			font-weight: 300
-			line-height: 120%
-			margin-bottom: 40px
-			+mq($md)
-				+fz(30)
-				margin-bottom: 50px
-			+mq($xl)
-				margin-bottom: 0
-		&-btn
-			+mq($xl)
-				margin-left: auto
 	&__image
-		height: 320px
-		+mqMax($xl)
-			position: relative
-			width: 100vw
-			left: calc(var(--gutter) * -1) 
+		height: 700px
+		
+		// 0 40, 70 40, 80 30, 80 10, 90 0, 
+		// M - start point
+		// Z - end point
+		// L - straight line between points
+		// A - border-radius line
+		// Example A 10,10 0,0,0 (10,10 - corner size, )
+		// clip-path: path("M 10,40 L 70,40 L 80,30 L 80,10 L 90,0 L 300,0 L 310,10 L 310,310 L 300,320 L 310,320 L 10,320 L 0,310 L 0,50 Z")
+		// clip-path: path("M 10,40 L 70,40 A 10,10 0,0,0 80,30 L 80,10 A 10,10 0,0,1 90,0 L 300,0 A 10,10 0,0,1 310,10 L 310,310 A 10,10 0,0,1 300,320 L 310,320 L 10,320 A 10,10 0,0,1 0,310 L 0,50 A 10,10 0,0,1 10,40 Z")
+		
+		
+		// clip-path: path("M 10,40 L 70,40 A 10,10 0,0,0 80,30 L 80,10 A 10,10 0,0,1 90,0 L 300,0 A 10,10 0,0,1 310,10 L 310,310 A 10,10 0,0,1 300,320 L 310,320 L 10,320 A 10,10 0,0,1 0,310 L 0,50 A 10,10 0,0,1 10,40 Z")
+		
+		// clip-path: path("M  20  240 \ L  20  80 L 160  80 \ L 160  20 L 280 100 \ L 160 180 L 160 120 \ L  60 120 L  60 240 Z")
+
+		+clip-corner(300, 500, tl)
+		
+		// +mqMax($xl)
+		// 	position: relative
+		// 	width: 100vw
+		// 	left: calc(var(--gutter) * -1) 
 		img
 			+cover
-		
+	
 .selection-form
 	padding: 70px 0 80px
-	background-color: var(--clr-blue)
+	background-color: var(--clr-secondary)
 	color: var(--clr-white-05)
 	+mq($xl)
 		padding: 90px 0 100px

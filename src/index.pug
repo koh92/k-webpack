@@ -6,12 +6,13 @@ block variables
 block content
 	section.hero
 		.container
-			h1.hero__title Заголовок
-			.hero__subtitle
-				.hero__subtitle-text подзаголовок
-				.btn.btn--orange.hero__subtitle-btn(data-fancybox, data-src="#popup-request") Call to action
-			.hero__image
-				+img('Images/CMS/hero_image.jpg')
+			.hero__box
+				.hero__info 
+					h1.hero__title Заголовок H1
+					.hero__subtitle Подзаголовок
+					.btn.btn--primary.hero__btn(data-fancybox, data-type="ajax", data-src="ajax.html", data-filter="#popup-request") Call to action
+				.hero__image
+					+img('Images/CMS/hero_image.jpg')
 
 	section.selection-form
 		.container

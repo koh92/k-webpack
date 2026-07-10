@@ -51,19 +51,26 @@ block content
 
 		//- Rating 
 		.container
-			.rating__stars.js-rating-stars
-				- for (var i = 0; i < 5; i++)
-					.rating__star.js-rating-star(data-count=i)
-						svg(viewBox="0 0 24 26")
-							use(xlink:href="#icon_star")
+			.rating.small-
+				.rating__stars.js-rating-stars(role="radiogroup" aria-label="Рейтинг")
+					- for (var i = 0; i < 5; i++)
+						.rating__star.js-rating-star(
+							data-count=i, 
+							aria-label=`Оценка ${i+1} из 5`, 
+							role="radio",
+							aria-checked="false",
+							tabindex="0"
+						)
+							svg(viewBox="0 0 24 26")
+								use(xlink:href="#icon_star")
 
 		//- Marquee
 		.container
-			.marquee(style="--marquee-duration: 30s")
-				- var clients = {1:'Client 1', 2:'Client 2', 3:'Client 3', 4:'Client 4',5:'Client 5',6:'Client 6',7:'Client 7',8:'Client 8',9:'Client 9'}
-				.marquee__group
+			.marquee(style="--marquee-duration: 30s;--marquee-gap: 15px")
+				- var clients = {1:'Client 1', 2:'Client 2', 3:'Client 3', 4:'Client 4',5:'Client 5',6:'Client 6',7:'Client 7',8:'Client 8',9:'Client 9',10:'Client 10',11:'Client 11',12:'Client 12'}
+				ul.marquee__group(role="list")
 					each name, key in clients
-						.marquee__item.noselect= name
-				.marquee__group(aria-hidden="true")
+						li.marquee__item.noselect= name
+				ul.marquee__group(aria-hidden="true")
 					each name, key in clients
-						.marquee__item.noselect= name
+						li.marquee__item.noselect= name
