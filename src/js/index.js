@@ -23,7 +23,7 @@ function func(surname, name, ...rest) {
 
 // console.log('12345')
 
-alert('Page is loaded!')
+// alert('Page is loaded!')
 
 
 // console.log(merge({a:1},{b:2}))
