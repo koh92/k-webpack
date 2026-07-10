@@ -1,7 +1,7 @@
 {
-  "name": "project_webpack",
+  "name": "K-develop",
   "version": "1.0.0",
-  "description": "work project",
+  "description": "k-develop layout creat",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -39,6 +39,6 @@
   "dependencies": {
     "jquery": "^3.6.0",
     "normalize.css": "^8.0.1",
-    "slick-carousel": "^1.8.1"
+    "swiper": "^8.1.4"
   }
 }

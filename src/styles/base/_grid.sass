@@ -1,4 +1,4 @@
-$xs: 470px
+$xs: 480px
 $sm: 576px
 $md: 768px
 $lg: 992px
@@ -7,23 +7,29 @@ $xl: 1200px
 
 $gutter: 30px
 
+$on_max_width: false
+$max_width: 1218px
+
 .container 
     width: 100%
     padding: 0 calc($gutter / 2)
     margin: 0 auto
+    @if not $on_max_width and $max_width
+        max-width: min(100%, $max_width)
 
-@media (min-width: $sm) 
-    .container
-        max-width:540px
-@media (min-width: $md)
-    .container 
-        max-width:720px
-@media (min-width: $lg)
-    .container 
-        max-width:960px
-@media (min-width: $xl)
-    .container
-        max-width:1140px
-// @media (min-width: $hd)
-//     .container
-//         max-width:1570px
+@if $on_max_width
+    @media (min-width: $sm) 
+        .container
+            $max_width: 540px
+    @media (min-width: $md)
+        .container 
+            $max_width: 720px
+    @media (min-width: $lg)
+        .container 
+            $max_width: 960px
+    @media (min-width: $xl)
+        .container
+            $max_width: 1140px
+    // @media (min-width: $hd)
+    //     .container
+    //         $max_width: 1570px 

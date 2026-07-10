@@ -20,7 +20,10 @@ module.exports = merge(common, {
 		port: 8000,
 		watchFiles: ['src/**/*'],
 	    client: {
-	      	overlay: true,
+	      	overlay: {
+		        errors: true,
+		        warnings: false,
+	      	},
 	    },
 	},
   	plugins: [

@@ -38,9 +38,17 @@ a
 a:active, a:hover
     outline: 0
 
-input:focus
+input:focus,
+select:focus,
+textarea:focus
     outline: none
     border: none
+
+input,
+select,
+textarea
+    outline: none
+    box-shadow: none
 
 fieldset
     border: 0

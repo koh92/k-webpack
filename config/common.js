@@ -16,6 +16,7 @@ module.exports = {
 		filename: 'js/[name].bundle.js',
 		clean: true
 	},
+	cache: false,
 	module: {
 		rules: [
 			// js
@@ -71,7 +72,7 @@ module.exports = {
 	plugins: 
 		[
 			new HtmlWebpackPlugin({
-		    	title: 'Webpack App K',
+		    	title: 'K-develop',
 		    	template: './index.html'
 		    }),
 		    new CopyWebpackPlugin({

@@ -1,3 +1,6 @@
+// Use in unify-parent mixin
+@use "sass:selector"
+
 // @mixin breakpoint($point) 
 =mq($point) 
     @if $point == xs 
@@ -82,14 +85,6 @@
     background-repeat: no-repeat
 
 // Перевод px в rem
-// @function calculateRem($size)
-//     $remSize: calc($size / 16px)
-//     @return #{$remSize}rem
-
-// @mixin fz($size)
-//     font-size: $size // Fallback in px
-//     font-size: calculateRem($size)
-
 =fz($sizeValue: 16)
   font-size: $sizeValue + px
   font-size: calc($sizeValue / 16) + rem
@@ -111,25 +106,13 @@
         border: 0 
 
 // Плейсхолдеры
-// @mixin placeholder
-//     &.placeholder
-//         @content
-//     &:-moz-placeholder
-//         @content
-//     &::-moz-placeholder
-//         @content
-//     &:-ms-input-placeholder
-//         @content
-//     &::-webkit-input-placeholder
-//         @content
-=placeholder-color($color)
-  &::placeholder
-    color: $color
-
 =placeholder
   &::placeholder
     @content
 
+=placeholder-color($color)
+  &::placeholder
+    color: $color
 
 // Треугольная стрелка
 // @mixin triangle($width, $direction, $color) 
@@ -161,16 +144,16 @@
   height: 0px
   border-style: solid
   @if $direction == t
-    border-width: 0 calc($width / 2) + px $height + px calc($width / 2) + px
+    border-width: 0 $width / 2 + px $height + px $width / 2 + px
     border-color: transparent transparent $bg transparent
   @if $direction == r
-    border-width: calc($height / 2) + px 0 ($height / 2) + px $width + px
+    border-width: $height / 2 + px 0 $height / 2 + px $width + px
     border-color: transparent transparent transparent $bg
   @if $direction == b
-    border-width: $height + px calc($width / 2) + px 0 calc($width / 2) + px
+    border-width: $height + px $width / 2 + px 0 $width / 2 + px
     border-color: $bg transparent transparent transparent
   @if $direction == l
-    border-width: calc($height / 2) + px $width + px calc($height / 2) + px 0
+    border-width: $height / 2 + px $width + px $height / 2 + px 0
     border-color: transparent $bg transparent transparent
   @if $direction == tl
     border-width: $height + px $width + px 0 0
@@ -211,3 +194,7 @@
 
 =lts($value)
   letter-spacing: $value
+
+@mixin unify-parent($child)
+  @at-root #{selector.unify(&, $child)}
+    @content
