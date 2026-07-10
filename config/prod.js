@@ -15,7 +15,8 @@ const imageminGifsicle = require('imagemin-gifsicle')
 const common = require('./common')
 
 // Добавляем в массив все HTML файлы для копирования
-const htmlPageNames = ['extra-file'];
+// const htmlPageNames = ['extra-file'];
+const htmlPageNames = [];
 const multipleHtmlPlugins = htmlPageNames.map(name => {
 	return new HtmlWebpackPlugin({
 		template: `./${name}.html`, // relative path to the HTML files

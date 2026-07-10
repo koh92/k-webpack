@@ -2,47 +2,486 @@
 @import "base/layout"
 @import "base/grid"
 @import "base/mixins"
++font('Gotham Pro', GothamPro)
++font('Gotham Pro', GothamPro-Black, 900)
++font('Gotham Pro', GothamPro-Bold, 700)
++font('Gotham Pro', GothamPro-Light, 300)
+:root
+    --main-color: #d63753
+    --ex-color: #de4761
+body
+    font-family: 'Gotham Pro'
+    font-weight: 400
+.btn
+    +inline-flex
+    cursor: pointer
+    text-transform: uppercase
+    background-color: var(--main-color)
+    border: 2px solid var(--main-color)
+    padding: 15px 35px
+    transition: all .3s
+    &:hover,&:active
+        background-color: transparent
+    +mq($md)
+        padding: 20px 50px
+header
+    position: fixed
+    width: 100%
+    z-index: 10
+    transition: background .3s
+    &.menu-open,
+    &.bg
+        background-color: rgba(0,0,0,.9)
+.header
+    color: #fff
+    +mq($md)
+        +flex
+        justify-content: space-between
+        padding: 25px 0
+    &__logo
+        font-weight: 900
+        +fz(20)
+        +lts(-.02em)
+        &-wrap
+            +flex
+            justify-content: space-between
+            padding: 10px 0
+    &__mobile-wa
+        display: block
+        +mq($md)
+            display: none
+    &__burger
+        $size: 26px
+        $height: 2px
+        flex: 0 0 auto
+        position: relative
+        height: $size
+        width: $size
+        cursor: pointer
+        overflow: hidden
+        +mq($md)
+            display: none
+        span
+            position: absolute
+            display: block
+            height: $height
+            width: calc($size - $height * 2)
+            left: calc($height / 2)
+            background-color: rgba(255,255,255,.5)
+            border-radius: 3px
+            transition: .3s
+            &:first-child
+                top: $height * 2
+            &:nth-child(2)
+                top: calc($size / 2 - $height / 2)
+            &:last-child
+                bottom: $height * 2
+        &--open
+            span
+                left: calc($height * 2)
+                background-color: rgba(255,255,255,.9)
+                &:nth-child(1)
+                    transform: rotate(45deg) translate($height, calc($size / 3))
+                &:nth-child(2)
+                    transform: translateX(-$size - 10px)
+                &:nth-child(3)
+                    transform: rotate(-45deg) translate($height, calc($size / 3) * -1)
+    &__nav
+        display: none
+        text-align: center
+        margin-bottom: 10px
+        +mq($md)
+            +flex
+            flex: 1 0 auto
+            margin: 0 10px
+        &-list
+            +mq($md)
+                +flex
+                justify-content: space-evenly
+                width: 100%
+        &-item
+            a
+                +fz(13)
+                +lts(.04em)
+                padding: 10px 20px
+                border-radius: 17px
+                transition: background .3s
+                +mq($md)
+                    &:hover
+                        background-color: var(--main-color)
+    &__contact
+        display: none
+        +mq($md)
+            +flex
+            gap: 5px            
+        a
+            &:last-child
+                margin-left: 5px
+                +fz(18)
+                font-weight: 900
+                +lts(.02em)
+.banner
+    &-wrap
+        padding-top: 115px
+        +bg('../images/main-banner-mobile.jpg', top, unset)
+        +mq($md)
+            +bg('../images/main-banner.jpg')
+            padding-top: 85px
+    &-inner
+        +flex-column
+        min-height: calc(100vh - 115px)
+        +mq($md)
+            min-height: calc(800px - 85px)
+    +flex-column
+    justify-content: center
+    align-items: flex-start
+    flex: 1 0 auto
+    color: #fff
+    hr
+        width: 95px
+        height: 1px
+        border: none
+        background-color: var(--main-color)
+        margin: 0 0 10px 0
+    &__subtitle
+        +fz(14)
+        line-height: 25px
+        +lts(.04em)
+    &__title
+        +fz(38)
+        +mq($md)
+            +fz(57)
+            // +lts(.04em)
+        font-weight: 300
+        margin-bottom: 10px
+        span
+            +fz(52)
+            +mq($md)
+                +fz(78)
+                +lts(0)
+            font-weight: 900
+            line-height: 54px
+    &__btn 
+        +fz(12)
+        font-weight: 900
+        +lts(.02em)
+        border-radius: 30px
+        margin-bottom: min(30px, 2.5vh)
+        margin-top: 15px
+.testimonial
+    &__list
+        +mq($md)
+            +flex
+            gap: $gutter
+            margin-bottom: -45px
+            position: relative
+            &::after
+                content: ''
+                display: block
+                position: absolute
+                right: -15px
+                bottom: -20px 
+                width: 270px
+                height: 75px
+                background-color: var(--ex-color)
+                z-index: 1
+    &__item
+        +mqMax($md)
+            margin-bottom: 20px
+        +flex-column-center
+        color: #fff
+        background-color: #181818
+        padding: 40px 70px
+        transition: all .3s
+        cursor: pointer
+        z-index: 5
+        &:hover,&:active
+            background-color: var(--main-color)
+            box-shadow: 0px 27px 25px 0px rgba(0, 0, 0, 0.18)
+        +mq($md)
+            // flex: 0 0 calc(100% / 3)
+            width: calc(100% / 3)
+                
+        &-icon
+            filter: brightness(0) invert(1)
+            margin-bottom: 15px
+        &-name
+            +fz(14)
+            line-height: 19px
+            +lts(.04em)
+            text-align: center
+            margin-bottom: 20px
+        hr
+            width: 50px
+            height: 3px
+            border: none
+            background-color: #fff
+            margin: 0
+.history 
+    padding-top: min(65px, 6vh)
+    +mq($md)
+        +flex
+        &__left,&__right
+            flex: 0 0 50%
+    &__title
+        +fz(54)
+        font-weight: 900
+        line-height: 62px
+        +lts(-.02em)
+        margin-bottom: min(40px, 3.5vh)
+    &__text
+        +fz(16)
+        line-height: 28px
+        +lts(.04em)
+        color: #818181
+        position: relative
+        padding-left: calc(100% / 12 + 40px)
+        padding-right: calc(100% / 12)
+        p
+            margin-bottom: min(30px, 2.5vh)
+        b
+            color: #000
+            font-weight: 900
+        &::before
+            content: ''
+            display: block
+            position: absolute
+            left: 0
+            top: 10px
+            width: 40px
+            height: 35px
+            +bg('../images/quotes.png',center,contain)
+.specialist-wrap
+    position: relative
+    margin-top: -30px
+    padding-bottom: 40px
+.specialist-bg
+    +mq($md)
+        min-height: 525px
+    +bg('../images/specialist-bg.png', center top)
+.specialist
+    +mq($md)
+        +flex
+        gap: $gutter
+    &__photo
+        position: relative
+        bottom: -35px
+    &__card
+        flex: 0 0 calc(100% / 12 * 4)
+        text-align: center
+        line-height: 24px
+    &__name
+        +fz(22)
+        font-weight: 900
+        margin-bottom: 10px
+        span
+            color: var(--main-color)
+    &__tip
+        +fz(16)
+        +lts(.04em)
+.request
+    text-align: center
+    padding: min(50px, 4.5vh) 0 min(60px, 5.5vh) 0
+    margin: min(40px, 3.5vh) 0 min(30px, 2.5vh) 0
+    +bg('../images/dots-bg-h.png', left top, contain)
+    &__title
+        +fz(32)
+        +mq($md)
+            +fz(56)
+        font-weight: 900
+        +lts(-.02em)
+        margin-bottom: min(40px, 3.5vh)
+    &__btn
+        color: #fff
+        +fz(16)
+        font-weight: 900
+        +lts(.02em)
+        border-radius: 40px
+        &:hover,&:active
+            color: #000
+.tariff
+    padding: min(30px, 2.5vh) 0 min(50px, 4.5vh) 0
+    &__list
+        +mq($md)
+            +flex
+            gap: calc(100% / 12)
+    &__item
+        line-height: 24px
+        +mqMax($md)
+            margin-bottom: 20px
+        +mq($md)
+            flex: 0 0 calc(100% / 12 * 3)
+            &:nth-child(2)
+                flex: 0 0 calc(100% / 12 * 4)
+        &--active
+            border: 1px solid var(--main-color)
+            background-color: #fff
+            // padding: 40px
+            box-shadow: 0px 0px 41px 0px rgba(0, 0, 0, 0.15)
+            .tariff
+                &__item
+                    &-title
+                        margin: 40px 40px 25px
+                    &-subtitle
+                        margin-left:40px
+                        margin-right:40px
+                    &-btn
+                        background-color: var(--main-color)
+                        color: #fff
+                        margin-left:40px
+                        margin-right:40px
+                        &:hover,&:active
+                            background-color: #fff
+                            color: #000
+                            border: 2px solid var(--main-color)
+                    &-desc
+                        margin-left:40px
+                        margin-right:40px
+                    &-rate
+                        text-align: left
+                        padding-left: 40px
+                        margin-left:40px
+                        margin-right:40px
+                    &-tip
+                        margin-left:40px
+                        margin-right:40px
+                        margin-bottom: 40px
+        &-title
+            +fz(45)
+            font-weight: 900
+            text-align: center
+            +lts(.04em)
+            margin-bottom: 25px
+        &-subtitle
+            +fz(17)
+            color: #8e8e8e
+            text-align: center
+            +lts(.04em)
+            margin-bottom: 20px
+            span
+                +fz(22)
+                font-weight: 900
+                color: #000
+        &-btn
+            +flex
+            +fz(16)
+            +lts(.04em)
+            color: #000
+            border-radius: 24px
+            border-color: transparent
+            background-color: #e4e4e4
+            padding: 10px 0
+            margin-bottom: 20px
+            &:hover,&:active
+                background-color: #e4e4e4
+        &-desc
+            margin-bottom: 25px
+            & li
+                +fz(13)
+                line-height: 16px
+                +lts(-.02em)
+                color: #383838
+                padding-left: 30px
+                +bg('../images/tick.png', left center, auto)
+                margin-bottom: 15px
+        &-rate
+            +mq($md)
+                // +flex
+            +fz(43)
+            font-weight: 900
+            line-height: 21px
+            +lts(-.02em)
+            text-align: center
+            margin-bottom: 25px
+            span
+                +fz(13)
+                font-weight: 400
+                line-height: 16px
+        &-tip
+            +fz(17)
+            line-height: 16px
+            color: #585858
+            text-align: center
+.plan-wrap
+    +bg('../images/dots-bg-v.png', left 14vw top 185px, auto)
+.plan
+    text-align: center
+    padding: min(50px, 4.5vh) 0 min(120px, 11vh) 0
+    &__subtitle
+        +fz(18)
+        +lts(.02em)
+        color: #7d7d7d
+    &__title
+        +fz(42)
+        +mq($md)
+            +fz(64)
+        font-weight: 900
+        +lts(-.02em)
+        margin-bottom: min(90px, 8vh)
+    &__list
+        +mq($md)
+            +flex
+            gap: 20px
+    &__item
+        position: relative
+        overflow: hidden
+        background-color: #fff
+        padding: 70px 50px
+        box-shadow: 0px 0px 47px 0px rgba(0, 0, 0, 0.07)
+        transition: transform .3s
+        cursor: pointer
+        +lts(.02em)
+        +mqMax($md)
+            margin-bottom: 20px
+        &:hover,&:active
+            transform: translateY(-30px)
+        &-number
+            +fz(20)
+            font-weight: 900
+            line-height: 25px
+            +lts(.02em)
+            color: #fff
+            background-color: var(--main-color)
+            position: absolute
+            left: -10px
+            top: -10px
+            padding: 20px 15px
+            border-radius: 50%
+        &-icon
+            margin-bottom: 20px
+        &-name
+            +fz(18)
+            font-weight: 900
+            margin-bottom: 25px
+        &-desc
+            +fz(14)
+            line-height: 25px
+            color: #585858
+footer
+    background-color: #181818
+    padding: 55px 0
+.footer
+    color: #fff
 
-
-$body-color: red
-$main-color: limegreen
-
-::placeholder 
-  color: gray
-
-
-body 
-  // font-size: 1.6rem
-  // color: $main-color
-  color: $body-color
-  
-
-  +breakpoint(lg)
-    color: orange
-    background-color: #ececec
-
-.title
-  // font-size: 1.6rem
-  // font-size: 2.8rem
-  +fz(30px)
-  font-weight: bold
-  +flex
-.subtitle 
-  font-size: 28px
-  font-weight: bold
-
-.block
-  +flex
-  +bg('../images/OwlGrid.jpg', center)
-  +bg('../images/oskal-geparda-hischnik-zlobnyiy-jivotnyie.jpeg', center)
-  width: 500px
-  height: 300px
-  overflow: hidden
-  border: 3px solid $main-color
-  border-radius: 5px
-  
-
-.arrow
-  &::before
-    // +triangle(15px, 'down', pink)
-    +arrow(15px, pink)
+    +mq($md)
+        +flex
+        justify-content: flex-start
+    &__links
+        flex: 1 0 auto
+        +mqMax($md)
+            text-align: center
+            span
+                display: none
+            a 
+                margin-bottom: 20px
+        +mq($md)
+            +flex
+            justify-content: flex-start
+        a 
+            text-decoration: underline
+    &__contact
+        +flex
+        gap: 20px
+        a
+            &:last-child
+                filter: brightness(0) invert(1)
