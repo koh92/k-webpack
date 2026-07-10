@@ -1,4 +1,9 @@
 @import "~normalize.css"
+@import "base/layout"
+@import "base/grid"
+@import "base/mixins"
+
+
 
 $body-color: red
 $main-color: limegreen
@@ -6,9 +11,34 @@ $main-color: limegreen
 ::placeholder 
   color: gray
 
+
 body 
+  // font-size: 1.6rem
   // color: $main-color
   color: $body-color
+  
 
-img 
-  max-width: 100%
+  +breakpoint(lg)
+    color: orange
+
+.title
+  // font-size: 1.6rem
+  // font-size: 2.8rem
+  +fz(30px)
+  font-weight: bold
+  +flex
+.subtitle 
+  font-size: 28px
+  font-weight: bold
+
+.block
+  +flex
+  +bg('../images/OwlGrid.jpg', center)
+  width: 500px
+  height: 300px
+  
+
+.arrow
+  &::before
+    // +triangle(15px, 'down', pink)
+    +arrow(15px, pink)

@@ -1,0 +1,29 @@
+$xs: 470px
+$sm: 576px
+$md: 768px
+$lg: 992px
+$xl: 1200px
+$hd: 1600px
+
+$gutter: 30px
+
+.container 
+    width: 100%
+    padding: 0 calc($gutter / 2)
+    margin: 0 auto
+
+@media (min-width: $sm) 
+    .container
+        max-width:540px
+@media (min-width: $md)
+    .container 
+        max-width:720px
+@media (min-width: $lg)
+    .container 
+        max-width:960px
+@media (min-width: $xl)
+    .container
+        max-width:1140px
+@media (min-width: $hd)
+    .container
+        max-width:1570px

@@ -1,0 +1,148 @@
+@mixin breakpoint($point) 
+    @if $point == xs 
+        @media (min-width: $xs) 
+            @content
+
+    @else if $point == sm 
+        @media (min-width: $sm)
+            @content
+    
+    @else if $point == md 
+        @media (min-width: $md)
+            @content
+    
+    @else if $point == lg 
+        @media (min-width: $lg)
+            @content
+    
+    @else if $point == xl 
+        @media (min-width: $xl)
+            @content
+    
+    @else if $point == hd 
+        @media (min-width: $hd)
+            @content
+
+    @else
+        @media (min-width: $point)
+            @content
+
+@mixin breakpointMax($point) 
+    @if $point == xs 
+        @media (max-width: $xs - 1px)
+            @content
+    
+    @else if $point == sm 
+        @media (max-width: $sm - 1px)
+            @content
+    
+    @else if $point == md 
+        @media (max-width: $md - 1px)
+            @content
+    
+    @else if $point == lg 
+        @media (max-width: $lg - 1px) 
+            @content
+    
+    @else if $point == xl 
+        @media (max-width: $xl - 1px)
+            @content
+    
+    @else if $point == hd 
+        @media (max-width: $hd - 1px) 
+            @content
+    @else
+        @media (max-width: $point - 1px)
+            @content
+
+@mixin flex()
+    display: flex
+    align-items: center
+    justify-content: center
+
+@mixin flex-column()
+    display: flex
+    flex-direction: column
+
+@mixin flex-column-center()
+    @include flex
+    flex-direction: column
+
+@mixin bg($image, $position: center)
+    background-image: url($image)
+    background-position: $position
+    background-size: cover
+    background-repeat: no-repeat
+
+// Перевод px в rem
+@function calculateRem($size)
+    $remSize: calc($size / 16px)
+    @return #{$remSize}rem
+
+@mixin fz($size)
+    font-size: $size // Fallback in px
+    font-size: calculateRem($size)
+
+// При изменении размера родительского блока, блок будет сохраняя свои пропорции
+// Например, .block +ratio(16,9)
+@mixin ratio($width, $height) 
+    position: relative
+    overflow: hidden
+    padding-top: ($height / $width) * 100%
+    > iframe
+        position: absolute
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        border: 0 
+
+// Плейсхолдеры
+@mixin placeholder
+    &.placeholder
+        @content
+    &:-moz-placeholder
+        @content
+    &::-moz-placeholder
+        @content
+    &:-ms-input-placeholder
+        @content
+    &::-webkit-input-placeholder
+        @content
+
+
+// Треугольная стрелка
+@mixin triangle($width, $direction, $color) 
+    width: 0
+    height: 0
+    @if $direction==up 
+        border-left: $width solid transparent
+        border-right: $width solid transparent
+        border-bottom: $width solid $color
+
+    @if $direction==down 
+        border-left: $width solid transparent
+        border-right: $width solid transparent
+        border-top: $width solid $color
+
+    @if $direction==left 
+        border-top: $width solid transparent
+        border-bottom: $width solid transparent
+        border-right: $width solid $color
+
+    @if $direction==right 
+        border-top: $width solid transparent
+        border-bottom: $width solid transparent
+        border-left: $width solid $color
+
+// Прозрачная стрелка
+@mixin arrow($size, $color)
+    content: ''
+    display: block
+    width: $size
+    height: $size
+    border-bottom: 1px solid $color
+    border-right: 1px solid $color
+    transform: rotate(45deg)
