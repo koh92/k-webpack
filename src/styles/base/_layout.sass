@@ -12,8 +12,10 @@ html
 	-moz-text-size-adjust: none
 	-webkit-text-size-adjust: none
 	text-size-adjust: none
+	scrollbar-gutter: stable
 	// font-size: 62.5%
 	// color-scheme: dark light
+	
 
 @media (prefers-reduced-motion: no-preference)
 	html,
@@ -27,12 +29,11 @@ body
 // Default chrome styles
 // https://github.com/chromium/chromium/blob/main/third_party/blink/renderer/core/html/resources/html.css
 
-h1, h2, h3, h4, h5, h6, p, img, ol, ul, li, figure 
+ol[class], ul[class], li[class], [class] > li
 	margin: 0
 	padding: 0
 
-h1, h2, h3, h4, h5, h6 
-	font-size: 100%
+h1, h2, h3, h4, h5, h6
 	text-wrap: balance
 
 p, li
@@ -41,7 +42,7 @@ p, li
 img,
 picture
 	max-width: 100%
-	display: block
+	display: inline-block
 	vertical-align: middle
 	font-style: italic
 	background-repeat: no-repeat

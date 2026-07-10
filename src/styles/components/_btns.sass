@@ -19,7 +19,11 @@
 	padding: 15px 35px
 	max-width: var(--_max-width)
 	width: 100%
-	
+	// Свойство используется для кнопок с иконками и текстом более 2 слов
+	// При уменьшении разрешения текст сначала будет сваливаться на следующую строку от иконки
+	// Затем, если места не хватает - еще спрыгивать вниз
+	min-inline-size: fit-content 
+
 	background-color: var(--_clr-background)
 	border-width: 0
 	border-style: solid
