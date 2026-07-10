@@ -1,7 +1,7 @@
 {
-  "name": "Malahitservice",
+  "name": "Vihotel",
   "version": "1.0.0",
-  "description": "Malahitservice layout create",
+  "description": "Vihotel layout create",
   "main": "index.js",
   "private": true,
   "scripts": {

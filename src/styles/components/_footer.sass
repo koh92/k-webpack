@@ -77,12 +77,15 @@ footer
         svg
             fill: #E4D5D5
     &__menu
-        color: var(--text-color)
         +fz(14)
         line-height: 17px
         font-weight: 400
         li
+            color: var(--text-color)
             margin-bottom: 16px
+            transition: color .3s
+            &:hover, &:focus
+                color: var(--white-color)
     &__tel
         margin-bottom: 24px
         .btn

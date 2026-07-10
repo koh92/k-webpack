@@ -199,23 +199,23 @@ document.addEventListener('DOMContentLoaded', ()=>{
     );
     wow.init();
 
-    let mapContainer = document.getElementById('map')
-    if (mapContainer) {
-        ymaps.ready(function() {
-            let pl,coordArr = [55.784569, 37.522254];
-            let companyMap = new ymaps.Map("map", {
-                center: [55.765326, 37.627735],
-                zoom: 10,
-                controls: ['zoomControl']
-            }, {
-                searchControlProvider: 'yandex#search'
-            })
-            pl = new ymaps.Placemark(coordArr,{}, {
-                preset: 'islands#orangeIcon'
-            })
-            companyMap.geoObjects.add(pl)
-            companyMap.setBounds(companyMap.geoObjects.getBounds(), {checkZoomRange:true}).then(function(){ if(companyMap.getZoom() > 15) companyMap.setZoom(15)} )
-            ymapsTouchScroll(companyMap, {preventScroll: true, preventTouch: true})
-        })
-    }
+    // let mapContainer = document.getElementById('map')
+    // if (mapContainer) {
+    //     ymaps.ready(function() {
+    //         let pl,coordArr = [55.784569, 37.522254];
+    //         let companyMap = new ymaps.Map("map", {
+    //             center: [55.765326, 37.627735],
+    //             zoom: 10,
+    //             controls: ['zoomControl']
+    //         }, {
+    //             searchControlProvider: 'yandex#search'
+    //         })
+    //         pl = new ymaps.Placemark(coordArr,{}, {
+    //             preset: 'islands#orangeIcon'
+    //         })
+    //         companyMap.geoObjects.add(pl)
+    //         companyMap.setBounds(companyMap.geoObjects.getBounds(), {checkZoomRange:true}).then(function(){ if(companyMap.getZoom() > 15) companyMap.setZoom(15)} )
+    //         ymapsTouchScroll(companyMap, {preventScroll: true, preventTouch: true})
+    //     })
+    // }
 })
