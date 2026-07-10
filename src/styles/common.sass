@@ -1,0 +1,118 @@
+:root
+    --grey-color: #293133
+    --ex-grey-color: rgb(34, 34, 34)
+    --yellow-color: #fabb23
+
+// +font('Gotham Pro', GothamPro)
+// +font('Gotham Pro', GothamPro-Black, 900)
+// +font('Gotham Pro', GothamPro-Bold, 700)
+// +font('Gotham Pro', GothamPro-Light, 300)
+
+html
+    scroll-behavior: smooth
+    overflow-x: hidden
+body
+    font-family: 'Montserrat'
+    color: var(--grey-color)
+    min-height: calc(100vh - 80px - 100px)
+    display: flex
+    flex-direction: column
+
+main
+    flex: 1 0 auto
+
+input,
+select,
+textarea
+    outline: none
+    box-shadow: none
+
+.center
+    text-align: center
+
+.btn
+    +inline-flex
+    width: fit-content
+    height: fit-content
+    +fz(16)
+    font-weight: 500
+    transition: border .3s
+    &--border-white
+        padding: .75em 1.5em
+        border: 1px solid #fff
+        &:hover, &:focus
+            border-color: var(--yellow-color)
+    &--border-black
+        padding: .75em 1.5em
+        border: 1px solid var(--grey-color)
+        &:hover, &:focus
+            border-color: var(--yellow-color)
+
+section
+    // min-height: 100vh
+    & + &
+        margin-top: 50px
+        +mq($md)
+            margin-top: 100px
+    &[data-dark]
+        background-color: var(--ex-grey-color)
+        color: #fff
+        padding: 50px 0
+        +mq($md)
+            padding: 100px 0
+
+.section-title
+    +fz(24)
+    +mq($xs)
+        +fz(32)
+    font-weight: 700
+    text-align: center
+    margin-bottom: 60px
+    +mq($md)
+        margin-bottom: 80px
+
+.page-title
+    +fz(36)
+    +mq($lg)
+        +fz(42)
+
+.content-text
+    p
+        margin-bottom: 20px 
+    ul
+        margin-bottom: 20px
+        padding-left: 20px
+        li
+            display: flex
+            align-items: center
+            margin-bottom: 10px
+            &:before
+                content: ''
+                width: 12px
+                height: 12px
+                border-radius: 50%
+                border: 1px solid var(--yellow-color)
+                background-color: var(--yellow-color)
+                margin-right: 15px
+
+.swiper
+    &-pagination
+        &-bullets
+            margin: 30px auto 70px
+            +flex
+        &--hero
+            +mq($lg)
+                justify-content: flex-start
+        &-bullet
+            flex: 0 0 12px
+            width: 12px
+            height: 12px
+            border-radius: 50%
+            border: 1px solid var(--yellow-color)
+            & + &
+                margin-left: 18px
+            &-active
+                background-color: var(--yellow-color)
+            &:hover,
+            &:focus
+                cursor: pointer

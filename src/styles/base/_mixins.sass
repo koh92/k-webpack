@@ -89,6 +89,12 @@
   font-size: $sizeValue + px
   font-size: calc($sizeValue / 16) + rem
 
+=fzClamp($sizeValue: 16)
+  font-size: $sizeValue + px
+  // font-size: calc($sizeValue / 16) + rem
+  $fz: calc($sizeValue / 16) + rem
+  font-size: clamp(14px, 1.5vw, $fz)
+
 // При изменении размера родительского блока, блок будет сохраняя свои пропорции
 // Например, .block +ratio(16,9)
 @mixin ratio($width, $height) 

@@ -1,0 +1,90 @@
+header
+    position: fixed
+    top: 0
+    width: 100%
+    background-color: var(--grey-color)
+    color: #fff
+    box-shadow: 0 0 15px #000
+    z-index: 100
+
+.header
+    display: grid
+    grid-template-areas: 'logo burger' 'menu menu' 'tel socials'
+    align-items: center
+    gap: max(10px, 1.5vw)
+    
+    +mqMax($md)
+        padding: 10px 20px 20px
+    +mq($md)
+        padding: 15px 0
+    +mq($lg)
+        grid-template-areas: 'logo burger menu socials tel'
+
+    a
+        transition: color .3s
+        &:hover, &:focus
+            color: var(--yellow-color)
+    &__logo
+        grid-area: logo
+        max-width: max(10vw, 120px)
+    &__burger
+        grid-area: burger
+        justify-self: end
+        display: block
+        cursor: pointer
+        .b1,.b2, .b3
+            width: 36px
+            height: 3px
+            background-color: #fff
+            border-radius: 3px
+            transition: 0.3s
+        .b2
+            margin: 10px 0
+        &--change
+            .b1
+                transform: rotate(-45deg) translate(0, 17px)
+            .b3
+                transform: rotate(45deg) translate(0, -17px)
+            .b2
+                opacity: 0
+        +mq($lg)
+            display: none
+    &__menu
+        grid-area: menu
+        
+        &-list
+            display: none
+            margin-top: 30px
+            margin-bottom: 30px
+            +mq($lg)
+                +flex
+        &-item
+            +fz(16)
+            text-align: center
+            font-weight: 500
+            & + &
+                margin-top: 30px
+            +mq($lg)
+                +fzClamp(16)
+                & + &
+                    margin-left: max(15px, 1.5vw)
+                    margin-top: unset
+            &--active
+                a
+                    color: var(--yellow-color)
+            
+    &__contact
+        grid-area: socials
+        justify-self: end
+        &-list
+            +flex
+        &-item
+            +fzClamp(14)
+            +mq($lg)
+                +fzClamp(16)
+            width: max(20px, 1.5vw)
+            height: max(20px, 1.5vw)
+            & + &
+                margin-left: max(15px, 1.5vw)
+    &__btns
+        grid-area: tel

@@ -3,12 +3,12 @@ $sm: 576px
 $md: 768px
 $lg: 992px
 $xl: 1200px
-// $hd: 1600px
+$hd: 1600px
 
 $gutter: 30px
 
 $on_max_width: false
-$max_width: 1218px
+$max_width: 1600px
 
 .container 
     width: 100%
@@ -21,15 +21,20 @@ $max_width: 1218px
     @media (min-width: $sm) 
         .container
             $max_width: 540px
+            max-width: min(100%, $max_width)
     @media (min-width: $md)
         .container 
             $max_width: 720px
+            max-width: min(100%, $max_width)
     @media (min-width: $lg)
         .container 
             $max_width: 960px
+            max-width: min(100%, $max_width)
     @media (min-width: $xl)
         .container
             $max_width: 1140px
-    // @media (min-width: $hd)
-    //     .container
-    //         $max_width: 1570px 
+            max-width: min(100%, $max_width)
+    @media (min-width: $hd)
+        .container
+            $max_width: 1570px 
+            max-width: min(100%, $max_width)

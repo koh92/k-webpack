@@ -43,7 +43,16 @@ module.exports = merge(common, {
 			new HtmlWebpackPlugin({
 		    	title: 'Webpack App K',
 		    	template: './index.html',
-		    	chunks: ['main']
+		    	chunks: ['main'],
+                minify: {
+                    collapseWhitespace: true,
+                    keepClosingSlash: true,
+                    removeComments: true,
+                    removeRedundantAttributes: true,
+                    removeScriptTypeAttributes: true,
+                    removeStyleLinkTypeAttributes: true,
+                    useShortDoctype: true
+                }
 		    }),
 			new MiniCssExtractPlugin({
 		      filename: 'css/[name].[contenthash].css',

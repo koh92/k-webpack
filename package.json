@@ -1,7 +1,7 @@
 {
-  "name": "K-develop",
+  "name": "Malahitservice",
   "version": "1.0.0",
-  "description": "k-develop layout creat",
+  "description": "Malahitservice layout create",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -39,6 +39,7 @@
   "dependencies": {
     "jquery": "^3.6.0",
     "normalize.css": "^8.0.1",
-    "swiper": "^8.1.4"
+    "swiper": "^8.1.4",
+    "ymaps-touch-scroll": "^2.1.0"
   }
 }

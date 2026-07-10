@@ -72,8 +72,24 @@ module.exports = {
 	plugins: 
 		[
 			new HtmlWebpackPlugin({
-		    	title: 'K-develop',
+				filename: 'index.html',
 		    	template: './index.html'
+			}), // Generates default index.html
+		    new HtmlWebpackPlugin({
+		    	filename: 'news.html',
+		    	template: './news.html'
+		    }),
+		    new HtmlWebpackPlugin({
+		    	filename: 'news-inner.html',
+		    	template: './news-inner.html'
+		    }),
+		    new HtmlWebpackPlugin({
+		    	filename: 'info.html',
+		    	template: './info.html'
+		    }),
+		    new HtmlWebpackPlugin({
+		    	filename: 'info-inner.html',
+		    	template: './info-inner.html'
 		    }),
 		    new CopyWebpackPlugin({
 			    patterns: [

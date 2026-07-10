@@ -1,0 +1,177 @@
+.hero
+    overflow-x: hidden
+    &__slider
+        position: relative
+        &-pagination
+            position: absolute
+            bottom: 0
+            z-index: 10
+            width: 100%
+.slider
+    &__item
+        // padding-top: 7.5vw
+        +mqMax($lg)
+            background: var(--ex-grey-color) !important
+        +mq($lg)
+            background-repeat: no-repeat
+            background-position: center center
+            background-size: cover
+        &-inner
+            min-height: 80vh
+            color: #fff
+            +flex-column
+            justify-content: center
+            +mq($lg)
+                max-width: 40%
+        &-title
+            +fz(24)
+            margin-bottom: 20px
+            +mq($lg)
+                +fz(60)
+        &-subtitle
+            +fz(24)
+            margin-bottom: 20px
+            +mq($lg)
+                +fz(42)
+.feedback
+    &__inner
+        +flex
+        align-items: flex-start
+        gap: min(40px, 2vw)
+        // border: 1px solid var(--grey-color)
+        padding: 30px
+    &__image
+        display: none
+        +mq($md)
+            display: block
+            flex: 0 0 50%
+            height: 100%
+            width: 100%
+    &__form
+        +mq($md)
+            flex: 0 0 50%
+        max-width: min(100%, 550px)
+        form
+            +flex-column
+            color: var(--grey-color)
+        label
+            margin-bottom: 20px
+        span
+            display: block
+            margin-bottom: 10px
+            +fz(16)
+            font-weight: 500
+        input,
+        select,
+        textarea
+            +fz(14)
+            width: 100%
+            padding: .5em .75em
+            +mq($lg)
+                +fz(16)
+                padding: .75em 1.5em
+            border: 1px solid var(--grey-color)
+            transition: border .3s
+            &:active,&:focus
+                border: 1px solid var(--yellow-color)
+            &:placeholder
+                color: rgba(0,0,0,.3)
+        select
+            +fz(14)
+        input
+            &:not(:placeholder-shown)
+                border: 1px solid var(--yellow-color)
+.about
+    &__text
+        +mq($lg)
+            +flex
+            gap: 20px
+            align-items: flex-start
+.testimonials
+    &__list
+        +mq($lg)
+            +flex
+            flex-wrap: wrap
+            justify-content: space-between
+            align-items: flex-start
+            gap: 40px
+    &__item
+        +mq($lg)
+            flex: 0 0 calc(50% - 40px)
+        +mq($xl)
+            flex: 0 0 calc(25% - 40px)
+        text-align: center
+        +mqMax($lg)
+            & + &
+                margin-top: 20px
+        &-icon
+            +inline-flex
+            width: max(80px, 2.5vw)
+            height: max(80px, 2.5vw)
+            border-radius: 50%
+            background-color: var(--yellow-color)
+            color: #fff
+            +fz(26)
+            margin-bottom: 20px
+        &-name
+            +fz(22)
+            font-weight: 700
+            margin-bottom: 20px
+        &-text
+            line-height: 1.5em
+.news
+    overflow-x: hidden
+    &__image
+        margin-bottom: 20px
+    &__title
+        +fz(22)
+        font-weight: 500
+        margin-bottom: 20px
+    &__date
+        margin-bottom: 20px
+.contacts
+    &__inner
+        +mq($lg)
+            +flex
+            align-items: flex-start
+            gap: 40px
+    &__map
+        margin-bottom: 20px
+        +mq($lg)
+            margin-bottom: 0
+            flex: 0 0 calc(50% - 40px)
+        > #map
+            height: min(500px, 50vh)
+    &__info
+        +mq($lg)
+            flex: 0 0 calc(50% - 40px)
+        +fz(18)
+        b,p
+            display: block
+            margin-bottom: 20px
+        a
+            display: inline-block
+.agreement
+    +flex
+    justify-content: flex-start
+    cursor: pointer
+    &__checkbox
+        flex: 0 0 20px
+        width: 20px
+        height: 20px
+        border: 1px solid var(--text-purple)
+        border-radius: 1px
+    input
+        display: none
+    input:checked + &__checkbox
+        color: var(--text-purple)
+        border-color: green
+        &::after
+            +flex
+            content: '\2713'
+    &__text
+        +fz(12)
+        color: var(--text-purple)
+        margin-left: 20px
+    &__href
+        display: inline-block

@@ -5,9 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><%= htmlWebpackPlugin.options.title %></title>
 
-	<link href="https://fonts.googleapis.com" rel="preconnect">
-	<link href="https://fonts.gstatic.com" crossorigin="">
-	<link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&family=Montserrat&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=ea079f92-6cc8-448d-bdd3-f5f1bf78e196&lang=ru_RU" type="text/javascript"></script>
 </head>
 <body>
 	<!-- Header::Start-->
@@ -17,15 +19,21 @@
 				<div class="logo header__logo">
 					<a href="/">
 						<img src="./images/logo.png" alt="logo">
-						<span>Ampodistov</span>
 					</a>
 				</div>
+				<div class="header__burger js-burger">
+				    <div class="b1"></div>
+				    <div class="b2"></div>
+				    <div class="b3"></div>
+				</div>
 				<div class="header__menu">
-					<ul class="header__menu-list">
-						<li class="header__menu-item"><a href="#cases">Кейсы</a></li>
-						<li class="header__menu-item"><a href="#services">Услуги и цены</a></li>
-						<li class="header__menu-item"><a href="#reviews">Отзывы</a></li>
-						<li class="header__menu-item"><a href="#faq">FAQ</a></li>
+					<ul class="header__menu-list js-menu">
+						<li class="header__menu-item"><a href="#services">Наши услуги</a></li>
+						<li class="header__menu-item"><a href="#payment">Информация по оплате</a></li>
+						<li class="header__menu-item"><a href="news.html">Новости</a></li>
+						<li class="header__menu-item"><a href="info.html">Раскртие информации</a></li>
+						<li class="header__menu-item"><a href="#contacts">Контакты</a></li>
+						<li class="header__menu-item"><a href="#debtors">Должники</a></li>
 					</ul>
 				</div>
 				<div class="header__contact">
@@ -43,10 +51,8 @@
 					</ul>
 				</div>
 				<div class="header__btns">
-					<a href="#" class="header__btn btn">
-						<span>
-							Связаться
-						</span>
+					<a href="tel:+74955555555" class="header__btn btn">
+						+7(495)-555-55-55
 					</a>
 				</div>
 			</div>
@@ -57,543 +63,268 @@
 	<!-- Main::Start-->
 	<main>
 		<section class="hero">
-			<div class="container">
-				<div class="hero__inner">
-					<h1 class="hero__title">
-						<span>Веб Разработчик</span>
-						<span>
-							<span>Константин</span>
-							Амподистов
-						</span>
-					</h1>
-					<div class="hero__text">
-						Я занимаюсь разработкой сайтов с 2019 года. За это время мной реализовно более 70 проектов. Моя цель – создание качественных, функциональных и современных сайтов.
+			<div class="hero__slider slider js-hero-swiper">
+				<ul class="slider__list swiper-wrapper">
+					<li class="slider__item swiper-slide" style="background: linear-gradient(90deg, rgb(34, 34, 34) 1.54%, rgb(34, 34, 34) 40%, rgba(34, 34, 34, 0) 68.46%), url(https://picsum.photos/id/10/1920/1080) right center / contain no-repeat;">
+						<div class="container">
+							<div class="slider__item-inner">
+								<h1 class="slider__item-title">
+									Заголовок слайда
+								</h1>
+								<div class="slider__item-subtitle">
+									Подзаголовок слайда
+								</div>
+								<div class="slider__item-btns">
+									<a href="#" class="btn btn--border-white">
+										Подробнее
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="slider__item swiper-slide" style="background: linear-gradient(90deg, rgb(34, 34, 34) 1.54%, rgb(34, 34, 34) 40%, rgba(34, 34, 34, 0) 68.46%), url(https://picsum.photos/id/20/1920/1080) right center / contain no-repeat;">
+						<div class="container">
+							<div class="slider__item-inner">
+								<h2 class="slider__item-title">
+									Заголовок слайда
+								</h2>
+								<div class="slider__item-subtitle">
+									Подзаголовок слайда
+								</div>
+								<div class="slider__item-btns">
+									<a href="#" class="btn btn--border-white">
+										Подробнее
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="slider__item swiper-slide" style="background: linear-gradient(90deg, rgb(34, 34, 34) 1.54%, rgb(34, 34, 34) 40%, rgba(34, 34, 34, 0) 68.46%), url(https://picsum.photos/id/30/1920/1080) right center / contain no-repeat;">
+						<div class="container">
+							<div class="slider__item-inner">
+								<h2 class="slider__item-title">
+									Заголовок слайда
+								</h2>
+								<div class="slider__item-subtitle">
+									Подзаголовок слайда
+								</div>
+								<div class="slider__item-btns">
+									<a href="#" class="btn btn--border-white">
+										Подробнее
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="hero__slider-pagination">
+					<div class="container">
+						<div class="js-hero-pagination swiper-pagination--hero"></div>
 					</div>
-					<a href="#" class="hero__btn btn btn--gradient">
-						<span>
-							Обсудить проект
-						</span>
-					</a>
-					<div class="hero__image">
-						<img src="./images/its_me.png" alt="It's me">
+				</div>
+			</div>
+		</section>
+		<section class="feedback">
+			<div class="container">
+				<div class="section-title">
+					Свяжитесь с нами
+				</div>
+				<div class="feedback__inner">
+					<div class="feedback__image">
+						<img src="https://picsum.photos/700/650" alt="">
+					</div>
+					<div class="feedback__form">
+						<form action="" class="">
+							<label>
+								<span>Имя*</span>
+								<input type="text" placeholder="Укажите Ваше имя">
+							</label>
+							<label>
+								<span>Почта</span>
+								<input type="email" placeholder="Укажите Ваш email">
+							</label>
+							<label>
+								<span>Телефон</span>
+								<input type="tel" placeholder="Укажите Ваш телефон">
+							</label>
+							<label>
+								<span>Причина обращения*</span>
+								<select>
+								    <option value="" disabled selected>--Причина обращения--</option>
+								    <option value="master">Вызвать мастера</option>
+								    <option value="wishes">Пожелания / предложения</option>
+								    <option value="troubleshooting">Сообщить о проблеме</option>
+								    <option value="complaint">Книга жалоб</option>
+								    <option value="main">Общие вопросы</option>
+								</select>
+							</label>
+							<label>
+								<span>Сообщение*</span>
+								<textarea cols="30" rows="10"></textarea>
+							</label>
+							<a href="#" class="btn btn--border-black">Отправить</a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="about" data-dark>
+			<div class="container">
+				<div class="section-title">
+					О компании
+				</div>
+				<div class="about__text">
+					<div class="content-text">
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa velit facilis modi deserunt? Vitae fugiat molestiae alias dolores enim autem veritatis. Totam, minima? Harum suscipit perspiciatis animi, eos, id atque.</p>
+
+						<p>Est laudantium rerum sed quod voluptates. Velit rerum eligendi beatae aut veniam a placeat, in architecto nihil voluptatum praesentium ad, quae nulla illum illo officiis perspiciatis inventore optio magni! Quaerat?</p>
+
+						<ul>
+							<li>Lorem ipsum dolor, sit.</li>
+							<li>Lorem ipsum dolor, sit.</li>
+							<li>Lorem ipsum dolor, sit.</li>
+							<li>Lorem ipsum dolor, sit.</li>
+						</ul>
+
+						<p>Ullam aspernatur nemo ex expedita itaque fugiat accusantium quidem laborum placeat, id nam veritatis reiciendis ducimus rem consequatur magni at sapiente vero, tempora mollitia maiores exercitationem. Harum officiis voluptates quos!</p>
+
+						<p>Odit deleniti cum quaerat libero cumque quos saepe vel ullam. Fugiat sunt odio, labore accusamus fugit neque modi possimus, adipisci ipsam perferendis nemo eaque, consectetur exercitationem maiores, fuga tempore impedit.</p>
+
+						<p>Atque dolore maxime quasi praesentium sint voluptatem nostrum maiores repudiandae nesciunt totam eius dolorem asperiores aliquam voluptatum voluptatibus molestiae, pariatur ipsum, deleniti voluptate accusamus tempora vero laboriosam? Perspiciatis, esse explicabo.</p>
+					</div>
+					<div class="about__image">
+						<img src="https://picsum.photos/800/800" alt="imgage">
 					</div>
 				</div>
 			</div>
 		</section>
 		<section class="testimonials">
 			<div class="container">
-				<ul class="testimonials__list">
-					<li class="testimonials__item">
-						<div class="testimonials__item-number">3</div>
-						<div class="testimonials__item-name">Года опыт работы</div>
-					</li>
-					<li class="testimonials__item">
-						<div class="testimonials__item-number">70</div>
-						<div class="testimonials__item-name">успешно реализованных проектов</div>
-					</li>
-					<li class="testimonials__item">
-						<div class="testimonials__item-number">98%</div>
-						<div class="testimonials__item-name">сдано проектов в срок</div>
-					</li>
-					<li class="testimonials__item">
-						<div class="testimonials__item-number">14</div>
-						<div class="testimonials__item-name">дней гарантийный срок после сдачи проекта</div>
-					</li>
-					<li class="testimonials__item">
-						<div class="testimonials__item-number">10</div>
-						<div class="testimonials__item-name">часов в день на связи</div>
-					</li>
-				</ul>
+				<div class="section-title">
+					Наши преимущества | услуги | и т.д.
+				</div>
+				<div class="testimonials__list">
+					<div class="testimonials__item">
+						<div class="testimonials__item-icon"><i class="fa fa-users"></i></div>
+						<div class="testimonials__item-name">Управление</div>
+						<div class="testimonials__item-text">Начисление, сбор оплаты.<br> Проведение общих собраний.</div>
+					</div>
+					<div class="testimonials__item">
+						<div class="testimonials__item-icon"><i class="fa fa-hammer"></i></div>
+						<div class="testimonials__item-name">Ремонт</div>
+						<div class="testimonials__item-text">Техническое обслуживание.<br> Восстановление архитектурных элементов. <br>Ремонт систем водо - и электроснабжения.</div>
+					</div>
+					<div class="testimonials__item">
+						<div class="testimonials__item-icon"><i class="fa fa-money-bill-wave"></i></div>
+						<div class="testimonials__item-name">Платные услуги</div>
+						<div class="testimonials__item-text">Перечень услуг, оказываемых собственникам квартир, на платной основе</div>
+					</div>
+					<div class="testimonials__item">
+						<div class="testimonials__item-icon"><i class="fa fa-building"></i></div>
+						<div class="testimonials__item-name">Благоустройство</div>
+						<div class="testimonials__item-text">Уход за зелеными насаждениями.<br> Обслуживание архитектурных форм. <br>Уборка общего имущества дома.</div>
+					</div>
+				</div>
 			</div>
 		</section>
-		<section class="cases" id="cases">
+		<section class="news" data-dark>
 			<div class="container">
-				<h3 class="section-title">Кейсы</h3>
-				<div class="cases__list-wrapper js-cases-swiper">
-					<ul class="cases__list swiper-wrapper">
-						<li class="cases__item swiper-slide">
-							<div class="cases__item-inner">
-								<div class="cases__item-image">
-									<img src="./images/case_img.jpg" alt="Case 1">
-								</div>
-								<div class="cases__item-bottom">
-									<div class="cases__item-left">
-										<div class="cases__item-name">
-											Интернет магазин
-										</div>
-										<div class="cases__item-cms">
-											<span>Система:</span>
-											<span>WordPress</span>
-										</div>
-									</div>
-									<div class="cases__item-right">
-										<a href="#" class="cases__item-btn btn btn--transparent">
-											Подробнее
-											<img src="./images/arrow.png" alt="arrow">
-										</a>
-									</div>
-								</div>
+				<div class="section-title">
+					Новости
+				</div>
+				<div class="news__slider js-news-swiper">
+					<ul class="news__list swiper-wrapper">
+						<li class="news__item swiper-slide">
+							<div class="news__image">
+								<img src="https://picsum.photos/id/1/500/400/" alt="News img">
 							</div>
+							<div class="news__title">Заголовок новости</div>
+							<div class="news__date">27.05.2022</div>
+							<a href="news-inner.html" class="btn">Подробнее</a>
 						</li>
-						<li class="cases__item swiper-slide">
-							<div class="cases__item-inner">
-								<div class="cases__item-image">
-									<img src="./images/case_img.jpg" alt="Case 1">
-								</div>
-								<div class="cases__item-bottom">
-									<div class="cases__item-left">
-										<div class="cases__item-name">
-											Интернет магазин
-										</div>
-										<div class="cases__item-cms">
-											<span>Система:</span>
-											<span>WordPress</span>
-										</div>
-									</div>
-									<div class="cases__item-right">
-										<a href="#" class="cases__item-btn btn btn--transparent">
-											Подробнее
-											<img src="./images/arrow.png" alt="arrow">
-										</a>
-									</div>
-								</div>
+						<li class="news__item swiper-slide">
+							<div class="news__image">
+								<img src="https://picsum.photos/id/2/500/400" alt="News img">
 							</div>
+							<div class="news__title">Заголовок новости</div>
+							<div class="news__date">27.05.2022</div>
+							<a href="news-inner.html" class="btn">Подробнее</a>
 						</li>
-						<li class="cases__item swiper-slide">
-							<div class="cases__item-inner">
-								<div class="cases__item-image">
-									<img src="./images/case_img.jpg" alt="Case 1">
-								</div>
-								<div class="cases__item-bottom">
-									<div class="cases__item-left">
-										<div class="cases__item-name">
-											Интернет магазин
-										</div>
-										<div class="cases__item-cms">
-											<span>Система:</span>
-											<span>WordPress</span>
-										</div>
-									</div>
-									<div class="cases__item-right">
-										<a href="#" class="cases__item-btn btn btn--transparent">
-											Подробнее
-											<img src="./images/arrow.png" alt="arrow">
-										</a>
-									</div>
-								</div>
+						<li class="news__item swiper-slide">
+							<div class="news__image">
+								<img src="https://picsum.photos/id/3/500/400" alt="News img">
 							</div>
+							<div class="news__title">Заголовок новости</div>
+							<div class="news__date">27.05.2022</div>
+							<a href="news-inner.html" class="btn">Подробнее</a>
 						</li>
-						<li class="cases__item swiper-slide">
-							<div class="cases__item-inner">
-								<div class="cases__item-image">
-									<img src="./images/case_img.jpg" alt="Case 1">
-								</div>
-								<div class="cases__item-bottom">
-									<div class="cases__item-left">
-										<div class="cases__item-name">
-											Интернет магазин
-										</div>
-										<div class="cases__item-cms">
-											<span>Система:</span>
-											<span>WordPress</span>
-										</div>
-									</div>
-									<div class="cases__item-right">
-										<a href="#" class="cases__item-btn btn btn--transparent">
-											Подробнее
-											<img src="./images/arrow.png" alt="arrow">
-										</a>
-									</div>
-								</div>
+						<li class="news__item swiper-slide">
+							<div class="news__image">
+								<img src="https://picsum.photos/id/4/500/400" alt="News img">
 							</div>
+							<div class="news__title">Заголовок новости</div>
+							<div class="news__date">27.05.2022</div>
+							<a href="news-inner.html" class="btn">Подробнее</a>
+						</li>
+						<li class="news__item swiper-slide">
+							<div class="news__image">
+								<img src="https://picsum.photos/id/5/500/400" alt="News img">
+							</div>
+							<div class="news__title">Заголовок новости</div>
+							<div class="news__date">27.05.2022</div>
+							<a href="news-inner.html" class="btn">Подробнее</a>
+						</li>
+						<li class="news__item swiper-slide">
+							<div class="news__image">
+								<img src="https://picsum.photos/id/6/500/400" alt="News img">
+							</div>
+							<div class="news__title">Заголовок новости</div>
+							<div class="news__date">27.05.2022</div>
+							<a href="news-inner.html" class="btn">Подробнее</a>
+						</li>
+						<li class="news__item swiper-slide">
+							<div class="news__image">
+								<img src="https://picsum.photos/id/7/500/400" alt="News img">
+							</div>
+							<div class="news__title">Заголовок новости</div>
+							<div class="news__date">27.05.2022</div>
+							<a href="news-inner.html" class="btn">Подробнее</a>
 						</li>
 					</ul>
-					<div class="pagination--cases js-cases-pagination"></div>
-				</div>
-				<div class="center">
-					<a href="#" class="btn btn--cases">
-						<span>
-							Все работы
-						</span>
-					</a>
 				</div>
 			</div>
 		</section>
-		<section class="services" id="services">
+		<section class="contacts">
 			<div class="container">
-				<h3 class="section-title">Услуги и цены</h3>
-				<ul class="services__list">
-					<li class="services__item">
-						<div class="services__item-inner">
-							<div class="services__item-name">
-								Сайт «под ключ»
-							</div>
-							<div class="description services__item-desc ">
-								<ul class="description__list">
-									<li class="description__item">Лендинг, Интернет-магазин, сайт визитка и т.д.</li>
-									<li class="description__item">Анализ конкурентов</li>
-									<li class="description__item">Верстка сайта</li>
-									<li class="description__item">Подключение всех модулей и анимаций</li>
-								</ul>
-							</div>
-							<div class="services__item-price">
-								<span>от</span>
-								<span>50 000</span>
-								<span>₽</span>
-							</div>
-						</div>
-					</li>
-					<li class="services__item">
-						<div class="services__item-inner">
-							<div class="services__item-name">
-								Сайт «под ключ»
-							</div>
-							<div class="description services__item-desc ">
-								<ul class="description__list">
-									<li class="description__item">Лендинг, Интернет-магазин, сайт визитка и т.д.</li>
-									<li class="description__item">Анализ конкурентов</li>
-									<li class="description__item">Верстка сайта</li>
-									<li class="description__item">Подключение всех модулей и анимаций</li>
-								</ul>
-							</div>
-							<div class="services__item-price">
-								<span>от</span>
-								<span>50 000</span>
-								<span>₽</span>
-							</div>
-						</div>
-					</li>
-					<li class="services__item">
-						<div class="services__item-inner">
-							<div class="services__item-name">
-								Сайт «под ключ»
-							</div>
-							<div class="description services__item-desc ">
-								<ul class="description__list">
-									<li class="description__item">Лендинг, Интернет-магазин, сайт визитка и т.д.</li>
-									<li class="description__item">Анализ конкурентов</li>
-									<li class="description__item">Верстка сайта</li>
-									<li class="description__item">Подключение всех модулей и анимаций</li>
-								</ul>
-							</div>
-							<div class="services__item-price">
-								<span>от</span>
-								<span>50 000</span>
-								<span>₽</span>
-							</div>
-						</div>
-					</li>
-					<li class="services__item">
-						<div class="services__item-inner">
-							<div class="services__item-name">
-								Сайт «под ключ»
-							</div>
-							<div class="description services__item-desc ">
-								<ul class="description__list">
-									<li class="description__item">Лендинг, Интернет-магазин, сайт визитка и т.д.</li>
-									<li class="description__item">Анализ конкурентов</li>
-									<li class="description__item">Верстка сайта</li>
-									<li class="description__item">Подключение всех модулей и анимаций</li>
-								</ul>
-							</div>
-							<div class="services__item-price">
-								<span>от</span>
-								<span>50 000</span>
-								<span>₽</span>
-							</div>
-						</div>
-					</li>
-					<li class="services__item">
-						<div class="services__item-inner">
-							<div class="services__item-name">
-								Сайт «под ключ»
-							</div>
-							<div class="description services__item-desc ">
-								<ul class="description__list">
-									<li class="description__item">Лендинг, Интернет-магазин, сайт визитка и т.д.</li>
-									<li class="description__item">Анализ конкурентов</li>
-									<li class="description__item">Верстка сайта</li>
-									<li class="description__item">Подключение всех модулей и анимаций</li>
-								</ul>
-							</div>
-							<div class="services__item-price">
-								<span>от</span>
-								<span>50 000</span>
-								<span>₽</span>
-							</div>
-						</div>
-					</li>
-					<li class="services__item">
-						<div class="services__item-inner">
-							<div class="services__item-name">
-								Сайт «под ключ»
-							</div>
-							<div class="description services__item-desc ">
-								<ul class="description__list">
-									<li class="description__item">Лендинг, Интернет-магазин, сайт визитка и т.д.</li>
-									<li class="description__item">Анализ конкурентов</li>
-									<li class="description__item">Верстка сайта</li>
-									<li class="description__item">Подключение всех модулей и анимаций</li>
-								</ul>
-							</div>
-							<div class="services__item-price">
-								<span>от</span>
-								<span>50 000</span>
-								<span>₽</span>
-							</div>
-						</div>
-					</li>
-				</ul>
-				<div class="center">
-					<a href="#" class="services__btn btn btn--gradient">
-						<span>
-							Оставить заявку
-						</span>
-					</a>
+				<div class="section-title">
+					Контакты
 				</div>
-			</div>
-		</section>
-		<section class="reviews" id="reviews">
-			<div class="container">
-				<h3 class="section-title">Отзывы</h3>
-				<div class="js-reviews-swiper">
-					<ul class="reviews__list swiper-wrapper">
-						<li class="reviews__item swiper-slide">
-							<div class="reviews__item-top">
-								<div class="reviews__item-photo">
-									<img src="./images/review_img.jpg" alt="Name">
-								</div>
-								<div class="reviews__item-info">
-									<div class="reviews__item-name">
-										Иван Пупкин
-									</div>
-									<div class="reviews__item-company">
-										ИП "Радар"
-									</div>
-								</div>
-								<div class="rating reviews__item-rating">
-									<ul class="rating__list">
-										<li class="rating__item"><img src="./images/star.svg" alt="Star"></li>
-										<li class="rating__item"><img src="./images/star.svg" alt="Star"></li>
-										<li class="rating__item"><img src="./images/star.svg" alt="Star"></li>
-										<li class="rating__item"><img src="./images/star.svg" alt="Star"></li>
-										<li class="rating__item"><img src="./images/star.svg" alt="Star"></li>
-									</ul>
-								</div>
-							</div>
-							<div class="reviews__item-bottom">
-								<div class="reviews__item-text">
-									Сделано все хорошо, обратная связь поступает быстро. Все вежливо и в полном объеме. Все понравилось. Буду рекомендовать всем!
-								</div>
-							</div>
-						</li>
-						<li class="reviews__item swiper-slide">
-							<div class="reviews__item-top">
-								<div class="reviews__item-photo">
-									<img src="./images/review_img.jpg" alt="Name">
-								</div>
-								<div class="reviews__item-info">
-									<div class="reviews__item-name">
-										Иван Пупкин
-									</div>
-									<div class="reviews__item-company">
-										ИП "Ирис"
-									</div>
-								</div>
-								<div class="rating reviews__item-rating">
-									<ul class="rating__list">
-										<li class="rating__item"><img src="./images/star.svg" alt="Star"></li>
-										<li class="rating__item"><img src="./images/star.svg" alt="Star"></li>
-										<li class="rating__item"><img src="./images/star.svg" alt="Star"></li>
-										<li class="rating__item"><img src="./images/star.svg" alt="Star"></li>
-										<li class="rating__item"><img src="./images/star.svg" alt="Star"></li>
-									</ul>
-								</div>
-							</div>
-							<div class="reviews__item-bottom">
-								<div class="reviews__item-text">
-									Сделано все хорошо, обратная связь поступает быстро. Все вежливо и в полном объеме. Все понравилось. Буду рекомендовать всем!
-								</div>
-							</div>
-						</li>
-						<li class="reviews__item swiper-slide">
-							<div class="reviews__item-top">
-								<div class="reviews__item-photo">
-									<img src="./images/review_img.jpg" alt="Name">
-								</div>
-								<div class="reviews__item-info">
-									<div class="reviews__item-name">
-										Иван Пупкин
-									</div>
-									<div class="reviews__item-company">
-										ИП "Радар"
-									</div>
-								</div>
-								<div class="rating reviews__item-rating">
-									<ul class="rating__list">
-										<li class="rating__item"><img src="./images/star.svg" alt="Star"></li>
-										<li class="rating__item"><img src="./images/star.svg" alt="Star"></li>
-										<li class="rating__item"><img src="./images/star.svg" alt="Star"></li>
-										<li class="rating__item"><img src="./images/star.svg" alt="Star"></li>
-										<li class="rating__item"><img src="./images/star.svg" alt="Star"></li>
-									</ul>
-								</div>
-							</div>
-							<div class="reviews__item-bottom">
-								<div class="reviews__item-text">
-									Сделано все хорошо, обратная связь поступает быстро. Все вежливо и в полном объеме. Все понравилось. Буду рекомендовать всем!
-								</div>
-							</div>
-						</li>
-						<li class="reviews__item swiper-slide">
-							<div class="reviews__item-top">
-								<div class="reviews__item-photo">
-									<img src="./images/review_img.jpg" alt="Name">
-								</div>
-								<div class="reviews__item-info">
-									<div class="reviews__item-name">
-										Иван Пупкин
-									</div>
-									<div class="reviews__item-company">
-										ИП "Ирис"
-									</div>
-								</div>
-								<div class="rating reviews__item-rating">
-									<ul class="rating__list">
-										<li class="rating__item"><img src="./images/star.svg" alt="Star"></li>
-										<li class="rating__item"><img src="./images/star.svg" alt="Star"></li>
-										<li class="rating__item"><img src="./images/star.svg" alt="Star"></li>
-										<li class="rating__item"><img src="./images/star.svg" alt="Star"></li>
-										<li class="rating__item"><img src="./images/star.svg" alt="Star"></li>
-									</ul>
-								</div>
-							</div>
-							<div class="reviews__item-bottom">
-								<div class="reviews__item-text">
-									Сделано все хорошо, обратная связь поступает быстро. Все вежливо и в полном объеме. Все понравилось. Буду рекомендовать всем!
-								</div>
-							</div>
-						</li>
-					</ul>
-					<div class="pagination--reviews js-reviews-pagination"></div>
-				</div>
-				<div class="center">
-					<a href="#" class="reviews__btn btn">
-						<span>
-							Написать отзыв
-						</span>
-					</a>
-				</div>
-			</div>
-		</section>
-		<section class="faq" id="faq">
-			<div class="container">
-				<h3 class="section-title">FAQ</h3>
-				<ul class="faq__list">
-					<li class="faq__item js-faq-item">
-						<div class="faq__item-title">
-							<div class="faq__item-name">
-								Сколько стоит создание сайта?
-							</div>
-							<div class="faq__item-icon">
-								<img src="./images/plus.png" alt="plus">
-							</div>
-						</div>
-						<div class="faq__item-text">
-							Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Voluptatum reprehenderit maxime fugiat cum eveniet, natus recusandae nesciunt a voluptatem perspiciatis distinctio sunt veniam. Ullam, cumque.
-						</div>
-					</li>
-					<li class="faq__item js-faq-item">
-						<div class="faq__item-title">
-							<div class="faq__item-name">
-								Сколько стоит создание сайта?
-							</div>
-							<div class="faq__item-icon">
-								<img src="./images/plus.png" alt="plus">
-							</div>
-						</div>
-						<div class="faq__item-text">
-							Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Voluptatum reprehenderit maxime fugiat cum eveniet, natus recusandae nesciunt a voluptatem perspiciatis distinctio sunt veniam. Ullam, cumque.
-						</div>
-					</li>
-					<li class="faq__item js-faq-item">
-						<div class="faq__item-title">
-							<div class="faq__item-name">
-								Сколько стоит создание сайта?
-							</div>
-							<div class="faq__item-icon">
-								<img src="./images/plus.png" alt="plus">
-							</div>
-						</div>
-						<div class="faq__item-text">
-							Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Voluptatum reprehenderit maxime fugiat cum eveniet, natus recusandae nesciunt a voluptatem perspiciatis distinctio sunt veniam. Ullam, cumque.
-						</div>
-					</li>
-					<li class="faq__item js-faq-item">
-						<div class="faq__item-title">
-							<div class="faq__item-name">
-								Сколько стоит создание сайта?
-							</div>
-							<div class="faq__item-icon">
-								<img src="./images/plus.png" alt="plus">
-							</div>
-						</div>
-						<div class="faq__item-text">
-							Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Voluptatum reprehenderit maxime fugiat cum eveniet, natus recusandae nesciunt a voluptatem perspiciatis distinctio sunt veniam. Ullam, cumque.
-						</div>
-					</li>
-					<li class="faq__item js-faq-item">
-						<div class="faq__item-title">
-							<div class="faq__item-name">
-								Сколько стоит создание сайта?
-							</div>
-							<div class="faq__item-icon">
-								<img src="./images/plus.png" alt="plus">
-							</div>
-						</div>
-						<div class="faq__item-text">
-							Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Voluptatum reprehenderit maxime fugiat cum eveniet, natus recusandae nesciunt a voluptatem perspiciatis distinctio sunt veniam. Ullam, cumque.
-						</div>
-					</li>
-					<li class="faq__item js-faq-item">
-						<div class="faq__item-title">
-							<div class="faq__item-name">
-								Сколько стоит создание сайта?
-							</div>
-							<div class="faq__item-icon">
-								<img src="./images/plus.png" alt="plus">
-							</div>
-						</div>
-						<div class="faq__item-text">
-							Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Voluptatum reprehenderit maxime fugiat cum eveniet, natus recusandae nesciunt a voluptatem perspiciatis distinctio sunt veniam. Ullam, cumque.
-						</div>
-					</li>
-				</ul>
-			</div>
-		</section>
-		<section class="feedback">
-			<div class="container">
-				<div class="form feedback__form">
-					<div class="form-inner">
-						<form action="" class="form__body">
-							<div class="form__title">
-								<span>Остались вопросы?</span>
-								<span>Напишите мне</span>
-							</div>
-							<input class="form__input" type="text" placeholder="Имя">
-							<input class="form__input" type="tel" placeholder="Телефон">
-							<textarea class="form__input" name="message" cols="30" rows="5" placeholder="Сообщение"></textarea>
-							<label class="agreement form__agreement">
-								<input type="checkbox">
-								<span class="agreement__checkbox"></span>
-								<span class="agreement__text">Согласен(а) с <a href="#" class="agreement__href">политикой обработки персональных данных</a></span>
-							</label>
-							<a href="#" class="form__btn btn">
-								<span>
-									Отправить
-								</span>
-							</a>
-						</form>
+				<div class="contacts__inner">
+					<div class="contacts__map">
+						<div id="map"></div>
+					</div>
+					<div class="contacts__info">
+						<b>
+							Отдел по работе с населением:
+						</b>
+						<p>
+							Главный офис — Москва, ул. Иванова, д. 2;<br>
+							<a href="#">+7 (499) 555-55-55</a><br>
+							<a href="#">+7 (499) 551-53-76</a>
+						</p>
+						<p>
+							<p>Доп. офис — Москва, ул. Иванова, д. 2;
+							(вход со стороны детской площадки).</p>
+							<b><a href="#">+7 (495) 116-26-16</a> — офис Суханово</b>
+							<b><a href="#">+7 (499) 670-94-34</a> — офис кв-л Северный, д. 4</b>
+						</p>
+						<b>
+							Главный инженер
+						</b>
+						<b>
+							Часы приема:
+						</b>
+						<p>Понедельник — пятница с 09.00 до 18.00</p>
 					</div>
 				</div>
 			</div>
@@ -605,59 +336,6 @@
 	<footer>
 		<div class="container">
 			<div class="footer">
-				<div class="footer__top">
-					<div class="footer__left">
-						<div class="logo footer__logo">
-							<a href="/">
-								<img src="./images/logo.png" alt="logo">
-								<span>Ampodistov</span>
-							</a>
-						</div>
-						<div class="footer__name">
-							Константин Амподистов
-						</div>
-						<div class="footer__mail">
-							<a href="mailto:koh92@yandex.ru">
-								koh92@yandex.ru
-							</a>
-						</div>
-					</div>
-					<div class="footer__right">
-						<div class="footer__subtitle">Соцсети</div>
-						<noindex>
-							<ul class="footer__contact">
-								<li class="footer__contact-item">
-									<a href="#">
-										<img src="./images/icon-facebook.png" alt="facebook">
-									</a>
-								</li>
-								<li class="footer__contact-item">
-									<a href="#">
-										<img src="./images/icon-skype.png" alt="skype">
-									</a>
-								</li>
-								<li class="footer__contact-item">
-									<a href="#">
-										<img src="./images/icon-twitter.png" alt="twitter">
-									</a>
-								</li>
-								<li class="footer__contact-item">
-									<a href="#">
-										<img src="./images/icon-telegram.png" alt="telegram">
-									</a>
-								</li>
-								<li class="footer__contact-item">
-									<a href="#">
-										<img src="./images/icon-whatsapp.png" alt="whatsapp">
-									</a>
-								</li>
-							</ul>
-						</noindex>
-						<div class="footer__policy">
-							<a href="#">Политика конфиденциальности</a>
-						</div>
-					</div>
-				</div>
 				<div class="footer__bottom">
 					<div class="footer__rights">
 						<div class="center">
