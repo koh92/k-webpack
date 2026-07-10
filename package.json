@@ -13,8 +13,8 @@
 	"license": "ISC",
 	"browserslist": "defaults",
 	"devDependencies": {
-		"@babel/core": "^7.25.8",
-		"@babel/preset-env": "^7.25.8",
+		"@babel/core": "^8.0.1",
+		"@babel/preset-env": "^8.0.2",
 		"autoprefixer": "^10.4.20",
 		"babel-loader": "^10.0.0",
 		"cross-env": "^10.1.0",
@@ -26,18 +26,18 @@
 		"pug": "^3.0.2",
 		"pug-plugin": "^6.0.0",
 		"sass": "^1.80.2",
-		"sass-loader": "^16.0.2",
+		"sass-loader": "^17.0.0",
 		"webpack": "^5.95.0",
 		"webpack-bundle-analyzer": "^5.3.0",
 		"webpack-cli": "^7.0.2",
-		"webpack-dev-server": "^5.1.0",
+		"webpack-dev-server": "^6.0.0",
 		"webpack-hmr": "^1.0.2"
 	},
 	"dependencies": {
 		"@fancyapps/ui": "^6.0.22",
 		"inputmask": "^5.0.9",
 		"normalize.css": "^8.0.1",
-		"swiper": "^12.0.2",
+		"swiper": "^14.0.5",
 		"ymaps-touch-scroll": "^2.2.0"
 	}
 }
