@@ -1,8 +1,10 @@
+const path = require('path')
 const webpack = require("webpack")
 
 const paths = require("./paths")
 
 const PugPlugin = require("pug-plugin")
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 
 // https://github.com/webdiscus/pug-plugin/blob/master/CHANGELOG.md#500-2024-02-08
 // const HtmlBundlerPlugin = require('html-bundler-webpack-plugin')
@@ -45,7 +47,8 @@ module.exports = {
 				loader: PugPlugin.loader,
 				options: {
 					data: {
-						isProd // pass global variable into all Pug files
+						isProd, // pass global variable into all Pug files
+						Icons: '/assets/sprite.svg'
 					}
 				},
 			},
@@ -77,9 +80,39 @@ module.exports = {
 					'sass-loader',
 				]
 			},
+			// SVG-иконки — собираются webpack'ом в один физический файл спрайта (dist/assets/sprite.svg)
+			{
+				test: /\.svg$/,
+				include: path.resolve(paths.src, 'images/icons'),
+				use: [
+					{
+						loader: 'svg-sprite-loader',
+						options: {
+							symbolId: '[name]',
+							extract: true,
+							spriteFilename: 'assets/sprite.svg',
+							publicPath: '/',
+						},
+					},
+					{
+						loader: 'svgo-loader',
+						options: {
+							plugins: [
+								{
+									name: 'removeAttrs',
+									params: {
+										attrs: '(svg):(fill)', // убираем fill только у корневого <svg>, у path/g не трогаем
+									},
+								},
+							],
+						},
+					},
+				],
+			},
 			// Images
 			{
 				test: /\.(png|jpg|jpeg|ico|svg|gif|webp)/,
+				exclude: path.resolve(paths.src, 'images/icons'),
 				type: 'asset/resource',
 				generator: {
 					// output filename of images
@@ -108,6 +141,7 @@ module.exports = {
 	},
 	plugins:
 		[
+			new SpriteLoaderPlugin({ plainSprite: true }), // генерирует плоский sprite.svg без лишних оберток/стилей
 			new PugPlugin({
 				pretty: true, // formatting HTML, useful for development mode
 				// Минифицированный HTML на выходе не удобно редактировать

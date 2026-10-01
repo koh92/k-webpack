@@ -7,22 +7,10 @@
 			display: grid
 			grid-template-columns: repeat(2, 1fr)
 			gap: 20px
-			.form__input--textarea
-				grid-row: 3/4
-		
-	&[data-view="column-xl"] form
-		+mq($xl)
-			display: block
 	&__input
 		+mqMax($md)
 			& ~ &
 				margin-top: 20px
-		[data-view="column-xl"] & ~ &
-				margin-top: 20px
-				+mq($md)
-					margin-top: 0
-				+mq($xl)
-					margin-top: 20px
 		input,
 		textarea
 			width: 100%
@@ -53,6 +41,11 @@
 			&::-webkit-resizer,
 			&::-webkit-scrollbar-corner
 				+arr(24,24, var(--clr-grey-05), br)
+		&.error > input,
+		&.error > textarea,
+		& > input:user-invalid,
+		& > textarea:user-invalid
+			border-color: var(--clr-primary)
 		&.--file
 			label
 				display: block
@@ -61,6 +54,19 @@
 					width: 100%
 			.btn
 				--btn-max-width: 100%
+		&__error
+			max-height: 0
+			opacity: 0
+			overflow: hidden
+			font: var(--font-r-12)
+			color: var(--clr-primary)
+			transition: max-height var(--transition), opacity var(--transition), margin-top var(--transition)
+			input:user-invalid + &:not(:empty),
+			textarea:user-invalid + &:not(:empty),
+			.error > &
+				max-height: 15px
+				opacity: 1
+				margin-top: 10px
 	&__footer
 		display: flex
 		flex-direction: column
@@ -70,9 +76,6 @@
 			margin: 20px 0 40px
 		+mq($md)
 			margin-bottom: 10px
-		+mq($xl)
-			[data-view="column-xl"] &
-				margin: 20px 0 40px
 		&-text
 			+fz(14)
 			font-weight: 300

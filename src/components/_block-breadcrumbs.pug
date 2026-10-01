@@ -1,0 +1,17 @@
+mixin breadcrumbs(items)
+	.breadcrumbs(itemprop="http://schema.org/breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList")
+		.breadcrumbs-item
+			a(href= isProd ? "index.html" : "/") Главная
+		- var counter = 1
+		each item in items
+			if item == items[items.length - 1]
+				span.breadcrumbs-separator /
+				.breadcrumbs-item(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")
+					span= item.name
+			else
+				span.breadcrumbs-separator /
+				.breadcrumbs-item(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")
+					a(href=`${item.url}.html` itemprop="item")
+						span(itemprop="name")= item.name
+						meta(itemprop="position" content=counter)
+			- counter++

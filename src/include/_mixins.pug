@@ -25,3 +25,7 @@ mixin videoYoutube(code)
 mixin custom-checkbox()
 	span.custom-checkbox
 		include Images/example/icon_tick.svg
+
+mixin log(data)
+	script.
+		console.log("Pug log: ", !{JSON.stringify(data)})

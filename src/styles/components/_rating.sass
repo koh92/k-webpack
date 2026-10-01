@@ -6,7 +6,7 @@
 	--icon-size: 40px
 	+mq($xl)
 		--icon-size: 50px
-	&.small
+	&.--small
 		--icon-size: 20px
 		+mq($md)
 			--icon-size: 30px
@@ -22,7 +22,7 @@
 
 		&:hover,
 		&:focus,
-		&.active,
+		&.--active,
 		&:has(~ &:hover),
 		&:has(~ &:focus)
 			fill: currentColor

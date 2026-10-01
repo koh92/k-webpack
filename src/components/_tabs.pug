@@ -1,13 +1,16 @@
 .custom-tabs.js-tabs
     .custom-tabs__controls
-        button.custom-tabs__control.js-tabs-control.active(data-target="description", type="button") Описание
-        button.custom-tabs__control.js-tabs-control(data-target="info", type="button") Информация
-        button.custom-tabs__control.js-tabs-control(data-target="reviews", type="button") Отзывы
+        each tab, index in exampleCustomTabsData
+            button.custom-tabs__control.js-tabs-control(
+                class=(index === 0 ? "active" : "")
+                data-target=tab.tabID
+                type="button"
+            )= tab.tabName
     .custom-tabs__list
-        .custom-tabs__element.js-tabs-element.active(data-target="description")
-            h3 Надежность и качество
-            p Мы сотрудничаем исключительно с проверенными производителями стоматологических материалов и инструментов, которые зарекомендовали себя на международном рынке.
-        .custom-tabs__element.js-tabs-element(data-target="info")
-            p Тут информация
-        .custom-tabs__element.js-tabs-element(data-target="reviews")
-            p Тут отзывы
+        each tab, index in exampleCustomTabsData
+            .custom-tabs__element.js-tabs-element(
+                class=(index === 0 ? "active" : "")
+                data-target=tab.tabID
+            )
+            each item in exampleCustomTabsData.items 
+                h3= item.name

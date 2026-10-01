@@ -22,14 +22,15 @@ html(lang="ru")
 		// CSS::End
 
 	body(class=bodyClass)
+		include _data
 		// Header::Start
 		include ../components/_header
 
-		if breadcrumbs === true
-			// Breadcrumbs::Start
-			include ../components/_breadcrumbs
-			block block_breadcrumbs
-			// Breadcrumbs::End
+		if isPageHeading === true
+			// PageHeading::Start
+			include ../components/_page-heading
+			block block_page-heading
+			// PageHeading::End
 
 		// Header::End
 

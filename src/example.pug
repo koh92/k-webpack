@@ -7,38 +7,29 @@ include components/_accordion
 include components/_item-example
 
 block content
-	.svg-icons
-		include Images/example/icon_arrow_down.svg
-		include Images/example/icon_star.svg
 
 	.visually-hidden
 
+		//- Пример ссылки на всплывающие окна
+		a(data-fancybox data-src=`assets/images/CMS/hero_image.jpg`)
+			+img(`Images/example/hero_image.jpg`, "")
+
 		picture
 			//- Desktop
-			source(media="(min-width: 1200px)", srcset="Images/CMS/hero_image.jpg")
+			source(media="(min-width: 1200px)", srcset="Images/example/hero_image.jpg")
 			//- Tablet
-			source(media="(min-width: 744px)", srcset="Images/CMS/hero_image.jpg")
+			source(media="(min-width: 744px)", srcset="Images/example/hero_image.jpg")
 			//- Mobile
-			+img("Images/CMS/hero_image.jpg")
+			+img("Images/example/hero_image.jpg")
 
 		.container
-			//- Multi row array
 			//- Example item component
-			-
-				var cardItems = [
-					{name: "Название 1"},
-					{name: "Название 2"},
-					{name: "Название 3"},
-				]
-			each cardItem, index in cardItems
-				+item-example(cardItem.name, index)
-			each cardItem, index in cardItems
-				+item-example(cardItem.name, index, true)
+			each cardItem, index in exampleCardData
+				+item-example({name: cardItem.name, image: index})
 	
 		//- Accordion
 		.container
-			- var accordionList = {1:{name: "Вопрос 1!", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, dignissimos."}, 2:{name: "Вопрос 2!", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, dignissimos."}, 3:{name: "Вопрос 3!", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, dignissimos."}, 4:{name: "Вопрос 4!", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, dignissimos."} }
-			+accordion-section(accordionList, "Тестовый аккордеон")
+			+accordion-section({title: "Тестовый аккордеон"})
 
 		//- Dropdown
 		.container
@@ -47,7 +38,7 @@ block content
 					.dropdown__heading-text EUR
 					.dropdown__arrow
 						svg(viewBox="0 0 40 40")
-							use(xlink:href="#icon_arrow_down")
+							use(xlink:href=Icons + "#icon_arrow_down")
 				.dropdown__box
 					.dropdown__content
 						ul
@@ -58,9 +49,26 @@ block content
 							li
 								a.dropdown__item(href="#") USD
 
+			.dropdown.js-dropdown
+				input.js-dropdown-input(type="hidden" name="calculator[laminating-type]" value="disabled")
+				.dropdown__heading.js-dropdown-heading
+					.dropdown__heading-text.js-dropdown-title Не требуется
+					.dropdown__arrow
+						svg(viewBox="0 0 16 16")
+							use(xlink:href=Icons + "#icon_arrow_down")
+				.dropdown__box
+					.dropdown__content
+						ul.dropdown__list
+							li
+								button.dropdown__item.js-dropdown-item.active(type="button" data-value="disabled") Не требуется
+							li
+								button.dropdown__item.js-dropdown-item(type="button" data-value="one_side") Одна сторона
+							li
+								button.dropdown__item.js-dropdown-item(type="button" data-value="two_side") Две стороны
+
 		//- Rating 
 		.container
-			.rating.small-
+			.rating.--small
 				.rating__stars.js-rating-stars(role="radiogroup" aria-label="Рейтинг")
 					- for (var i = 0; i < 5; i++)
 						.rating__star.js-rating-star(
@@ -71,17 +79,16 @@ block content
 							tabindex="0"
 						)
 							svg(viewBox="0 0 24 26")
-								use(xlink:href="#icon_star")
+								use(xlink:href=Icons + "#icon_star")
 
 		//- Marquee
 		.container
 			.marquee(style="--marquee-duration: 30s;--marquee-gap: 15px")
-				- var clients = {1:"Client 1", 2:"Client 2", 3:"Client 3", 4:"Client 4",5:"Client 5",6:"Client 6",7:"Client 7",8:"Client 8",9:"Client 9",10:"Client 10",11:"Client 11",12:"Client 12"}
 				ul.marquee__group(role="list")
-					each name, key in clients
+					each name, key in exampleClientsData
 						li.marquee__item.noselect= name
 				ul.marquee__group(aria-hidden="true")
-					each name, key in clients
+					each name, key in exampleClientsData
 						li.marquee__item.noselect= name
 
 		//- Password visibility toggler

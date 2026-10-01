@@ -1,9 +1,12 @@
 // Inputmask
 import Inputmask from "inputmask"
+import "./icons.js"
 
-// let mobile = window.matchMedia('(min-width: 0px) and (max-width: 1159px)');
-// let desktop = window.matchMedia('(min-width: 1160px)');
-// usage mobile.matches === true | false
+const DESKTOP_BREAKPOINT = window.DESKTOP_BREAKPOINT || 1220
+const mediaQuery = window.matchMedia(`(min-width: ${DESKTOP_BREAKPOINT}px)`)
+// Имя события для согласования взаимоисключающих UI-блоков (бургер, поиск и т.д.) —
+// при открытии одного блока остальные, подписанные на это событие, закрываются сами.
+const EXCLUSIVE_UI_EVENT = "ui:exclusive-open"
 
 const burger = () => {
 	const menuToggle = document.querySelector(".js-menu-toggle");
@@ -293,16 +296,55 @@ const dropdown = () => {
 			} else {
 				target.classList.add("active")
 			}
+
+		}
+
+		if (target.classList.contains("js-dropdown-item") || target.closest(".js-dropdown-item")) {
+			let parent = target.closest(".js-dropdown")
+			if( ! parent ) return
+			parent.classList.remove("active")
+
+			let items = parent.querySelectorAll(".js-dropdown-item")
+			if(items.length)  items.forEach(item=>item.classList.remove("active"))
+
+			target = target.classList.contains("js-dropdown-item") ? target : target.closest(".js-dropdown-item")
+			target.classList.add("active")
+
+			let title = parent.querySelector(".js-dropdown-title")
+			if(title) title.innerText = target.innerText
+
+			let input = parent.querySelector(".js-dropdown-input")
+			if(input && target.dataset.value) {
+				input.value = target.dataset.value
+
+				// Уведомляем остальной код (в т.ч. калькулятор), что значение изменилось —
+				// без этого никто не узнает об изменении, т.к. value присваивается программно.
+				input.dispatchEvent(new Event("change", { bubbles: true }))
+			}
 		}
 	})
 }
 
 // Маска телефона РФ
 const inputMask = () => {
-	let inputTel = document.querySelectorAll('input[type="tel"]')
+	let inputTel = document.querySelectorAll("input[type=\"tel\"], input[data-phonemask]")
 	if (inputTel.length) {
 		inputTel.forEach((input) => {
-			Inputmask("+7 (999) 999-99-99", { showMaskOnHover: false }).mask(input)
+			Inputmask("+7 (999) 999-99-99", { // Убедись, что маска правильной длины
+				showMaskOnHover: false,
+				onBeforeMask: function (value, opts) {
+					// Удаляем все лишние символы, оставляя только цифры
+					let processedValue = value.replace(/\D/g, '');
+
+					// Если номер пришел из Битрикса как 8999... или 7999...
+					// отрезаем первую 8 или 7, так как +7 уже зашита в маску
+					if (processedValue.startsWith('8') || processedValue.startsWith('7')) {
+						processedValue = processedValue.substring(1);
+					}
+					
+					return processedValue;
+				}
+			}).mask(input)
 		})
 	}
 }
@@ -669,6 +711,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     `The content of the slide #${slide.index} is loaded`
                 );
             },
+			// Окно показано полностью
 			done: (fancybox, slide) => {
 
 				fillInput(slide, "event_name", ".js-event-name")
@@ -683,6 +726,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 				inputTypeFile()
 			},
+			// Окно готово к показу, но еще не показано.
+			// Полезно для перезаполнения видимых данных в форме.
+			reveal: (fancybox, slide) => {
+				inputMask()
+			}
 		},
 	})
 

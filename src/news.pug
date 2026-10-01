@@ -2,23 +2,17 @@ extends include/_layout
 
 block variables
 	- var title = "Project name | News"
-	- var breadcrumbs = true
+	- var isPageHeading = true
 
-include components/_item-news
+include components/_item-example
 
-block block_breadcrumbs
-	+breadcrumbs("Новости", {"url": "news", "name": "Новости"})
+block block_page-heading
+	+page-heading("Новости", {"url": "news", "name": "Новости"})
 
 block content
 	section.news
 		.container 
 			.news__list
-				-
-					var newsItems = [
-						{name: 'Название первой новости'},
-						{name: 'Название второй новости'},
-						{name: 'Название третей новости'},
-					]
-				each newsItem, index in newsItems
-					+item-news(newsItem.name, index)
+				each item, index in exampleNewsData
+					+item-example({name: item.name, image: index})
 				

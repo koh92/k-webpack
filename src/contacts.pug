@@ -4,10 +4,10 @@ block variables
 	- var title = "Project name | Contacts"
 	- var bodyClass = "page-contacts"
 	- var yandexMap = true
-	- var breadcrumbs = true
+	- var isPageHeading = true
 
-block block_breadcrumbs
-	+breadcrumbs("Контакты", {"name": "Контакты"})
+block block_page-heading
+	+page-heading("Контакты", {"name": "Контакты"})
 
 block content
 	.contacts
@@ -29,7 +29,7 @@ block content
 					.contacts__item
 						.contacts__item-title Адрес
 						.contacts__item-value г. Москва
-				.form(data-view="column-xl")
+				.form
 					include components/_form-static
 		.container
 			.contacts__map.js-contacts-map

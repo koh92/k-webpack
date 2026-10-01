@@ -1,0 +1,7 @@
+include _block-breadcrumbs
+mixin page-heading(title, ...items)
+	.page-heading
+		.container
+			+breadcrumbs(items)
+			.page-title
+				h1 !{title}
