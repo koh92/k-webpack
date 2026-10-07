@@ -1,0 +1,14 @@
+extends include/_layout
+
+block variables
+	- var title = 'Project name | Privacy policy'
+
+block content
+	include components/_block-breadcrumbs
+	
+	.container
+		+breadcrumbs([{'name': 'Политики конфиденциальности'}])
+
+		h1 Политики конфиденциальности
+
+		include policy.html

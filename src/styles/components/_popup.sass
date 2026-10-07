@@ -33,6 +33,10 @@
 	backdrop-filter: blur(8px)
 
 .popup
+	--icon-close-size: 32px
+	--icon-close-position-top: 30px
+	--icon-close-position-right: 30px
+
 	display: none
 	padding: 70px 20px 80px
 	background: var(--clr-secondary)
@@ -45,6 +49,22 @@
 		max-width: $max_width
 		padding: 40px
 		padding: 90px 100px 100px
+	&__close-icon
+		position: absolute
+		top: var(--icon-close-position-top)
+		right: var(--icon-close-position-right)
+		width: var(--icon-close-size)
+		height: var(--icon-close-size)
+		cursor: pointer
+	&.active
+		animation-duration: 1s
+		animation-fill-mode: both
+		&.animated
+			display: block
+		&.fadeIn
+			animation-name: fadeIn
+		&.fadeOut
+			animation-name: fadeOut
 	&__title
 		font-family: var(--ff-ex)
 		+fz(26)
@@ -65,9 +85,44 @@
 			+fz(30)
 		+mq($xl)
 			+fz(36)
+	&-cookie
+		position: fixed
+		bottom: 70px
+		right: var(--gutter)
+
+		box-shadow: var(--shadow)
+		z-index: 1000
+
+		padding: 30px
+
+		+mq($xl)
+			bottom: 55px
+		&__text
+			font: var(--font-r-16)
+			max-width: calc(100% - var(--icon-close-position-right) - var(--icon-close-size))
+			margin-bottom: 20px
+			p
+				margin: 0
+			a
+				text-decoration: underline
 	&.--request
 		.form__input textarea
 			+mq($md)
 				height: 50px
 		.form__accept-text
 			text-wrap: balance
+
+@keyframes fadeIn
+	0%
+		opacity: 0
+		visibility: hidden
+	100%
+		opacity: 1
+		visibility: visible
+@keyframes fadeOut
+	0%
+		opacity: 1
+		visibility: visible
+	100%
+		opacity: 0
+		visibility: hidden
