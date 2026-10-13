@@ -551,3 +551,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Версия пакета: `18.0.0` → `18.1.0`
 
 ---
+
+## [18.2] - Accordion Accessibility
+
+### Added
+- Доступность аккордеона: состояние раскрытия передаётся через `aria-expanded`
+- Опциональная смена текста кнопки при раскрытии и сворачивании аккордеона (`data-show-text` / `data-hide-text`)
+
+### Changed
+- Упрощена логика переключения аккордеона
+
+---
