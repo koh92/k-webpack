@@ -225,15 +225,18 @@ const inputTypeFile = () => {
 // Аккордеон
 const accordion = () => {
 	document.addEventListener("click", (e) => {
-		let target = e.target
+		const button = e.target.closest(".js-accordion-item-heading")
+		if (!button) return
 
-		if (target.classList.contains("js-accordion-item-heading") || target.closest(".js-accordion-item-heading")) {
-			target = target.classList.contains("js-accordion-item") ? target : target.closest(".js-accordion-item")
-			if (target.classList.contains("active")) {
-				target.classList.remove("active")
-			} else {
-				target.classList.add("active")
-			}
+		const item = button.closest(".js-accordion-item")
+		if (!item) return
+
+		const isOpen = item.classList.toggle("active")
+		button.setAttribute("aria-expanded", isOpen ? "true" : "false")
+
+		const { showText, hideText } = button.dataset
+		if (showText && hideText) {
+			button.textContent = isOpen ? hideText : showText
 		}
 	})
 }
