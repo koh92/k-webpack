@@ -733,6 +733,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			// Полезно для перезаполнения видимых данных в форме.
 			reveal: (fancybox, slide) => {
 				inputMask()
+
+				// Переинициализации веб форм для битрикс в режиме Ajax
+				reInitWebform(slide)
 			}
 		},
 	})
